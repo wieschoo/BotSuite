@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{998E32C7-3B12-43EB-B149-9CEFBBF1C9F3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wieschoo.BotSuite</RootNamespace>
+    <AssemblyName>Wieschoo.BotSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Wieschoo.BotSuite.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Browser.cs" />
+    <Compile Include="ControlArtist.cs" />
+    <Compile Include="FiniteStateEngine\Pattern\Singleton.cs" />
+    <Compile Include="FiniteStateEngine\StateEngine\Entites\BaseEntity.cs" />
+    <Compile Include="FiniteStateEngine\StateEngine\Entites\EntityManager.cs" />
+    <Compile Include="FiniteStateEngine\StateEngine\Messaging\MessageDispatcher.cs" />
+    <Compile Include="FiniteStateEngine\StateEngine\Messaging\Telegram.cs" />
+    <Compile Include="FiniteStateEngine\StateEngine\State.cs" />
+    <Compile Include="FiniteStateEngine\StateEngine\StateMachine.cs" />
+    <Compile Include="Keyboard.cs" />
+    <Compile Include="Memory.cs" />
+    <Compile Include="Net\HttpClient.cs" />
+    <Compile Include="Mouse.cs" />
+    <Compile Include="Net\HttpPostData.cs" />
+    <Compile Include="Net\HttpPostDataCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenShot.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Window.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Release\Wieschoo.BotSuite.dll" />
+    <Content Include="bin\Release\Wieschoo.BotSuite.pdb" />
+    <Content Include="obj\Release\BotSuite.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\BotSuite.dll" />
+    <Content Include="obj\Release\BotSuite.pdb" />
+    <Content Include="obj\Release\Wieschoo.BotSuite.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\Wieschoo.BotSuite.dll" />
+    <Content Include="obj\Release\Wieschoo.BotSuite.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="obj\Release\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
