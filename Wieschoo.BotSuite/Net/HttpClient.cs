@@ -8,6 +8,9 @@
  * Copyright: (c) 2012 wieschoo & enWare
  * License:   http://www.wieschoo.com/botsuite/license/
  * *************************************************************/
+
+//TODO: don't return just "null" on Exception but throw own Exception with additional information and InnerException original
+
 using System;
 using System.Drawing;
 using System.IO;
@@ -108,9 +111,9 @@ namespace Wieschoo.BotSuite.Net
 					}
 				}
 			}
-			catch
+			catch(Exception ex)
 			{
-				return null;
+				throw new RequestException("POST request to " + url + " failed.", ex);
 			}
 			return src;
 		}
@@ -148,9 +151,9 @@ namespace Wieschoo.BotSuite.Net
 					}
 				}
 			}
-			catch
+			catch(Exception ex)
 			{
-				return null;
+				throw new RequestException("GET request to " + url + " failed.", ex);
 			}
 			return src;
 		}

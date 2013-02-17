@@ -59,31 +59,14 @@
     <Compile Include="Mouse.cs" />
     <Compile Include="Net\HttpPostData.cs" />
     <Compile Include="Net\HttpPostDataCollection.cs" />
+    <Compile Include="Net\RequestException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenShot.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="Window.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Release\Wieschoo.BotSuite.dll" />
-    <Content Include="bin\Release\Wieschoo.BotSuite.pdb" />
-    <Content Include="obj\Release\BotSuite.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Release\BotSuite.dll" />
-    <Content Include="obj\Release\BotSuite.pdb" />
-    <Content Include="obj\Release\Wieschoo.BotSuite.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Release\Wieschoo.BotSuite.dll" />
-    <Content Include="obj\Release\Wieschoo.BotSuite.pdb" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-    <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="obj\Release\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
