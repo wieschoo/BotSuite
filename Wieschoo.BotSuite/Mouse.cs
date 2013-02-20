@@ -66,6 +66,7 @@ namespace BotSuite
 		{
 			NativeMethods.mouse_event((Int32)(NativeMethods.MouseEventFlags.LEFTUP), 0, 0, 0, new IntPtr(0));
 		}
+
         /// <summary>
         /// causes a right-click (press and release)
         /// </summary>
@@ -81,6 +82,7 @@ namespace BotSuite
 			Utility.Delay(10, 30);
 			RightUp();
 		}
+
         /// <summary>
         /// press down the right mouse button
         /// </summary>
@@ -94,6 +96,7 @@ namespace BotSuite
 		{
 			NativeMethods.mouse_event((Int32)(NativeMethods.MouseEventFlags.RIGHTDOWN), 0, 0, 0, new IntPtr(0));
 		}
+
         /// <summary>
         /// release the right mouse button
         /// </summary>
@@ -153,6 +156,7 @@ namespace BotSuite
             }
             
 		}
+
         /// <summary>
         /// causes a mouse movement
         /// </summary>
@@ -171,10 +175,24 @@ namespace BotSuite
             return Move(new Point(targetX, targetY), human, steps);
 		}
 
+		/// <summary>
+		/// causes a mouse movement
+		/// </summary>
+		/// <example>
+		/// <code>
+		/// Rectangle r = new Rectangle(50, 50, 100, 100);
+		/// Mouse.Move(r,true,10);
+		/// </code>
+		/// </example>
+		/// <param name="R">the rectangle to move to</param>
+		/// <param name="human">prevent mouse jumps</param>
+		/// <param name="steps">points of pathpolygons</param>
+		/// <returns></returns>
         public static Boolean Move(Rectangle R, Boolean human = true, Int32 steps = 100)
         {
             return Move(new Point(Convert.ToInt32(R.Left+(R.Width/2)), Convert.ToInt32(R.Top+(R.Height/2))), human, steps);
         }
+
         /// <summary>
         /// causes a drag and drop
         /// </summary>
@@ -288,5 +306,19 @@ namespace BotSuite
                 (l<P.X) && (P.X<r)  && (t<P.Y  ) && (P.Y<b)
                 );
         }
+
+		/// <summary>
+		/// simulates mouse scroll wheel actions
+		/// </summary>
+		/// <example>
+		/// <code>
+		/// Mouse.Scroll(-50);
+		/// </code>
+		/// </example>
+		/// <param name="wheeldelta">if positive, scrolls down, if negative, scrolls up</param>
+		public static void Scroll(int wheeldelta)
+		{
+			NativeMethods.mouse_event((uint)NativeMethods.MouseEventFlags.WHEEL, (uint)0, (uint)0, -wheeldelta, IntPtr.Zero);
+		}
 	}
 }

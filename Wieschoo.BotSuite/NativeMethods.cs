@@ -22,7 +22,7 @@ namespace BotSuite
 	public class NativeMethods
 	{
 		[DllImport("user32.dll")]
-		internal static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, IntPtr dwExtraInfo);
+		internal static extern void mouse_event(uint dwFlags, uint dx, uint dy, int dwData, IntPtr dwExtraInfo);
 
 		internal enum MouseEventFlags : uint
 		{
