@@ -1,11 +1,8 @@
 ﻿/* **************************************************************
  * Name:      BotSuite.NET
- * Version:   v2.1.0beta3
  * Purpose:   Framework for creating bots
- * Author:    wieschoo
- * Created:   16.09.2012
  * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2012 wieschoo & enWare
+ * Copyright: (c) 2013 wieschoo & enWare
  * License:   http://www.wieschoo.com/botsuite/license/
  * *************************************************************/
 
@@ -17,7 +14,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace Wieschoo.BotSuite.Net
+namespace BotSuite.Net
 {
 	/// <summary>
 	/// HttpClient class for making bots for Browsergames

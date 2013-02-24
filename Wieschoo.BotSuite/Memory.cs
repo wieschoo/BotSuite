@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* **************************************************************
+ * Name:      BotSuite.NET
+ * Purpose:   Framework for creating bots
+ * Homepage:  http://www.wieschoo.com
+ * Copyright: (c) 2013 wieschoo & enWare
+ * License:   http://www.wieschoo.com/botsuite/license/
+ * *************************************************************/
+using System;
 using System.Text;
 using System.Diagnostics;
 

@@ -1,11 +1,8 @@
 ﻿/* **************************************************************
  * Name:      BotSuite.NET
- * Version:   v2.1.0beta3
  * Purpose:   Framework for creating bots
- * Author:    wieschoo
- * Created:   16.09.2012
  * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2012 wieschoo & enWare
+ * Copyright: (c) 2013 wieschoo & enWare
  * License:   http://www.wieschoo.com/botsuite/license/
  * *************************************************************/
 using System;
@@ -147,5 +144,11 @@ namespace BotSuite
         internal static extern Int32 ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In, Out] byte[] buffer, UInt32 size, out IntPtr lpNumberOfBytesRead);
         [DllImport("kernel32.dll")]
         internal static extern Int32 WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In, Out] byte[] buffer, UInt32 size, out IntPtr lpNumberOfBytesWritten);
-	}
+
+
+        [DllImport("kernel32.dll")]
+        internal static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
+        [DllImport("kernel32.dll")]
+        internal static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
+    }
 }

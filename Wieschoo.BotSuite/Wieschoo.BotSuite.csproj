@@ -8,8 +8,8 @@
     <ProjectGuid>{998E32C7-3B12-43EB-B149-9CEFBBF1C9F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Wieschoo.BotSuite</RootNamespace>
-    <AssemblyName>Wieschoo.BotSuite</AssemblyName>
+    <RootNamespace>BotSuite</RootNamespace>
+    <AssemblyName>BotSuite</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -29,7 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Wieschoo.BotSuite.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\BotSuite.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -53,6 +53,7 @@
     <Compile Include="FiniteStateEngine\StateEngine\Messaging\Telegram.cs" />
     <Compile Include="FiniteStateEngine\StateEngine\State.cs" />
     <Compile Include="FiniteStateEngine\StateEngine\StateMachine.cs" />
+    <Compile Include="IniParser.cs" />
     <Compile Include="Keyboard.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="Net\HttpClient.cs" />

@@ -1,11 +1,8 @@
 ﻿/* **************************************************************
  * Name:      BotSuite.NET
- * Version:   v2.1.0beta3
  * Purpose:   Framework for creating bots
- * Author:    wieschoo
- * Created:   16.09.2012
  * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2012 wieschoo & enWare
+ * Copyright: (c) 2013 wieschoo & enWare
  * License:   http://www.wieschoo.com/botsuite/license/
  * *************************************************************/
 
@@ -112,7 +109,7 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		/// causes a mouse movement
+		/// causes a mouse movement to a given point
 		/// </summary>
         /// <example>
         /// <code>
@@ -158,7 +155,7 @@ namespace BotSuite
 		}
 
         /// <summary>
-        /// causes a mouse movement
+        /// causes a mouse movement to given coordinates
         /// </summary>
         /// <example>
         /// <code>
@@ -176,7 +173,7 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		/// causes a mouse movement
+		/// causes a mouse movement into the middle of a rectangle
 		/// </summary>
 		/// <example>
 		/// <code>
@@ -297,7 +294,15 @@ namespace BotSuite
         /// <summary>
         /// returns whether the cursor is inside a rectangle or outside
         /// </summary>
-        /// <param name="R">rectangle</param>
+        /// <example>
+        /// <code>
+        /// bool InRectangle = Mouse.InRectangle(50, 10, 20, 70);
+        /// </code>
+        /// </example>
+        /// <param name="t">top of rectangle</param>
+        /// <param name="l">left of rectangle</param>
+        /// <param name="b">bottom of rectangle</param>
+        /// <param name="r">right of rectangle</param>
         /// <returns>inside=true/outside=false</returns>
         public static bool InRectangle(int t, int l, int b, int r)
         {

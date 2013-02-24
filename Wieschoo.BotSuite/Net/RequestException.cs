@@ -1,9 +1,16 @@
-﻿using System;
+﻿/* **************************************************************
+ * Name:      BotSuite.NET
+ * Purpose:   Framework for creating bots
+ * Homepage:  http://www.wieschoo.com
+ * Copyright: (c) 2013 wieschoo & enWare
+ * License:   http://www.wieschoo.com/botsuite/license/
+ * *************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Wieschoo.BotSuite.Net
+namespace BotSuite.Net
 {
 	[Serializable]
 	public class RequestException : Exception

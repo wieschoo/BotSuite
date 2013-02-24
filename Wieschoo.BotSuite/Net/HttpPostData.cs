@@ -1,16 +1,13 @@
 ﻿/* **************************************************************
  * Name:      BotSuite.NET
- * Version:   v2.1.0beta3
  * Purpose:   Framework for creating bots
- * Author:    wieschoo
- * Created:   16.09.2012
  * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2012 wieschoo & enWare
+ * Copyright: (c) 2013 wieschoo & enWare
  * License:   http://www.wieschoo.com/botsuite/license/
  * *************************************************************/
 using System;
 
-namespace Wieschoo.BotSuite.Net
+namespace BotSuite.Net
 {
 	/// <summary>
 	/// container-class for Http POST data key-value-pairs

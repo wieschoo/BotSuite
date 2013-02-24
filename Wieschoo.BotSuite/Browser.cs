@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* **************************************************************
+ * Name:      BotSuite.NET
+ * Purpose:   Framework for creating bots
+ * Homepage:  http://www.wieschoo.com
+ * Copyright: (c) 2013 wieschoo & enWare
+ * License:   http://www.wieschoo.com/botsuite/license/
+ * *************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +40,12 @@ namespace BotSuite
         protected void SetBrowserCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             FullLoaded = true;
+        }
+
+        public bool ElementExists(string id)
+        {
+            HtmlElement ElementToGet = Instance.Document.GetElementById(id);
+            return (ElementToGet!= null);
         }
 
         /// <summary>
