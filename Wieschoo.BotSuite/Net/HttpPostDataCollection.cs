@@ -5,6 +5,7 @@
  * Copyright: (c) 2013 wieschoo & enWare
  * License:   http://www.wieschoo.com/botsuite/license/
  * *************************************************************/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -119,7 +120,15 @@ namespace BotSuite.Net
 		/// <summary>
 		/// creates a string representation of this collection
 		/// </summary>
-		/// <returns></returns>
+		/// <example>
+		/// <code>
+		/// var hpdc = new HttpPostDataCollection();
+		/// hpdc.Add(new HttpPostData("sender", "wieschoo");
+		/// hpdc.Add(new HttpPostData("message", "hallo%20welt");
+		/// var postData = hpdc.ToString();
+		/// </code>
+		/// </example>
+		/// <returns>a string representation of this collection</returns>
 		public override String ToString()
 		{
 			String toString = String.Empty;
@@ -135,8 +144,14 @@ namespace BotSuite.Net
 		/// <summary>
 		/// creates a HttpPostDataCollection instance from a POST data string
 		/// </summary>
-		/// <param name="postdata"></param>
-		/// <returns></returns>
+		/// <example>
+		/// <code>
+		/// var postData = "sender=wieschoo&message=hallo%20welt"
+		/// var hpdc = HttpPostDataCollection.FromString(postData);
+		/// </code>
+		/// </example>
+		/// <param name="postdata">the POST data string</param>
+		/// <returns>a HttpPostDataCollection instance from the given POST data string</returns>
 		public static HttpPostDataCollection FromString(String postdata)
 		{
 			HttpPostDataCollection col = new HttpPostDataCollection();

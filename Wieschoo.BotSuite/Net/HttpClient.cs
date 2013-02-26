@@ -6,8 +6,6 @@
  * License:   http://www.wieschoo.com/botsuite/license/
  * *************************************************************/
 
-//TODO: don't return just "null" on Exception but throw own Exception with additional information and InnerException original
-
 using System;
 using System.Drawing;
 using System.IO;
@@ -70,6 +68,15 @@ namespace BotSuite.Net
 		/// <summary>
 		/// sends a HTTP POST request to a given URL with given POST data and a optional referer
 		/// </summary>
+		/// <example>
+		/// <code>
+		/// var hpdc = new HttpPostDataCollection();
+		/// hpdc.Add(new HttpPostData("sender", "wieschoo");
+		/// hpdc.Add(new HttpPostData("message", "hallo welt");
+		/// var hc = new HttpClient("some-user-agent", "www.google.de");
+		/// var html = hc.POST("http://www.codebot.de", hpdc);
+		/// </code>
+		/// </example>
 		/// <param name="url">the URL to send the post request to</param>
 		/// <param name="postdata">the POST data</param>
 		/// <param name="referer">the referer to send the request from</param>
@@ -118,6 +125,12 @@ namespace BotSuite.Net
 		/// <summary>
 		/// sends a HTTP GET request to a given URL with a optional referer
 		/// </summary>
+		/// <example>
+		/// <code>
+		/// var hc = new HttpClient("some-user-agent", "www.google.de");
+		/// var html = hc.GET("http://www.codebot.de");
+		/// </code>
+		/// </example>
 		/// <param name="url">the URL to send the request to</param>
 		/// <param name="referer">the referer to send the request from</param>
 		/// <returns></returns>
@@ -158,6 +171,13 @@ namespace BotSuite.Net
 		/// <summary>
 		/// tries to convert a sourcecode-string (i.e. from a POST or GET request) into an image (works only if the response was an image)
 		/// </summary>
+		/// <example>
+		/// <code>
+		/// var hc = new HttpClient("some-user-agent", "www.google.de");
+		/// var sourcecode = hc.GET("http://www.codebot.de");
+		/// var img = HttpClient.SourcecodeToImage(sourcecode);
+		/// </code>
+		/// </example>
 		/// <param name="sourcecode">the sourcecode-string that comes from a POTS or GET request</param>
 		/// <returns>null, if unable to convert to image, else an System.Drawing.Image object</returns>
 		public static Image SourcecodeToImage(String sourcecode)

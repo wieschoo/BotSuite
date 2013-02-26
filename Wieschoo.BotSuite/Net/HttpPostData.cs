@@ -5,6 +5,7 @@
  * Copyright: (c) 2013 wieschoo & enWare
  * License:   http://www.wieschoo.com/botsuite/license/
  * *************************************************************/
+
 using System;
 
 namespace BotSuite.Net

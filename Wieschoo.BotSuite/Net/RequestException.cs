@@ -5,6 +5,7 @@
  * Copyright: (c) 2013 wieschoo & enWare
  * License:   http://www.wieschoo.com/botsuite/license/
  * *************************************************************/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,9 @@ using System.Text;
 
 namespace BotSuite.Net
 {
+	/// <summary>
+	/// Exception class for wrapping exceptions thrown by one of the request methods (POST/GET)
+	/// </summary>
 	[Serializable]
 	public class RequestException : Exception
 	{
