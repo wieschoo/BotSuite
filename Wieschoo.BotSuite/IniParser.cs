@@ -13,7 +13,7 @@ using System.Text;
 
 namespace BotSuite
 {
-    class IniParser
+    public class IniParser
     {
         public string Path;
         /// <summary>
