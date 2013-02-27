@@ -11,7 +11,10 @@ using System.Diagnostics;
 
 namespace BotSuite
 {
-    public class Memory
+    /// <summary>
+    /// control extern application by reading values, writing values, (todo) click controls
+    /// </summary>
+    public class ApplicationTunnel
     {
 
         #region LOCAL VARIABLES
@@ -27,7 +30,7 @@ namespace BotSuite
         /// constructor
         /// </summary>
         /// <param name="Id">id of process</param>
-        public Memory(int Id)
+        public ApplicationTunnel(int Id)
         {
             ProcessId = Id;
             BaseAddress = 0;
@@ -39,7 +42,7 @@ namespace BotSuite
         /// constructor
         /// </summary>
         /// <param name="ProcessName">name of process</param>
-        public Memory(string ProcessName)
+        public ApplicationTunnel(string ProcessName)
         {
 
             Process[] myProgrammInstances;
@@ -57,7 +60,7 @@ namespace BotSuite
         /// <summary>
         /// destructor
         /// </summary>
-        ~Memory()
+        ~ApplicationTunnel()
         {
             DetachProcess();
         } 
@@ -384,9 +387,45 @@ namespace BotSuite
         {
             int target = Hex2Int(start);
             return this.Pointer(target, Offsets); 
-        } 
+        }
         #endregion
-
+        /// <summary>
+        /// returns handle of extern process
+        /// </summary>
+        /// <returns></returns>
+        public IntPtr GetHandle()
+        {
+            return ProcessHandle;
+        }
+        /// <summary>
+        /// tries to close the main window of process
+        /// </summary>
+        public void Close()
+        {
+            AttachedProcess.CloseMainWindow();
+            AttachedProcess.WaitForExit(4000);
+            if (!AttachedProcess.HasExited)
+            {
+                Kill();
+            }
+            else
+            {
+                AttachedProcess.Dispose();
+            }
+            
+        }
+        /// <summary>
+        /// kills radical the process
+        /// </summary>
+        public void Kill()
+        {
+            try
+            {
+                AttachedProcess.Kill();
+                AttachedProcess.WaitForExit();
+            }
+            catch { }
+        }
     }
 }
 

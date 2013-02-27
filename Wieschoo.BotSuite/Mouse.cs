@@ -107,6 +107,15 @@ namespace BotSuite
 		{
 			NativeMethods.mouse_event((Int32)(NativeMethods.MouseEventFlags.RIGHTUP), 0, 0, 0, new IntPtr(0));
 		}
+        /// <summary>
+        /// performs a double click
+        /// </summary>
+        public static void DoubleClick()
+        {
+            LeftClick();
+            Utility.Delay(150);
+            LeftClick();
+        }
 
 		/// <summary>
 		/// causes a mouse movement to a given point
@@ -208,6 +217,7 @@ namespace BotSuite
             Move(target, human, steps);
             LeftClick();
         }
+
 
 		/// <summary>
 		/// get the current position of the mouse pointer

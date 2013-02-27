@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationTunnel.cs" />
     <Compile Include="Browser.cs" />
     <Compile Include="ControlArtist.cs" />
     <Compile Include="FiniteStateEngine\Pattern\Singleton.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="FiniteStateEngine\StateEngine\StateMachine.cs" />
     <Compile Include="IniParser.cs" />
     <Compile Include="Keyboard.cs" />
-    <Compile Include="Memory.cs" />
     <Compile Include="Net\HttpClient.cs" />
     <Compile Include="Mouse.cs" />
     <Compile Include="Net\HttpPostData.cs" />

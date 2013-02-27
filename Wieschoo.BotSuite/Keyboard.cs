@@ -34,7 +34,8 @@ namespace BotSuite
                 return _instance;
             }
         }
-
+       
+      
         /// <summary>
         /// The collections of keys to watch for
         /// </summary>
@@ -137,7 +138,7 @@ namespace BotSuite
         /// <param name="wParam">event type</param>
         /// <param name="lParam">keyhook event information</param>
         /// <remarks>
-        /// this is a private method. You cannot us it! See the construtor #ctor for an example.
+        /// this is a private method. You cannot us it! See the constructor #ctor for an example.
         /// </remarks>
         /// <returns></returns>
         private static int hookProc(int code, int wParam, ref NativeMethods.keyboardHookStruct lParam)
@@ -167,22 +168,33 @@ namespace BotSuite
             return NativeMethods.CallNextHookEx(Instance.hhook, code, wParam, ref lParam);
         }
         /// <summary>
-        /// send a string
+        /// types a key or o sequence of keys
         /// </summary>
-        /// <param name="key">string to send</param>
+        /// <example>
+        /// <code>
+        /// Keyboard.Type("{ENTER}"); // click the enter button
+        /// Keyboard.Type("ENTER");   // types "E","N","T","E","R"
+        /// </code>
+        /// </example>
+        /// <remarks>
+        /// http://msdn.microsoft.com/en-us/library/system.windows.forms.sendkeys.aspx
+        /// </remarks>
+        /// <param name="Sequence">Sequence to type</param>
         /// <returns></returns>
-        public static void Press(String key)
+        public static void Type(String Sequence)
         {
-            SendKeys.Send(key.Trim());
+            SendKeys.Send(Sequence.Trim());
             return;
         }
+
+
         /// <summary>
         /// test if a key is pressed
         /// </summary>
         /// <example>
         /// <code>
         /// // test if F1 is currently pressed
-        /// bool pressed = Control.IsKeyDown(Keys.F1);
+        /// bool pressed = Keyboard.IsKeyDown(Keys.F1);
         /// </code>
         /// </example>
         /// <remarks>
@@ -194,6 +206,9 @@ namespace BotSuite
         {
             return (NativeMethods.GetAsyncKeyState(key) == Int16.MinValue);
         }
+
+
+        
 
 
 

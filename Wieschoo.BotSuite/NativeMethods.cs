@@ -155,5 +155,8 @@ namespace BotSuite
         internal static extern bool PrintWindow(IntPtr hwnd, IntPtr hdcBlt, uint nFlags);
         [DllImport("user32.dll")]
         internal static extern IntPtr GetWindowDC(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        internal static extern short VkKeyScan(char ch);
     }
 }
