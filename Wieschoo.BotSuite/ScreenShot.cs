@@ -53,6 +53,39 @@ namespace BotSuite
 			}
 			return bmpScreen;
 		}
+        /// <summary>
+        /// creates a screenshot from a hidden window
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// IntPtr hwnd = ... ;
+        /// Bitmap capture = ScreenShot.CreateFromHidden(hwnd);
+        /// ]]>
+        /// </code>
+        /// </example>
+        /// <param name="WindowHandle">handle of window</param>
+        /// <returns></returns>
+        public System.Drawing.Bitmap CreateFromHidden(IntPtr WindowHandle)
+        {
+            Rectangle R = Rectangle.Empty;
+            Graphics WindowGraphic = System.Drawing.Graphics.FromHdc(NativeMethods.GetWindowDC(WindowHandle));
+            R = Rectangle.Round(WindowGraphic.VisibleClipBounds);
+            Bitmap bmpScreen = new Bitmap(R.Width, R.Height);
+            Graphics g = Graphics.FromImage(bmpScreen);
+            IntPtr Hdc = g.GetHdc();
+            try
+            {
+                NativeMethods.PrintWindow(WindowHandle, Hdc, (uint)0);
+            }
+            finally
+            {
+                g.ReleaseHdc(Hdc);
+            }
+            return bmpScreen;
+        }
+
+        
 
 		/// <summary>
         /// create a complete screenshot by using a rectangle 
@@ -105,7 +138,9 @@ namespace BotSuite
         /// ]]>
         /// </code>
         /// </example>
-		/// <returns>captured screen</returns>
+        /// <param name="WindowHandle">handle of window</param>
+        /// <returns>captured screen</returns>
+        
 		public static Bitmap Create(IntPtr WindowHandle)
 		{
             NativeMethods.RECT WINDOW = new NativeMethods.RECT();

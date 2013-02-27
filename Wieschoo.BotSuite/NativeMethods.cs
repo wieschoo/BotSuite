@@ -150,5 +150,10 @@ namespace BotSuite
         internal static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
         [DllImport("kernel32.dll")]
         internal static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
+
+        [DllImport("user32.dll")]
+        internal static extern bool PrintWindow(IntPtr hwnd, IntPtr hdcBlt, uint nFlags);
+        [DllImport("user32.dll")]
+        internal static extern IntPtr GetWindowDC(IntPtr hWnd);
     }
 }
