@@ -106,7 +106,8 @@ namespace BotSuite.Net
 				{
 					using(System.IO.Stream s = resp.GetResponseStream())
 					{
-						using(System.IO.StreamReader sr = new System.IO.StreamReader(s))
+						var enc = (!String.IsNullOrEmpty(resp.CharacterSet)) ? Encoding.GetEncoding(resp.CharacterSet) : Encoding.Default;
+						using(System.IO.StreamReader sr = new System.IO.StreamReader(s, enc))
 						{
 							src = sr.ReadToEnd();
 							if(this._AutoReferer)
@@ -152,7 +153,8 @@ namespace BotSuite.Net
 				{
 					using(System.IO.Stream s = resp.GetResponseStream())
 					{
-						using(System.IO.StreamReader sr = new System.IO.StreamReader(s, Encoding.Default))
+						var enc = (!String.IsNullOrEmpty(resp.CharacterSet)) ? Encoding.GetEncoding(resp.CharacterSet) : Encoding.Default;
+						using(System.IO.StreamReader sr = new System.IO.StreamReader(s, enc))
 						{
 							src = sr.ReadToEnd();
 							if(this._AutoReferer)
