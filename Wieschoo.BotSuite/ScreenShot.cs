@@ -12,9 +12,6 @@ using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 
-/// <summary>
-/// Namespace for BotSuite
-/// </summary>
 namespace BotSuite
 {
     /// <summary>
