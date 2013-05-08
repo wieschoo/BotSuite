@@ -192,6 +192,11 @@ namespace BotSuite.Net
 			if(referer != null)
 				this._Referer = referer;
 
+			//DerpyHooves 2013-05-02: URL URI-Format failover
+			if(!url.StartsWith("http://"))
+				url = "http://" + url;
+			//... Derpy Hooves
+
 			String src = null;
 			try
 			{
@@ -253,6 +258,11 @@ namespace BotSuite.Net
 		{
 			if(referer != null)
 				this._Referer = referer;
+
+			//DerpyHooves 2013-05-02: URL URI-Format failover
+			if(!url.StartsWith("http://"))
+				url = "http://" + url;
+			//... Derpy Hooves
 
 			String src = null;
 			try
