@@ -4,7 +4,10 @@ BotSuite
 more information:
 www.wieschoo.com
 
-<h2>Credits</h2>
+<h3>Documentation</h3>
+http://phpnetmanual.wieschoo.com/
+
+<h3>Credits</h3>
 <b>DerpyHooves from codebot.de</b>
 
 He gave me a clear idea how to create clean code and a nice code structure in the BotSuite.NET library.
