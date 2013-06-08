@@ -2,6 +2,7 @@ BotSuite
 ========
 
 more information:
+www.botsuite.net
 www.wieschoo.com
 
 <h3>Documentation</h3>
