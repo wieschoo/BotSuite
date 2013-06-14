@@ -11,6 +11,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
+
 namespace BotSuite
 {
     /// <summary>
@@ -20,9 +21,13 @@ namespace BotSuite
     /// Singleton-Pattern
     /// </remarks>
     public class Keyboard
+    
+    
     {
+        static extern void keybind_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
         static Keyboard _instance;
         static Keyboard()
+        
         {
             _instance = new Keyboard();
         }
@@ -33,6 +38,9 @@ namespace BotSuite
             {
                 return _instance;
             }
+
+
+
         }
        
       
@@ -185,6 +193,31 @@ namespace BotSuite
         {
             SendKeys.Send(Sequence.Trim());
             return;
+        }
+        /// <summary>
+        /// Hold down a key for a specific time
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// Keyboard.HoldKey((byte)Keys.A, 250); // Holds down the "A" key for 250ms
+        /// Keyboard.HoldKey((byte)Keys.Left, 1000); // Holds down "Left" key for 1 second
+        /// </code>
+        /// </example>
+        /// <param name="key"></param>
+        /// <param name="duration"></param>
+        public static void HoldKey(byte key, int duration)
+        {
+            const int KEY_DOWN_EVENT = 0x0001; 
+            const int KEY_UP_EVENT = 0x0002; 
+            int totalDuration = 0;
+            const int PauseFor = 30;
+            while (totalDuration < duration)
+            {
+                keybind_event(key, 0, KEY_DOWN_EVENT, 0);
+                keybind_event(key, 0, KEY_UP_EVENT, 0);
+                System.Threading.Thread.Sleep(PauseFor);
+                totalDuration += PauseFor;
+            }
         }
 
 
