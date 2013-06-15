@@ -24,7 +24,8 @@ namespace BotSuite
     
     
     {
-        static extern void keybind_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
         static Keyboard _instance;
         static Keyboard()
         
@@ -205,16 +206,19 @@ namespace BotSuite
         /// </example>
         /// <param name="key"></param>
         /// <param name="duration"></param>
+        
+        
+        
         public static void HoldKey(byte key, int duration)
         {
-            const int KEY_DOWN_EVENT = 0x0001; 
+            const int KEY_DOWN_EVENT = 0x0001;
             const int KEY_UP_EVENT = 0x0002; 
             int totalDuration = 0;
             const int PauseFor = 30;
             while (totalDuration < duration)
             {
-                keybind_event(key, 0, KEY_DOWN_EVENT, 0);
-                keybind_event(key, 0, KEY_UP_EVENT, 0);
+                keybd_event(key, 0, KEY_DOWN_EVENT, 0);
+                keybd_event(key, 0, KEY_UP_EVENT, 0);
                 System.Threading.Thread.Sleep(PauseFor);
                 totalDuration += PauseFor;
             }

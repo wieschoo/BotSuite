@@ -1,0 +1,6 @@
+C:\Users\Roman\Documents\GitHub\BotSuite\Wieschoo.BotSuite\bin\Release\BotSuite.xml
+C:\Users\Roman\Documents\GitHub\BotSuite\Wieschoo.BotSuite\bin\Release\BotSuite.dll
+C:\Users\Roman\Documents\GitHub\BotSuite\Wieschoo.BotSuite\bin\Release\BotSuite.pdb
+C:\Users\Roman\Documents\GitHub\BotSuite\Wieschoo.BotSuite\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Roman\Documents\GitHub\BotSuite\Wieschoo.BotSuite\obj\Release\BotSuite.dll
+C:\Users\Roman\Documents\GitHub\BotSuite\Wieschoo.BotSuite\obj\Release\BotSuite.pdb
