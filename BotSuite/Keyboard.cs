@@ -21,8 +21,6 @@ namespace BotSuite
     /// Singleton-Pattern
     /// </remarks>
     public class Keyboard
-    
-    
     {
         [DllImport("user32.dll", SetLastError = true)]
         static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
@@ -39,12 +37,8 @@ namespace BotSuite
             {
                 return _instance;
             }
-
-
-
         }
        
-      
         /// <summary>
         /// The collections of keys to watch for
         /// </summary>
@@ -60,7 +54,6 @@ namespace BotSuite
         /// Handle to the hook, need this to unhook and call the next hook
         /// </summary>
         IntPtr hhook = IntPtr.Zero;
-
 
         /// <summary>
         /// Occurs when one of the hooked keys is pressed
@@ -85,7 +78,6 @@ namespace BotSuite
         /// </code>
         /// </example>
         public static event KeyEventHandler KeyUp;
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="globalKeyboardHook"/> class and installs the keyboard hook.
@@ -120,6 +112,7 @@ namespace BotSuite
         }
 
         public static NativeMethods.keyboardHookProc SAFE_delegate_callback = new NativeMethods.keyboardHookProc(hookProc);
+
         /// <remarks>
         /// this is a private method. You cannot us it! See the construtor #ctor for an example.
         /// </remarks>
@@ -176,6 +169,7 @@ namespace BotSuite
             }
             return NativeMethods.CallNextHookEx(Instance.hhook, code, wParam, ref lParam);
         }
+
         /// <summary>
         /// types a key or o sequence of keys
         /// </summary>
@@ -195,6 +189,7 @@ namespace BotSuite
             SendKeys.Send(Sequence.Trim());
             return;
         }
+
         /// <summary>
         /// Hold down a key for a specific time
         /// </summary>
@@ -206,8 +201,6 @@ namespace BotSuite
         /// </example>
         /// <param name="key"></param>
         /// <param name="duration"></param>
-        
-        
         
         public static void HoldKey(byte key, int duration)
         {
@@ -223,7 +216,6 @@ namespace BotSuite
                 totalDuration += PauseFor;
             }
         }
-
 
         /// <summary>
         /// test if a key is pressed
@@ -243,11 +235,5 @@ namespace BotSuite
         {
             return (NativeMethods.GetAsyncKeyState(key) == Int16.MinValue);
         }
-
-
-        
-
-
-
     }
 }

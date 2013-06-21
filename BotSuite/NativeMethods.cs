@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 namespace BotSuite
 {
     /// <summary>
-    ///  Pinvokes
+    ///  P/Invokes
     /// </summary>
 	public class NativeMethods
 	{

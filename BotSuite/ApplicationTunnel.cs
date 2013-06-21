@@ -12,7 +12,7 @@ using System.Diagnostics;
 namespace BotSuite
 {
     /// <summary>
-    /// control extern application by reading values, writing values, (todo) click controls
+    /// control extern application by reading values, writing values, (to do: click controls)
     /// </summary>
     public class ApplicationTunnel
     {

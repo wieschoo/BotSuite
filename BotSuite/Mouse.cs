@@ -218,7 +218,6 @@ namespace BotSuite
             LeftClick();
         }
 
-
 		/// <summary>
 		/// get the current position of the mouse pointer
 		/// </summary>
@@ -235,7 +234,7 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		/// causes a slightly mouse jiggle +-10 px
+		/// causes a slightly mouse jiggle +-10 pixel
 		/// </summary>
         /// <example>
         /// <code>
@@ -254,7 +253,7 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		/// move the mouse relativ to the window
+		/// move the mouse relative to the window
 		/// </summary>
         /// <example>
         /// <code>
