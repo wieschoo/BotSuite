@@ -7,8 +7,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 /// <summary>
 /// OCR
 /// </summary>
-namespace MachineLearning.Recognition.Character
+namespace Recognition.Character
 {
+    using ImageLibrary;
     [Serializable]
     public class MagicMatchSticks
     {

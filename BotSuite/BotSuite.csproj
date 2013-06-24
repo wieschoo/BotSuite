@@ -57,10 +57,10 @@
     <Compile Include="FiniteStateEngine\StateEngine\Messaging\Telegram.cs" />
     <Compile Include="FiniteStateEngine\StateEngine\State.cs" />
     <Compile Include="FiniteStateEngine\StateEngine\StateMachine.cs" />
-    <Compile Include="Images\CommonFunctions.cs" />
-    <Compile Include="Images\Filter.cs" />
-    <Compile Include="Images\ImageData.cs" />
-    <Compile Include="Images\Template.cs" />
+    <Compile Include="ImageLibrary\CommonFunctions.cs" />
+    <Compile Include="ImageLibrary\Filter.cs" />
+    <Compile Include="ImageLibrary\ImageData.cs" />
+    <Compile Include="ImageLibrary\Template.cs" />
     <Compile Include="IniParser.cs" />
     <Compile Include="Keyboard.cs" />
     <Compile Include="MachineLearning\NeuralNetwork\ActivationFunctions\BipolarSigmoidActivationFunction.cs" />
