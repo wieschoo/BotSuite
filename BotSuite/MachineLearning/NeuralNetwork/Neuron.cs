@@ -1,8 +1,8 @@
 ﻿using System;
-
-namespace MachineLearning.NeuralNetwork
+using BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions;
+namespace BotSuite.MachineLearning.NeuralNetwork
 {
-    using MachineLearning.NeuralNetwork.ActivationFunctions;
+    
     /// <summary>
     /// this class represents a neuron
     /// </summary>

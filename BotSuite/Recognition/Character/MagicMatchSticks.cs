@@ -4,12 +4,12 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using BotSuite.ImageLibrary;
 /// <summary>
 /// OCR
 /// </summary>
-namespace Recognition.Character
+namespace BotSuite.Recognition.Character
 {
-    using ImageLibrary;
     [Serializable]
     public class MagicMatchSticks
     {

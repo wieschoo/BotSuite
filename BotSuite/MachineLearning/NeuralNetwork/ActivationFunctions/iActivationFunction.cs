@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MachineLearning.NeuralNetwork.ActivationFunctions
+namespace BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions
 {
     public interface iActivationFunction
     {

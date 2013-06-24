@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions
+namespace BotSuite.BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions
 {
     [Serializable]
     /// <summary>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MachineLearning.NeuralNetwork.ActivationFunctions
+namespace BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions
 {
     /// <summary>
     /// The gaussian activation function

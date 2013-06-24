@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MachineLearning.NeuralNetwork.LearningMonitors
+namespace BotSuite.MachineLearning.NeuralNetwork.LearningMonitors
 {
     /// <summary>
     /// to send the current progress in learning to another class you can use this monitor

@@ -5,7 +5,7 @@ using System.Text;
 /// <summary>
 /// OCR
 /// </summary>
-namespace Recognition.Character
+namespace BotSuite.Recognition.Character
 {
     [Serializable]
     public class MagicMatchStick

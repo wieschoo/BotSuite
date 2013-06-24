@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-namespace MachineLearning.NeuralNetwork.LearningAlgorithms
+namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
 {
     /// <summary>
     /// stockastic gradient backpropagation learning algorithm

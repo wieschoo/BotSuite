@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MachineLearning.NeuralNetwork.LearningMonitors;
+using BotSuite.MachineLearning.NeuralNetwork.LearningMonitors;
 
-namespace MachineLearning.NeuralNetwork.LearningAlgorithms
+namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
 {
     /// <summary>
     /// The abstract class describing a learning
