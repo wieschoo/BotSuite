@@ -1,10 +1,3 @@
-﻿/*
- * NEURAL NETWORK Library
- * Version 0.1 (april 2002)
- * By Fleurey Franck (franck.fleurey@ifrance.com)
- * Distributed under GPL licence (see www.fsf.org)
- */
-
 using System;
 using System.IO;
 using System.Runtime.Serialization;
