@@ -5,7 +5,7 @@ using System.Text;
 /// <summary>
 /// OCR
 /// </summary>
-namespace MachineLearning.Recognition.Character
+namespace Recognition.Character
 {
     [Serializable]
     public class MagicMatchStick

@@ -10,9 +10,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 /// <summary>
 /// Character
 /// </summary>
-namespace MachineLearning.Recognition.Character
+namespace Recognition.Character
 {
     using MachineLearning.NeuralNetwork;
+    using ImageLibrary;
 
     [Serializable]
     public class OCR
