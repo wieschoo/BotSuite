@@ -2,12 +2,12 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions;
+using BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms;
 
-
-namespace MachineLearning.NeuralNetwork
+namespace BotSuite.MachineLearning.NeuralNetwork
 {
-    using MachineLearning.NeuralNetwork.ActivationFunctions;
-    using MachineLearning.NeuralNetwork.LearningAlgorithms;
+    
     /// <summary>
     /// represent an artificial feed forward neural network
     /// </summary>

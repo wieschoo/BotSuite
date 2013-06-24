@@ -6,14 +6,16 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using BotSuite.ImageLibrary;
+using BotSuite.MachineLearning.NeuralNetwork;
 
 /// <summary>
 /// Character
 /// </summary>
-namespace Recognition.Character
+namespace BotSuite.Recognition.Character
 {
-    using MachineLearning.NeuralNetwork;
-    using ImageLibrary;
+    
+    
 
     [Serializable]
     public class OCR
