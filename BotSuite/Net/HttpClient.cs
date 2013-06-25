@@ -298,6 +298,65 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
+		/// sends a HTTP HEAD request to a given URL with a optional referer
+		/// </summary>
+		/// <example>
+		/// <code>
+		/// var hc = new HttpClient("some-user-agent", "www.google.de");
+		/// var html = hc.HEAD("http://www.codebot.de");
+		/// </code>
+		/// </example>
+		/// <param name="url">the URL to send the request to</param>
+		/// <param name="referer">the referer to send the request from</param>
+		/// <returns></returns>
+		public String HEAD(String url, String referer = null)
+		{
+			if(this._AllowBotSuiteAutoRedirect && !this._AllowAutoRedirect)
+			{
+				String html = null;
+				Int32 requestCount = 0;
+				while(true)
+				{
+					if(requestCount > this._MaximumRedirectCount)
+						throw new HttpRequestException("too many automatic redirects");
+
+					if(requestCount <= 0)
+						html = this._HEAD(url, referer);
+					else if(this._Headers.Contains(HttpConstants.HeaderNames.Location))
+						html = this._HEAD(this.Headers[HttpConstants.HeaderNames.Location].Value);
+					else
+						break;
+					requestCount++;
+				}
+				return html;
+			}
+			else
+				return this._HEAD(url, referer);
+		}
+
+		private String _HEAD(String url, String referer = null)
+		{
+			this._Headers.Clear(); //DerpyHooves 2013-06-21
+
+			if(referer != null)
+				this._Referer = referer;
+
+			url = CorrectUrl(url);
+
+			String src = null;
+			try
+			{
+				HttpWebRequest req = PrepareRequest(url, "HEAD");
+				src = GetResponse(req);
+			}
+			catch(Exception ex)
+			{
+				throw new HttpRequestException("HEAD request to " + url + " failed.", ex);
+			}
+			return src;
+		}
+
+		/// <summary>
 		/// tries to convert a sourcecode-string (i.e. from a POST or GET request) into an image (works only if the response was an image)
 		/// </summary>
 		/// <example>

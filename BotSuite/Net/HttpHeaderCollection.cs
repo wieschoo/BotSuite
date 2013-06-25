@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BotSuite.Net
 {
 	public class HttpHeaderCollection : List<HttpHeader>
 	{
-		public HttpHeader this[string key]
+		public HttpHeader this[String key]
 		{
 			get
 			{
@@ -35,6 +36,20 @@ namespace BotSuite.Net
 		public Boolean Contains(string key)
 		{
 			return (this.GetHeaderByKey(key) != null);
+		}
+
+		public override String ToString()
+		{
+			String ret = String.Empty;
+
+			foreach(HttpHeader item in this)
+			{
+				ret += item.ToString();
+				if(!item.Equals(this.Last()))
+ 					ret += Environment.NewLine;
+			}
+
+			return ret;
 		}
 	}
 }
