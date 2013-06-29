@@ -11,9 +11,21 @@ namespace BotSuite.MachineLearning.NeuralNetwork
     {    
 
         #region protected properties
+        /// <summary>
+        /// number of neurons in layers
+        /// </summary>
         protected int _neurons_in_layer;
+        /// <summary>
+        /// number of inputs
+        /// </summary>
         protected int _inputs_of_layer;
+        /// <summary>
+        /// internal array of neurons
+        /// </summary>
         protected Neuron[] _neurons;
+        /// <summary>
+        /// the output ofthe layer
+        /// </summary>
         protected float[] _output;
         #endregion
 

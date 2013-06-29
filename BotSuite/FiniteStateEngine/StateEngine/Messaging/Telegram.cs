@@ -5,15 +5,41 @@ using System.Text;
 
 namespace BotSuite.FiniteStateEngine.StateEngine.Messaging
 {
+    /// <summary>
+    /// contains all information of a telegram
+    /// </summary>
     public struct Telegram
     {
-        public Int32 Sender; // ID des Senders
-        public Int32 Reciever; // ID des Empfängers
-        public Int32 Message; // ID der Message 
+        /// <summary>
+        /// id of sender
+        /// </summary>
+        public Int32 Sender;
+        /// <summary>
+        /// id of receiver
+        /// </summary>
+        public Int32 Reciever;
+        /// <summary>
+        /// id of message
+        /// </summary>
+        public Int32 Message;
 
-        public DateTime DispatchTime; // Zeit, in der die Message abgeschickt werden sollte
-        public Object AdditionalInfo; // Zusätzlicher Parameter
+        /// <summary>
+        /// time window when message should be send
+        /// </summary>
+        public DateTime DispatchTime;
+        /// <summary>
+        /// place for additional information or parameter
+        /// </summary>
+        public Object AdditionalInfo;
 
+        /// <summary>
+        /// construct a telegram
+        /// </summary>
+        /// <param name="_Sender">id of sender</param>
+        /// <param name="_Reciever">id of receiver</param>
+        /// <param name="_Message">id of message</param>
+        /// <param name="_DispatchTime">time window when message should be send</param>
+        /// <param name="_AdditionalInfo">place for additional information or parameter</param>
         public Telegram(Int32 _Sender, Int32 _Reciever, Int32 _Message, DateTime _DispatchTime, Object _AdditionalInfo)
         {
             this.Sender = _Sender;

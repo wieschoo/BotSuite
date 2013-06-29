@@ -70,22 +70,36 @@ namespace BotSuite.ImageLibrary
         {
             SetBitmap(B);
         }
+        /// <summary>
+        /// empty initalisation of the class
+        /// </summary>
         public ImageData()
         {
 
         }
-
+        /// <summary>
+        /// set size of the image
+        /// </summary>
+        /// <param name="width">width of image</param>
+        /// <param name="height">height of image</param>
         public void SetSize(int width, int height)
         {
             _width = width;
             _height = height;
             Pixel = new Color[width, height];
         }
+        /// <summary>
+        /// set the pixel format of image
+        /// </summary>
+        /// <param name="F">the pixelformat</param>
         public void SetPixelFormat(PixelFormat F)
         {
             BmpPixelFormat = F;
         }
-
+        /// <summary>
+        /// create a deep copy of an image
+        /// </summary>
+        /// <returns></returns>
         public ImageData Clone()
         {
             Bitmap B = GetBitmap();
@@ -97,7 +111,10 @@ namespace BotSuite.ImageLibrary
                     NewImg.SetPixel(x,y,GetPixel(x, y));
             return NewImg;
         }
-
+        /// <summary>
+        /// load a bitmap into the image
+        /// </summary>
+        /// <param name="B">bitmap</param>
         private void SetBitmap(Bitmap B)
         {
             Pixel = new Color[B.Width, B.Height];
@@ -142,7 +159,7 @@ namespace BotSuite.ImageLibrary
         /// <param name="T">top of imagepart (default: 0 no offset)</param>
         /// <param name="W">width of imagepart (default: full width) </param>
         /// <param name="H">height of imagepart (default: full height)</param>
-        /// <returns></returns>
+        /// <returns>get the image as a bitmap</returns>
         public Bitmap GetBitmap(int L=0, int T=0, int W = -1, int H = -1)
         {
             W = (W == -1) ? Width - L : W;

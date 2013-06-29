@@ -13,8 +13,14 @@ using System.Text;
 
 namespace BotSuite
 {
+    /// <summary>
+    /// class to handle ini files
+    /// </summary>
     public class IniParser
     {
+        /// <summary>
+        /// path to ini file
+        /// </summary>
         public string Path;
         /// <summary>
         /// handles ini files

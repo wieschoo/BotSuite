@@ -18,14 +18,29 @@ namespace BotSuite
     {
 
         #region LOCAL VARIABLES
+        /// <summary>
+        /// intern id of process
+        /// </summary>
         protected int ProcessId;
+        /// <summary>
+        /// process data
+        /// </summary>
         protected Process AttachedProcess;
+        /// <summary>
+        /// handle of modul
+        /// </summary>
         protected ProcessModule AttachedProcessModule;
+        /// <summary>
+        /// handle of process
+        /// </summary>
         protected IntPtr ProcessHandle;
+        /// <summary>
+        /// base adress
+        /// </summary>
         protected int BaseAddress{get; private set;}
         #endregion
 
-        #region CONSTRUCT AND DESTRUCT
+        #region construct and destruct
         /// <summary>
         /// constructor
         /// </summary>
@@ -182,7 +197,7 @@ namespace BotSuite
         /// </example>
         /// <typeparam name="T">type of value</typeparam>
         /// <param name="pAddress">address as string</param>
-        /// <param name="relative">relative to baseaddress</param>
+        /// <param name="Offsets">offsets to follow to get value</param>
         /// <returns>value to read</returns>
         public T Read<T>(string pAddress, params int[] Offsets)
         {
@@ -195,7 +210,7 @@ namespace BotSuite
         /// </summary>
         /// <typeparam name="T">type of value</typeparam>
         /// <param name="pAddress">address as integer</param>
-        /// <param name="relative">relative to baseaddress</param>
+        /// <param name="Offsets">offsets to follow to get value</param>
         /// <returns>value to read</returns>
         public T Read<T>(int pAddress, params int[] Offsets)
         {

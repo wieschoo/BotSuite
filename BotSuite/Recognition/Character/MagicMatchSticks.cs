@@ -5,20 +5,32 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using BotSuite.ImageLibrary;
-/// <summary>
-/// OCR
-/// </summary>
+
 namespace BotSuite.Recognition.Character
 {
+    /// <summary>
+    /// receptors for optical character recognition
+    /// </summary>
     [Serializable]
     public class MagicMatchSticks
     {
-        #region PROTECTED PROPERTIES
+        #region protected properties
+        /// <summary>
+        /// intern instance of PRNG
+        /// </summary>
         protected Random rand = new Random();
+        /// <summary>
+        /// intern list of receptors
+        /// </summary>
         protected List<MagicMatchStick> MagicStickList; 
         #endregion
 
-        #region PUBLIC ACCESS TO PROPERTIES
+        #region public access to properties
+        /// <summary>
+        /// handle the list of receptors
+        /// </summary>
+        /// <param name="index">index of receptor</param>
+        /// <returns>receptor from list</returns>
         public MagicMatchStick this[int index]
         {
             get { return MagicStickList[index]; }
@@ -43,7 +55,7 @@ namespace BotSuite.Recognition.Character
         } 
         #endregion
 
-        #region CONSTRUCTOR AND INITIALISATION
+        #region construct and initalise
         /// <summary>
         /// Create a Container of Magic match Sticks
         /// </summary>
@@ -81,7 +93,7 @@ namespace BotSuite.Recognition.Character
         } 
         #endregion
 
-        #region PATTERN CREATION
+        #region create pattern for learning
         /// <summary>
         /// Get the pattern of the magics match sticks
         /// </summary>

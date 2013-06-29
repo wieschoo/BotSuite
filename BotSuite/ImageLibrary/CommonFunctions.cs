@@ -102,15 +102,18 @@ namespace BotSuite.ImageLibrary
             double[] retvar = CommonFunctions.AverageRGBValues(Img, Left, Top, Width, Height);
             return Color.FromArgb(Convert.ToInt32(retvar[0]), Convert.ToInt32(retvar[1]), Convert.ToInt32(retvar[2]));
         }
+
         /// <summary>
         /// calculate the similarity of image A in a given rectangle and a reference image B
         /// </summary>
         /// <param name="Img">image A</param>
         /// <param name="Reference">image B</param>
-        /// <param name="Left">offset from left of image A</param>
-        /// <param name="Top">offset from top of image A</param>
+        /// <param name="Left">offset of image b from left of image A (default: 0=</param>
+        /// <param name="Top">offset  of image b from top of image A (default: 0=</param>
         /// <param name="Width">width of rectangle (default: full width)</param>
         /// <param name="Height">height of rectangle (default: full height)</param>
+        /// <param name="OffsetLeft">offset of A from left (default: 0=</param>
+        /// <param name="OffsetTop">offset from A from top (default: 0=</param>
         /// <returns>similarity (1=exact,0=none)</returns>
         static public double Similarity(ImageData Img, ImageData Reference, int Left = 0, int Top = 0, int Width = -1, int Height = -1, int OffsetLeft = 0, int OffsetTop = 0)
         {

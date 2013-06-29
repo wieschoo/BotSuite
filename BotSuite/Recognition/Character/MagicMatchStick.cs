@@ -2,30 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-/// <summary>
-/// OCR
-/// </summary>
+
 namespace BotSuite.Recognition.Character
 {
+    /// <summary>
+    /// one receptor (magicmatchstick) a line in the picture can be hitted by character (this results a true) or pass the character (this results a false)
+    /// </summary>
     [Serializable]
     public class MagicMatchStick
     {
         #region PROTECTED PROPERTIES
-        protected int xa, ya, xb, yb;
-        protected int left, top, right, bottom;
-        protected float m, z;
-        protected float dy, dx, c, d; 
+        /// <summary>
+        /// description of the line
+        /// </summary>
+        protected int xa, ya, xb, yb,left, top, right, bottom;
+        /// <summary>
+        /// calculates variables fo the line description
+        /// </summary>
+        protected float m, z,dy, dx, c, d; 
         #endregion
 
-        #region CONSTRUCTOR
+        #region construct
         /// <summary>
         /// create one magic match stick
         /// </summary>
-        /// <param name="x1">first x coordinate</param>
-        /// <param name="y1">first y coordinate</param>
-        /// <param name="x2">second x coordinate</param>
-        /// <param name="y2">second y coordinate</param>
-        /// <returns></returns>
+        /// <param name="xa_in">first x coordinate</param>
+        /// <param name="ya_in">first y coordinate</param>
+        /// <param name="xb_in">second x coordinate</param>
+        /// <param name="yb_in">second y coordinate</param>
         public MagicMatchStick(int xa_in, int ya_in, int xb_in, int yb_in)
         {
             xa = xa_in;
@@ -50,7 +54,7 @@ namespace BotSuite.Recognition.Character
         } 
         #endregion
 
-        #region PATTERN CREATION
+        #region pattern creation
         // Check receptor state
         /// <summary>
         /// does the magic match stick lies over (x,y) ?
