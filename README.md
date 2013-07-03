@@ -14,7 +14,7 @@ http://phpnetmanual.wieschoo.com/
 <h3>Credits</h3>
 <b>DerpyHooves(Karill) from codebot.de</b>
 He is the one who likes a good and clear class design and who gets on our nerves till we use a clear coding style.
-He is a active developer of the BotSuite and all parts of the WinHTTP and some other things were written by him.
+He is a active developer of the BotSuite and created the HTTP classes and some other things were written by him.
 
 <b>easysurfer from easysurfer.me</b>
 He created the FSE for the BotSuite.NET and has a cool blog.
