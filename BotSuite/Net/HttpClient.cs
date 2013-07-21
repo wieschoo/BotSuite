@@ -1,44 +1,64 @@
-﻿/* **************************************************************
- * Name:      BotSuite.NET
- * Purpose:   Framework for creating bots
- * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2013 wieschoo & enWare
- * License:   http://www.wieschoo.com/botsuite/license/
- * *************************************************************/
-
-using System;
-using System.Drawing;
-using System.IO;
-using System.Net;
-using System.Text;
+﻿//-----------------------------------------------------------------------
+// <copyright file="HttpClient.cs" company="Wieschoo &amp; enWare">
+//     Copyright (c) Wieschoo &amp; enWare.
+// </copyright>
+// <project>BotSuite.Net</project>
+// <purpose>framework for creating bots</purpose>
+// <homepage>http://botsuite.net/</homepage>
+// <license>http://botsuite.net/license/index/</license>
+//-----------------------------------------------------------------------
 
 namespace BotSuite.Net
 {
+	using System;
+	using System.Drawing;
+	using System.IO;
+	using System.Net;
+	using System.Text;
+
 	/// <summary>
 	/// HttpClient class for making bots for Browsergames
 	/// </summary>
 	public class HttpClient
 	{
-		CookieContainer _Cookies = new CookieContainer();
+		/// <summary>
+		/// Contains all cookies for this instance of the HttpClient class
+		/// </summary>
+		private CookieContainer _Cookies = new CookieContainer();
+
+		/// <summary>
+		/// Gets all cookies for this instance of the HttpClient class
+		/// </summary>
 		public CookieContainer Cookies
 		{
 			get { return this._Cookies; }
 		}
 
-		String _UserAgent = String.Empty;
+		/// <summary>
+		/// the user agent string which is used for requests
+		/// </summary>
+		private String _UserAgent = String.Empty;
 
-		private HttpHeaderCollection _Headers = new HttpHeaderCollection();
 		/// <summary>
 		/// a collection of all headers of the last response
+		/// </summary>
+		private HttpHeaderCollection _Headers = new HttpHeaderCollection();
+
+		/// <summary>
+		/// Gets a collection of all headers of the last response
 		/// </summary>
 		public HttpHeaderCollection Headers
 		{
 			get { return this._Headers; }
 		}
 
-		private Boolean _AutoReferer = true;
 		/// <summary>
 		/// true, if the HttpClient should adjust the referer at every change of the URL
+		/// </summary>
+		private Boolean _AutoReferer = true;
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the HttpClient should adjust the referer at every change of the URL
 		/// </summary>
 		public Boolean AutoReferer
 		{
@@ -46,9 +66,13 @@ namespace BotSuite.Net
 			set { this._AutoReferer = value; }
 		}
 
-		private String _Referer = null;
 		/// <summary>
 		/// the current referer
+		/// </summary>
+		private String _Referer = null;
+
+		/// <summary>
+		/// Gets or sets the current referer
 		/// </summary>
 		public String Referer
 		{
@@ -56,9 +80,13 @@ namespace BotSuite.Net
 			set { this._Referer = value; }
 		}
 
-		private Boolean _UseProxy = false;
 		/// <summary>
 		/// true, if the HttpClient should use the HttpClient.Proxy for requests
+		/// </summary>
+		private Boolean _UseProxy = false;
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the HttpClient should use the HttpClient.Proxy for requests
 		/// </summary>
 		public Boolean UseProxy
 		{
@@ -66,9 +94,13 @@ namespace BotSuite.Net
 			set { this._UseProxy = value; }
 		}
 
-		private HttpProxy _Proxy = null;
 		/// <summary>
 		/// proxy object with settings for proxy usage for requests (when HttpClient.UseProxy is set to true)
+		/// </summary>
+		private HttpProxy _Proxy = null;
+
+		/// <summary>
+		/// Gets or sets a proxy object with settings for proxy usage for requests (when HttpClient.UseProxy is set to true)
 		/// </summary>
 		public HttpProxy Proxy
 		{
@@ -77,21 +109,31 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		/// useUnsafeHeaderParsing
+		/// Gets or sets a value indicating whether unsafe header parsing should be used
 		/// </summary>
 		public Boolean UseUnsafeHeaderParsing
 		{
-			get { return HttpProxyHacker.IsUseUnsafeHeaderParsingActivated(); }
+			get
+			{
+				return HttpProxyHacker.IsUseUnsafeHeaderParsingActivated();
+			}
+
 			set
 			{
 				if(!HttpProxyHacker.ToggleAllowUnsafeHeaderParsing(value))
+				{
 					throw new Exception("unable to set useUnsafeHeaderParsing in configuration");
+				}
 			}
 		}
 
-		private Boolean _AllowAutoRedirect = true;
 		/// <summary>
 		/// true, if auto-redirects should be allowed, else false (false might cause more work for the developer since more requests have to be made manually)
+		/// </summary>
+		private Boolean _AllowAutoRedirect = true;
+
+		/// <summary>
+		///  Gets or sets a value indicating whether auto-redirects should be allowed (false might cause more work for the developer since more requests have to be made manually)
 		/// </summary>
 		public Boolean AllowAutoRedirect
 		{
@@ -99,9 +141,13 @@ namespace BotSuite.Net
 			set { this._AllowAutoRedirect = value; }
 		}
 
-		private Boolean _AllowBotSuiteAutoRedirect = false;
 		/// <summary>
 		/// true, if BotSuites internal redirect method should be used (will only work if .AllowAutoRedirect is false), else false
+		/// </summary>
+		private Boolean _AllowBotSuiteAutoRedirect = false;
+
+		/// <summary>
+		///  Gets or sets a value indicating whether BotSuites internal redirect method should be used (will only work if .AllowAutoRedirect is false), else false
 		/// </summary>
 		public Boolean AllowBotSuiteAutoRedirect
 		{
@@ -109,9 +155,13 @@ namespace BotSuite.Net
 			set { this._AllowBotSuiteAutoRedirect = value; }
 		}
 
-		private Int32 _MaximumRedirectCount = 100;
 		/// <summary>
 		/// defines the maximum of consecutive requests for AllowAutoRedirect and AllowBotSuiteAutoRedirect
+		/// </summary>
+		private Int32 _MaximumRedirectCount = 100;
+
+		/// <summary>
+		/// Gets or sets the maximum of consecutive requests for AllowAutoRedirect and AllowBotSuiteAutoRedirect
 		/// </summary>
 		public Int32 MaximumRedirectCount
 		{
@@ -119,9 +169,13 @@ namespace BotSuite.Net
 			set { this._MaximumRedirectCount = value; }
 		}
 
-		private Boolean _Expect100Continue = false;
 		/// <summary>
 		/// sets Expect100Continue of the HttpWebRequest.ServiceProvider upon request
+		/// </summary>
+		private Boolean _Expect100Continue = false;
+
+		/// <summary>
+		///  Gets or sets a value indicating whether Expect100Continue of the HttpWebRequest.ServiceProvider is used upon request
 		/// </summary>
 		public Boolean Expect100Continue
 		{
@@ -129,18 +183,26 @@ namespace BotSuite.Net
 			set { this._Expect100Continue = value; }
 		}
 
-		private Encoding _LastResponseEncoding = null;
 		/// <summary>
 		/// returns the encoding of the last web-response
+		/// </summary>
+		private Encoding _LastResponseEncoding = null;
+
+		/// <summary>
+		/// Gets the encoding of the last web-response
 		/// </summary>
 		public Encoding LastResponseEncoding
 		{
 			get { return this._LastResponseEncoding; }
 		}
 
-		private Boolean _IgnoreCertificateValidationFailures = false;
 		/// <summary>
 		/// Determines whether or not the HttpClient should ignore SSL/TLS certificate validation failures
+		/// </summary>
+		private Boolean _IgnoreCertificateValidationFailures = false;
+
+		/// <summary>
+		///  Gets or sets a value indicating whether or not the HttpClient should ignore SSL/TLS certificate validation failures
 		/// </summary>
 		public Boolean IgnoreCertificateValidationFailures
 		{
@@ -149,7 +211,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		/// constructor for the HttpClient class
+		/// Initializes a new instance of the <see cref="HttpClient"/> class
 		/// </summary>
 		/// <param name="useragent">a useragent string</param>
 		/// <param name="initialReferer">the Referer the first request will be sent from, i.e. www.google.com</param>
@@ -185,13 +247,13 @@ namespace BotSuite.Net
 		/// (better use overload with HttpPostDataCollection parameter, it's easier to use and more flexible)
 		/// </summary>
 		/// <example>
-		/// <code>
+		/// <code><![CDATA[
 		/// var html = hc.POST("http://www.codebot.de",
 		///		System.Web.HttpUtility.UrlEncode("sender") + "="
 		///		+ System.Web.HttpUtility.UrlEncode("wieschoo") + "&"
 		///		+ System.Web.HttpUtility.UrlEncode("message") + "="
 		///		+ System.Web.HttpUtility.UrlEncode("hallo welt"));
-		/// </code>
+		/// ]]></code>
 		/// </example>
 		/// <param name="url">the URL to send the post request to</param>
 		/// <param name="postdata">the POST data</param>
@@ -206,35 +268,56 @@ namespace BotSuite.Net
 				while(true)
 				{
 					if(requestCount > this._MaximumRedirectCount)
+					{
 						throw new HttpRequestException("too many automatic redirects");
+					}
 
 					if(requestCount <= 0)
+					{
 						html = this._POST(url, postdata, referer);
+					}
 					else if(this._Headers.Contains(HttpConstants.HeaderNames.Location))
+					{
 						html = this._GET(this.Headers[HttpConstants.HeaderNames.Location].Value);
+					}
 					else
+					{
 						break;
+					}
+
 					requestCount++;
 				}
+
 				return html;
 			}
 			else
+			{
 				return this._POST(url, postdata, referer);
+			}
 		}
 
+		/// <summary>
+		/// internal POST method
+		/// </summary>
+		/// <param name="url">url to send post request to</param>
+		/// <param name="postdata">data of the post request</param>
+		/// <param name="referer">referer for the post request</param>
+		/// <returns>html markup of site</returns>
 		private String _POST(String url, String postdata, String referer = null)
 		{
-			this._Headers.Clear(); //DerpyHooves 2013-06-21
+			this._Headers.Clear(); // DerpyHooves 2013-06-21
 
 			if(referer != null)
+			{
 				this._Referer = referer;
+			}
 
 			url = CorrectUrl(url);
 
 			String src = null;
 			try
 			{
-				HttpWebRequest req = PrepareRequest(url, "POST");
+				HttpWebRequest req = this.PrepareRequest(url, "POST");
 				req.ContentType = "application/x-www-form-urlencoded";
 				byte[] data = Encoding.Default.GetBytes(postdata);
 				req.ContentLength = data.Length;
@@ -242,12 +325,14 @@ namespace BotSuite.Net
 				{
 					s.Write(data, 0, data.Length);
 				}
-				src = GetResponse(req);
+
+				src = this.GetResponse(req);
 			}
 			catch(Exception ex)
 			{
 				throw new HttpRequestException("POST request to " + url + " failed.", ex);
 			}
+
 			return src;
 		}
 
@@ -262,7 +347,7 @@ namespace BotSuite.Net
 		/// </example>
 		/// <param name="url">the URL to send the request to</param>
 		/// <param name="referer">the referer to send the request from</param>
-		/// <returns></returns>
+		/// <returns>returns the html of the requested website</returns>
 		public String GET(String url, String referer = null)
 		{
 			if(this._AllowBotSuiteAutoRedirect && !this._AllowAutoRedirect)
@@ -272,41 +357,62 @@ namespace BotSuite.Net
 				while(true)
 				{
 					if(requestCount > this._MaximumRedirectCount)
+					{
 						throw new HttpRequestException("too many automatic redirects");
+					}
 
 					if(requestCount <= 0)
+					{
 						html = this._GET(url, referer);
+					}
 					else if(this._Headers.Contains(HttpConstants.HeaderNames.Location))
+					{
 						html = this._GET(this.Headers[HttpConstants.HeaderNames.Location].Value);
+					}
 					else
+					{
 						break;
+					}
+
 					requestCount++;
 				}
+
 				return html;
 			}
 			else
+			{
 				return this._GET(url, referer);
+			}
 		}
 		
+		/// <summary>
+		/// internal GET method
+		/// </summary>
+		/// <param name="url">url to send request to</param>
+		/// <param name="referer">referer for the request</param>
+		/// <returns>html of the requested website</returns>
 		private String _GET(String url, String referer = null)
 		{
-			this._Headers.Clear(); //DerpyHooves 2013-06-21
+			this._Headers.Clear(); // DerpyHooves 2013-06-21
 
 			if(referer != null)
+			{
 				this._Referer = referer;
+			}
 
 			url = CorrectUrl(url);
 
 			String src = null;
 			try
 			{
-				HttpWebRequest req = PrepareRequest(url, "GET");
-				src = GetResponse(req);
+				HttpWebRequest req = this.PrepareRequest(url, "GET");
+				src = this.GetResponse(req);
 			}
 			catch(Exception ex)
 			{
 				throw new HttpRequestException("GET request to " + url + " failed.", ex);
 			}
+
 			return src;
 		}
 
@@ -321,52 +427,65 @@ namespace BotSuite.Net
 		/// </example>
 		/// <param name="url">the URL to send the request to</param>
 		/// <param name="referer">the referer to send the request from</param>
-		/// <returns></returns>
-		public String HEAD(String url, String referer = null)
+		public void HEAD(String url, String referer = null)
 		{
 			if(this._AllowBotSuiteAutoRedirect && !this._AllowAutoRedirect)
 			{
-				String html = null;
 				Int32 requestCount = 0;
 				while(true)
 				{
 					if(requestCount > this._MaximumRedirectCount)
+					{
 						throw new HttpRequestException("too many automatic redirects");
+					}
 
 					if(requestCount <= 0)
-						html = this._HEAD(url, referer);
+					{
+						this._HEAD(url, referer);
+					}
 					else if(this._Headers.Contains(HttpConstants.HeaderNames.Location))
-						html = this._HEAD(this.Headers[HttpConstants.HeaderNames.Location].Value);
+					{
+						this._HEAD(this.Headers[HttpConstants.HeaderNames.Location].Value);
+					}
 					else
+					{
 						break;
+					}
+
 					requestCount++;
 				}
-				return html;
 			}
 			else
-				return this._HEAD(url, referer);
+			{
+				this._HEAD(url, referer);
+			}
 		}
 
-		private String _HEAD(String url, String referer = null)
+		/// <summary>
+		/// internal HEAD request method
+		/// </summary>
+		/// <param name="url">url for the head request</param>
+		/// <param name="referer">referer for the head request</param>
+		private void _HEAD(String url, String referer = null)
 		{
-			this._Headers.Clear(); //DerpyHooves 2013-06-21
+			this._Headers.Clear(); // DerpyHooves 2013-06-21
 
 			if(referer != null)
+			{
 				this._Referer = referer;
+			}
 
 			url = CorrectUrl(url);
 
-			String src = null;
 			try
 			{
-				HttpWebRequest req = PrepareRequest(url, "HEAD");
-				src = GetResponse(req);
+				HttpWebRequest req = this.PrepareRequest(url, "HEAD");
+				this.GetResponse(req);
 			}
 			catch(Exception ex)
 			{
 				throw new HttpRequestException("HEAD request to " + url + " failed.", ex);
 			}
-			return src;
 		}
 
 		/// <summary>
@@ -399,6 +518,7 @@ namespace BotSuite.Net
 			{
 				return null;
 			}
+
 			return retImg;
 		}
 
@@ -409,10 +529,13 @@ namespace BotSuite.Net
 		/// <returns>the, if it was necessary, corrected URL</returns>
 		private static String CorrectUrl(String url)
 		{
-			//DerpyHooves 2013-05-02: URL URI-Format failover
+			// DerpyHooves 2013-05-02: URL URI-Format failover
 			if(!url.StartsWith("http://") && !url.StartsWith("https://"))
+			{
 				url = "http://" + url;
-			//... Derpy Hooves
+			}
+
+			// ... Derpy Hooves
 			return url;
 		}
 
@@ -426,23 +549,27 @@ namespace BotSuite.Net
 		{
 			HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
 
-			ServicePointManager.ServerCertificateValidationCallback = ((sender, cert, chain, errors) => { return this._IgnoreCertificateValidationFailures; });
+			ServicePointManager.ServerCertificateValidationCallback = (sender, cert, chain, errors) => { return this._IgnoreCertificateValidationFailures; };
 
-			req.CookieContainer = _Cookies;
+			req.CookieContainer = this._Cookies;
 			req.Method = method;
-			req.UserAgent = _UserAgent;
-			req.ServicePoint.Expect100Continue = _Expect100Continue; //DerpyHooves 2013-06-20
-			req.AllowAutoRedirect = _AllowAutoRedirect; //DerpyHooves 2013-06-20
-			req.Credentials = CredentialCache.DefaultCredentials; //DerpyHooves 2013-07-21
+			req.UserAgent = this._UserAgent;
+			req.ServicePoint.Expect100Continue = this._Expect100Continue; // DerpyHooves 2013-06-20
+			req.AllowAutoRedirect = this._AllowAutoRedirect; // DerpyHooves 2013-06-20
+			req.Credentials = CredentialCache.DefaultCredentials; // DerpyHooves 2013-07-21
 			if(this._Referer != null)
+			{
 				req.Referer = this._Referer;
-			//DerpyHooves 2013-04-16: added proxy ...
+			}
+
+			// DerpyHooves 2013-04-16: added proxy ...
 			if(this._UseProxy && (this._Proxy != null))
 			{
 				req.Proxy = this._Proxy.GetWebProxy();
 				req.Credentials = req.Proxy.Credentials;
 			}
-			//... Derpy Hooves 2013-04-16
+
+			// ... Derpy Hooves 2013-04-16
 			return req;
 		}
 
@@ -463,7 +590,7 @@ namespace BotSuite.Net
 
 				foreach(Cookie c in resp.Cookies)
 				{
-					RepairCookie(resp.ResponseUri, c);
+					this.RepairCookie(resp.ResponseUri, c);
 				}
 
 				using(System.IO.Stream s = resp.GetResponseStream())
@@ -473,22 +600,34 @@ namespace BotSuite.Net
 					{
 						src = sr.ReadToEnd();
 						if(this._AutoReferer)
+						{
 							this._Referer = resp.ResponseUri.AbsolutePath;
+						}
 					}
 				}
 			}
+
 			return src;
 		}
 
+		/// <summary>
+		/// repairs a cookie (path and uri)
+		/// </summary>
+		/// <param name="u">the uri the cookie is for</param>
+		/// <param name="c">the cookie to repair</param>
 		private void RepairCookie(Uri u, Cookie c)
 		{
 			string path = c.Path;
 			if(!path.EndsWith("/"))
 			{
 				if(!path.Contains("/"))
+				{
 					path = "/" + path;
+				}
+
 				path = c.Path.Remove(c.Path.LastIndexOf('/') + 1);
 			}
+
 			Cookie nc = new Cookie(c.Name, c.Value, path, c.Domain);
 			this._Cookies.Add(u, nc);
 		}
