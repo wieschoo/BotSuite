@@ -130,9 +130,22 @@ namespace BotSuite.Net
 		}
 
 		private Encoding _LastResponseEncoding = null;
+		/// <summary>
+		/// returns the encoding of the last web-response
+		/// </summary>
 		public Encoding LastResponseEncoding
 		{
 			get { return this._LastResponseEncoding; }
+		}
+
+		private Boolean _IgnoreCertificateValidationFailures = false;
+		/// <summary>
+		/// Determines whether or not the HttpClient should ignore SSL/TLS certificate validation failures
+		/// </summary>
+		public Boolean IgnoreCertificateValidationFailures
+		{
+			get { return this._IgnoreCertificateValidationFailures; }
+			set { this._IgnoreCertificateValidationFailures = value; }
 		}
 
 		/// <summary>
@@ -413,11 +426,14 @@ namespace BotSuite.Net
 		{
 			HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
 
+			ServicePointManager.ServerCertificateValidationCallback = ((sender, cert, chain, errors) => { return this._IgnoreCertificateValidationFailures; });
+
 			req.CookieContainer = _Cookies;
 			req.Method = method;
 			req.UserAgent = _UserAgent;
 			req.ServicePoint.Expect100Continue = _Expect100Continue; //DerpyHooves 2013-06-20
 			req.AllowAutoRedirect = _AllowAutoRedirect; //DerpyHooves 2013-06-20
+			req.Credentials = CredentialCache.DefaultCredentials; //DerpyHooves 2013-07-21
 			if(this._Referer != null)
 				req.Referer = this._Referer;
 			//DerpyHooves 2013-04-16: added proxy ...
