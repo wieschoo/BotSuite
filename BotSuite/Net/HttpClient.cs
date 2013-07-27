@@ -22,6 +22,22 @@ namespace BotSuite.Net
 	public class HttpClient
 	{
 		/// <summary>
+		/// cache for last response
+		/// </summary>
+		private byte[] _Cache = null;
+
+		/// <summary>
+		/// Gets all bytes of the last response
+		/// </summary>
+		public byte[] Cache
+		{
+			get
+			{
+				return this._Cache;
+			}
+		}
+
+		/// <summary>
 		/// Contains all cookies for this instance of the HttpClient class
 		/// </summary>
 		private CookieContainer _Cookies = new CookieContainer();
@@ -233,13 +249,14 @@ namespace BotSuite.Net
 		/// var html = hc.POST("http://www.codebot.de", hpdc);
 		/// </code>
 		/// </example>
+		/// <typeparam name="TRespType"></typeparam>
 		/// <param name="url">the URL to send the post request to</param>
 		/// <param name="postdata">the POST data</param>
 		/// <param name="referer">the referer to send the request from</param>
-		/// <returns>the HTML sourcecode</returns>
-		public String POST(String url, HttpPostDataCollection postdata, String referer = null)
+		/// <returns>the response as TRespType</returns>
+		public TRespType POST<TRespType>(String url, HttpPostDataCollection postdata, String referer = null) where TRespType : class
 		{
-			return this.POST(url, postdata.ToString(), referer);
+			return this.POST<TRespType>(url, postdata.ToString(), referer);
 		}
 
 		/// <summary>
@@ -255,15 +272,16 @@ namespace BotSuite.Net
 		///		+ System.Web.HttpUtility.UrlEncode("hallo welt"));
 		/// ]]></code>
 		/// </example>
+		/// <typeparam name="TRespType">the return type for the response</typeparam>
 		/// <param name="url">the URL to send the post request to</param>
 		/// <param name="postdata">the POST data</param>
 		/// <param name="referer">the referer to send the request from</param>
-		/// <returns>the HTML sourcecode</returns>
-		public String POST(String url, String postdata, String referer = null)
+		/// <returns>the response as TRespType</returns>
+		public TRespType POST<TRespType>(String url, String postdata, String referer = null) where TRespType : class
 		{
 			if(this._AllowBotSuiteAutoRedirect && !this._AllowAutoRedirect)
 			{
-				String html = null;
+				TRespType response = null;
 				Int32 requestCount = 0;
 				while(true)
 				{
@@ -274,11 +292,11 @@ namespace BotSuite.Net
 
 					if(requestCount <= 0)
 					{
-						html = this._POST(url, postdata, referer);
+						response = this._POST<TRespType>(url, postdata, referer);
 					}
 					else if(this._Headers.Contains(HttpConstants.HeaderNames.Location))
 					{
-						html = this._GET(this.Headers[HttpConstants.HeaderNames.Location].Value);
+						response = this._GET<TRespType>(this.Headers[HttpConstants.HeaderNames.Location].Value);
 					}
 					else
 					{
@@ -288,22 +306,23 @@ namespace BotSuite.Net
 					requestCount++;
 				}
 
-				return html;
+				return response;
 			}
 			else
 			{
-				return this._POST(url, postdata, referer);
+				return this._POST<TRespType>(url, postdata, referer);
 			}
 		}
 
 		/// <summary>
 		/// internal POST method
 		/// </summary>
+		/// <typeparam name="TRespType">the return type for the response</typeparam>
 		/// <param name="url">url to send post request to</param>
 		/// <param name="postdata">data of the post request</param>
 		/// <param name="referer">referer for the post request</param>
-		/// <returns>html markup of site</returns>
-		private String _POST(String url, String postdata, String referer = null)
+		/// <returns>response as TRespType of site</returns>
+		private TRespType _POST<TRespType>(String url, String postdata, String referer = null) where TRespType : class
 		{
 			this._Headers.Clear(); // DerpyHooves 2013-06-21
 
@@ -314,7 +333,7 @@ namespace BotSuite.Net
 
 			url = CorrectUrl(url);
 
-			String src = null;
+			TRespType response = null;
 			try
 			{
 				HttpWebRequest req = this.PrepareRequest(url, "POST");
@@ -326,14 +345,14 @@ namespace BotSuite.Net
 					s.Write(data, 0, data.Length);
 				}
 
-				src = this.GetResponse(req);
+				response = this.GetResponse<TRespType>(req);
 			}
 			catch(Exception ex)
 			{
 				throw new HttpRequestException("POST request to " + url + " failed.", ex);
 			}
 
-			return src;
+			return response;
 		}
 
 		/// <summary>
@@ -345,14 +364,15 @@ namespace BotSuite.Net
 		/// var html = hc.GET("http://www.codebot.de");
 		/// </code>
 		/// </example>
+		/// <typeparam name="TRespType">the return type for the response</typeparam>
 		/// <param name="url">the URL to send the request to</param>
 		/// <param name="referer">the referer to send the request from</param>
-		/// <returns>returns the html of the requested website</returns>
-		public String GET(String url, String referer = null)
+		/// <returns>returns the response as TRespType of the requested website</returns>
+		public TRespType GET<TRespType>(String url, String referer = null) where TRespType : class
 		{
 			if(this._AllowBotSuiteAutoRedirect && !this._AllowAutoRedirect)
 			{
-				String html = null;
+				TRespType response = null;
 				Int32 requestCount = 0;
 				while(true)
 				{
@@ -363,11 +383,11 @@ namespace BotSuite.Net
 
 					if(requestCount <= 0)
 					{
-						html = this._GET(url, referer);
+						response = this._GET<TRespType>(url, referer);
 					}
 					else if(this._Headers.Contains(HttpConstants.HeaderNames.Location))
 					{
-						html = this._GET(this.Headers[HttpConstants.HeaderNames.Location].Value);
+						response = this._GET<TRespType>(this.Headers[HttpConstants.HeaderNames.Location].Value);
 					}
 					else
 					{
@@ -377,21 +397,22 @@ namespace BotSuite.Net
 					requestCount++;
 				}
 
-				return html;
+				return response;
 			}
 			else
 			{
-				return this._GET(url, referer);
+				return this._GET<TRespType>(url, referer);
 			}
 		}
 		
 		/// <summary>
 		/// internal GET method
 		/// </summary>
+		/// <typeparam name="TRespType">the return type for the response</typeparam>
 		/// <param name="url">url to send request to</param>
 		/// <param name="referer">referer for the request</param>
-		/// <returns>html of the requested website</returns>
-		private String _GET(String url, String referer = null)
+		/// <returns>response as TRespType of the requested website</returns>
+		private TRespType _GET<TRespType>(String url, String referer = null) where TRespType : class
 		{
 			this._Headers.Clear(); // DerpyHooves 2013-06-21
 
@@ -402,18 +423,18 @@ namespace BotSuite.Net
 
 			url = CorrectUrl(url);
 
-			String src = null;
+			TRespType response = null;
 			try
 			{
 				HttpWebRequest req = this.PrepareRequest(url, "GET");
-				src = this.GetResponse(req);
+				response = this.GetResponse<TRespType>(req);
 			}
 			catch(Exception ex)
 			{
 				throw new HttpRequestException("GET request to " + url + " failed.", ex);
 			}
 
-			return src;
+			return response;
 		}
 
 		/// <summary>
@@ -425,9 +446,10 @@ namespace BotSuite.Net
 		/// var html = hc.HEAD("http://www.codebot.de");
 		/// </code>
 		/// </example>
+		/// <typeparam name="TRespType">the return type for the response</typeparam>
 		/// <param name="url">the URL to send the request to</param>
 		/// <param name="referer">the referer to send the request from</param>
-		public void HEAD(String url, String referer = null)
+		public void HEAD<TRespType>(String url, String referer = null) where TRespType : class
 		{
 			if(this._AllowBotSuiteAutoRedirect && !this._AllowAutoRedirect)
 			{
@@ -441,11 +463,11 @@ namespace BotSuite.Net
 
 					if(requestCount <= 0)
 					{
-						this._HEAD(url, referer);
+						this._HEAD<TRespType>(url, referer);
 					}
 					else if(this._Headers.Contains(HttpConstants.HeaderNames.Location))
 					{
-						this._HEAD(this.Headers[HttpConstants.HeaderNames.Location].Value);
+						this._HEAD<TRespType>(this.Headers[HttpConstants.HeaderNames.Location].Value);
 					}
 					else
 					{
@@ -457,16 +479,17 @@ namespace BotSuite.Net
 			}
 			else
 			{
-				this._HEAD(url, referer);
+				this._HEAD<TRespType>(url, referer);
 			}
 		}
 
 		/// <summary>
 		/// internal HEAD request method
 		/// </summary>
+		/// <typeparam name="TRespType">the return type for the response</typeparam>
 		/// <param name="url">url for the head request</param>
 		/// <param name="referer">referer for the head request</param>
-		private void _HEAD(String url, String referer = null)
+		private void _HEAD<TRespType>(String url, String referer = null) where TRespType : class
 		{
 			this._Headers.Clear(); // DerpyHooves 2013-06-21
 
@@ -480,46 +503,12 @@ namespace BotSuite.Net
 			try
 			{
 				HttpWebRequest req = this.PrepareRequest(url, "HEAD");
-				this.GetResponse(req);
+				this.GetResponse<TRespType>(req);
 			}
 			catch(Exception ex)
 			{
 				throw new HttpRequestException("HEAD request to " + url + " failed.", ex);
 			}
-		}
-
-		/// <summary>
-		/// tries to convert a sourcecode-string (i.e. from a POST or GET request) into an image (works only if the response was an image)
-		/// </summary>
-		/// <example>
-		/// <code>
-		/// var hc = new HttpClient("some-user-agent", "www.google.de");
-		/// var sourcecode = hc.GET("http://www.codebot.de");
-		/// var img = HttpClient.SourcecodeToImage(sourcecode);
-		/// </code>
-		/// </example>
-		/// <param name="sourcecode">the sourcecode-string that comes from a POTS or GET request</param>
-		/// <returns>null, if unable to convert to image, else an System.Drawing.Image object</returns>
-		public Image SourcecodeToImage(String sourcecode)
-		{
-			Image retImg = null;
-			try
-			{
-				using(MemoryStream ms = new MemoryStream())
-				{
-					StreamWriter sw = new StreamWriter(ms, this._LastResponseEncoding ?? Encoding.Default);
-					sw.Write(sourcecode);
-					ms.Seek(0, SeekOrigin.Begin);
-					retImg = Image.FromStream(ms);
-					sw.Dispose();
-				}
-			}
-			catch
-			{
-				return null;
-			}
-
-			return retImg;
 		}
 
 		/// <summary>
@@ -547,6 +536,8 @@ namespace BotSuite.Net
 		/// <returns>a fully prepared HttpWebRequest</returns>
 		private HttpWebRequest PrepareRequest(String url, string method)
 		{
+			this._Cache = null;
+
 			HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
 
 			ServicePointManager.ServerCertificateValidationCallback = (sender, cert, chain, errors) => { return this._IgnoreCertificateValidationFailures; };
@@ -576,11 +567,12 @@ namespace BotSuite.Net
 		/// <summary>
 		/// Receives the response for a HttpWebRequest
 		/// </summary>
+		/// <typeparam name="TRespType">the return type for the response</typeparam>
 		/// <param name="req">the HttpWebRequest the return is wanted for</param>
-		/// <returns>the soourcecode for the request</returns>
-		private String GetResponse(HttpWebRequest req)
+		/// <returns>the response as TRespType for the request</returns>
+		private TRespType GetResponse<TRespType>(HttpWebRequest req) where TRespType : class
 		{
-			String src = null;
+			TRespType response = null;
 			using(HttpWebResponse resp = (HttpWebResponse)req.GetResponse())
 			{
 				foreach(String headerKey in resp.Headers.AllKeys)
@@ -596,9 +588,29 @@ namespace BotSuite.Net
 				using(System.IO.Stream s = resp.GetResponseStream())
 				{
 					this._LastResponseEncoding = (!String.IsNullOrEmpty(resp.CharacterSet)) ? Encoding.GetEncoding(resp.CharacterSet) : Encoding.Default;
-					using(System.IO.StreamReader sr = new System.IO.StreamReader(s, this._LastResponseEncoding))
+
+					// Ergebnis cachen für Test (wegen image)
+					using(BinaryReader br = new BinaryReader(s, this._LastResponseEncoding))
 					{
-						src = sr.ReadToEnd();
+						System.Collections.Generic.List<byte> bytes = new System.Collections.Generic.List<byte>();
+						byte[] buffer = new byte[1];
+						int bytesRead = 0;
+
+						while((bytesRead = br.Read(buffer, 0, buffer.Length)) > 0)
+						{
+							bytes.AddRange(buffer);
+						}
+
+						this._Cache = bytes.ToArray();
+					}
+
+					if(this._Cache != null)
+					{
+						if(typeof(TRespType) == typeof(String))
+							response = (LoadStringFromCache() as TRespType);
+						else if(typeof(TRespType) == typeof(Image))
+							response = (LoadImageFromCache() as TRespType);
+
 						if(this._AutoReferer)
 						{
 							this._Referer = resp.ResponseUri.AbsolutePath;
@@ -607,7 +619,51 @@ namespace BotSuite.Net
 				}
 			}
 
-			return src;
+			return response;
+		}
+
+		/// <summary>
+		/// Converts the cache of this HttpClient into a string
+		/// </summary>
+		/// <returns>the string from the cache</returns>
+		private String LoadStringFromCache()
+		{
+			String retStr = null;
+
+			if(this._Cache != null)
+				retStr = (this._LastResponseEncoding ?? Encoding.Default).GetString(this._Cache);
+
+			return retStr;
+		}
+
+		/// <summary>
+		/// Converts the cache of this HttpClient into an image
+		/// </summary>
+		/// <returns>the image from the cache</returns>
+		private Image LoadImageFromCache()
+		{
+			Image retImg = null;
+
+			if(this._Cache != null)
+			{
+				try
+				{
+					using(MemoryStream ms = new MemoryStream())
+					{
+						BinaryWriter bw = new BinaryWriter(ms, this._LastResponseEncoding ?? Encoding.Default);
+						bw.Write(this._Cache);
+						ms.Seek(0, SeekOrigin.Begin);
+						retImg = Image.FromStream(ms);
+						bw.Dispose();
+					}
+				}
+				catch
+				{
+					return null;
+				}
+			}
+
+			return retImg;
 		}
 
 		/// <summary>
