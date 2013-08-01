@@ -49,6 +49,7 @@
     <Compile Include="Browser.cs" />
     <Compile Include="CommonRegex.cs" />
     <Compile Include="ControlArtist.cs" />
+    <Compile Include="DataTypes\Hex32.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="FiniteStateEngine\Pattern\Singleton.cs" />
     <Compile Include="FiniteStateEngine\StateEngine\Entites\BaseEntity.cs" />
