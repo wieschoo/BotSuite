@@ -218,12 +218,26 @@ namespace BotSuite.Net
 		private Boolean _IgnoreCertificateValidationFailures = false;
 
 		/// <summary>
-		///  Gets or sets a value indicating whether or not the HttpClient should ignore SSL/TLS certificate validation failures
+		/// Gets or sets a value indicating whether or not the HttpClient should ignore SSL/TLS certificate validation failures
 		/// </summary>
 		public Boolean IgnoreCertificateValidationFailures
 		{
 			get { return this._IgnoreCertificateValidationFailures; }
 			set { this._IgnoreCertificateValidationFailures = value; }
+		}
+
+		/// <summary>
+		/// The decompression method
+		/// </summary>
+		private DecompressionMethods _DecompressionMethod = DecompressionMethods.None;
+
+		/// <summary>
+		/// Gets or sets the decompression method.
+		/// </summary>
+		public DecompressionMethods DecompressionMethod
+		{
+			get { return this._DecompressionMethod; }
+			set { this._DecompressionMethod = value; }
 		}
 
 		/// <summary>
@@ -414,7 +428,7 @@ namespace BotSuite.Net
 		/// <returns>response as TRespType of the requested website</returns>
 		private TRespType _GET<TRespType>(String url, String referer = null) where TRespType : class
 		{
-			this._Headers.Clear(); // DerpyHooves 2013-06-21
+			this._Headers.Clear();
 
 			if(referer != null)
 			{
@@ -545,22 +559,21 @@ namespace BotSuite.Net
 			req.CookieContainer = this._Cookies;
 			req.Method = method;
 			req.UserAgent = this._UserAgent;
-			req.ServicePoint.Expect100Continue = this._Expect100Continue; // DerpyHooves 2013-06-20
-			req.AllowAutoRedirect = this._AllowAutoRedirect; // DerpyHooves 2013-06-20
-			req.Credentials = CredentialCache.DefaultCredentials; // DerpyHooves 2013-07-21
+			req.AutomaticDecompression = this._DecompressionMethod;
+			req.ServicePoint.Expect100Continue = this._Expect100Continue;
+			req.AllowAutoRedirect = this._AllowAutoRedirect;
+			req.Credentials = CredentialCache.DefaultCredentials;
 			if(this._Referer != null)
 			{
 				req.Referer = this._Referer;
 			}
 
-			// DerpyHooves 2013-04-16: added proxy ...
 			if(this._UseProxy && (this._Proxy != null))
 			{
 				req.Proxy = this._Proxy.GetWebProxy();
 				req.Credentials = req.Proxy.Credentials;
 			}
 
-			// ... Derpy Hooves 2013-04-16
 			return req;
 		}
 
@@ -589,7 +602,6 @@ namespace BotSuite.Net
 				{
 					this._LastResponseEncoding = (!String.IsNullOrEmpty(resp.CharacterSet)) ? Encoding.GetEncoding(resp.CharacterSet) : Encoding.Default;
 
-					// Ergebnis cachen für Test (wegen image)
 					using(BinaryReader br = new BinaryReader(s, this._LastResponseEncoding))
 					{
 						System.Collections.Generic.List<byte> bytes = new System.Collections.Generic.List<byte>();
