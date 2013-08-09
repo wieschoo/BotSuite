@@ -14,22 +14,34 @@ namespace BotSuite.MachineLearning.NeuralNetwork
     {
 
         #region protected properties
+        /// <summary>
+        /// intern instance of a PseudoRandomNumberGenerator
+        /// </summary>
         protected static Random prng = new Random();
-        // Intervall for randomisation
-        protected float _intervall_min = -1.0f;
-        protected float _intervall_max = 1.0f;
-        // weights
-        protected float[] _weight;
-        protected float[] _remember_weight;
-
-        protected float _threshold = 0f;
-        protected float _remember_threshold = 0f;
-
+        /// <summary>
+        /// intern interval for randomisation
+        /// </summary>
+        protected float _intervall_min = -1.0f, _intervall_max = 1.0f;
+        /// <summary>
+        /// intern weights of inputs
+        /// </summary>
+        protected float[] _weight,_remember_weight;
+        /// <summary>
+        /// intern theshold variable
+        /// </summary>
+        protected float _threshold = 0f,_remember_threshold = 0f;
+        /// <summary>
+        /// intern handle of the activation function
+        /// </summary>
         protected iActivationFunction _f = null;
-
+        /// <summary>
+        /// the output
+        /// </summary>
         protected float _neuron_output = 0f;
-        protected float _synapsevalue_with_threshold = 0f;
-        protected float _usefull_variable; 
+        /// <summary>
+        /// values for faster computation
+        /// </summary>
+        protected float _synapsevalue_with_threshold = 0f,_usefull_variable; 
         #endregion
 
         #region public properties

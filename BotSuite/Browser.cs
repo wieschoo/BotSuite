@@ -22,6 +22,9 @@ namespace BotSuite
     /// </summary>
     public class Browser
     {
+        /// <summary>
+        /// intern instance of browser object
+        /// </summary>
         private System.Windows.Forms.WebBrowser Instance;
         private bool FullLoaded;
 
@@ -37,11 +40,20 @@ namespace BotSuite
             FullLoaded = true;
             UseNewIE();
         }
+        /// <summary>
+        /// internal call; will be raise if site is loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void SetBrowserCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             FullLoaded = true;
         }
-
+        /// <summary>
+        /// tests if element exists
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool ElementExists(string id)
         {
             HtmlElement ElementToGet = Instance.Document.GetElementById(id);

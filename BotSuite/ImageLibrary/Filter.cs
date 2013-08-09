@@ -112,7 +112,6 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <see cref="blackandwhite"/>
         /// <returns></returns>
         static public void BlackAndWhite(ref ImageData Img, uint Tolerance)
         {
@@ -136,7 +135,6 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <see cref="replacecolor"/>
         /// <returns></returns>
         static public void ReplaceSimilarColor(ref ImageData Img, Color SearchColor, Color ReplaceColor, uint Tolerance)
         {
@@ -196,7 +194,6 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <see cref="gray"/>
         /// <param name="Img">ref image to convert</param>
         /// <returns></returns>
         static public void Grayscale(ref ImageData Img)
@@ -223,7 +220,6 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <see cref="invert"/>
         /// <param name="Img">ref image to convert</param>
         /// <returns></returns>
         static public void Invert(ref ImageData Img)
@@ -244,7 +240,6 @@ namespace BotSuite.ImageLibrary
         /// <param name="Location">where to set marker</param>
         /// <param name="MarkColor">color of marker</param>
         /// <param name="Size">size of marker (square)</param>
-        /// <returns></returns>
         static public void MarkPoint(ref ImageData Img, Point Location, Color MarkColor, uint Size)
         {
             for (int i = Convert.ToInt32(Location.X - Size); i < Location.X + Size; i++)
@@ -267,9 +262,7 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <see cref="sepia"/>
         /// <param name="Img">ref image to convert</param>
-        /// <returns></returns>
         static public void Sepia(ref ImageData Img)
         {
             int t;
@@ -284,7 +277,7 @@ namespace BotSuite.ImageLibrary
             }
         }
         /// <summary>
-        /// apply threshold
+        /// apply threshold filter (all above threshold becomes white, the other pixels are black)
         /// </summary>
         /// <param name="Img">ref Image</param>
         /// <param name="threshold">threshold (0,...,255)</param>
@@ -299,8 +292,6 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <see cref="threshold"/>
-        /// <returns></returns>
         static public void Threshold(ref ImageData Img,uint threshold)
         {
             for (Int32 column = 0; column < Img.Width; column++)
@@ -334,8 +325,6 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <see cref="contrast"/>
-        /// <returns></returns>
         static public void Contrast(ref ImageData Img, double contrast)
         {
             double  RedChannel, GreenChannel, BlueChannel;
@@ -382,7 +371,6 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <see cref="brightness"/>
         /// <returns></returns>
         static public void Brightness(ref ImageData Img, int brightness)
         {
@@ -426,7 +414,6 @@ namespace BotSuite.ImageLibrary
         /// </example>
         /// <param name="Img">image to manipulate</param>
         /// <param name="offset">offset of colordepth</param>
-        /// <see cref="decreasecolourdepth"/>
         /// <returns></returns>
         static public void DecreaseColourDepth(ref ImageData Img, int offset)
         {
@@ -465,7 +452,6 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <see cref="emboss"/>
         /// <returns></returns>
         static public void Emboss(ref ImageData Img, double weight)
         {
@@ -499,7 +485,6 @@ namespace BotSuite.ImageLibrary
         /// </example>
         /// <param name="Img">image to manipulate</param>
         /// <param name="peakValue">parameter</param>
-        /// <see cref="gaussian"/>
         /// <returns></returns>
         static public void GaussianBlur(ref ImageData Img, double peakValue)
         {
@@ -532,7 +517,6 @@ namespace BotSuite.ImageLibrary
         /// </example>
         /// <param name="Img">image to manipulate</param>
         /// <param name="weight">weight</param>
-        /// <see cref="sharpen"/>
         /// <returns></returns>
         static public void Sharpen(ref ImageData Img, double weight)
         {
@@ -598,8 +582,6 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <see cref="blur"/>
-        /// <returns></returns>
         static public void Blur(ref ImageData Img, double weight)
         {
             ConvolutionMatrix CMatrix = new ConvolutionMatrix(3);
@@ -613,7 +595,6 @@ namespace BotSuite.ImageLibrary
         /// marks the edges black and all other pixels white
         /// </summary>
         /// <param name="Img">image to manipulate</param>
-        /// <see cref="findedges"/>
         /// <example>
         /// <code>
         /// <![CDATA[
@@ -623,7 +604,6 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
-        /// <returns></returns>
         static public void FindEdges(ref ImageData Img)
         {
             Emboss(ref Img, 4.0);
@@ -705,21 +685,36 @@ namespace BotSuite.ImageLibrary
             Img = newImg.Clone();
         
         }
-
+        /// <summary>
+        /// convoluation matrix for filters (edge filter, ...)
+        /// </summary>
         public class ConvolutionMatrix
         {
+            /// <summary>
+            /// size of matrix
+            /// </summary>
             public int MatrixSize = 3;
-
+            /// <summary>
+            /// matrix entries
+            /// </summary>
             public double[,] Matrix;
-            public double Factor = 1;
-            public double Offset = 1;
-
-            public ConvolutionMatrix(int size)
+            /// <summary>
+            /// parameters for convolution matrix
+            /// </summary>
+            public double Factor = 1, Offset = 1;
+            /// <summary>
+            /// construct
+            /// </summary>
+            /// <param name="size"></param>
+            public ConvolutionMatrix(int size=3)
             {
-                MatrixSize = 3;
+                MatrixSize = size;
                 Matrix = new double[size, size];
             }
-
+            /// <summary>
+            /// set all entries to a value
+            /// </summary>
+            /// <param name="value">value to set</param>
             public void SetAll(double value)
             {
                 for (int i = 0; i < MatrixSize; i++)

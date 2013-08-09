@@ -15,44 +15,77 @@ namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
     {
 
         #region PROTECTED FIELDS
+        /// <summary>
+        /// intern error threshold
+        /// </summary>
         protected float _error_treshold;
-        protected int _maximum_of_iterations;
+        /// <summary>
+        /// the maximum of epochs in gradient descent
+        /// </summary>
+        protected int _maximum_of_epochs;
+        /// <summary>
+        /// the input training data
+        /// </summary>
         protected float[][] InputTrainingData;
+        /// <summary>
+        /// the corresponding expected output for training data
+        /// </summary>
         protected float[][] OutputTrainingData;
-
+        /// <summary>
+        /// intern variable for extern monitoring
+        /// </summary>
+        protected iLearningMonitor _monitor;
         #endregion
 
-        #region PUBLIC ACCES TO LEARNING ALGORITHM STATE
+        #region public properties
+        /// <summary>
+        /// the neural network to learn
+        /// </summary>
         public NeuralNetwork ANN
         {
             get;
             protected set;
         }
+        /// <summary>
+        /// the mean square error in training data
+        /// </summary>
         public float MeanSquareError
         {
             get;
             protected set;
         }
+        /// <summary>
+        /// access to the error threshold
+        /// </summary>
         public float ErrorTreshold
         {
             get { return _error_treshold; }
             set { _error_treshold = (value > 0) ? value : _error_treshold; }
         }
-        iLearningMonitor _monitor;
+        
+        /// <summary>
+        /// extern monitor to get information about progress in learning
+        /// </summary>
         public iLearningMonitor LearningMonitor
         {
             get { return _monitor; }
             set { _monitor = value; }
         }
-        public int CurrentIteration
+        /// <summary>
+        /// the current epoch
+        /// </summary>
+        public int CurrentEpoch
         {
             get;
             protected set;
         }
-        public int MaximumOfIteration
+        /// <summary>
+        /// get or set maximum of epoch
+        /// </summary>
+        public int MaximumOfEpochs
         {
-            get { return _maximum_of_iterations; }
-            set { _maximum_of_iterations = (value > 0) ? value : _maximum_of_iterations; }
+            get { return _maximum_of_epochs; }
+            set { _maximum_of_epochs = (value > 0) ? value : _maximum_of_epochs; }
         }
 
         #endregion
@@ -64,10 +97,15 @@ namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
         {
             ANN = N;
             ErrorTreshold = 0.005f;
-            MaximumOfIteration = 10000;
-            CurrentIteration = 0;
+            MaximumOfEpochs = 10000;
+            CurrentEpoch = 0;
             MeanSquareError = -1.0f;
         }
+        /// <summary>
+        /// base function to learn data
+        /// </summary>
+        /// <param name="inputs">input data for training</param>
+        /// <param name="expected_outputs">th corresponding output data</param>
         public virtual void Learn(float[][] inputs, float[][] expected_outputs)
         {
             if (expected_outputs.Length < 1)
@@ -82,17 +120,22 @@ namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
         }
 
         #endregion
-
+        /// <summary>
+        /// custom check for convergence
+        /// </summary>
+        /// <returns></returns>
         protected bool Convergence()
         {
             // custom check, if the learning phase should be stopped
             return (_monitor != null) ? _monitor.Convergence() : false;
         }
-
+        /// <summary>
+        /// pulse in every epoch of stochastic gradient descent
+        /// </summary>
         protected void Pulse()
         {
             // send current progress to learn monitor
-            if (_monitor != null) _monitor.Pulse(CurrentIteration, MeanSquareError);
+            if (_monitor != null) _monitor.Pulse(CurrentEpoch, MeanSquareError);
         }
     }
 }

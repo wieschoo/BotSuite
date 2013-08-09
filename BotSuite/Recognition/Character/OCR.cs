@@ -9,30 +9,42 @@ using System.Runtime.Serialization.Formatters.Binary;
 using BotSuite.ImageLibrary;
 using BotSuite.MachineLearning.NeuralNetwork;
 
-/// <summary>
-/// Character
-/// </summary>
+
 namespace BotSuite.Recognition.Character
 {
     
     
-
+    /// <summary>
+    /// class to recognize characters by a neural network
+    /// </summary>
     [Serializable]
     public class OCR
     {
-        #region PROTECTED PROPERTIES
+        #region protected properties
+        /// <summary>
+        /// instance of neural network
+        /// </summary>
         protected NeuralNetwork WorkingNeuralNetwork;
+        /// <summary>
+        /// receptors to detect character
+        /// </summary>
         protected MagicMatchSticks ImageSense;
+        /// <summary>
+        /// flag of network initialisation
+        /// </summary>
         protected bool NetworkWasInitialised = false;
+        /// <summary>
+        /// possible characters that can be recognized
+        /// </summary>
         protected List<Char> CharactersToRecognize; 
         #endregion
 
-        #region CONSTRUCTOR
+        #region construct
         /// <summary>
         /// get a simple class to do OCR
         /// </summary>
-        /// <param name="NumberOfSense"></param>
-        /// <returns></returns>
+        /// <param name="NumberOfSense">number of receptors</param>
+        /// <returns>instance of class</returns>
         public OCR(int NumberOfSense = 17)
         {
             ImageSense = new MagicMatchSticks();
@@ -41,12 +53,11 @@ namespace BotSuite.Recognition.Character
         } 
         #endregion
 
-        #region LEARNING FUNCTIONALITIES
+        #region learn the recognition
         /// <summary>
         /// start a new trainingsession to learn the new imagedatas
         /// </summary>
         /// <param name="TrainingImageData">data (images) to learn</param>
-        /// <returns></returns>
         public void StartTrainingSession(Dictionary<Char, List<ImageData>> TrainingImageData)
         {
             if (!NetworkWasInitialised)
@@ -106,15 +117,14 @@ namespace BotSuite.Recognition.Character
                 }
 
             }
-            WorkingNeuralNetwork.Teacher.MaximumOfIteration = 1000;
+            WorkingNeuralNetwork.Teacher.MaximumOfEpochs = 1000;
             WorkingNeuralNetwork.Learn(X, Y);
         }
 
         /// <summary>
         /// calculate the prediction error of a textsuite
         /// </summary>
-        /// <param name=""></param>
-        /// <param name="TestSuite"></param>
+        /// <param name="TestSuite">Training data as list of pictures(imagedata) and key (character)</param>
         /// <returns></returns>
         public float PredictionError(Dictionary<Char, List<ImageData>> TestSuite)
         {
@@ -157,12 +167,12 @@ namespace BotSuite.Recognition.Character
         } 
         #endregion
 
-        #region APPLICATION OF NETWORK
+        #region apply the network to an unkown image
         /// <summary>
         /// recognize a character in image
         /// </summary>
         /// <param name="Img">image of character</param>
-        /// <returns>character</returns>
+        /// <returns>detected character (this is possible wrong, if the training wasn't successfull)</returns>
         public Char Recognize(ImageData Img)
         {
             float[] Output = WorkingNeuralNetwork.Output(ImageSense.GetMagicMatchSticksState(Img));
@@ -171,7 +181,7 @@ namespace BotSuite.Recognition.Character
         } 
         #endregion
 
-        #region PERSISTENCE STRORING
+        #region file io
         /// <summary>
         /// save the OCR data in a binary formated file
         /// </summary>

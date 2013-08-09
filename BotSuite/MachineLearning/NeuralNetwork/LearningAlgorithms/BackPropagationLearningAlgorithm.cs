@@ -31,7 +31,13 @@ namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
     {
 
         #region protected variables
+        /// <summary>
+        /// parameters of learning algorithm
+        /// </summary>
         protected float _alpha, _gamma;
+        /// <summary>
+        /// errors in iteration
+        /// </summary>
         protected float[] _error_vector;
         
 
@@ -39,13 +45,16 @@ namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
 
         #region public properties
         /// <summary>
-        /// set learning rate (high values fast progress but no convergence, low values -> slow learning)
+        /// set or get learning rate (high values fast progress but no convergence, low values -> slow learning)
         /// </summary>
         public float LearningRate
         {
             get { return _alpha; }
             set { _alpha = (value <= 0.0f) ?  _alpha : value; }
         }
+        /// <summary>
+        /// set or get the rumelhart coefficient
+        /// </summary>
         public float RumelhartCoefficient
         {
             get { return _gamma; }
@@ -58,7 +67,7 @@ namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
         /// <summary>
         /// default BackPropagation (alpha = 0.5 ; gamma = 0.2)
         /// </summary>
-        /// <param name="nn">ANN to train</param>
+        /// <param name="ANN">network to train</param>
         public BackPropagationLearningAlgorithm(NeuralNetwork ANN): base(ANN)
         {
             LearningRate = 0.5f;
@@ -78,7 +87,7 @@ namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
             base.Learn(inputs, expected_outputs);
             float[] NeuronOutput;
             float MeanSquareError2;
-            CurrentIteration = 0;
+            CurrentEpoch = 0;
             // for each epoch
             do
             {
@@ -102,13 +111,13 @@ namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
                     // update weight
                     SetWeight(i);
                 }
-                CurrentIteration++;
+                CurrentEpoch++;
                 // we aren't dead
                 Pulse();
                 // custom check if we have to run further
                 if (Convergence()) break;
             }
-            while (CurrentIteration < _maximum_of_iterations && MeanSquareError > _error_treshold);
+            while (CurrentEpoch < _maximum_of_epochs && MeanSquareError > _error_treshold);
 
         }
         /// <summary>
