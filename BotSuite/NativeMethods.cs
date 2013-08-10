@@ -1,11 +1,4 @@
-﻿/* **************************************************************
- * Name:      BotSuite.NET
- * Purpose:   Framework for creating bots
- * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2013 wieschoo & enWare
- * License:   http://www.wieschoo.com/botsuite/license/
- * *************************************************************/
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,25 +9,25 @@ namespace BotSuite
     /// <summary>
     ///  P/Invokes
     /// </summary>
-	public class NativeMethods
-	{
-		[DllImport("user32.dll")]
-		internal static extern void mouse_event(uint dwFlags, uint dx, uint dy, int dwData, IntPtr dwExtraInfo);
+    public class NativeMethods
+    {
+        [DllImport("user32.dll")]
+        internal static extern void mouse_event(uint dwFlags, uint dx, uint dy, int dwData, IntPtr dwExtraInfo);
 
-		internal enum MouseEventFlags : uint
-		{
-			LEFTDOWN = 0x00000002,
-			LEFTUP = 0x00000004,
-			MIDDLEDOWN = 0x00000020,
-			MIDDLEUP = 0x00000040,
-			MOVE = 0x00000001,
-			ABSOLUTE = 0x00008000,
-			RIGHTDOWN = 0x00000008,
-			RIGHTUP = 0x00000010,
-			WHEEL = 0x00000800,
-			XDOWN = 0x00000080,
-			XUP = 0x00000100
-		}
+        internal enum MouseEventFlags : uint
+        {
+            LEFTDOWN = 0x00000002,
+            LEFTUP = 0x00000004,
+            MIDDLEDOWN = 0x00000020,
+            MIDDLEUP = 0x00000040,
+            MOVE = 0x00000001,
+            ABSOLUTE = 0x00008000,
+            RIGHTDOWN = 0x00000008,
+            RIGHTUP = 0x00000010,
+            WHEEL = 0x00000800,
+            XDOWN = 0x00000080,
+            XUP = 0x00000100
+        }
 
         internal enum ProcessAccessType
         {
@@ -51,28 +44,28 @@ namespace BotSuite
             PROCESS_QUERY_INFORMATION = (0x0400)
         }
 
-		[DllImport("user32.dll", ExactSpelling = true, CharSet = CharSet.Auto)]
-		[return: MarshalAs(UnmanagedType.Bool)]
-		internal static extern bool SetForegroundWindow(IntPtr hWnd);
+        [DllImport("user32.dll", ExactSpelling = true, CharSet = CharSet.Auto)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SetForegroundWindow(IntPtr hWnd);
 
-		[DllImport("user32.dll")]
-		[return: MarshalAs(UnmanagedType.Bool)]
-		internal static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
 
-		[StructLayout(LayoutKind.Sequential)]
-		internal struct RECT
-		{
-			public int Left;
-			public int Top;
-			public int Right;
-			public int Bottom;
-		}
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct RECT
+        {
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
+        }
 
-		[DllImport("user32.dll")]
-		internal static extern short GetAsyncKeyState(System.Windows.Forms.Keys vKey);
+        [DllImport("user32.dll")]
+        internal static extern short GetAsyncKeyState(System.Windows.Forms.Keys vKey);
 
-		[DllImport("User32.dll")]
-		internal static extern int ShowWindow(IntPtr hwnd, int nCmdShow);
+        [DllImport("User32.dll")]
+        internal static extern int ShowWindow(IntPtr hwnd, int nCmdShow);
 
         public struct keyboardHookStruct
         {
@@ -83,14 +76,14 @@ namespace BotSuite
             public int dwExtraInfo;
         }
 
+
+
         public delegate int keyboardHookProc(int code, int wParam, ref keyboardHookStruct lParam);
 
         #region Constant, Structure and Delegate Definitions
         /// <summary>
         /// defines the callback type for the hook
         /// </summary>
-
-
         internal const int WH_KEYBOARD_LL = 13;
         internal const int WM_KEYDOWN = 0x100;
         internal const int WM_KEYUP = 0x101;
@@ -158,5 +151,15 @@ namespace BotSuite
 
         [DllImport("user32.dll")]
         internal static extern short VkKeyScan(char ch);
+
+        [DllImport("user32.dll")]
+        internal static extern bool PostMessage(IntPtr hWnd, UInt32 Msg, int wParam, int lParam);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        internal static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+        internal static extern bool SendMessage(IntPtr hWnd, int wMsg, uint wParam, uint lParam);
+        [DllImport("user32.dll")]
+        internal static extern uint keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
+
     }
 }
