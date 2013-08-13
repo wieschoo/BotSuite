@@ -206,8 +206,6 @@ static public Rectangle Image(ImageData Img, ImageData Ref, uint Tolerance)
             Color CurrentInnerPictureColor;
             Color CurrentOuterPictureColor;
             Boolean allSimilar = true;
-            //Point location = Point.Empty;
-            Boolean Found = false;
 
             for (Int32 originalX = 0; originalX < Img.Width - Ref.Width; originalX++)
             {

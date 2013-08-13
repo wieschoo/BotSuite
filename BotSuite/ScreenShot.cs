@@ -118,7 +118,6 @@ namespace BotSuite
 		/// <summary>
 		/// create a complete screenshot by using a handle
 		/// </summary>
-		/// <param name="windowHandle">handle of window</param>
 		/// <example>
 		/// <code>
 		/// <![CDATA[

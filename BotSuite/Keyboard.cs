@@ -190,32 +190,7 @@ namespace BotSuite
             return;
         }
 
-        /// <summary>
-        /// Hold down a key for a specific time
-        /// </summary>
-        /// <example>
-        /// <code>
-        /// Keyboard.HoldKey((byte)Keys.A, 250); // Holds down the "A" key for 250ms
-        /// Keyboard.HoldKey((byte)Keys.Left, 1000); // Holds down "Left" key for 1 second
-        /// </code>
-        /// </example>
-        /// <param name="key"></param>
-        /// <param name="duration"></param>
         
-        public static void HoldKey(byte key, int duration)
-        {
-            const int KEY_DOWN_EVENT = 0x0001;
-            const int KEY_UP_EVENT = 0x0002; 
-            int totalDuration = 0;
-            const int PauseFor = 30;
-            while (totalDuration < duration)
-            {
-                keybd_event(key, 0, KEY_DOWN_EVENT, 0);
-                keybd_event(key, 0, KEY_UP_EVENT, 0);
-                System.Threading.Thread.Sleep(PauseFor);
-                totalDuration += PauseFor;
-            }
-        }
 
         /// <summary>
         /// test if a key is pressed

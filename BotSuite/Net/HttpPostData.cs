@@ -1,23 +1,29 @@
-﻿/* **************************************************************
- * Name:      BotSuite.NET
- * Purpose:   Framework for creating bots
- * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2013 wieschoo & enWare
- * License:   http://www.wieschoo.com/botsuite/license/
- * *************************************************************/
-
-using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="HttpPostData.cs" company="Wieschoo &amp; enWare">
+//     Copyright (c) Wieschoo &amp; enWare.
+// </copyright>
+// <project>BotSuite.Net</project>
+// <purpose>framework for creating bots</purpose>
+// <homepage>http://botsuite.net/</homepage>
+// <license>http://botsuite.net/license/index/</license>
+//-----------------------------------------------------------------------
 
 namespace BotSuite.Net
 {
+	using System;
+
 	/// <summary>
 	/// container-class for Http POST data key-value-pairs
 	/// </summary>
 	public class HttpPostData : IEquatable<HttpPostData>, IComparable<HttpPostData>
 	{
-		private String _Key;
 		/// <summary>
 		/// the key/name of the POST data
+		/// </summary>
+		private String _Key;
+
+		/// <summary>
+		/// Gets or sets the key/name of the POST data
 		/// </summary>
 		public String Key
 		{
@@ -25,15 +31,20 @@ namespace BotSuite.Net
 			{
 				return this._Key;
 			}
+
 			set
 			{
 				this._Key = value;
 			}
 		}
 
-		private String _Value;
 		/// <summary>
 		/// the value of the POST data
+		/// </summary>
+		private String _Value;
+
+		/// <summary>
+		/// Gets or sets the value of the POST data
 		/// </summary>
 		public String Value
 		{
@@ -41,6 +52,7 @@ namespace BotSuite.Net
 			{
 				return this._Value;
 			}
+
 			set
 			{
 				this._Value = value;
@@ -48,7 +60,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		/// constructor for Http POST data key-value-pair
+		/// Initializes a new instance of the <see cref="HttpPostData"/> class
 		/// </summary>
 		/// <param name="key">key/name of the POST data</param>
 		/// <param name="value">value of the POST data</param>
