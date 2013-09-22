@@ -34,7 +34,7 @@ namespace BotSuite.ImageLibrary
         /// </code>
         /// </example>
         /// <returns></returns>
-        static public Rectangle BinaryPattern(ImageData Img, bool[,] Pattern, uint Tolerance)
+        static public Rectangle BinaryPattern(ImageData Img, bool[,] Pattern, uint Tolerance = 0)
         {
             // simple
             Point location = Point.Empty;
@@ -53,12 +53,12 @@ namespace BotSuite.ImageLibrary
                             {
                                 if (first == true)
                                 {
-                                    ReferenceColor = Img.GetPixel(OuterColumn, OuterRow);
+                                    ReferenceColor = Img[OuterColumn, OuterRow];
                                     first = false;
                                 }
                                 else
                                 {
-                                    if (CommonFunctions.ColorsSimilar(ReferenceColor, Img.GetPixel(OuterColumn + InnerColumn, OuterRow + InnerRow), Tolerance))
+                                    if (CommonFunctions.ColorsSimilar(ReferenceColor, Img[OuterColumn + InnerColumn, OuterRow + InnerRow], Tolerance))
                                     {
                                         // ok
                                     }
@@ -77,7 +77,7 @@ namespace BotSuite.ImageLibrary
                                 if (first == false)
                                 {
                                     // darf nicht passen!
-                                    if (CommonFunctions.ColorsSimilar(ReferenceColor, Img.GetPixel(OuterColumn + InnerColumn, OuterRow + InnerRow), Tolerance))
+                                    if (CommonFunctions.ColorsSimilar(ReferenceColor, Img[OuterColumn + InnerColumn, OuterRow + InnerRow], Tolerance))
                                     {
                                         // schlecht passt
                                         InnerColumn = Img.Width + 10;
@@ -119,67 +119,67 @@ namespace BotSuite.ImageLibrary
         /// <param name="Ref">image to look for</param>
         /// <param name="Tolerance">tolerance of similarity (0,...,255)</param>
         /// <returns>best matching position as rectangle</returns>
-static public Rectangle Image(ImageData Img, ImageData Ref, uint Tolerance)
-{
-    Double bestScore = (Math.Abs(Byte.MaxValue - Byte.MinValue) * 3);
-
-    Int32 currentScore = 0;
-    Color CurrentInnerPictureColor;
-    Color CurrentOuterPictureColor;
-    Boolean allSimilar = true;
-    Point location = Point.Empty;
-    Boolean Found = false;
-
-    for (Int32 originalX = 0; originalX < Img.Width - Ref.Width; originalX++)
-    {
-        for (Int32 originalY = 0; originalY < Img.Height - Ref.Height; originalY++)
+        static public Rectangle Image(ImageData Img, ImageData Ref, uint Tolerance = 0)
         {
-            CurrentInnerPictureColor = Ref.GetPixel(0, 0);
-            CurrentOuterPictureColor = Img.GetPixel(originalX, originalY);
+            Double bestScore = (Math.Abs(Byte.MaxValue - Byte.MinValue) * 3);
 
-            if (CommonFunctions.ColorsSimilar(CurrentInnerPictureColor, CurrentOuterPictureColor, Tolerance))
+            Int32 currentScore = 0;
+            Color CurrentInnerPictureColor;
+            Color CurrentOuterPictureColor;
+            Boolean allSimilar = true;
+            Point location = Point.Empty;
+            Boolean Found = false;
+
+            for (Int32 originalX = 0; originalX < Img.Width - Ref.Width; originalX++)
             {
-                currentScore = 0;
-                allSimilar = true;
-                for (Int32 referenceX = 0; referenceX < Ref.Width; referenceX++)
+                for (Int32 originalY = 0; originalY < Img.Height - Ref.Height; originalY++)
                 {
-                    if (!allSimilar)
-                        break;
-                    for (Int32 referenceY = 0; referenceY < Ref.Height; referenceY++)
+                    CurrentInnerPictureColor = Ref[0, 0];
+                    CurrentOuterPictureColor = Img[originalX, originalY];
+
+                    if (CommonFunctions.ColorsSimilar(CurrentInnerPictureColor, CurrentOuterPictureColor, Tolerance))
                     {
-                        if (!allSimilar)
-                            break;
-                        CurrentInnerPictureColor = Ref.GetPixel(referenceX, referenceY);
-                        CurrentOuterPictureColor = Img.GetPixel(originalX + referenceX, originalY + referenceY);
+                        currentScore = 0;
+                        allSimilar = true;
+                        for (Int32 referenceX = 0; referenceX < Ref.Width; referenceX++)
+                        {
+                            if (!allSimilar)
+                                break;
+                            for (Int32 referenceY = 0; referenceY < Ref.Height; referenceY++)
+                            {
+                                if (!allSimilar)
+                                    break;
+                                CurrentInnerPictureColor = Ref[referenceX, referenceY];
+                                CurrentOuterPictureColor = Img[originalX + referenceX, originalY + referenceY];
 
-                        if (!CommonFunctions.ColorsSimilar(CurrentInnerPictureColor, CurrentOuterPictureColor, Tolerance))
-                            allSimilar = false;
+                                if (!CommonFunctions.ColorsSimilar(CurrentInnerPictureColor, CurrentOuterPictureColor, Tolerance))
+                                    allSimilar = false;
 
-                        currentScore +=
-                            (Math.Abs(CurrentInnerPictureColor.R - CurrentOuterPictureColor.R)
-                            + Math.Abs(CurrentInnerPictureColor.G - CurrentOuterPictureColor.G)
-                            + Math.Abs(CurrentInnerPictureColor.B - CurrentOuterPictureColor.B));
-                    }
-                }
+                                currentScore +=
+                                    (Math.Abs(CurrentInnerPictureColor.R - CurrentOuterPictureColor.R)
+                                    + Math.Abs(CurrentInnerPictureColor.G - CurrentOuterPictureColor.G)
+                                    + Math.Abs(CurrentInnerPictureColor.B - CurrentOuterPictureColor.B));
+                            }
+                        }
 
-                if (allSimilar)
-                {
-                    if (((Double)currentScore / (Double)(Ref.Width * Ref.Height)) < bestScore)
-                    {
-                        location.X = originalX;
-                        location.Y = originalY;
-                        bestScore = ((Double)currentScore / (Double)(Ref.Width * Ref.Height));
-                        Found = true;
+                        if (allSimilar)
+                        {
+                            if (((Double)currentScore / (Double)(Ref.Width * Ref.Height)) < bestScore)
+                            {
+                                location.X = originalX;
+                                location.Y = originalY;
+                                bestScore = ((Double)currentScore / (Double)(Ref.Width * Ref.Height));
+                                Found = true;
+                            }
+                        }
                     }
                 }
             }
+            if (Found)
+                return new Rectangle(location.X, location.Y, Ref.Width, Ref.Height);
+            else
+                return Rectangle.Empty;
         }
-    }
-    if (Found)
-        return new Rectangle(location.X, location.Y, Ref.Width, Ref.Height);
-    else
-        return Rectangle.Empty;
-}
         /// <summary>
         /// search for an image in another image
         /// return all possible matchings
@@ -198,7 +198,7 @@ static public Rectangle Image(ImageData Img, ImageData Ref, uint Tolerance)
         /// <param name="Ref">image to look for</param>
         /// <param name="Tolerance">tolerance of similarity (0,...,255)</param>
         /// <returns>List of matching positions (datatype Rectange)</returns>
-        static public List<Rectangle> AllImages(ImageData Img, ImageData Ref, uint Tolerance)
+        static public List<Rectangle> AllImages(ImageData Img, ImageData Ref, uint Tolerance = 0)
         {
             Double bestScore = (Math.Abs(Byte.MaxValue - Byte.MinValue) * 3);
             List<Rectangle> RetVal = new List<Rectangle>();
@@ -206,13 +206,15 @@ static public Rectangle Image(ImageData Img, ImageData Ref, uint Tolerance)
             Color CurrentInnerPictureColor;
             Color CurrentOuterPictureColor;
             Boolean allSimilar = true;
+            //Point location = Point.Empty;
+            Boolean Found = false;
 
             for (Int32 originalX = 0; originalX < Img.Width - Ref.Width; originalX++)
             {
                 for (Int32 originalY = 0; originalY < Img.Height - Ref.Height; originalY++)
                 {
-                    CurrentInnerPictureColor = Ref.GetPixel(0, 0);
-                    CurrentOuterPictureColor = Img.GetPixel(originalX, originalY);
+                    CurrentInnerPictureColor = Ref[0, 0];
+                    CurrentOuterPictureColor = Img[originalX, originalY];
 
                     if (CommonFunctions.ColorsSimilar(CurrentInnerPictureColor, CurrentOuterPictureColor, Tolerance))
                     {
@@ -226,8 +228,8 @@ static public Rectangle Image(ImageData Img, ImageData Ref, uint Tolerance)
                             {
                                 if (!allSimilar)
                                     break;
-                                CurrentInnerPictureColor = Ref.GetPixel(referenceX, referenceY);
-                                CurrentOuterPictureColor = Img.GetPixel(originalX + referenceX, originalY + referenceY);
+                                CurrentInnerPictureColor = Ref[referenceX, referenceY];
+                                CurrentOuterPictureColor = Img[originalX + referenceX, originalY + referenceY];
 
                                 if (!CommonFunctions.ColorsSimilar(CurrentInnerPictureColor, CurrentOuterPictureColor, Tolerance))
                                     allSimilar = false;
@@ -241,7 +243,7 @@ static public Rectangle Image(ImageData Img, ImageData Ref, uint Tolerance)
 
                         if (allSimilar)
                         {
-                            RetVal.Add(new Rectangle(originalX, originalY, Ref.Width, Ref.Height)); 
+                            RetVal.Add(new Rectangle(originalX, originalY, Ref.Width, Ref.Height));
                         }
                     }
                 }

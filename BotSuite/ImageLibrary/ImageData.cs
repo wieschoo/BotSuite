@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Drawing.Imaging;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-
 
 namespace BotSuite.ImageLibrary
 {
@@ -13,143 +15,165 @@ namespace BotSuite.ImageLibrary
     /// </summary>
     public class ImageData
     {
+
+        #region properties
+        public int Height { get; private set; }
+        public int Width { get; private set; }
+
+        private byte[] BmpBytes;
+        private int BmpStride;
         private PixelFormat BmpPixelFormat;
-        private byte[] Bytes;
+        private int RawFormatOffset;
 
-        private Color[,] Pixel;
-
-        private int Stride;
-        private int ByteSize;
-
-        private int _width = -1;
-        private int _height = -1;
         /// <summary>
-        /// width of image
+        /// return or set size of bitmap
         /// </summary>
-        public int Width
+        /// <
+        public Size Size
         {
             get
             {
-                return _width;
+                return new Size(Width, Height);
             }
             set
             {
-                _width = value;
-            }
-        }
-        /// <summary>
-        /// height of image
-        /// </summary>
-        public int Height
-        {
-            get
-            {
-                return _height;
-            }
-            set
-            {
-                _height = value;
+                this.Height = Size.Height;
+                this.Width = Size.Width;
             }
         }
 
         /// <summary>
-        /// create image by open a file of bitmap
+        /// set a 24bit or 32bit bitmap
+        /// or returns a 24bit bitmap
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ImageData Img = new ImageData(...);
+        /// Bitmap Bmp = Img.Bitmap;
+        /// Bitmap Bmp2 = new Bitmap(...);
+        /// Img.Bitmap = Bmp2;
+        /// ]]>
+        /// </code>
+        /// </example>
+        public Bitmap Bitmap
+        {
+            get { return CreateBitmap(); }
+            set { LoadBitmap(value); }
+        }
+        #endregion
+
+        /// <summary>
+        /// creates a new imagedata object from a given bitmap
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// Bitmap Bmp = new Bitmap(...);
+        /// ImageData Img = new ImageData(Bmp);
+        /// ]]>
+        /// </code>
+        /// </example>
+        /// <param name="Bitmap">tagert bitmap</param>
+        public ImageData(Bitmap Bitmap)
+        {
+            LoadBitmap(Bitmap);
+        }
+
+        /// <summary>
+        /// creates a new imagedata object from a file
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ImageData Img = new ImageData("path/to/bitmap/file.bmp");
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="Path">path to bitmap</param>
-        /// <returns></returns>
         public ImageData(string Path)
         {
-            SetBitmap(new Bitmap(Path));
+            LoadBitmap(new Bitmap(Path));
         }
-        /// <summary>
-        /// create image by bitmap
-        /// </summary>
-        /// <param name="B">bitmap</param>
-        /// <returns></returns>
-        public ImageData(Bitmap B)
-        {
-            SetBitmap(B);
-        }
-        /// <summary>
-        /// empty initalisation of the class
-        /// </summary>
-        public ImageData()
-        {
 
-        }
         /// <summary>
-        /// set size of the image
+        /// creates a new imagedata object from another imagedata object
         /// </summary>
-        /// <param name="width">width of image</param>
-        /// <param name="height">height of image</param>
-        public void SetSize(int width, int height)
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ImageData Img = new ImageData(...);
+        /// ImageData Img2 = new ImageData(Img);
+        /// ]]>
+        /// </code>
+        /// </example>
+        /// <param name="Path">path to bitmap</param>
+        public ImageData(ImageData Img)
         {
-            _width = width;
-            _height = height;
-            Pixel = new Color[width, height];
+            LoadBitmap(Img.Bitmap);
         }
+
         /// <summary>
-        /// set the pixel format of image
+        /// store a bitmap into a file
         /// </summary>
-        /// <param name="F">the pixelformat</param>
-        public void SetPixelFormat(PixelFormat F)
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ImageData Img = new ImageData(...);
+        /// Img.Save("path/to/bitmap/file.bmp");
+        /// ]]>
+        /// </code>
+        /// </example>
+        /// <param name="Path">savepath</param>
+        public void Save(string Path)
         {
-            BmpPixelFormat = F;
+            this.Bitmap.Save(Path);
         }
+
         /// <summary>
-        /// create a deep copy of an image
+        /// clones an imagedata object
         /// </summary>
-        /// <returns></returns>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ImageData Img = new ImageData(...);
+        /// ImageData Img2 = Img.Clone();
+        /// ]]>
+        /// </code>
+        /// </example>
+        /// <returns>new imagedata object</returns>
         public ImageData Clone()
         {
-            Bitmap B = GetBitmap();
-            ImageData NewImg = new ImageData();
-            NewImg.SetSize(_width, _height);
-            NewImg.SetPixelFormat(BmpPixelFormat);
-            for (int y = 0; y < _height; y++)
-                for (int x = 0; x < _width; x++)
-                    NewImg.SetPixel(x,y,GetPixel(x, y));
-            return NewImg;
+            return new ImageData(this);
         }
-        /// <summary>
-        /// load a bitmap into the image
-        /// </summary>
-        /// <param name="B">bitmap</param>
-        private void SetBitmap(Bitmap B)
+
+
+        #region private methods
+        public void LoadBitmap(Bitmap Bitmap)
         {
-            Pixel = new Color[B.Width, B.Height];
-            Rectangle r = new Rectangle(0, 0, B.Width, B.Height);
-            BmpPixelFormat = B.PixelFormat;
-            BitmapData bmpData = B.LockBits(r, ImageLockMode.ReadOnly, BmpPixelFormat);
-            IntPtr ptr = bmpData.Scan0;
-            Stride = bmpData.Stride;
-            ByteSize = Stride * B.Height;
-            Bytes = new byte[ByteSize];
-            System.Runtime.InteropServices.Marshal.Copy(ptr, Bytes, 0, ByteSize);
-            B.UnlockBits(bmpData);
-            Pixel = new Color[B.Width, B.Height];
-            switch (B.PixelFormat)
+            // extract bitmap data
+            BmpPixelFormat = Bitmap.PixelFormat;
+            Width = Bitmap.Width;
+            Height = Bitmap.Height;
+            switch (Bitmap.PixelFormat)
             {
                 case System.Drawing.Imaging.PixelFormat.Format32bppArgb:
-                    for (int y = 0; y < B.Height; y++)
-                        for (int x = 0; x < B.Width; x++)
-                            Pixel[x, y] = Color.FromArgb(Bytes[y * Stride + x * 4 + 2], Bytes[y * Stride + x * 4 + 1], Bytes[y * Stride + x * 4 ]);
+                    RawFormatOffset = 4;
                     break;
                 case System.Drawing.Imaging.PixelFormat.Format24bppRgb:
-                    for (int y = 0; y < B.Height; y++)
-                        for (int x = 0; x < B.Width; x++)
-                            Pixel[x, y] = Color.FromArgb(Bytes[y * Stride + x * 3 + 2], Bytes[y * Stride + x * 3 + 1], Bytes[y * Stride + x * 3]);
+                    RawFormatOffset = 3;
                     break;
             }
-            _width = B.Width;
-            _height = B.Height;
 
-
-//             for (int y = 0; y < B.Height; y++)
-//                 for (int x = 0; x < B.Width; x++)
-//                     Pixel[x, y] = Color.FromArgb(Bytes[y * Stride + x * 3 + 2], Bytes[y * Stride + x * 3 + 1], Bytes[y * Stride + x * 3]);
-//             _width = B.Width;
-//             _height = B.Height;
+            // load bytes
+            Rectangle BmpRectangle = new Rectangle(0, 0, Bitmap.Width, Bitmap.Height);
+            BitmapData bmpData = Bitmap.LockBits(BmpRectangle, ImageLockMode.ReadOnly, BmpPixelFormat);
+            IntPtr ptr = bmpData.Scan0;
+            BmpStride = bmpData.Stride;
+            int ByteSize = BmpStride * Bitmap.Height;
+            BmpBytes = new byte[ByteSize];
+            System.Runtime.InteropServices.Marshal.Copy(ptr, BmpBytes, 0, ByteSize);
+            Bitmap.UnlockBits(bmpData);
         }
 
         /// <summary>
@@ -159,8 +183,8 @@ namespace BotSuite.ImageLibrary
         /// <param name="T">top of imagepart (default: 0 no offset)</param>
         /// <param name="W">width of imagepart (default: full width) </param>
         /// <param name="H">height of imagepart (default: full height)</param>
-        /// <returns>get the image as a bitmap</returns>
-        public Bitmap GetBitmap(int L=0, int T=0, int W = -1, int H = -1)
+        /// <returns></returns>
+        public Bitmap CreateBitmap(int L = 0, int T = 0, int W = -1, int H = -1)
         {
             W = (W == -1) ? Width - L : W;
             H = (H == -1) ? Height - T : H;
@@ -171,44 +195,48 @@ namespace BotSuite.ImageLibrary
             BitmapData bmpData = ReturnBitmap.LockBits(r, ImageLockMode.ReadWrite, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             int InStride = bmpData.Stride;
             int ByteSize = InStride * ReturnBitmap.Height;
-            byte[] InBytes = new byte[ByteSize];
-
-            for (int y = 0; y < H; y++)
-                for (int x = 0; x < W; x++)
-                {
-                    InBytes[y * InStride + x * 3 + 2] = Pixel[x + L, y + T].R;
-                    InBytes[y * InStride + x * 3 + 1] = Pixel[x + L, y + T].G;
-                    InBytes[y * InStride + x * 3] = Pixel[x + L, y + T].B;
-                }
-
             IntPtr ptr = bmpData.Scan0;
-            System.Runtime.InteropServices.Marshal.Copy(InBytes, 0, ptr, ByteSize);
+            System.Runtime.InteropServices.Marshal.Copy(BmpBytes, 0, ptr, ByteSize);
             ReturnBitmap.UnlockBits(bmpData);
+
             return ReturnBitmap;
         }
+        #endregion
 
         /// <summary>
-        /// get image as 24bit bitmap
-        /// </summary>
-        /// <returns></returns>
-        public Bitmap GetBitmap()
-        {
-
-            return GetBitmap(0, 0, -1, -1);
-        }
-
-        /// <summary>
-        /// set color of pixel 
+        /// get or set pixel color
         /// </summary>
         /// <param name="x">x coordinate (column)</param>
         /// <param name="y">y coordinate (row)</param>
-        /// <param name="c">color to set</param>
-        /// <returns></returns>
-        public void SetPixel(int x, int y, Color c)
+        /// <returns>color of pixel</returns>
+        public Color this[int x, int y]
         {
-            if ((0 <= x) && (x < Width) && (0 <= y) && (y < Height))
-                Pixel[x, y] = c;
+            get
+            {
+                if ((0 <= x) && (x < Width) && (0 <= y) && (y < Height))
+                {
+                    return Color.FromArgb(
+                        BmpBytes[y * BmpStride + x * RawFormatOffset + 2],
+                        BmpBytes[y * BmpStride + x * RawFormatOffset + 1],
+                        BmpBytes[y * BmpStride + x * RawFormatOffset]
+                    );
+                }
+                else
+                {
+                    return Color.Empty;
+                }
+            }
+            set
+            {
+                if ((0 <= x) && (x < Width) && (0 <= y) && (y < Height))
+                {
+                    BmpBytes[y * BmpStride + x * RawFormatOffset + 2] = value.R;
+                    BmpBytes[y * BmpStride + x * RawFormatOffset + 1] = value.G;
+                    BmpBytes[y * BmpStride + x * RawFormatOffset] = value.B;
+                }
+            }
         }
+
         /// <summary>
         /// get color of pixel
         /// </summary>
@@ -217,10 +245,17 @@ namespace BotSuite.ImageLibrary
         /// <returns>color of pixel</returns>
         public Color GetPixel(int x, int y)
         {
-//            if ((0 <= x) && (x < _width) && (0 <= y) && (y < _height))
-                return Pixel[x, y];
-//             else
-//                 return Color.Empty;
+            return this[x, y];
+        }
+        /// <summary>
+        /// set color of pixel 
+        /// </summary>
+        /// <param name="x">x coordinate (column)</param>
+        /// <param name="y">y coordinate (row)</param>
+        /// <param name="Color">color to set</param>
+        public void SetPixel(int row, int col, Color Color)
+        {
+            this[row, col] = Color;
         }
 
         /// <summary>
@@ -233,7 +268,7 @@ namespace BotSuite.ImageLibrary
         /// // downscale an image to 80% of the original size
         /// ImageData ResizedImg = Img.Resize(0.8);
         /// 
-        /// // or use another Interpolationmode
+        /// // or use another interpolation mode
         /// ImageData ResizedImg2 = Img.Resize(0.8,InterpolationMode.Bilinear);
         /// ]]>
         /// </code>
@@ -277,7 +312,7 @@ namespace BotSuite.ImageLibrary
             Graphics graphic = Graphics.FromImage((Image)bmp);
             graphic.InterpolationMode = InterpolationMode.HighQualityBicubic;
             //draw the newly resized image
-            graphic.DrawImage(GetBitmap(), 0, 0, NewWidth, NewHeight);
+            graphic.DrawImage(this.Bitmap, 0, 0, NewWidth, NewHeight);
             //dispose and free up the resources
             graphic.Dispose();
             //return the image
@@ -285,6 +320,7 @@ namespace BotSuite.ImageLibrary
             return ANS;
         }
 
-
     }
+
+
 }
