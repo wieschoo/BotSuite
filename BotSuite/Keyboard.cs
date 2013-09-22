@@ -1,16 +1,9 @@
-﻿/* **************************************************************
- * Name:      BotSuite.NET
- * Purpose:   Framework for creating bots
- * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2013 wieschoo & enWare
- * License:   http://www.wieschoo.com/botsuite/license/
- * *************************************************************/
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
+using System.Linq;
 
 namespace BotSuite
 {
@@ -22,11 +15,8 @@ namespace BotSuite
     /// </remarks>
     public class Keyboard
     {
-        [DllImport("user32.dll", SetLastError = true)]
-        static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
         static Keyboard _instance;
         static Keyboard()
-        
         {
             _instance = new Keyboard();
         }
@@ -38,7 +28,7 @@ namespace BotSuite
                 return _instance;
             }
         }
-       
+
         /// <summary>
         /// The collections of keys to watch for
         /// </summary>
@@ -114,7 +104,7 @@ namespace BotSuite
         public static NativeMethods.keyboardHookProc SAFE_delegate_callback = new NativeMethods.keyboardHookProc(hookProc);
 
         /// <remarks>
-        /// this is a private method. You cannot us it! See the construtor #ctor for an example.
+        /// this is a private method. You cannot us it! See the constructor #ctor for an example.
         /// </remarks>
         private void hook()
         {
@@ -123,10 +113,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        /// Uninstalls the global hook
+        /// removes the global hook
         /// </summary>
         /// <remarks>
-        /// this is a private method. You cannot us it! See the construtor #ctor for an example.
+        /// this is a private method. You cannot us it! See the constructor #ctor for an example.
         /// </remarks>
         private void unhook()
         {
@@ -187,10 +177,103 @@ namespace BotSuite
         public static void Type(String Sequence)
         {
             SendKeys.Send(Sequence.Trim());
-            return;
         }
 
-        
+        /// <summary>
+        /// types a key or o sequence of keys to an application (by set the application to foreground)
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// IntPtr hWnd = something;
+        /// Keyboard.Type("{ENTER}",hWnd); // click the enter button
+        /// Keyboard.Type("ENTER",hWnd);   // types "E","N","T","E","R"
+        /// // or send it to a specific window 
+        /// </code>
+        /// </example>
+        /// <remarks>
+        /// http://msdn.microsoft.com/en-us/library/system.windows.forms.sendkeys.aspx
+        /// </remarks>
+        /// <param name="Sequence">Sequence to type</param>
+        /// <param name="hWnd">target application</param>
+        /// <returns></returns>
+        public static void Type(String Sequence, IntPtr hWnd)
+        {
+            NativeMethods.SetForegroundWindow((IntPtr)hWnd);
+            SendKeys.SendWait(Sequence.Trim());
+            SendKeys.Flush();
+        }
+
+        /// <summary>
+        /// send keys as an array to a hidden window
+        /// </summary>
+        /// <param name="Key">array of keys to send</param>
+        /// <param name="hWnd">handle of window</param>
+        public static void TypeToHiddenWindow(Keys[] Key, IntPtr hWnd)
+        {
+            Key.ToList().ForEach(k => { TypeToHiddenWindow(k, hWnd); });
+        }
+
+        /// <summary>
+        /// send a key to a hidden window
+        /// </summary>
+        /// <param name="Key">key to send</param>
+        /// <param name="hWnd">handle of window</param>
+        public static void TypeToHiddenWindow(Keys Key, IntPtr hWnd)
+        {
+
+            const int KEY_DOWN_EVENT = 0x0100;
+            const int KEY_UP_EVENT = 0x0101;
+            const int CHAR_EVENT = 0x0102;
+
+            // send key down event
+            if (NativeMethods.SendMessage(hWnd, KEY_DOWN_EVENT, (uint)Key, GetLParam(1, Key, 0, 0, 0, 0)))
+                return;
+            Utility.Delay(20);
+            // send character event
+            if (NativeMethods.SendMessage(hWnd, CHAR_EVENT, (uint)Key, GetLParam(1, Key, 0, 0, 0, 0)))
+                return;
+            Utility.Delay(20);
+            // send key up event
+            if (NativeMethods.SendMessage(hWnd, KEY_UP_EVENT, (uint)Key, GetLParam(1, Key, 0, 0, 1, 1)))
+                return;
+            Utility.Delay(20);
+
+        }
+
+
+        private static uint GetLParam(Int16 NumberOfRepetitions, Keys key, byte extended, byte contextCode, byte previousState, byte transitionState)
+        {
+            uint lParam = (uint)NumberOfRepetitions;
+            uint scanCode = (uint)key;
+            lParam += (uint)(scanCode * 0x10000);
+            lParam += (uint)((extended) * 0x1000000);
+            lParam += (uint)((contextCode * 2) * 0x10000000);
+            lParam += (uint)((previousState * 4) * 0x10000000);
+            lParam += (uint)((transitionState * 8) * 0x10000000);
+            return lParam;
+        }
+
+        /// <summary>
+        /// Hold down a key for a specific time
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// Keyboard.HoldKey(Keys.A, 250); // Holds down the "A" key for 250ms
+        /// Keyboard.HoldKey(Keys.Left, 1000); // Holds down "Left" key for 1 second
+        /// </code>
+        /// </example>
+        /// <param name="key">key to hold</param>
+        /// <param name="duration">duration </param>
+        public static void HoldKey(Keys key, int duration = 500)
+        {
+            const int KEY_DOWN_EVENT = 0x0001;
+            const int KEY_UP_EVENT = 0x0002;
+
+            NativeMethods.keybd_event((byte)key, 0, KEY_DOWN_EVENT, 0);
+            System.Threading.Thread.Sleep(duration);
+            NativeMethods.keybd_event((byte)key, 0, KEY_UP_EVENT, 0);
+
+        }
 
         /// <summary>
         /// test if a key is pressed
