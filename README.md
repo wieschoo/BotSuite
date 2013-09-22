@@ -1,34 +1,52 @@
-BotSuite
-========
+BotSuite.NET
+=============
 
-more information:
-www.botsuite.net or 
-www.wieschoo.com
-
-questions? (german only)
-www.codebot.de
-
-<h3>Documentation</h3>
-http://phpnetmanual.wieschoo.com/
-
-<h3>Credits</h3>
-<b>DerpyHooves(Karill) from codebot.de</b>
-He is the one who likes a good and clear class design and who gets on our nerves till we use a clear coding style.
-He is a active developer of the BotSuite and created the HTTP classes and some other things were written by him.
-
-<b>easysurfer from easysurfer.me</b>
-He created the FSE for the BotSuite.NET and has a cool blog.
-
-<b>3HMonkey </b>
-Control the keyboard without your fingers is possible per his code.
+This library helps you by creating bots for repeating actions. To getting started please visit the tutorial section at
+www.botsuite.net to get an introduction and more information. Please do not hesitate to contact us or add an issue here at the proect page on github.
 
 
-<b>SourceCoder from codebot.de</b>
-He forced me to implement a memory class for the BotSuite.NET. So now we have a class to manipulate the memory.
+<h2>outstanding features</h2>
+- [x] fast and easy image recognition/manipulation
+- [x] easy screenshot capturing
+- [x] mouse cursor control
+- [x] easy way to send HTTP request and handle their answers
+- [x] common memory reading and writing functions
+- [x] includes a finite state engine
+- [x] captcha cracking with the appertaining artificial feed forward neural network
 
-<b>gigagames and Absorber from codebot.de</b>
+<h3>history</h3>
+This project was first published by wieschoo at the german community:
+http://www.codebot.de
+If you have any problems you can ask there questions. Please notice that this is a german community. In addition you can use the contact formular at http://www.botsuite.net. We try to reply your questions quickly.
 
-They give us a small regex class for common regex requests.
+<h3>documentation and additional information, tutorials</h3>
+http://www.botsuite.net
+
+<h3>contributors</h3>
+<table>
+  <tr>
+    <th>name</th><th>url</th><th>text</th>
+  </tr>
+  <tr>
+    <td>DerpyHooves(Karill)</td><td>http://www.codebot.de</td><td>He is the one who likes a good and clear class design and who gets on our nerves till we use a clear coding style.
+He is a active developer of the BotSuite and created the HTTP classes and some other things were written by him.</td>
+  </tr>
+  <tr>
+    <td>wieschoo</td><td>http://www.wieschoo.com</td><td>He came up with the idea to share his code as a library and post the first release at codebot.de.</td>
+  </tr>
+  <tr>
+    <td>easysurfer</td><td>http://www.easysurfer.me</td><td>He created the FSE for the BotSuite.NET and has a cool blog.</td>
+  </tr>
+  <tr>
+    <td>3HMonkey</td><td>http://www.codebot.de</td><td>Control the keyboard without your fingers is possible per his code.</td>
+  </tr>
+  <tr>
+    <td>SourceCoder</td><td>http://www.codebot.de</td><td>He forced me to implement a memory class for the BotSuite.NET and send me his rudimentary memory library . So now we have a class to manipulate the memory.</td>
+  </tr>
+  <tr>
+    <td>gigagames and Absorber</td><td>http://www.codebot.de</td><td>They give us a small regex class for common regex requests.</td>
+  </tr>
+</table>
 
 <h3>Software License Agreement</h3>
 
