@@ -32,8 +32,8 @@ namespace BotSuite.ImageLibrary
                 {
                     for (Int32 row = 0; row < Summand.Height; row++)
                     {
-                        Color a = Summand.GetPixel(column, row);
-                        Color b = Img.GetPixel(column, row);
+                        Color a = Summand[column, row];
+                        Color b = Img[column, row];
 
                         int cr = a.R + b.R;
                         int cg = a.G + b.G;
@@ -46,7 +46,7 @@ namespace BotSuite.ImageLibrary
                         if (cb > 255)
                             cb -= 255;
 
-                        Img.SetPixel(column, row, Color.FromArgb(cr, cg, cb));
+                        Img[column, row] = Color.FromArgb(cr, cg, cb);
                     }
                 }
             }
@@ -76,8 +76,8 @@ namespace BotSuite.ImageLibrary
                 {
                     for (Int32 row = 0; row < Subtrahend.Height; row++)
                     {
-                        Color a = Subtrahend.GetPixel(column, row);
-                        Color b = Img.GetPixel(column, row);
+                        Color a = Subtrahend[column, row];
+                        Color b = Img[column, row];
 
                         int cr = a.R - b.R;
                         int cg = a.G - b.G;
@@ -90,7 +90,7 @@ namespace BotSuite.ImageLibrary
                         if (cb < 0)
                             cb += 255;
 
-                        Img.SetPixel(column, row, Color.FromArgb(cr, cg, cb));
+                        Img[column, row] = Color.FromArgb(cr, cg, cb);
                     }
                 }
             }
@@ -112,6 +112,7 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <see cref="blackandwhite"/>
         /// <returns></returns>
         static public void BlackAndWhite(ref ImageData Img, uint Tolerance)
         {
@@ -135,6 +136,7 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <see cref="replacecolor"/>
         /// <returns></returns>
         static public void ReplaceSimilarColor(ref ImageData Img, Color SearchColor, Color ReplaceColor, uint Tolerance)
         {
@@ -142,10 +144,10 @@ namespace BotSuite.ImageLibrary
             {
                 for (Int32 OuterY = 0; OuterY < Img.Height; OuterY++)
                 {
-                    Color a = Img.GetPixel(OuterX, OuterY);
+                    Color a = Img[OuterX, OuterY];
                     if (CommonFunctions.ColorsSimilar(a, SearchColor, Tolerance))
                     {
-                        Img.SetPixel(OuterX, OuterY, ReplaceColor);
+                        Img[OuterX, OuterY]= ReplaceColor;
                     }
                 }
             }
@@ -174,10 +176,10 @@ namespace BotSuite.ImageLibrary
             {
                 for (Int32 OuterY = 0; OuterY < Img.Height; OuterY++)
                 {
-                    Color a = Img.GetPixel(OuterX, OuterY);
+                    Color a = Img[OuterX, OuterY];
                     if (!CommonFunctions.ColorsSimilar(a, SearchColor, Tolerance))
                     {
-                        Img.SetPixel(OuterX, OuterY, ReplaceColor);
+                        Img[OuterX, OuterY] = ReplaceColor;
                     }
                 }
             }
@@ -194,6 +196,7 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <see cref="gray"/>
         /// <param name="Img">ref image to convert</param>
         /// <returns></returns>
         static public void Grayscale(ref ImageData Img)
@@ -202,9 +205,9 @@ namespace BotSuite.ImageLibrary
             {
                 for (Int32 row = 0; row < Img.Height; row++)
                 {
-                    Color c = Img.GetPixel(column, row);
+                    Color c = Img[column, row];
                     int grayScale = (int)((c.R * .3) + (c.G * .59) + (c.B * .11));
-                    Img.SetPixel(column, row, Color.FromArgb(grayScale, grayScale, grayScale));
+                    Img[column, row] = Color.FromArgb(grayScale, grayScale, grayScale);
                 }
             }
         }
@@ -220,6 +223,7 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <see cref="invert"/>
         /// <param name="Img">ref image to convert</param>
         /// <returns></returns>
         static public void Invert(ref ImageData Img)
@@ -228,8 +232,8 @@ namespace BotSuite.ImageLibrary
             {
                 for (Int32 row = 0; row < Img.Height; row++)
                 {
-                    Color c = Img.GetPixel(column, row);
-                    Img.SetPixel(column, row, Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
+                    Color c = Img[column, row];
+                    Img[column, row]= Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B);
                 }
             }
         }
@@ -240,13 +244,14 @@ namespace BotSuite.ImageLibrary
         /// <param name="Location">where to set marker</param>
         /// <param name="MarkColor">color of marker</param>
         /// <param name="Size">size of marker (square)</param>
-        static public void MarkPoint(ref ImageData Img, Point Location, Color MarkColor, uint Size)
+        /// <returns></returns>
+        static public void MarkPoint(ref ImageData Img, Point Location, Color MarkColor, uint Size=5)
         {
             for (int i = Convert.ToInt32(Location.X - Size); i < Location.X + Size; i++)
             {
                 for (int j = Convert.ToInt32(Location.Y - Size); j < Location.Y + Size; j++)
                 {
-                    Img.SetPixel(i, j, MarkColor);
+                    Img[i, j] = MarkColor;
                 }
             }
         }
@@ -262,7 +267,9 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <see cref="sepia"/>
         /// <param name="Img">ref image to convert</param>
+        /// <returns></returns>
         static public void Sepia(ref ImageData Img)
         {
             int t;
@@ -270,14 +277,14 @@ namespace BotSuite.ImageLibrary
             {
                 for (Int32 row = 0; row < Img.Height; row++)
                 {
-                    Color c = Img.GetPixel(column, row);
+                    Color c = Img[column, row];
                     t = Convert.ToInt32(0.299 * c.R + 0.587 * c.G + 0.114 * c.B);
                     Img.SetPixel(column, row, Color.FromArgb(((t > 206) ? 255 : t + 49), ((t < 14) ? 0 : t - 14), ((t < 56) ? 0 : t - 56)));
                 }
             }
         }
         /// <summary>
-        /// apply threshold filter (all above threshold becomes white, the other pixels are black)
+        /// apply threshold
         /// </summary>
         /// <param name="Img">ref Image</param>
         /// <param name="threshold">threshold (0,...,255)</param>
@@ -292,20 +299,22 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <see cref="threshold"/>
+        /// <returns></returns>
         static public void Threshold(ref ImageData Img,uint threshold)
         {
             for (Int32 column = 0; column < Img.Width; column++)
             {
                 for (Int32 row = 0; row < Img.Height; row++)
                 {
-                    Color c = Img.GetPixel(column, row);
+                    Color c = Img[column, row];
                     if (c.R > threshold)
                     {
-                        Img.SetPixel(column, row, Color.FromArgb(255, 255, 255));
+                        Img[column, row] =  Color.FromArgb(255, 255, 255);
                     }
                     else
                     {
-                        Img.SetPixel(column, row, Color.FromArgb(0, 0, 0));
+                        Img[column, row] = Color.FromArgb(0, 0, 0);
                     }
 
                 }
@@ -325,6 +334,8 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <see cref="contrast"/>
+        /// <returns></returns>
         static public void Contrast(ref ImageData Img, double contrast)
         {
             double  RedChannel, GreenChannel, BlueChannel;
@@ -338,7 +349,7 @@ namespace BotSuite.ImageLibrary
             {
                 for (int x = 0; x < Img.Width; x++)
                 {
-                    PixelColor = Img.GetPixel(x, y);
+                    PixelColor = Img[x, y];
                     RedChannel = (((PixelColor.R / 255.0) - 0.5) * contrast + 0.5) * 255;
                     GreenChannel = (((PixelColor.G / 255.0) - 0.5) * contrast + 0.5) * 255;
                     BlueChannel = (((PixelColor.B / 255.0) - 0.5) * contrast + 0.5) * 255;
@@ -371,6 +382,7 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <see cref="brightness"/>
         /// <returns></returns>
         static public void Brightness(ref ImageData Img, int brightness)
         {
@@ -381,7 +393,7 @@ namespace BotSuite.ImageLibrary
             {
                 for (int x = 0; x < Img.Width; x++)
                 {
-                    PixelColor = Img.GetPixel(x, y);
+                    PixelColor = Img[x, y];
 
                     RedChannel = PixelColor.R + brightness;
                     GreenChannel = PixelColor.G + brightness;
@@ -414,6 +426,7 @@ namespace BotSuite.ImageLibrary
         /// </example>
         /// <param name="Img">image to manipulate</param>
         /// <param name="offset">offset of colordepth</param>
+        /// <see cref="decreasecolourdepth"/>
         /// <returns></returns>
         static public void DecreaseColourDepth(ref ImageData Img, int offset)
         {
@@ -424,7 +437,7 @@ namespace BotSuite.ImageLibrary
             {
                 for (int x = 0; x < Img.Width; x++)
                 {
-                    PixelColor = Img.GetPixel(x, y);
+                    PixelColor = Img[x, y];
                     RedChannel = ((PixelColor.R + (offset / 2)) - ((PixelColor.R + (offset / 2)) % offset) - 1);
                     GreenChannel = ((PixelColor.G + (offset / 2)) - ((PixelColor.G + (offset / 2)) % offset) - 1);
                     BlueChannel = ((PixelColor.B + (offset / 2)) - ((PixelColor.B + (offset / 2)) % offset) - 1);
@@ -452,6 +465,7 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <see cref="emboss"/>
         /// <returns></returns>
         static public void Emboss(ref ImageData Img, double weight)
         {
@@ -485,6 +499,7 @@ namespace BotSuite.ImageLibrary
         /// </example>
         /// <param name="Img">image to manipulate</param>
         /// <param name="peakValue">parameter</param>
+        /// <see cref="gaussian"/>
         /// <returns></returns>
         static public void GaussianBlur(ref ImageData Img, double peakValue)
         {
@@ -517,6 +532,7 @@ namespace BotSuite.ImageLibrary
         /// </example>
         /// <param name="Img">image to manipulate</param>
         /// <param name="weight">weight</param>
+        /// <see cref="sharpen"/>
         /// <returns></returns>
         static public void Sharpen(ref ImageData Img, double weight)
         {
@@ -582,6 +598,8 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <see cref="blur"/>
+        /// <returns></returns>
         static public void Blur(ref ImageData Img, double weight)
         {
             ConvolutionMatrix CMatrix = new ConvolutionMatrix(3);
@@ -595,6 +613,7 @@ namespace BotSuite.ImageLibrary
         /// marks the edges black and all other pixels white
         /// </summary>
         /// <param name="Img">image to manipulate</param>
+        /// <see cref="findedges"/>
         /// <example>
         /// <code>
         /// <![CDATA[
@@ -604,6 +623,7 @@ namespace BotSuite.ImageLibrary
         /// ]]>
         /// </code>
         /// </example>
+        /// <returns></returns>
         static public void FindEdges(ref ImageData Img)
         {
             Emboss(ref Img, 4.0);
@@ -623,15 +643,15 @@ namespace BotSuite.ImageLibrary
             {
                 for (int x = 0; x < Img.Width - 2; x++)
                 {
-                    pixelColor[0, 0] = Img.GetPixel(x, y);
-                    pixelColor[0, 1] = Img.GetPixel(x, y + 1);
-                    pixelColor[0, 2] = Img.GetPixel(x, y + 2);
-                    pixelColor[1, 0] = Img.GetPixel(x + 1, y);
-                    pixelColor[1, 1] = Img.GetPixel(x + 1, y + 1);
-                    pixelColor[1, 2] = Img.GetPixel(x + 1, y + 2);
-                    pixelColor[2, 0] = Img.GetPixel(x + 2, y);
-                    pixelColor[2, 1] = Img.GetPixel(x + 2, y + 1);
-                    pixelColor[2, 2] = Img.GetPixel(x + 2, y + 2);
+                    pixelColor[0, 0] = Img[x, y];
+                    pixelColor[0, 1] = Img[x, y + 1];
+                    pixelColor[0, 2] = Img[x, y + 2];
+                    pixelColor[1, 0] = Img[x + 1, y];
+                    pixelColor[1, 1] = Img[x + 1, y + 1];
+                    pixelColor[1, 2] = Img[x + 1, y + 2];
+                    pixelColor[2, 0] = Img[x + 2, y];
+                    pixelColor[2, 1] = Img[x + 2, y + 1];
+                    pixelColor[2, 2] = Img[x + 2, y + 2];
 
                     A = pixelColor[1, 1].A;
 
@@ -685,36 +705,21 @@ namespace BotSuite.ImageLibrary
             Img = newImg.Clone();
         
         }
-        /// <summary>
-        /// convoluation matrix for filters (edge filter, ...)
-        /// </summary>
+
         public class ConvolutionMatrix
         {
-            /// <summary>
-            /// size of matrix
-            /// </summary>
             public int MatrixSize = 3;
-            /// <summary>
-            /// matrix entries
-            /// </summary>
+
             public double[,] Matrix;
-            /// <summary>
-            /// parameters for convolution matrix
-            /// </summary>
-            public double Factor = 1, Offset = 1;
-            /// <summary>
-            /// construct
-            /// </summary>
-            /// <param name="size"></param>
-            public ConvolutionMatrix(int size=3)
+            public double Factor = 1;
+            public double Offset = 1;
+
+            public ConvolutionMatrix(int size)
             {
-                MatrixSize = size;
+                MatrixSize = 3;
                 Matrix = new double[size, size];
             }
-            /// <summary>
-            /// set all entries to a value
-            /// </summary>
-            /// <param name="value">value to set</param>
+
             public void SetAll(double value)
             {
                 for (int i = 0; i < MatrixSize; i++)
