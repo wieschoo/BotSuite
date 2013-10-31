@@ -92,7 +92,6 @@
     <Compile Include="Recognition\Character\MagicMatchSticks.cs" />
     <Compile Include="Recognition\Character\OCR.cs" />
     <Compile Include="ScreenShot.cs" />
-    <Compile Include="Settings.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="Window.cs" />

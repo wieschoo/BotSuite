@@ -157,6 +157,7 @@ namespace BotSuite
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern bool SendMessage(IntPtr hWnd, int wMsg, uint wParam, uint lParam);
         [DllImport("user32.dll")]
         internal static extern uint keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
