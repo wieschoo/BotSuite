@@ -186,20 +186,35 @@ namespace BotSuite.ImageLibrary
         /// <returns></returns>
         public Bitmap CreateBitmap(int L = 0, int T = 0, int W = -1, int H = -1)
         {
+            // First, we generate a Bitmap object holding the current bitmap (ReturnBitmap)
             W = (W == -1) ? Width - L : W;
             H = (H == -1) ? Height - T : H;
 
-            Bitmap ReturnBitmap = new Bitmap(W, H);
+            Bitmap ReturnBitmap = new Bitmap(Width, Height);
+            Rectangle r = new Rectangle(0, 0, Width, Height);
 
-            Rectangle r = new Rectangle(0, 0, W, H);
-            BitmapData bmpData = ReturnBitmap.LockBits(r, ImageLockMode.ReadWrite, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            BitmapData bmpData = ReturnBitmap.LockBits(r, ImageLockMode.ReadWrite, BmpPixelFormat);
             int InStride = bmpData.Stride;
             int ByteSize = InStride * ReturnBitmap.Height;
             IntPtr ptr = bmpData.Scan0;
             System.Runtime.InteropServices.Marshal.Copy(BmpBytes, 0, ptr, ByteSize);
+
             ReturnBitmap.UnlockBits(bmpData);
 
-            return ReturnBitmap;
+            // Then, if necessary, we crop the generated rectangle to the new size:
+            if (!(L == 0 && T == 0 && W == Width && H == Height)) ;
+            Rectangle cropRect = new Rectangle(L, T, W, H);
+            Bitmap target = new Bitmap(cropRect.Width, cropRect.Height);
+
+            using (Graphics g = Graphics.FromImage(target))
+            {
+                g.DrawImage(ReturnBitmap, new Rectangle(0, 0, target.Width, target.Height),
+                                 cropRect,
+                                 GraphicsUnit.Pixel);
+
+            }
+
+            return target;
         }
         #endregion
 
