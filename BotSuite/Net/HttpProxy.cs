@@ -1,85 +1,86 @@
-﻿//-----------------------------------------------------------------------
-// <copyright file="HttpProxy.cs" company="Wieschoo &amp; enWare">
-//     Copyright (c) Wieschoo &amp; enWare.
-// </copyright>
-// <project>BotSuite.Net</project>
-// <purpose>framework for creating bots</purpose>
-// <homepage>http://botsuite.net/</homepage>
-// <license>http://botsuite.net/license/index/</license>
-//-----------------------------------------------------------------------
+﻿// -----------------------------------------------------------------------
+//  <copyright file="HttpProxy.cs" company="HoovesWare">
+//      Copyright (c) HoovesWare
+//  </copyright>
+//  <project>BotSuite.Net</project>
+//  <purpose>framework for creating bots</purpose>
+//  <homepage>http://botsuite.net/</homepage>
+//  <license>http://botsuite.net/license/index/</license>
+// -----------------------------------------------------------------------
 
 namespace BotSuite.Net
 {
 	using System;
-	using System.Diagnostics.Contracts;
 	using System.Net;
 
 	/// <summary>
-	/// proxy class for storing proxy informations for HttpClient
+	///     proxy class for storing proxy informations for HttpClient
 	/// </summary>
 	public class HttpProxy
 	{
 		/// <summary>
-		/// the internally used WebProxy instance
+		///     the internally used WebProxy instance
 		/// </summary>
-		private WebProxy _InternalProxy = new WebProxy();
+		private readonly WebProxy internalProxy = new WebProxy();
 
 		/// <summary>
-		/// the network credentials to use with this proxy
+		///     Initializes a new instance of the <see cref="HttpProxy" /> class
 		/// </summary>
-		private NetworkCredential _Credential = null;
-
-		/// <summary>
-		/// the address of the proxy
-		/// </summary>
-		private Uri _Address = null;
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="HttpProxy"/> class
-		/// </summary>
-		/// <param name="address">url of proxy</param>
-		/// <param name="username">username for proxy, if applicable</param>
-		/// <param name="password">password for proxy, if applicable</param>
-		public HttpProxy(String address, String username = null, String password = null) : this(new Uri(address), username, password)
+		/// <param name="address">
+		///     url of proxy
+		/// </param>
+		/// <param name="username">
+		///     username for proxy, if applicable
+		/// </param>
+		/// <param name="password">
+		///     password for proxy, if applicable
+		/// </param>
+		public HttpProxy(string address, string username = null, string password = null)
+			: this(new Uri(address), username, password)
 		{
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="HttpProxy"/> class
+		///     Initializes a new instance of the <see cref="HttpProxy" /> class
 		/// </summary>
-		/// <param name="address">uri of proxy</param>
-		/// <param name="username">username for proxy, if applicable</param>
-		/// <param name="password">password for proxy, if applicable</param>
-		public HttpProxy(Uri address, String username = null, String password = null)
+		/// <param name="address">
+		///     uri of proxy
+		/// </param>
+		/// <param name="username">
+		///     username for proxy, if applicable
+		/// </param>
+		/// <param name="password">
+		///     password for proxy, if applicable
+		/// </param>
+		public HttpProxy(Uri address, string username = null, string password = null)
 		{
-			Contract.Requires(address != null);
+			NetworkCredential credential;
 
-			this._Address = address;
-			if(username != null)
+			if (username != null)
 			{
-				if(password == null)
+				if (password == null)
 				{
-					password = String.Empty;
+					password = string.Empty;
 				}
 
-				this._Credential = new NetworkCredential(username, password);
+				credential = new NetworkCredential(username, password);
 			}
 			else
 			{
-				this._Credential = CredentialCache.DefaultNetworkCredentials;
+				credential = CredentialCache.DefaultNetworkCredentials;
 			}
 
-			this._InternalProxy.Address = this._Address;
-			this._InternalProxy.Credentials = this._Credential;
+			this.internalProxy.Address = address;
+			this.internalProxy.Credentials = credential;
 		}
 
 		/// <summary>
-		/// returns the internally manageg WebProxy object for usage in HttpWebRequest
+		///     returns the internally manageg WebProxy object for usage in HttpWebRequest
 		/// </summary>
 		/// <returns>the internally used instance of the WebProxy class</returns>
 		internal WebProxy GetWebProxy()
 		{
-			return this._InternalProxy;
+			return this.internalProxy;
 		}
 	}
 }

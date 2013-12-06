@@ -1,220 +1,256 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Drawing;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using BotSuite.ImageLibrary;
-using BotSuite.MachineLearning.NeuralNetwork;
-
+﻿// -----------------------------------------------------------------------
+//  <copyright file="OCR.cs" company="HoovesWare">
+//      Copyright (c) HoovesWare
+//  </copyright>
+//  <project>BotSuite.Net</project>
+//  <purpose>framework for creating bots</purpose>
+//  <homepage>http://botsuite.net/</homepage>
+//  <license>http://botsuite.net/license/index/</license>
+// -----------------------------------------------------------------------
 
 namespace BotSuite.Recognition.Character
 {
-    
-    
-    /// <summary>
-    /// class to recognize characters by a neural network
-    /// </summary>
-    [Serializable]
-    public class OCR
-    {
-        #region protected properties
-        /// <summary>
-        /// instance of neural network
-        /// </summary>
-        protected NeuralNetwork WorkingNeuralNetwork;
-        /// <summary>
-        /// receptors to detect character
-        /// </summary>
-        protected MagicMatchSticks ImageSense;
-        /// <summary>
-        /// flag of network initialisation
-        /// </summary>
-        protected bool NetworkWasInitialised = false;
-        /// <summary>
-        /// possible characters that can be recognized
-        /// </summary>
-        protected List<Char> CharactersToRecognize; 
-        #endregion
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	using System.Linq;
+	using System.Runtime.Serialization;
+	using System.Runtime.Serialization.Formatters.Binary;
 
-        #region construct
-        /// <summary>
-        /// get a simple class to do OCR
-        /// </summary>
-        /// <param name="NumberOfSense">number of receptors</param>
-        /// <returns>instance of class</returns>
-        public OCR(int NumberOfSense = 17)
-        {
-            ImageSense = new MagicMatchSticks();
-            ImageSense.Generate(NumberOfSense);
+	using BotSuite.Imaging;
 
-        } 
-        #endregion
+	using global::BotSuite.MachineLearning.NeuralNetwork;
 
-        #region learn the recognition
-        /// <summary>
-        /// start a new trainingsession to learn the new imagedatas
-        /// </summary>
-        /// <param name="TrainingImageData">data (images) to learn</param>
-        public void StartTrainingSession(Dictionary<Char, List<ImageData>> TrainingImageData)
-        {
-            if (!NetworkWasInitialised)
-            {
-                CharactersToRecognize = new List<Char>(TrainingImageData.Keys);
-                WorkingNeuralNetwork = new NeuralNetwork(ImageSense.Num(), new int[] { ImageSense.Num(), 10, 10, CharactersToRecognize.Count });
-                WorkingNeuralNetwork.ShuffleBoth();
-                NetworkWasInitialised = true;
-            }
+	/// <summary>
+	///     class to recognize characters by a neural network
+	/// </summary>
+	[Serializable]
+	public class OCR
+	{
+		/// <summary>
+		///     instance of neural network
+		/// </summary>
+		protected NeuralNetwork WorkingNeuralNetwork;
 
+		/// <summary>
+		///     receptors to detect character
+		/// </summary>
+		protected MagicMatchSticks ImageSense;
 
-            // we need random here
-            Random rand = new Random();
+		/// <summary>
+		///     flag of network initialisation
+		/// </summary>
+		protected bool NetworkWasInitialised = false;
 
-            const float BAD_CHARACTER = -0.5f;      // the expected output for a not matching character
-            const float GOOD_CHARACTER = 0.5f;      // the expected output for a matching character
+		/// <summary>
+		///     possible characters that can be recognized
+		/// </summary>
+		protected List<char> CharactersToRecognize;
 
-            // precalculate the expected output
-            float[] ExpectedOutput = new float[CharactersToRecognize.Count];
-            for (int j = 0; j < CharactersToRecognize.Count; j++)
-                ExpectedOutput[j] = BAD_CHARACTER;
+		/// <summary>
+		///     Initializes a new instance of the <see cref="OCR" /> class.
+		///     get a simple class to do OCR
+		/// </summary>
+		/// <param name="numberOfSense">
+		///     number of receptors
+		/// </param>
+		/// <returns>
+		///     instance of class
+		/// </returns>
+		public OCR(int numberOfSense = 17)
+		{
+			this.ImageSense = new MagicMatchSticks();
+			this.ImageSense.Generate(numberOfSense);
+		}
 
-            // remember last character to calculate the expected output faster
-            int LastCharacter = 0;
+		/// <summary>
+		///     start a new trainingsession to learn the new imagedatas
+		/// </summary>
+		/// <param name="trainingImageData">
+		///     data (images) to learn
+		/// </param>
+		public void StartTrainingSession(Dictionary<char, List<ImageData>> trainingImageData)
+		{
+			if (!this.NetworkWasInitialised)
+			{
+				this.CharactersToRecognize = new List<char>(trainingImageData.Keys);
+				this.WorkingNeuralNetwork = new NeuralNetwork(
+					this.ImageSense.Num(),
+					new[] { this.ImageSense.Num(), 10, 10, this.CharactersToRecognize.Count });
+				this.WorkingNeuralNetwork.ShuffleBoth();
+				this.NetworkWasInitialised = true;
+			}
 
-            int TotalLearningData = 0;
-            for (int chars = 0; chars < CharactersToRecognize.Count; chars++)
-                TotalLearningData += TrainingImageData[CharactersToRecognize[chars]].Count;
+			const float BadCharacter = -0.5f; // the expected output for a not matching character
+			const float GoodCharacter = 0.5f; // the expected output for a matching character
 
-            // raw learning - data
-            float[][] X = new float[TotalLearningData][];
-            float[][] Y = new float[TotalLearningData][];
+			// precalculate the expected output
+			float[] expectedOutput = new float[this.CharactersToRecognize.Count];
+			for (int j = 0; j < this.CharactersToRecognize.Count; j++)
+			{
+				expectedOutput[j] = BadCharacter;
+			}
 
-            int LearningdataPointer = 0;
-            int NumberOfInputs = ImageSense.Num();
-            int NumberOfOutputs = CharactersToRecognize.Count;
+			// remember last character to calculate the expected output faster
+			int lastCharacter = 0;
 
-            for (int CurrentCharacter = 0; CurrentCharacter < CharactersToRecognize.Count; CurrentCharacter++)
-            {
+			int totalLearningData = this.CharactersToRecognize.Sum(t => trainingImageData[t].Count);
 
-                ExpectedOutput[LastCharacter] = BAD_CHARACTER;
-                ExpectedOutput[CurrentCharacter] = GOOD_CHARACTER;
-                LastCharacter = CurrentCharacter;
-                if (TrainingImageData[CharactersToRecognize[CurrentCharacter]].Count != 0)
-                {
-                    for (int imgs = 0; imgs < TrainingImageData[CharactersToRecognize[CurrentCharacter]].Count; imgs++)
-                    {
-                        float[] CurrentState = ImageSense.GetMagicMatchSticksState(TrainingImageData[CharactersToRecognize[CurrentCharacter]][imgs]);
-                        X[LearningdataPointer] = new float[NumberOfInputs];
-                        Y[LearningdataPointer] = new float[NumberOfOutputs];
-                        for (int a = 0; a < NumberOfInputs; a++)
-                            X[LearningdataPointer][a] = CurrentState[a];
-                        for (int a = 0; a < NumberOfOutputs; a++)
-                            Y[LearningdataPointer][a] = ExpectedOutput[a];
-                        LearningdataPointer++;
-                    }
-                }
+			// raw learning - data
+			float[][] x = new float[totalLearningData][];
+			float[][] y = new float[totalLearningData][];
 
-            }
-            WorkingNeuralNetwork.Teacher.MaximumOfEpochs = 1000;
-            WorkingNeuralNetwork.Learn(X, Y);
-        }
+			int learningdataPointer = 0;
+			int numberOfInputs = this.ImageSense.Num();
+			int numberOfOutputs = this.CharactersToRecognize.Count;
 
-        /// <summary>
-        /// calculate the prediction error of a textsuite
-        /// </summary>
-        /// <param name="TestSuite">Training data as list of pictures(imagedata) and key (character)</param>
-        /// <returns></returns>
-        public float PredictionError(Dictionary<Char, List<ImageData>> TestSuite)
-        {
-            int DatasetSize = 0;
-            int OccuredErrors = 0;
+			for (int currentCharacter = 0; currentCharacter < this.CharactersToRecognize.Count; currentCharacter++)
+			{
+				expectedOutput[lastCharacter] = BadCharacter;
+				expectedOutput[currentCharacter] = GoodCharacter;
+				lastCharacter = currentCharacter;
+				if (trainingImageData[this.CharactersToRecognize[currentCharacter]].Count != 0)
+				{
+					for (int imgs = 0; imgs < trainingImageData[this.CharactersToRecognize[currentCharacter]].Count; imgs++)
+					{
+						float[] currentState =
+							this.ImageSense.GetMagicMatchSticksState(trainingImageData[this.CharactersToRecognize[currentCharacter]][imgs]);
+						x[learningdataPointer] = new float[numberOfInputs];
+						y[learningdataPointer] = new float[numberOfOutputs];
+						for (int a = 0; a < numberOfInputs; a++)
+						{
+							x[learningdataPointer][a] = currentState[a];
+						}
+						for (int a = 0; a < numberOfOutputs; a++)
+						{
+							y[learningdataPointer][a] = expectedOutput[a];
+						}
+						learningdataPointer++;
+					}
+				}
+			}
 
-            for (int chars = 0; chars < CharactersToRecognize.Count; chars++)
-            {
-                Char CurrentCharacter = CharactersToRecognize[chars];
-                if (TestSuite.ContainsKey(CurrentCharacter))
-                    if (TestSuite[CurrentCharacter].Count != 0)
-                        for (int imgs = 0; imgs < TestSuite[CharactersToRecognize[chars]].Count; imgs++)
-                        {
-                            DatasetSize++;
-                            if (CurrentCharacter != Recognize(TestSuite[CharactersToRecognize[chars]][imgs]))
-                                OccuredErrors++;
-                        }
-            }
-            return (float)OccuredErrors / DatasetSize;
-        }
+			this.WorkingNeuralNetwork.Teacher.MaximumOfEpochs = 1000;
+			this.WorkingNeuralNetwork.Learn(x, y);
+		}
 
-        /// <summary>
-        /// get the pattern of the magic sticks, which the network learns
-        /// </summary>
-        /// <param name="Img">image of character</param>
-        /// <returns>pattern of magic sticks as array of floats (0.0f, 1.0f)</returns>
-        public float[] GetMagicSticksPattern(ImageData Img)
-        {
-            return ImageSense.GetMagicMatchSticksState(Img);
-        }
+		/// <summary>
+		///     calculate the prediction error of a textsuite
+		/// </summary>
+		/// <param name="testSuite">
+		///     Training data as list of pictures(imagedata) and key (character)
+		/// </param>
+		/// <returns>
+		///     The <see cref="float" />.
+		/// </returns>
+		public float PredictionError(Dictionary<char, List<ImageData>> testSuite)
+		{
+			int datasetSize = 0;
+			int occuredErrors = 0;
 
-        /// <summary>
-        /// get the output of the neural network
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns>network output as array of float</returns>
-        public float[] GetNetworkOutput(float[] input)
-        {
-            return WorkingNeuralNetwork.Output(input);
-        } 
-        #endregion
+			foreach (char currentCharacter in this.CharactersToRecognize)
+			{
+				if (testSuite.ContainsKey(currentCharacter))
+				{
+					if (testSuite[currentCharacter].Count != 0)
+					{
+						for (int imgs = 0; imgs < testSuite[currentCharacter].Count; imgs++)
+						{
+							datasetSize++;
+							if (currentCharacter != this.Recognize(testSuite[currentCharacter][imgs]))
+							{
+								occuredErrors++;
+							}
+						}
+					}
+				}
+			}
 
-        #region apply the network to an unkown image
-        /// <summary>
-        /// recognize a character in image
-        /// </summary>
-        /// <param name="Img">image of character</param>
-        /// <returns>detected character (this is possible wrong, if the training wasn't successfull)</returns>
-        public Char Recognize(ImageData Img)
-        {
-            float[] Output = WorkingNeuralNetwork.Output(ImageSense.GetMagicMatchSticksState(Img));
-            var indexAtMax = Output.ToList().IndexOf(Output.Max());
-            return CharactersToRecognize[indexAtMax];
-        } 
-        #endregion
+			return (float)occuredErrors / datasetSize;
+		}
 
-        #region file io
-        /// <summary>
-        /// save the OCR data in a binary formated file
-        /// </summary>
-        /// <param name="file">the target file path</param>
-        public void Store(string file)
-        {
-            IFormatter binFmt = new BinaryFormatter();
-            Stream s = File.Open(file, FileMode.Create);
-            binFmt.Serialize(s, this);
-            s.Close();
-        }
-        /// <summary>
-        /// load a OCR data file from a binary formated file
-        /// </summary>
-        /// <param name="file">the neural network file file</param>
-        /// <returns></returns>
-        public static OCR Load(string file)
-        {
-            OCR result;
-            try
-            {
-                IFormatter binFmt = new BinaryFormatter();
-                Stream s = File.Open(file, FileMode.Open);
-                result = (OCR)binFmt.Deserialize(s);
-                s.Close();
-            }
-            catch (Exception e)
-            {
-                throw new Exception("OCR : Unable to load file " + file + " : " + e);
-            }
-            return result;
-        } 
-        #endregion
-    
-    }
+		/// <summary>
+		///     get the pattern of the magic sticks, which the network learns
+		/// </summary>
+		/// <param name="img">
+		///     image of character
+		/// </param>
+		/// <returns>
+		///     pattern of magic sticks as array of floats (0.0f, 1.0f)
+		/// </returns>
+		public float[] GetMagicSticksPattern(ImageData img)
+		{
+			return this.ImageSense.GetMagicMatchSticksState(img);
+		}
+
+		/// <summary>
+		///     get the output of the neural network
+		/// </summary>
+		/// <param name="input">
+		/// </param>
+		/// <returns>
+		///     network output as array of float
+		/// </returns>
+		public float[] GetNetworkOutput(float[] input)
+		{
+			return this.WorkingNeuralNetwork.Output(input);
+		}
+
+		/// <summary>
+		///     recognize a character in image
+		/// </summary>
+		/// <param name="img">
+		///     image of character
+		/// </param>
+		/// <returns>
+		///     detected character (this is possible wrong, if the training wasn't successfull)
+		/// </returns>
+		public char Recognize(ImageData img)
+		{
+			float[] output = this.WorkingNeuralNetwork.Output(this.ImageSense.GetMagicMatchSticksState(img));
+			int indexAtMax = output.ToList().IndexOf(output.Max());
+			return this.CharactersToRecognize[indexAtMax];
+		}
+
+		/// <summary>
+		///     save the OCR data in a binary formated file
+		/// </summary>
+		/// <param name="file">
+		///     the target file path
+		/// </param>
+		public void Store(string file)
+		{
+			IFormatter binFmt = new BinaryFormatter();
+			Stream s = File.Open(file, FileMode.Create);
+			binFmt.Serialize(s, this);
+			s.Close();
+		}
+
+		/// <summary>
+		///     load a OCR data file from a binary formated file
+		/// </summary>
+		/// <param name="file">
+		///     the neural network file file
+		/// </param>
+		/// <returns>
+		///     The <see cref="OCR" />.
+		/// </returns>
+		public static OCR Load(string file)
+		{
+			OCR result;
+			try
+			{
+				IFormatter binFmt = new BinaryFormatter();
+				Stream s = File.Open(file, FileMode.Open);
+				result = (OCR)binFmt.Deserialize(s);
+				s.Close();
+			}
+			catch (Exception e)
+			{
+				throw new Exception("OCR : Unable to load file " + file + " : " + e);
+			}
+
+			return result;
+		}
+	}
 }

@@ -1,36 +1,77 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// -----------------------------------------------------------------------
+//  <copyright file="EntityManager.cs" company="HoovesWare">
+//      Copyright (c) HoovesWare
+//  </copyright>
+//  <project>BotSuite.Net</project>
+//  <purpose>framework for creating bots</purpose>
+//  <homepage>http://botsuite.net/</homepage>
+//  <license>http://botsuite.net/license/index/</license>
+// -----------------------------------------------------------------------
 
 namespace BotSuite.FiniteStateEngine.StateEngine.Entites
 {
-    public class EntityManager
-    {
-        private Dictionary<Int32, BaseEntity> dicEntites;
+	using System.Collections.Generic;
 
-        public EntityManager()
-        {
-            dicEntites = new Dictionary<int, BaseEntity>();
-        }
+	/// <summary>
+	///     The entity manager.
+	/// </summary>
+	public class EntityManager
+	{
+		/// <summary>
+		///     The dic entites.
+		/// </summary>
+		private readonly Dictionary<int, BaseEntity> dicEntites;
 
-        public void RegisterEntity(BaseEntity Entity)
-        {
-            dicEntites.Add(Entity.ID, Entity);
-        }
+		/// <summary>
+		///     Initializes a new instance of the <see cref="EntityManager" /> class.
+		/// </summary>
+		public EntityManager()
+		{
+			this.dicEntites = new Dictionary<int, BaseEntity>();
+		}
 
-        public void RemoveEntity(BaseEntity Entity)
-        {
-            if (dicEntites.ContainsKey(Entity.ID))
-                dicEntites.Remove(Entity.ID);
-        }
+		/// <summary>
+		///     The register entity.
+		/// </summary>
+		/// <param name="entity">
+		///     The entity.
+		/// </param>
+		public void RegisterEntity(BaseEntity entity)
+		{
+			this.dicEntites.Add(entity.Id, entity);
+		}
 
-        public BaseEntity GetEntityByID(Int32 ID)
-        {
-            if (dicEntites.ContainsKey(ID))
-                return dicEntites[ID];
+		/// <summary>
+		///     The remove entity.
+		/// </summary>
+		/// <param name="entity">
+		///     The entity.
+		/// </param>
+		public void RemoveEntity(BaseEntity entity)
+		{
+			if (this.dicEntites.ContainsKey(entity.Id))
+			{
+				this.dicEntites.Remove(entity.Id);
+			}
+		}
 
-            return null;
-        }
-    }
+		/// <summary>
+		///     The get entity by id.
+		/// </summary>
+		/// <param name="id">
+		///     The id.
+		/// </param>
+		/// <returns>
+		///     The <see cref="BaseEntity" />.
+		/// </returns>
+		public BaseEntity GetEntityById(int id)
+		{
+			if (this.dicEntites.ContainsKey(id))
+			{
+				return this.dicEntites[id];
+			}
+
+			return null;
+		}
+	}
 }

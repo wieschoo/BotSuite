@@ -1,141 +1,177 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using BotSuite.MachineLearning.NeuralNetwork.LearningMonitors;
+﻿// -----------------------------------------------------------------------
+//  <copyright file="LearningAlgorithm.cs" company="HoovesWare">
+//      Copyright (c) HoovesWare
+//  </copyright>
+//  <project>BotSuite.Net</project>
+//  <purpose>framework for creating bots</purpose>
+//  <homepage>http://botsuite.net/</homepage>
+//  <license>http://botsuite.net/license/index/</license>
+// -----------------------------------------------------------------------
 
 namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
 {
-    /// <summary>
-    /// The abstract class describing a learning
-    /// algorithm for a neural network
-    /// </summary>
-    [Serializable]
-    public abstract class LearningAlgorithm
-    {
+	using System;
 
-        #region PROTECTED FIELDS
-        /// <summary>
-        /// intern error threshold
-        /// </summary>
-        protected float _error_treshold;
-        /// <summary>
-        /// the maximum of epochs in gradient descent
-        /// </summary>
-        protected int _maximum_of_epochs;
-        /// <summary>
-        /// the input training data
-        /// </summary>
-        protected float[][] InputTrainingData;
-        /// <summary>
-        /// the corresponding expected output for training data
-        /// </summary>
-        protected float[][] OutputTrainingData;
-        /// <summary>
-        /// intern variable for extern monitoring
-        /// </summary>
-        protected iLearningMonitor _monitor;
-        #endregion
+	using global::BotSuite.MachineLearning.NeuralNetwork.LearningMonitors;
 
-        #region public properties
-        /// <summary>
-        /// the neural network to learn
-        /// </summary>
-        public NeuralNetwork ANN
-        {
-            get;
-            protected set;
-        }
-        /// <summary>
-        /// the mean square error in training data
-        /// </summary>
-        public float MeanSquareError
-        {
-            get;
-            protected set;
-        }
-        /// <summary>
-        /// access to the error threshold
-        /// </summary>
-        public float ErrorTreshold
-        {
-            get { return _error_treshold; }
-            set { _error_treshold = (value > 0) ? value : _error_treshold; }
-        }
-        
-        /// <summary>
-        /// extern monitor to get information about progress in learning
-        /// </summary>
-        public iLearningMonitor LearningMonitor
-        {
-            get { return _monitor; }
-            set { _monitor = value; }
-        }
-        /// <summary>
-        /// the current epoch
-        /// </summary>
-        public int CurrentEpoch
-        {
-            get;
-            protected set;
-        }
-        /// <summary>
-        /// get or set maximum of epoch
-        /// </summary>
-        public int MaximumOfEpochs
-        {
-            get { return _maximum_of_epochs; }
-            set { _maximum_of_epochs = (value > 0) ? value : _maximum_of_epochs; }
-        }
+	/// <summary>
+	///     The abstract class describing a learning
+	///     algorithm for a neural network
+	/// </summary>
+	[Serializable]
+	public abstract class LearningAlgorithm
+	{
+		/// <summary>
+		///     intern error threshold
+		/// </summary>
+		protected float MErrorThreshhold;
 
-        #endregion
+		/// <summary>
+		///     the maximum of epochs in gradient descent
+		/// </summary>
+		protected int MMaximumOfEpochs;
 
-        #region constructor
+		/// <summary>
+		///     the input training data
+		/// </summary>
+		protected float[][] InputTrainingData;
 
-        /// <param name="N">ANN to train</param>
-        public LearningAlgorithm(NeuralNetwork N)
-        {
-            ANN = N;
-            ErrorTreshold = 0.005f;
-            MaximumOfEpochs = 10000;
-            CurrentEpoch = 0;
-            MeanSquareError = -1.0f;
-        }
-        /// <summary>
-        /// base function to learn data
-        /// </summary>
-        /// <param name="inputs">input data for training</param>
-        /// <param name="expected_outputs">th corresponding output data</param>
-        public virtual void Learn(float[][] inputs, float[][] expected_outputs)
-        {
-            if (expected_outputs.Length < 1)
-                throw new Exception("LearningAlgorithm -> missing OutputTrainingData");
-            if (inputs.Length < 1)
-                throw new Exception("LearningAlgorithm -> missing InputTrainingData");
-            if (inputs.Length != expected_outputs.Length)
-                throw new Exception("LearningAlgorithme -> length of input and output doesn't match ");
+		/// <summary>
+		///     the corresponding expected output for training data
+		/// </summary>
+		protected float[][] OutputTrainingData;
 
-            InputTrainingData = inputs;
-            OutputTrainingData = expected_outputs;
-        }
+		/// <summary>
+		///     intern variable for extern monitoring
+		/// </summary>
+		protected ILearningMonitor Monitor;
 
-        #endregion
-        /// <summary>
-        /// custom check for convergence
-        /// </summary>
-        /// <returns></returns>
-        protected bool Convergence()
-        {
-            // custom check, if the learning phase should be stopped
-            return (_monitor != null) ? _monitor.Convergence() : false;
-        }
-        /// <summary>
-        /// pulse in every epoch of stochastic gradient descent
-        /// </summary>
-        protected void Pulse()
-        {
-            // send current progress to learn monitor
-            if (_monitor != null) _monitor.Pulse(CurrentEpoch, MeanSquareError);
-        }
-    }
+		/// <summary>
+		///     the neural network to learn
+		/// </summary>
+		public NeuralNetwork ANN { get; protected set; }
+
+		/// <summary>
+		///     the mean square error in training data
+		/// </summary>
+		public float MeanSquareError { get; protected set; }
+
+		/// <summary>
+		///     access to the error threshold
+		/// </summary>
+		public float ErrorTreshold
+		{
+			get
+			{
+				return this.MErrorThreshhold;
+			}
+			set
+			{
+				this.MErrorThreshhold = (value > 0) ? value : this.MErrorThreshhold;
+			}
+		}
+
+		/// <summary>
+		///     extern monitor to get information about progress in learning
+		/// </summary>
+		public ILearningMonitor LearningMonitor
+		{
+			get
+			{
+				return this.Monitor;
+			}
+			set
+			{
+				this.Monitor = value;
+			}
+		}
+
+		/// <summary>
+		///     the current epoch
+		/// </summary>
+		public int CurrentEpoch { get; protected set; }
+
+		/// <summary>
+		///     get or set maximum of epoch
+		/// </summary>
+		public int MaximumOfEpochs
+		{
+			get
+			{
+				return this.MMaximumOfEpochs;
+			}
+			set
+			{
+				this.MMaximumOfEpochs = (value > 0) ? value : this.MMaximumOfEpochs;
+			}
+		}
+
+		/// <summary>
+		///     Initializes a new instance of the <see cref="LearningAlgorithm" /> class.
+		///     The learning algorithm.
+		/// </summary>
+		/// <param name="ann">
+		///     ANN to train
+		/// </param>
+		protected LearningAlgorithm(NeuralNetwork ann)
+		{
+			this.ANN = ann;
+			this.ErrorTreshold = 0.005f;
+			this.MaximumOfEpochs = 10000;
+			this.CurrentEpoch = 0;
+			this.MeanSquareError = -1.0f;
+		}
+
+		/// <summary>
+		///     base function to learn data
+		/// </summary>
+		/// <param name="inputs">
+		///     input data for training
+		/// </param>
+		/// <param name="expectedOutputs">
+		///     th corresponding output data
+		/// </param>
+		public virtual void Learn(float[][] inputs, float[][] expectedOutputs)
+		{
+			if (expectedOutputs.Length < 1)
+			{
+				throw new Exception("LearningAlgorithm -> missing OutputTrainingData");
+			}
+			if (inputs.Length < 1)
+			{
+				throw new Exception("LearningAlgorithm -> missing InputTrainingData");
+			}
+			if (inputs.Length != expectedOutputs.Length)
+			{
+				throw new Exception("LearningAlgorithme -> length of input and output doesn't match ");
+			}
+
+			this.InputTrainingData = inputs;
+			this.OutputTrainingData = expectedOutputs;
+		}
+
+		/// <summary>
+		///     custom check for convergence
+		/// </summary>
+		/// <returns>
+		///     The <see cref="bool" />.
+		/// </returns>
+		protected bool Convergence()
+		{
+			// custom check, if the learning phase should be stopped
+			return (this.Monitor != null) && this.Monitor.Convergence();
+		}
+
+		/// <summary>
+		///     pulse in every epoch of stochastic gradient descent
+		/// </summary>
+		protected void Pulse()
+		{
+			// send current progress to learn monitor
+			if (this.Monitor != null)
+			{
+				this.Monitor.Pulse(this.CurrentEpoch, this.MeanSquareError);
+			}
+		}
+	}
 }

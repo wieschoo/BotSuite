@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="Singleton.cs" company="HoovesWare">
+//  <copyright file="LogEventArgs.cs" company="HoovesWare">
 //      Copyright (c) HoovesWare
 //  </copyright>
 //  <project>BotSuite.Net</project>
@@ -8,31 +8,29 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
-namespace BotSuite.FiniteStateEngine.Pattern
+namespace BotSuite.Logging
 {
+	using System;
+
 	/// <summary>
-	///     singleton pattern
+	///     The log event args.
 	/// </summary>
-	/// <typeparam name="T">
-	///     type of object
-	/// </typeparam>
-	public static class Singleton<T>
-		where T : class, new()
+	public class LogEventArgs : EventArgs
 	{
 		/// <summary>
-		///     private handle
+		///     Gets the log message.
 		/// </summary>
-		private static T pInstance;
+		public string LogMessage { get; private set; }
 
 		/// <summary>
-		///     public constructor
+		///     Initializes a new instance of the <see cref="LogEventArgs" /> class.
 		/// </summary>
-		public static T Instance
+		/// <param name="logMessage">
+		///     The log Message.
+		/// </param>
+		public LogEventArgs(string logMessage)
 		{
-			get
-			{
-				return pInstance ?? (pInstance = new T());
-			}
+			this.LogMessage = logMessage;
 		}
 	}
 }
