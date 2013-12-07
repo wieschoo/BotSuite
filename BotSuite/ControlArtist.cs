@@ -1,88 +1,122 @@
-﻿/* **************************************************************
- * Name:      BotSuite.NET
- * Purpose:   Framework for creating bots
- * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2013 wieschoo & enWare
- * License:   http://www.wieschoo.com/botsuite/license/
- * *************************************************************/
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿// -----------------------------------------------------------------------
+//  <copyright file="ControlArtist.cs" company="HoovesWare">
+//      Copyright (c) HoovesWare
+//  </copyright>
+//  <project>BotSuite.Net</project>
+//  <purpose>framework for creating bots</purpose>
+//  <homepage>http://botsuite.net/</homepage>
+//  <license>http://botsuite.net/license/index/</license>
+// -----------------------------------------------------------------------
 
 namespace BotSuite
 {
-    /// <summary>
-    ///  This class provide functions to draw on the clientarea without computing the coordinate from absolute to relative
-    /// </summary>
-    public class ControlArtist
-    {
-        System.Drawing.Graphics formGraphics;
-        Rectangle ClientRectangle;
+	using System.Drawing;
 
-        /// <summary>
-        /// constructor to use this class
-        /// </summary>
-        /// <example>
-        /// <code>
-        /// <![CDATA[
-        /// int LeftMargin = 10;
-        /// int TopMargin = 10;
-        /// int BottomMargin = 10;
-        /// int RightMargin = 100;
-        /// // initialise control artists in form
-        /// ControlArtist BL = new ControlArtist(this.CreateGraphics(), this.ClientRectangle);
-        /// // draw a target rectangle with margin to the clientarea-borders
-        /// BL.DrawRectangle(LeftMargin,TopMargin,RightMargin,BottomMargin);
-        /// ]]>
-        /// </code>
-        /// </example>
-        /// <param name="GF">target graphic</param>
-        /// <param name="CR">clientarea as rectangle</param>
-        /// <returns></returns>
-        public ControlArtist(System.Drawing.Graphics GF, Rectangle CR)
-        {
-            formGraphics = GF;
-            ClientRectangle = CR;
-        }
+	/// <summary>
+	///     This class provide functions to draw on the clientarea without computing the coordinate from absolute to relative
+	/// </summary>
+	public class ControlArtist
+	{
+		/// <summary>
+		///     The form graphics.
+		/// </summary>
+		private readonly Graphics formGraphics;
 
-        /// <summary>
-        /// draw a rectangle on the control be using margins
-        /// </summary>
-        /// <param name="LeftMargin">margin from left</param>
-        /// <param name="TopMargin">margin from top</param>
-        /// <param name="RightMargin">margin from right(default: 0)</param>
-        /// <param name="BottomMargin">margin from bottom(default: 0)</param>
-        /// <returns></returns>
-        public void DrawRectangle(int LeftMargin, int TopMargin, int RightMargin=0, int BottomMargin=0)
-        {
-            formGraphics.DrawRectangle(new Pen(Color.Blue), new Rectangle(
-                LeftMargin, TopMargin, ClientRectangle.Width - LeftMargin - RightMargin, ClientRectangle.Height - TopMargin - BottomMargin));
-        }
+		/// <summary>
+		///     The client rectangle.
+		/// </summary>
+		private Rectangle clientRectangle;
 
-        /// <summary>
-        /// same as DrawRectangle but only returns the rectangle without drawing
-        /// </summary>
-        /// <param name="LeftMargin">margin from left</param>
-        /// <param name="TopMargin">margin from top</param>
-        /// <param name="RightMargin">margin from right(default: 0)</param>
-        /// <param name="BottomMargin">margin from bottom(default: 0)</param>
-        /// <returns></returns>
-        public Rectangle GetDrawRectangle(int LeftMargin, int TopMargin, int RightMargin, int BottomMargin)
-        {
-            return new Rectangle(
-                LeftMargin, TopMargin, ClientRectangle.Width - LeftMargin - RightMargin, ClientRectangle.Height - TopMargin - BottomMargin);
-        }
+		/// <summary>
+		///     Initializes a new instance of the <see cref="ControlArtist" /> class.
+		///     constructor to use this class
+		/// </summary>
+		/// <example>
+		///     <code>
+		/// <![CDATA[
+		/// int LeftMargin = 10;
+		/// int TopMargin = 10;
+		/// int BottomMargin = 10;
+		/// int RightMargin = 100;
+		/// // initialise control artists in form
+		/// ControlArtist BL = new ControlArtist(this.CreateGraphics(), this.ClientRectangle);
+		/// // draw a target rectangle with margin to the clientarea-borders
+		/// BL.DrawRectangle(LeftMargin,TopMargin,RightMargin,BottomMargin);
+		/// ]]>
+		/// </code>
+		/// </example>
+		/// <param name="gf">
+		///     target graphic
+		/// </param>
+		/// <param name="cr">
+		///     clientarea as rectangle
+		/// </param>
+		/// <returns>
+		/// </returns>
+		public ControlArtist(Graphics gf, Rectangle cr)
+		{
+			this.formGraphics = gf;
+			this.clientRectangle = cr;
+		}
 
-//         public void MakeTransparent(Control C)
-//         {
-//             C.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-//             C.TransparencyKey = Color.FromKnownColor(KnownColor.Control);
-//             C.Update();
-//         }
-    }
+		/// <summary>
+		///     draw a rectangle on the control be using margins
+		/// </summary>
+		/// <param name="leftMargin">
+		///     margin from left
+		/// </param>
+		/// <param name="topMargin">
+		///     margin from top
+		/// </param>
+		/// <param name="rightMargin">
+		///     margin from right(default: 0)
+		/// </param>
+		/// <param name="bottomMargin">
+		///     margin from bottom(default: 0)
+		/// </param>
+		public void DrawRectangle(int leftMargin, int topMargin, int rightMargin = 0, int bottomMargin = 0)
+		{
+			this.formGraphics.DrawRectangle(
+				new Pen(Color.Blue),
+				new Rectangle(
+					leftMargin,
+					topMargin,
+					this.clientRectangle.Width - leftMargin - rightMargin,
+					this.clientRectangle.Height - topMargin - bottomMargin));
+		}
+
+		/// <summary>
+		///     same as DrawRectangle but only returns the rectangle without drawing
+		/// </summary>
+		/// <param name="leftMargin">
+		///     margin from left
+		/// </param>
+		/// <param name="topMargin">
+		///     margin from top
+		/// </param>
+		/// <param name="rightMargin">
+		///     margin from right(default: 0)
+		/// </param>
+		/// <param name="bottomMargin">
+		///     margin from bottom(default: 0)
+		/// </param>
+		/// <returns>
+		///     The <see cref="Rectangle" />.
+		/// </returns>
+		public Rectangle GetDrawRectangle(int leftMargin, int topMargin, int rightMargin, int bottomMargin)
+		{
+			return new Rectangle(
+				leftMargin,
+				topMargin,
+				this.clientRectangle.Width - leftMargin - rightMargin,
+				this.clientRectangle.Height - topMargin - bottomMargin);
+		}
+
+		// public void MakeTransparent(Control C)
+		// {
+		// C.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+		// C.TransparencyKey = Color.FromKnownColor(KnownColor.Control);
+		// C.Update();
+		// }
+	}
 }

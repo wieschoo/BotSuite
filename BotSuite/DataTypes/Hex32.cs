@@ -1,54 +1,72 @@
-﻿using System;
+﻿// -----------------------------------------------------------------------
+//  <copyright file="Hex32.cs" company="HoovesWare">
+//      Copyright (c) HoovesWare
+//  </copyright>
+//  <project>BotSuite.Net</project>
+//  <purpose>framework for creating bots</purpose>
+//  <homepage>http://botsuite.net/</homepage>
+//  <license>http://botsuite.net/license/index/</license>
+// -----------------------------------------------------------------------
 
 namespace BotSuite.DataTypes
 {
+	using System;
+
 	/// <summary>
-	/// Wrapper for Int32 that represents a hexadecimal number
+	///     Wrapper for Int32 that represents a hexadecimal number
 	/// </summary>
 	public struct Hex32 : IEquatable<Hex32>, IComparable<Hex32>
 	{
 		/// <summary>
-		/// Gets or sets the int value.
+		///     The hash code var.
+		/// </summary>
+		private readonly int hashCodeVar;
+
+		/// <summary>
+		///     Gets or sets the int value.
 		/// </summary>
 		/// <value>
-		/// The int value.
+		///     The int value.
 		/// </value>
 		public int IntValue;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Hex32"/> struct.
+		///     Initializes a new instance of the <see cref="Hex32" /> struct.
 		/// </summary>
-		/// <param name="i">The i.</param>
-		public Hex32(Int32 i)
+		/// <param name="i">
+		///     The i.
+		/// </param>
+		public Hex32(int i)
 		{
+			this.hashCodeVar = i;
 			this.IntValue = i;
 		}
 
 		/// <summary>
-		/// Hex32s the specified i.
+		///     Hex32s the specified i.
 		/// </summary>
 		/// <param name="i">The i.</param>
 		/// <returns></returns>
-		public static implicit operator Hex32(Int32 i)
+		public static implicit operator Hex32(int i)
 		{
 			return new Hex32(i);
 		}
 
 		/// <summary>
-		/// Int32s the specified h.
+		///     Int32s the specified h.
 		/// </summary>
 		/// <param name="h">The h.</param>
 		/// <returns></returns>
-		public static implicit operator Int32(Hex32 h)
+		public static implicit operator int(Hex32 h)
 		{
 			return h.IntValue;
 		}
 
 		/// <summary>
-		/// Returns a <see cref="System.String" /> that represents this instance.
+		///     Returns a <see cref="System.String" /> that represents this instance.
 		/// </summary>
 		/// <returns>
-		/// A <see cref="System.String" /> that represents this instance.
+		///     A <see cref="System.String" /> that represents this instance.
 		/// </returns>
 		public override string ToString()
 		{
@@ -56,22 +74,24 @@ namespace BotSuite.DataTypes
 		}
 
 		/// <summary>
-		/// Returns a hash code for this instance.
+		///     Returns a hash code for this instance.
 		/// </summary>
 		/// <returns>
-		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+		///     A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
 		/// </returns>
 		public override int GetHashCode()
 		{
-			return this.IntValue * 0x00010000 + this.IntValue;
+			return this.hashCodeVar * 0x00010000 + this.hashCodeVar;
 		}
 
 		/// <summary>
-		/// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
+		///     Determines whether the specified <see cref="System.Object" /> is equal to this instance.
 		/// </summary>
-		/// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+		/// <param name="obj">
+		///     The <see cref="System.Object" /> to compare with this instance.
+		/// </param>
 		/// <returns>
-		///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+		///     <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
 		/// </returns>
 		public override bool Equals(object obj)
 		{
@@ -79,31 +99,36 @@ namespace BotSuite.DataTypes
 		}
 
 		/// <summary>
-		/// Gibt an, ob das aktuelle Objekt einem anderen Objekt des gleichen Typs entspricht.
+		///     Gibt an, ob das aktuelle Objekt einem anderen Objekt des gleichen Typs entspricht.
 		/// </summary>
-		/// <param name="other">Ein Objekt, das mit diesem Objekt verglichen werden soll.</param>
+		/// <param name="other">
+		///     Ein Objekt, das mit diesem Objekt verglichen werden soll.
+		/// </param>
 		/// <returns>
-		/// true, wenn das aktuelle Objekt gleich dem <paramref name="other" />-Parameter ist, andernfalls false.
+		///     true, wenn das aktuelle Objekt gleich dem <paramref name="other" />-Parameter ist, andernfalls false.
 		/// </returns>
 		public bool Equals(Hex32 other)
 		{
-			return Object.ReferenceEquals(this, other) || ((this.GetType() == other.GetType()) && this.IntValue.Equals(other.IntValue));
+			return Equals(this, other) || ((this.GetType() == other.GetType()) && this.IntValue.Equals(other.IntValue));
 		}
 
 		/// <summary>
-		/// Vergleicht das aktuelle Objekt mit einem anderen Objekt desselben Typs.
+		///     Vergleicht das aktuelle Objekt mit einem anderen Objekt desselben Typs.
 		/// </summary>
-		/// <param name="other">Ein Objekt, das mit diesem Objekt verglichen werden soll.</param>
+		/// <param name="other">
+		///     Ein Objekt, das mit diesem Objekt verglichen werden soll.
+		/// </param>
 		/// <returns>
-		/// Eine 32-Bit-Ganzzahl mit Vorzeichen, die die relative Reihenfolge der verglichenen Objekte angibt. Der Rückgabewert hat folgende Bedeutung:
-		/// Wert
-		/// Bedeutung
-		/// Kleiner als 0 (null)
-		/// Dieses Objekt ist kleiner als der <paramref name="other" />-Parameter.
-		/// 0 (null)
-		/// Dieses Objekt ist gleich <paramref name="other" />.
-		/// Größer als 0 (null)
-		/// Dieses Objekt ist größer als <paramref name="other" />.
+		///     Eine 32-Bit-Ganzzahl mit Vorzeichen, die die relative Reihenfolge der verglichenen Objekte angibt. Der Rückgabewert
+		///     hat folgende Bedeutung:
+		///     Wert
+		///     Bedeutung
+		///     Kleiner als 0 (null)
+		///     Dieses Objekt ist kleiner als der <paramref name="other" />-Parameter.
+		///     0 (null)
+		///     Dieses Objekt ist gleich <paramref name="other" />.
+		///     Größer als 0 (null)
+		///     Dieses Objekt ist größer als <paramref name="other" />.
 		/// </returns>
 		public int CompareTo(Hex32 other)
 		{
@@ -111,7 +136,7 @@ namespace BotSuite.DataTypes
 		}
 
 		/// <summary>
-		/// +s the specified h1.
+		///     +s the specified h1.
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
@@ -122,7 +147,7 @@ namespace BotSuite.DataTypes
 		}
 
 		/// <summary>
-		/// -s the specified h1.
+		///     -s the specified h1.
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
@@ -133,7 +158,7 @@ namespace BotSuite.DataTypes
 		}
 
 		/// <summary>
-		/// *s the specified h1.
+		///     *s the specified h1.
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
@@ -144,7 +169,7 @@ namespace BotSuite.DataTypes
 		}
 
 		/// <summary>
-		/// /s the specified h1.
+		///     /s the specified h1.
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
@@ -155,7 +180,7 @@ namespace BotSuite.DataTypes
 		}
 
 		/// <summary>
-		/// Checks if h1 is equal to h2
+		///     Checks if h1 is equal to h2
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
@@ -166,7 +191,7 @@ namespace BotSuite.DataTypes
 		}
 
 		/// <summary>
-		/// Checks if h1 is not equal to h2
+		///     Checks if h1 is not equal to h2
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
@@ -177,25 +202,25 @@ namespace BotSuite.DataTypes
 		}
 
 		/// <summary>
-		/// Checks if h1 is greater then h2
+		///     Checks if h1 is greater then h2
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
 		/// <returns></returns>
 		public static bool operator >(Hex32 h1, Hex32 h2)
 		{
-			return (h1.CompareTo(h2) > 0);
+			return h1.CompareTo(h2) > 0;
 		}
 
 		/// <summary>
-		/// Checks if h1 is smaller then h2
+		///     Checks if h1 is smaller then h2
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
 		/// <returns></returns>
 		public static bool operator <(Hex32 h1, Hex32 h2)
 		{
-			return (h1.CompareTo(h2) < 0);
+			return h1.CompareTo(h2) < 0;
 		}
 	}
 }
