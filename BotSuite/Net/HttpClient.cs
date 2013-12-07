@@ -163,15 +163,6 @@ namespace BotSuite.Net
 		/// <summary>
 		///     sends a HTTP POST request to a given URL with given POST data and a optional referer
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// var hpdc = new HttpPostDataCollection();
-		/// hpdc.Add(new HttpPostData("sender", "wieschoo");
-		/// hpdc.Add(new HttpPostData("message", "hallo welt");
-		/// var hc = new HttpClient("some-user-agent", "www.google.de");
-		/// var html = hc.POST("http://www.codebot.de", hpdc);
-		/// </code>
-		/// </example>
 		/// <typeparam name="TRespType">
 		///     return type of the Post request
 		/// </typeparam>
@@ -197,17 +188,6 @@ namespace BotSuite.Net
 		///     sends a HTTP POST request to a given URL with given POST data and a optional referer...
 		///     (better use overload with HttpPostDataCollection parameter, it's easier to use and more flexible)
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// var html = hc.POST("http://www.codebot.de",
-		/// 		System.Web.HttpUtility.UrlEncode("sender") + "="
-		/// 		+ System.Web.HttpUtility.UrlEncode("wieschoo") + "&"
-		/// 		+ System.Web.HttpUtility.UrlEncode("message") + "="
-		/// 		+ System.Web.HttpUtility.UrlEncode("hallo welt"));
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <typeparam name="TRespType">
 		///     the return type for the response
 		/// </typeparam>
@@ -312,12 +292,6 @@ namespace BotSuite.Net
 		/// <summary>
 		///     sends a HTTP GET request to a given URL with a optional referer
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// var hc = new HttpClient("some-user-agent", "www.google.de");
-		/// var html = hc.GET("http://www.codebot.de");
-		/// </code>
-		/// </example>
 		/// <typeparam name="TRespType">
 		///     the return type for the response
 		/// </typeparam>
@@ -408,12 +382,6 @@ namespace BotSuite.Net
 		/// <summary>
 		///     sends a HTTP HEAD request to a given URL with a optional referer
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// var hc = new HttpClient("some-user-agent", "www.google.de");
-		/// var html = hc.HEAD("http://www.codebot.de");
-		/// </code>
-		/// </example>
 		/// <typeparam name="TRespType">
 		///     the return type for the response
 		/// </typeparam>

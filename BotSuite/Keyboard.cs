@@ -40,13 +40,6 @@ namespace BotSuite
 		/// <summary>
 		///     The collections of keys to watch for
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// Keyboard.HookedKeys.Add(Keys.F5);
-		/// ]]>
-		/// </code>
-		/// </example>
 		private static readonly List<Keys> HookedKeys = new List<Keys>();
 
 		/// <summary>
@@ -57,25 +50,11 @@ namespace BotSuite
 		/// <summary>
 		///     Occurs when one of the hooked keys is pressed
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// Keyboard.KeyDown += new KeyEventHandler(MyKeyDownRoutine);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static event KeyEventHandler KeyDown;
 
 		/// <summary>
 		///     Occurs when one of the hooked keys is released
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// Keyboard.KeyUp += new KeyEventHandler(MyKeyUpRoutine);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static event KeyEventHandler KeyUp;
 
 		/// <summary>
@@ -84,15 +63,6 @@ namespace BotSuite
 		/// <remarks>
 		///     use the whole class by the code from the example!
 		/// </remarks>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// Keyboard.HookedKeys.Add(Keys.F5);
-		/// Keyboard.KeyDown += new KeyEventHandler(MyKeyDownRoutine);
-		/// Keyboard.KeyUp += new KeyEventHandler(MyKeyUpRoutine);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public Keyboard()
 		{
 			this.Hook();
@@ -186,12 +156,6 @@ namespace BotSuite
 		/// <summary>
 		///     types a key or o sequence of keys
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Keyboard.Type("{ENTER}"); // click the enter button
-		/// Keyboard.Type("ENTER");   // types "E","N","T","E","R"
-		/// </code>
-		/// </example>
 		/// <param name="sequence">
 		///     Sequence to type
 		/// </param>
@@ -203,14 +167,6 @@ namespace BotSuite
 		/// <summary>
 		///     types a key or o sequence of keys to an application (by set the application to foreground)
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// IntPtr hWnd = something;
-		/// Keyboard.Type("{ENTER}",hWnd); // click the enter button
-		/// Keyboard.Type("ENTER",hWnd);   // types "E","N","T","E","R"
-		/// // or send it to a specific window 
-		/// </code>
-		/// </example>
 		/// <param name="sequence">
 		///     Sequence to type
 		/// </param>
@@ -323,12 +279,6 @@ namespace BotSuite
 		/// <summary>
 		///     Hold down a key for a specific time
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Keyboard.HoldKey(Keys.A, 250); // Holds down the "A" key for 250ms
-		/// Keyboard.HoldKey(Keys.Left, 1000); // Holds down "Left" key for 1 second
-		/// </code>
-		/// </example>
 		/// <param name="key">
 		///     key to hold
 		/// </param>
@@ -348,12 +298,6 @@ namespace BotSuite
 		/// <summary>
 		///     test if a key is pressed
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// // test if F1 is currently pressed
-		/// bool pressed = Keyboard.IsKeyDown(Keys.F1);
-		/// </code>
-		/// </example>
 		/// <param name="key">
 		///     the key(s)
 		/// </param>

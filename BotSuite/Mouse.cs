@@ -22,11 +22,6 @@ namespace BotSuite
 		/// <summary>
 		///     causes a left-click (press and release)
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Mouse.LeftClick();
-		/// </code>
-		/// </example>
 		public static void LeftClick()
 		{
 			LeftDown();
@@ -37,11 +32,6 @@ namespace BotSuite
 		/// <summary>
 		///     press down the left mouse button
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Mouse.LeftDown();
-		/// </code>
-		/// </example>
 		public static void LeftDown()
 		{
 			NativeMethods.mouse_event((int)NativeMethods.MouseEventFlags.Leftdown, 0, 0, 0, new IntPtr(0));
@@ -50,11 +40,6 @@ namespace BotSuite
 		/// <summary>
 		///     release the left mouse button
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Mouse.LeftUp();
-		/// </code>
-		/// </example>
 		public static void LeftUp()
 		{
 			NativeMethods.mouse_event((int)NativeMethods.MouseEventFlags.Leftup, 0, 0, 0, new IntPtr(0));
@@ -63,11 +48,6 @@ namespace BotSuite
 		/// <summary>
 		///     causes a right-click (press and release)
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Mouse.RightClick();
-		/// </code>
-		/// </example>
 		public static void RightClick()
 		{
 			RightDown();
@@ -78,11 +58,6 @@ namespace BotSuite
 		/// <summary>
 		///     press down the right mouse button
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Mouse.RightDown();
-		/// </code>
-		/// </example>
 		public static void RightDown()
 		{
 			NativeMethods.mouse_event((int)NativeMethods.MouseEventFlags.Rightdown, 0, 0, 0, new IntPtr(0));
@@ -91,11 +66,6 @@ namespace BotSuite
 		/// <summary>
 		///     release the right mouse button
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Mouse.RightUp();
-		/// </code>
-		/// </example>
 		public static void RightUp()
 		{
 			NativeMethods.mouse_event((int)NativeMethods.MouseEventFlags.Rightup, 0, 0, 0, new IntPtr(0));
@@ -114,12 +84,6 @@ namespace BotSuite
 		/// <summary>
 		///     causes a mouse movement to a given point
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Point target = new Point(10,10);
-		/// Mouse.Move(target,true,10);
-		/// </code>
-		/// </example>
 		/// <param name="targetPosition">
 		///     target coordinate
 		/// </param>
@@ -162,11 +126,6 @@ namespace BotSuite
 		/// <summary>
 		///     causes a mouse movement to given coordinates
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Mouse.Move(this.Left+10,this.Top+50,true,10);
-		/// </code>
-		/// </example>
 		/// <param name="targetX">
 		///     x coordinate of target
 		/// </param>
@@ -190,12 +149,6 @@ namespace BotSuite
 		/// <summary>
 		///     causes a mouse movement into the middle of a rectangle
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Rectangle r = new Rectangle(50, 50, 100, 100);
-		/// Mouse.Move(r,true,10);
-		/// </code>
-		/// </example>
 		/// <param name="r">
 		///     the rectangle to move to
 		/// </param>
@@ -248,12 +201,6 @@ namespace BotSuite
 		/// <summary>
 		///     get the current position of the mouse pointer
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Point CurPos = Point.Empty;
-		/// CurPos = Mouse.GetPosition();
-		/// </code>
-		/// </example>
 		/// <returns>Point position</returns>
 		public static Point GetPosition()
 		{
@@ -263,11 +210,6 @@ namespace BotSuite
 		/// <summary>
 		///     causes a slightly mouse jiggle +-10 pixel
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Mouse.Jiggle();
-		/// </code>
-		/// </example>
 		public static void Jiggle()
 		{
 			int xchange = Utility.Random(-10, 10);
@@ -281,12 +223,6 @@ namespace BotSuite
 		/// <summary>
 		///     move the mouse relative to the window
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// IntPtr hwnd = ... ;
-		/// bool res = MoveRelativeToWindow(hwnd, 20, 35, true, 10);
-		/// </code>
-		/// </example>
 		/// <param name="windowHandle">
 		///     handle of window
 		/// </param>
@@ -321,13 +257,6 @@ namespace BotSuite
 		/// <summary>
 		///     get the current position of the mouse pointer relative to a window
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Point CurPos = Point.Empty;
-		/// IntPtr hwnd = ... ;
-		/// CurPos = Mouse.GetPositionRelativeToWindow(hwnd);
-		/// </code>
-		/// </example>
 		/// <param name="windowHandle">
 		///     handle of window
 		/// </param>
@@ -345,11 +274,6 @@ namespace BotSuite
 		/// <summary>
 		///     returns whether the cursor is inside a rectangle or outside
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// bool InRectangle = Mouse.InRectangle(50, 10, 20, 70);
-		/// </code>
-		/// </example>
 		/// <param name="t">
 		///     top of rectangle
 		/// </param>
@@ -374,11 +298,6 @@ namespace BotSuite
 		/// <summary>
 		///     simulates mouse scroll wheel actions
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Mouse.Scroll(-50);
-		/// </code>
-		/// </example>
 		/// <param name="wheeldelta">
 		///     if positive, scrolls down, if negative, scrolls up
 		/// </param>

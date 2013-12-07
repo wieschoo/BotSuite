@@ -94,11 +94,6 @@ namespace BotSuite
 		/// <summary>
 		///     get id of process by given name
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Process[] ListOfProcess = Memory.GetProcessIdByName("the name");
-		/// </code>
-		/// </example>
 		/// <param name="name">
 		///     name of process
 		/// </param>
@@ -132,11 +127,6 @@ namespace BotSuite
 		/// <summary>
 		///     convert a hex string into int
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// int result = Memory.Hex2Int"00B28498");
-		/// </code>
-		/// </example>
 		/// <param name="hex">
 		///     the hex string
 		/// </param>
@@ -202,19 +192,6 @@ namespace BotSuite
 		/// <summary>
 		///     read a value at a adress
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// // direct access at 00B28498
-		/// int MyValue1 = Trainer.Read<int>("00B28498");
-		/// // direct access at "001AAAC4", 0x464
-		/// int MyValue2 = Trainer.Read<int>("001AAAC4", 0x464);
-		/// float MyValue1 = Trainer.Read<float>("00B28498");
-		/// double MyValue1 = Trainer.Read<double>("00B28498");
-		/// uint MyValue1 = Trainer.Read<uint>("00B28498");
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <typeparam name="T">
 		///     type of value
 		/// </typeparam>
@@ -332,20 +309,6 @@ namespace BotSuite
 		/// <summary>
 		///     write a value at memory
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// Memory Trainer = new Memory(...); 
-		/// // direct access at 00B28498 
-		/// Trainer.Write<int>("00B28498", an integer);
-		/// // follow pointer access at "001AAAC4", 0x464
-		/// Trainer.Write<int>("001AAAC4", an integer,0x464);
-		/// Trainer.Write<float>("00B28498", a float var);
-		/// Trainer.Write<double>("00B28498", a double var);
-		/// Trainer.Write<uint>("00B28498", an unsigned integer);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <typeparam name="T">
 		///     type of value
 		/// </typeparam>
@@ -436,12 +399,6 @@ namespace BotSuite
 		/// <summary>
 		///     follow a pointer by start address
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// // start in BaseAddress add follow the pointers by adding the offsets
-		/// int MyPointer2 = Trainer.Pointer( 0x284, 0xE4, 0xE4, 0x30, 0x108);
-		/// </code>
-		/// </example>
 		/// <param name="start">
 		///     start address
 		/// </param>
@@ -471,12 +428,6 @@ namespace BotSuite
 		/// <summary>
 		///     follow a pointer by start address
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// // start in 00B28498 add follow the pointers by adding the offsets
-		/// int MyPointer2 = Trainer.Pointer("00B28498", 0x284, 0xE4, 0xE4, 0x30, 0x108);
-		/// </code>
-		/// </example>
 		/// <param name="start">
 		///     start address
 		/// </param>

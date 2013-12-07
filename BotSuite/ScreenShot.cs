@@ -23,11 +23,6 @@ namespace BotSuite
 		/// <summary>
 		///     create a complete screenshot
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// Bitmap capture = ScreenShot.Create();
-		/// </code>
-		/// </example>
 		/// <returns>bitmap of captured screen</returns>
 		public static Bitmap Create()
 		{
@@ -37,14 +32,6 @@ namespace BotSuite
 		/// <summary>
 		///     creates a screenshot from a hidden window
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// IntPtr hwnd = ... ;
-		/// Bitmap capture = ScreenShot.CreateFromHidden(hwnd);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="windowHandle">
 		///     handle of window
 		/// </param>
@@ -102,14 +89,6 @@ namespace BotSuite
 		/// <param name="height">
 		///     The height.
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// // capture upper left 10 x 10 px rectangle
-		/// Bitmap capture = ScreenShot.Create(0,0,10,10);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <returns>
 		///     bitmap of captured screen
 		/// </returns>
@@ -144,14 +123,6 @@ namespace BotSuite
 		/// <summary>
 		///     create a complete screenshot by using a handle
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// IntPtr hwnd = ... ;
-		/// Bitmap capture = ScreenShot.Create(hwnd);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="windowHandle">
 		///     handle of window
 		/// </param>

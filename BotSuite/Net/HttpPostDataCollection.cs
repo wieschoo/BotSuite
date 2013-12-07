@@ -146,14 +146,6 @@ namespace BotSuite.Net
 		/// <summary>
 		///     creates a string representation of this collection
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// var hpdc = new HttpPostDataCollection();
-		/// hpdc.Add(new HttpPostData("sender", "wieschoo");
-		/// hpdc.Add(new HttpPostData("message", "hallo%20welt");
-		/// var postData = hpdc.ToString();
-		/// </code>
-		/// </example>
 		/// <returns>a string representation of this collection</returns>
 		public override string ToString()
 		{
@@ -173,14 +165,6 @@ namespace BotSuite.Net
 		/// <summary>
 		///     creates a HttpPostDataCollection instance from a POST data string
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// var postData = "sender=wieschoo&message=hallo%20welt"
-		/// var hpdc = HttpPostDataCollection.FromString(postData);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="postdata">
 		///     the POST data string
 		/// </param>

@@ -31,24 +31,6 @@ namespace BotSuite.Imaging
 		/// <param name="tolerance">
 		///     tolerance (0,...,255)
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// bool[,] Pattern = new bool[] {   
-		///             {1,1,0,0,0,0,0,0},
-		///             {0,0,1,0,0,0,0,0},
-		///             {0,0,1,0,0,0,0,0},
-		///             {0,1,0,0,0,0,0,0},
-		///             {1,0,0,0,0,0,0,0},
-		///             {1,1,1,0,0,0,0,0},
-		///             {0,0,0,0,0,0,0,0},
-		///             {0,0,0,0,0,0,0,0}
-		///         };
-		/// Rectangle Location = Template.BinaryPattern(Img,Pattern,2);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <returns>
 		///     The <see cref="Rectangle" />.
 		/// </returns>
@@ -129,16 +111,6 @@ namespace BotSuite.Imaging
 		///     search for an image in another image
 		///     return the best matching position
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// ImageData Search= new ImageData(...);
-		/// // search with tolerance 25
-		/// Rectangle Position = Template.Image(Img,Search,25);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="img">
 		///     image to look in
 		/// </param>
@@ -217,16 +189,6 @@ namespace BotSuite.Imaging
 		///     search for an image in another image
 		///     return all possible matchings
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// ImageData Search= new ImageData(...);
-		/// // search with tolerance 25
-		/// List<Rectangle> Positions = Template.AllImages(Img,Search,25);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="img">
 		///     image to look in
 		/// </param>

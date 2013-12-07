@@ -27,16 +27,6 @@ namespace BotSuite.Imaging
 		/// <param name="summand">
 		///     image to add
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Original = new ImageData(...);
-		/// ImageData Summand = new ImageData(...);
-		/// // apply filter to original
-		/// Filter.Add(ref Original,Summand);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static void Add(ref ImageData img, ImageData summand)
 		{
 			if ((img.Width == summand.Width) && (img.Height == summand.Height))
@@ -80,16 +70,6 @@ namespace BotSuite.Imaging
 		/// <param name="subtrahend">
 		///     subtrahend
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Original = new ImageData(...);
-		/// ImageData Subtrahend = new ImageData(...);
-		/// // apply filter to original
-		/// Filter.Difference(ref Original,Subtrahend);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static void Difference(ref ImageData img, ImageData subtrahend)
 		{
 			if ((img.Width == subtrahend.Width) && (img.Height == subtrahend.Height))
@@ -135,16 +115,6 @@ namespace BotSuite.Imaging
 		/// <param name="tolerance">
 		///     tolerance (0,...,255)
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// Filter.Grayscale(ref Img);
-		/// // apply filter to original
-		/// Filter.BlackAndWhite(ref Img,90);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static void BlackAndWhite(ref ImageData img, uint tolerance)
 		{
 			ReplaceSimilarColor(ref img, Color.Black, Color.Black, tolerance);
@@ -166,16 +136,6 @@ namespace BotSuite.Imaging
 		/// <param name="tolerance">
 		///     tolerance of reference color (0,...,255)
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to original and replace all colors 
-		/// // which seems to be blue (tolerance 130) by red
-		/// Filter.ReplaceSimilarColor(ref Img,Color.Blue,Color.Red,130);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static void ReplaceSimilarColor(ref ImageData img, Color searchColor, Color replaceColor, uint tolerance)
 		{
 			for (int outerX = 0; outerX < img.Width; outerX++)
@@ -206,16 +166,6 @@ namespace BotSuite.Imaging
 		/// <param name="tolerance">
 		///     tolerance of reference color (0,...,255)
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to original and replace all colors
-		/// // which DOESN'T seems to be blue (tolerance 25) by red
-		/// Filter.ReplaceDifferentColor(ref Img,Color.Blue,Color.Red,25);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static void ReplaceDifferentColor(ref ImageData img, Color searchColor, Color replaceColor, uint tolerance)
 		{
 			for (int outerX = 0; outerX < img.Width; outerX++)
@@ -234,15 +184,6 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     Convert image to grayscale
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to original and convert to grayscale
-		/// Filter.Grayscale(ref Img);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="img">
 		///     ref image to convert
 		/// </param>
@@ -262,15 +203,6 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     invert image
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to original and  invert
-		/// Filter.Invert(ref Img);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="img">
 		///     ref image to convert
 		/// </param>
@@ -315,15 +247,6 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     Convert image to sepia
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to original and convert to sepia
-		/// Filter.Sepia(ref Img);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="img">
 		///     ref image to convert
 		/// </param>
@@ -349,17 +272,6 @@ namespace BotSuite.Imaging
 		/// <param name="threshold">
 		///     threshold (0,...,255)
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // it's better to grayscale first
-		/// Filter.Grayscale(ref Img);
-		/// // apply filter to image
-		/// Filter.Threshold(ref Img, 20);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static void Threshold(ref ImageData img, uint threshold)
 		{
 			for (int column = 0; column < img.Width; column++)
@@ -388,16 +300,6 @@ namespace BotSuite.Imaging
 		/// <param name="contrast">
 		///     value of contrast
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to image
-		/// Filter.Contrast(ref Img, 50.0);
-		/// ]]>
-		/// </code>
-		/// </example>
-		/// <see cref="contrast" />
 		public static void Contrast(ref ImageData img, double contrast)
 		{
 			contrast = (100.0 + contrast) / 100.0;
@@ -433,16 +335,6 @@ namespace BotSuite.Imaging
 		/// <param name="brightness">
 		///     brightness of new image
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to image
-		/// Filter.Brightness(ref Img, 10);
-		/// ]]>
-		/// </code>
-		/// </example>
-		/// <see cref="brightness" />
 		public static void Brightness(ref ImageData img, int brightness)
 		{
 			for (int y = 0; y < img.Height; y++)
@@ -469,15 +361,6 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     decrease the depth of color
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to image
-		/// Filter.DecreaseColourDepth(ref Img, 40);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="img">
 		///     image to manipulate
 		/// </param>
@@ -513,15 +396,6 @@ namespace BotSuite.Imaging
 		/// <param name="weight">
 		///     weight of emboss effect
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to image
-		/// Filter.Emboss(ref Img, 4.0);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static void Emboss(ref ImageData img, double weight)
 		{
 			ConvolutionMatrix cMatrix = new ConvolutionMatrix(3);
@@ -543,15 +417,6 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     apply gaussianblur to image
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to image
-		/// Filter.GaussianBlur(ref Img, 20.0);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="img">
 		///     image to manipulate
 		/// </param>
@@ -578,15 +443,6 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     sharpen an image
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to image
-		/// Filter.Sharpen(ref Img, 4.0);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="img">
 		///     image to manipulate
 		/// </param>
@@ -619,15 +475,6 @@ namespace BotSuite.Imaging
 		/// <param name="weight">
 		///     weight of effect
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to image
-		/// Filter.RemoveMean(ref Img, 10.0);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static void RemoveMean(ref ImageData img, double weight)
 		{
 			ConvolutionMatrix cMatrix = new ConvolutionMatrix(3);
@@ -654,15 +501,6 @@ namespace BotSuite.Imaging
 		/// <param name="weight">
 		///     weight of effect
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to image
-		/// Filter.Blur(ref Img, 30.0);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static void Blur(ref ImageData img, double weight)
 		{
 			ConvolutionMatrix cMatrix = new ConvolutionMatrix(3);
@@ -678,15 +516,6 @@ namespace BotSuite.Imaging
 		/// <param name="img">
 		///     image to manipulate
 		/// </param>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // apply filter to image
-		/// Filter.FindEdges(ref Img);
-		/// ]]>
-		/// </code>
-		/// </example>
 		public static void FindEdges(ref ImageData img)
 		{
 			Emboss(ref img, 4.0);
@@ -700,10 +529,10 @@ namespace BotSuite.Imaging
 		/// <param name="img">
 		///     The img.
 		/// </param>
-		/// <param name="m">
-		///     The m.
+		/// <param name="matrix">
+		///     The matrix.
 		/// </param>
-		private static void ApplyConvolution3X3(ref ImageData img, ConvolutionMatrix m)
+		private static void ApplyConvolution3X3(ref ImageData img, ConvolutionMatrix matrix)
 		{
 			ImageData newImg = img.Clone();
 			Color[,] pixelColor = new Color[3, 3];
@@ -725,25 +554,25 @@ namespace BotSuite.Imaging
 					int alphaChannel = pixelColor[1, 1].A;
 
 					int redChannel = (int)
-									((((pixelColor[0, 0].R * m.Matrix[0, 0]) + (pixelColor[1, 0].R * m.Matrix[1, 0])
-										+ (pixelColor[2, 0].R * m.Matrix[2, 0]) + (pixelColor[0, 1].R * m.Matrix[0, 1])
-										+ (pixelColor[1, 1].R * m.Matrix[1, 1]) + (pixelColor[2, 1].R * m.Matrix[2, 1])
-										+ (pixelColor[0, 2].R * m.Matrix[0, 2]) + (pixelColor[1, 2].R * m.Matrix[1, 2])
-										+ (pixelColor[2, 2].R * m.Matrix[2, 2])) / m.Factor) + m.Offset);
+									((((pixelColor[0, 0].R * matrix.Matrix[0, 0]) + (pixelColor[1, 0].R * matrix.Matrix[1, 0])
+										+ (pixelColor[2, 0].R * matrix.Matrix[2, 0]) + (pixelColor[0, 1].R * matrix.Matrix[0, 1])
+										+ (pixelColor[1, 1].R * matrix.Matrix[1, 1]) + (pixelColor[2, 1].R * matrix.Matrix[2, 1])
+										+ (pixelColor[0, 2].R * matrix.Matrix[0, 2]) + (pixelColor[1, 2].R * matrix.Matrix[1, 2])
+										+ (pixelColor[2, 2].R * matrix.Matrix[2, 2])) / matrix.Factor) + matrix.Offset);
 
 					int greenChannel = (int)
-										((((pixelColor[0, 0].G * m.Matrix[0, 0]) + (pixelColor[1, 0].G * m.Matrix[1, 0])
-											+ (pixelColor[2, 0].G * m.Matrix[2, 0]) + (pixelColor[0, 1].G * m.Matrix[0, 1])
-											+ (pixelColor[1, 1].G * m.Matrix[1, 1]) + (pixelColor[2, 1].G * m.Matrix[2, 1])
-											+ (pixelColor[0, 2].G * m.Matrix[0, 2]) + (pixelColor[1, 2].G * m.Matrix[1, 2])
-											+ (pixelColor[2, 2].G * m.Matrix[2, 2])) / m.Factor) + m.Offset);
+										((((pixelColor[0, 0].G * matrix.Matrix[0, 0]) + (pixelColor[1, 0].G * matrix.Matrix[1, 0])
+											+ (pixelColor[2, 0].G * matrix.Matrix[2, 0]) + (pixelColor[0, 1].G * matrix.Matrix[0, 1])
+											+ (pixelColor[1, 1].G * matrix.Matrix[1, 1]) + (pixelColor[2, 1].G * matrix.Matrix[2, 1])
+											+ (pixelColor[0, 2].G * matrix.Matrix[0, 2]) + (pixelColor[1, 2].G * matrix.Matrix[1, 2])
+											+ (pixelColor[2, 2].G * matrix.Matrix[2, 2])) / matrix.Factor) + matrix.Offset);
 
 					int blueChannel = (int)
-									((((pixelColor[0, 0].B * m.Matrix[0, 0]) + (pixelColor[1, 0].B * m.Matrix[1, 0])
-										+ (pixelColor[2, 0].B * m.Matrix[2, 0]) + (pixelColor[0, 1].B * m.Matrix[0, 1])
-										+ (pixelColor[1, 1].B * m.Matrix[1, 1]) + (pixelColor[2, 1].B * m.Matrix[2, 1])
-										+ (pixelColor[0, 2].B * m.Matrix[0, 2]) + (pixelColor[1, 2].B * m.Matrix[1, 2])
-										+ (pixelColor[2, 2].B * m.Matrix[2, 2])) / m.Factor) + m.Offset);
+									((((pixelColor[0, 0].B * matrix.Matrix[0, 0]) + (pixelColor[1, 0].B * matrix.Matrix[1, 0])
+										+ (pixelColor[2, 0].B * matrix.Matrix[2, 0]) + (pixelColor[0, 1].B * matrix.Matrix[0, 1])
+										+ (pixelColor[1, 1].B * matrix.Matrix[1, 1]) + (pixelColor[2, 1].B * matrix.Matrix[2, 1])
+										+ (pixelColor[0, 2].B * matrix.Matrix[0, 2]) + (pixelColor[1, 2].B * matrix.Matrix[1, 2])
+										+ (pixelColor[2, 2].B * matrix.Matrix[2, 2])) / matrix.Factor) + matrix.Offset);
 
 					redChannel = (redChannel > 255) ? 255 : redChannel;
 					redChannel = (redChannel < 0) ? 0 : redChannel;

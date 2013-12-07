@@ -10,11 +10,10 @@
 
 namespace BotSuite
 {
-	using System;
+	using System.Collections.Generic;
 	using System.Diagnostics;
-	using System.Text.RegularExpressions;
+	using System.Linq;
 	using System.Windows.Forms;
-
 	using Microsoft.Win32;
 
 	/// <summary>
@@ -51,7 +50,7 @@ namespace BotSuite
 			this.instance = webBrowser;
 			this.instance.DocumentCompleted += this.SetBrowserCompleted;
 			this.fullLoaded = true;
-			this.UseNewIE();
+			UseNewIE();
 		}
 
 		/// <summary>
@@ -144,39 +143,6 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		///     get the inner Text (as an integer) of an element
-		/// </summary>
-		/// <param name="id">
-		///     id of element
-		/// </param>
-		/// <returns>
-		///     inner number
-		/// </returns>
-		public int GetInnerNumberById(string id)
-		{
-			HtmlDocument htmlDocument = this.instance.Document;
-			if (htmlDocument != null)
-			{
-				HtmlElement elementById = htmlDocument.GetElementById(id);
-				if (elementById != null)
-				{
-					string text = elementById.InnerText;
-					Regex r = new Regex("[0-9]");
-					MatchCollection mc = r.Matches(text);
-					string retVal = string.Empty;
-					for (int i = 0; i < mc.Count; i++)
-					{
-						retVal += mc[i].Value;
-					}
-
-					return Convert.ToInt32(retVal);
-				}
-			}
-
-			throw new Exception("Element konnte nicht gefunden werden.");
-		}
-
-		/// <summary>
 		///     get the inner Text of an element
 		/// </summary>
 		/// <param name="id">
@@ -238,7 +204,7 @@ namespace BotSuite
 		/// <summary>
 		///     force the application to use IE8 or IE9
 		/// </summary>
-		protected void UseNewIE()
+		private static void UseNewIE()
 		{
 			RegistryKey key =
 				Registry.CurrentUser.OpenSubKey(
@@ -252,6 +218,41 @@ namespace BotSuite
 				key.SetValue(Process.GetCurrentProcess().MainModule.ModuleName, 9999, RegistryValueKind.DWord);
 				key.Close();
 			}
+		}
+
+		/// <summary>
+		/// gets an <see cref="HtmlElement"/> by its ID
+		/// </summary>
+		/// <param name="id">the id of the element to get</param>
+		/// <returns>an <see cref="HtmlElement"/></returns>
+		public HtmlElement GetElementById(string id)
+		{
+			HtmlDocument htmlDocument = this.instance.Document;
+			if (htmlDocument != null)
+			{
+				HtmlElement element = htmlDocument.GetElementById(id);
+				return element;
+			}
+
+			return null;
+		}
+
+		/// <summary>
+		/// Gets elements by css class name
+		/// </summary>
+		/// <param name="className">Name of the class.</param>
+		/// <returns></returns>
+		public List<HtmlElement> GetElementsByClassName(string className)
+		{
+			List<HtmlElement> htmlElements = new List<HtmlElement>();
+
+			HtmlDocument htmlDocument = this.instance.Document;
+			if (htmlDocument != null)
+			{
+				htmlElements.AddRange(htmlDocument.All.Cast<HtmlElement>().Where(htmlElement => htmlElement.GetAttribute("className") == className));
+			}
+
+			return htmlElements;
 		}
 	}
 }

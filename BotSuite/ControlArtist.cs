@@ -31,20 +31,6 @@ namespace BotSuite
 		///     Initializes a new instance of the <see cref="ControlArtist" /> class.
 		///     constructor to use this class
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// int LeftMargin = 10;
-		/// int TopMargin = 10;
-		/// int BottomMargin = 10;
-		/// int RightMargin = 100;
-		/// // initialise control artists in form
-		/// ControlArtist BL = new ControlArtist(this.CreateGraphics(), this.ClientRectangle);
-		/// // draw a target rectangle with margin to the clientarea-borders
-		/// BL.DrawRectangle(LeftMargin,TopMargin,RightMargin,BottomMargin);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="gf">
 		///     target graphic
 		/// </param>

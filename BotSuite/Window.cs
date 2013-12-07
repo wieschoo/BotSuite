@@ -48,14 +48,6 @@ namespace BotSuite
 		/// <summary>
 		///     collect MainWindows
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// List<IntPtr> hWnds = new List<IntPtr>();
-		/// hWnds = Window.GetAllMainWindows();
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <returns>Returns an array of window handles.</returns>
 		public static IntPtr[] GetAllMainWindows()
 		{
@@ -74,14 +66,6 @@ namespace BotSuite
 		/// <summary>
 		///     try to find a window by using the name of the corresponding process
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// IntPtr hwnd = (IntPtr)0;
-		/// hWnd = Window.FindWindowByProcessName("notepad");
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="processName">
 		///     handle of window
 		/// </param>
@@ -102,11 +86,6 @@ namespace BotSuite
 		/// <summary>
 		///     get a handle of a window by name
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// IntPtr hwnd = Window.GetHandleByWindowTitle("notepad");
-		/// </code>
-		/// </example>
 		/// <param name="windowTitle">
 		///     name of window
 		/// </param>

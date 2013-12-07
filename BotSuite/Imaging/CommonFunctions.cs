@@ -22,16 +22,6 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     test if the colors seems to be similar.
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// Color A = Color.White;
-		/// Color B = Color.Blue;
-		/// bool similar = CommonFunctions.ColorsSimilar(A,B,50);
-		/// bool match   = CommonFunctions.ColorsSimilar(A,B,0);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="one">
 		///     Color A
 		/// </param>
@@ -65,20 +55,6 @@ namespace BotSuite.Imaging
 		///     Get the average rgb-values from an image in a given rectangle
 		///     By default the function calculate the average rgb-values from the whole image
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// double[] AverageColor = CommonFunctions.AverageRGBValues(img);
-		/// int left = 0;
-		/// int top = 5;
-		/// double[] AverageColorShifted = CommonFunctions.AverageRGBValues(img,left,top);
-		/// int width = 50;
-		/// int height = 100;
-		/// double[] AverageColorRectangle = CommonFunctions.AverageRGBValues(img,left,top,width,height);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="img">
 		///     Image
 		/// </param>

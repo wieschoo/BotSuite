@@ -27,18 +27,6 @@ namespace BotSuite
 		/// <summary>
 		///     Initializes a new instance of the <see cref="IniParser" /> class.
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// // load "config.ini" from the application directory
-		/// IniParser Config = new IniParser("\config.ini");
-		/// // write something
-		/// Config.Write("SomeVariable", "ValueToWrite");
-		/// // read something
-		/// string Get = Config.Read("SomeVariable");
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="iniPath">
 		///     file to open, either a relative or a absolute path (relative pathes start with "\"
 		///     and for can only be pathes the same level as executable or below in file tree) --- UNCs not supported at the
@@ -63,15 +51,6 @@ namespace BotSuite
 		/// <summary>
 		///     writes an information into the ini file
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// // load "config.ini" from the application directory
-		/// IniParser Config = new IniParser("config");
-		/// Config.Write("Section", "Variable", "Value");
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="section">
 		///     section in ini file
 		/// </param>
@@ -89,15 +68,6 @@ namespace BotSuite
 		/// <summary>
 		///     writes an information into the ini file
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// // load "config.ini" from the application directory
-		/// IniParser Config = new IniParser("config");
-		/// Config.Write("Variable", "Value");
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="key">
 		///     name of variable
 		/// </param>
@@ -112,15 +82,6 @@ namespace BotSuite
 		/// <summary>
 		///     writes an information into the ini file
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// // load "config.ini" from the application directory
-		/// IniParser Config = new IniParser("config");
-		/// string Get = Config.Read("Section", "Variable");
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="section">
 		///     section in ini file
 		/// </param>
@@ -140,15 +101,6 @@ namespace BotSuite
 		/// <summary>
 		///     reads an information from the ini file
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// // load "config.ini" from the application directory
-		/// IniParser Config = new IniParser("config");
-		/// string Get = Config.Read("Variable");
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="key">
 		///     name of variable
 		/// </param>

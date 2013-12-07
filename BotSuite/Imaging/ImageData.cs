@@ -73,16 +73,6 @@ namespace BotSuite.Imaging
 		///     set a 24bit or 32bit bitmap
 		///     or returns a 24bit bitmap
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// bmpBitmap Bmp = Img.bmpBitmap;
-		/// bmpBitmap Bmp2 = new bmpBitmap(...);
-		/// Img.bmpBitmap = Bmp2;
-		/// ]]>
-		/// </code>
-		/// </example>
 		public Bitmap Bitmap
 		{
 			get
@@ -99,14 +89,6 @@ namespace BotSuite.Imaging
 		///     Initializes a new instance of the <see cref="ImageData" /> class.
 		///     creates a new imagedata object from a given bitmap
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// bmpBitmap Bmp = new bmpBitmap(...);
-		/// ImageData Img = new ImageData(Bmp);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="bitmap">
 		///     tagert bitmap
 		/// </param>
@@ -119,13 +101,6 @@ namespace BotSuite.Imaging
 		///     Initializes a new instance of the <see cref="ImageData" /> class.
 		///     creates a new imagedata object from a file
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData("path/to/bitmap/file.bmp");
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="path">
 		///     path to bitmap
 		/// </param>
@@ -138,14 +113,6 @@ namespace BotSuite.Imaging
 		///     Initializes a new instance of the <see cref="ImageData" /> class.
 		///     creates a new imagedata object from another imagedata object
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// ImageData Img2 = new ImageData(Img);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="img">
 		///     The Img.
 		/// </param>
@@ -157,14 +124,6 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     store a bitmap into a file
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// Img.Save("path/to/bitmap/file.bmp");
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="path">
 		///     savepath
 		/// </param>
@@ -176,14 +135,6 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     clones an imagedata object
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// ImageData Img2 = Img.Clone();
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <returns>new imagedata object</returns>
 		public ImageData Clone()
 		{
@@ -193,16 +144,16 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     The load bitmap.
 		/// </summary>
-		/// <param name="bmpBitmap">
+		/// <param name="bmp">
 		///     The bitmap.
 		/// </param>
-		public void LoadBitmap(Bitmap bmpBitmap)
+		public void LoadBitmap(Bitmap bmp)
 		{
 			// extract bitmap data
-			this.bmpPixelFormat = bmpBitmap.PixelFormat;
-			this.Width = bmpBitmap.Width;
-			this.Height = bmpBitmap.Height;
-			switch (bmpBitmap.PixelFormat)
+			this.bmpPixelFormat = bmp.PixelFormat;
+			this.Width = bmp.Width;
+			this.Height = bmp.Height;
+			switch (bmp.PixelFormat)
 			{
 				case PixelFormat.Format32bppArgb:
 					this.rawFormatOffset = 4;
@@ -213,14 +164,14 @@ namespace BotSuite.Imaging
 			}
 
 			// load bytes
-			Rectangle bmpRectangle = new Rectangle(0, 0, bmpBitmap.Width, bmpBitmap.Height);
-			BitmapData bmpData = bmpBitmap.LockBits(bmpRectangle, ImageLockMode.ReadOnly, this.bmpPixelFormat);
+			Rectangle bmpRectangle = new Rectangle(0, 0, bmp.Width, bmp.Height);
+			BitmapData bmpData = bmp.LockBits(bmpRectangle, ImageLockMode.ReadOnly, this.bmpPixelFormat);
 			IntPtr ptr = bmpData.Scan0;
 			this.bmpStride = bmpData.Stride;
-			int byteSize = this.bmpStride * bmpBitmap.Height;
+			int byteSize = this.bmpStride * bmp.Height;
 			this.bmpBytes = new byte[byteSize];
 			Marshal.Copy(ptr, this.bmpBytes, 0, byteSize);
-			bmpBitmap.UnlockBits(bmpData);
+			bmp.UnlockBits(bmpData);
 		}
 
 		/// <summary>
@@ -344,22 +295,10 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     resize an image by a factor
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // downscale an image to 80% of the original size
-		/// ImageData ResizedImg = Img.Resize(0.8);
-		/// 
-		/// // or use another interpolation mode
-		/// ImageData ResizedImg2 = Img.Resize(0.8,InterpolationMode.Bilinear);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="factor">
 		///     Factor (0.80 means downscale by 80%)
 		/// </param>
-		/// <param name="mode">
+		/// <param name="interpolationModemode">
 		///     Mode of Interpolation (Default: HighQualityBicubic, Possible parameter:
 		///     HighQualityBicubic,HighQualityBilinear,Bilinear,...)
 		/// </param>
@@ -367,44 +306,32 @@ namespace BotSuite.Imaging
 		/// <returns>
 		///     The <see cref="ImageData" />.
 		/// </returns>
-		public ImageData Resize(double factor, InterpolationMode mode = InterpolationMode.HighQualityBicubic)
+		public ImageData Resize(double factor, InterpolationMode interpolationModemode = InterpolationMode.HighQualityBicubic)
 		{
 			// get the new size based on the percentage change
 			int resizedW = (int)(this.Width * factor);
 			int resizedH = (int)(this.Height * factor);
 
-			return this.Resize(resizedW, resizedH, mode);
+			return this.Resize(resizedW, resizedH, interpolationModemode);
 		}
 
 		/// <summary>
 		///     resize an image
 		/// </summary>
-		/// <example>
-		///     <code>
-		/// <![CDATA[
-		/// ImageData Img = new ImageData(...);
-		/// // downscale to image of size 100px x 120px
-		/// ImageData ResizedImg = Img.Resize(100,120);
-		/// 
-		/// // or use another Interpolationmode
-		/// ImageData ResizedImg2 = Img.Resize(100,120,InterpolationMode.Bilinear);
-		/// ]]>
-		/// </code>
-		/// </example>
 		/// <param name="newWidth">
 		///     new Width of image
 		/// </param>
 		/// <param name="newHeight">
 		///     new Height of image
 		/// </param>
-		/// <param name="mode">
+		/// <param name="interpolationModemode">
 		///     Mode of Interpolation (Default: HighQualityBicubic, Possible parameter:
 		///     HighQualityBicubic,HighQualityBilinear,Bilinear,...)
 		/// </param>
 		/// <returns>
 		///     The <see cref="ImageData" />.
 		/// </returns>
-		public ImageData Resize(int newWidth, int newHeight, InterpolationMode mode = InterpolationMode.HighQualityBicubic)
+		public ImageData Resize(int newWidth, int newHeight, InterpolationMode interpolationModemode = InterpolationMode.HighQualityBicubic)
 		{
 			// create a new bmpBitmap the size of the new image
 			Bitmap bmp = new Bitmap(newWidth, newHeight, this.bmpPixelFormat);
