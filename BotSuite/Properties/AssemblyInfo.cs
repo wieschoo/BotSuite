@@ -15,11 +15,11 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
 
-[assembly: AssemblyTitle("Wieschoo.BotSuite")]
-[assembly: AssemblyDescription("BotSuite.Net, a component for easier bot-creation with .Net (edited by enWare)")]
+[assembly: AssemblyTitle("BotSuite")]
+[assembly: AssemblyDescription("BotSuite.Net, a component for easier bot-creation with .Net")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("wieschoo & enWare")]
-[assembly: AssemblyProduct("Wieschoo.BotSuite")]
+[assembly: AssemblyProduct("BotSuite")]
 [assembly: AssemblyCopyright("Copyright © 2012 wieschoo & enWare")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -43,5 +43,5 @@ using System.Runtime.InteropServices;
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.0.0.2")]
-[assembly: AssemblyFileVersion("1.0.0.2")]
+[assembly: AssemblyVersion("1.2.0.0")]
+[assembly: AssemblyFileVersion("1.2.0.0")]

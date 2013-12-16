@@ -17,10 +17,12 @@ namespace BotSuite
 	using Microsoft.Win32;
 
 	/// <summary>
-	///     just decoration pattern for WebBrowser
+	///     Wrapper for <see cref="WebBrowser"/>
 	/// </summary>
 	public class Browser
 	{
+		private const string HtmlElementMember_Click = "click";
+
 		/// <summary>
 		///     The time to wait.
 		/// </summary>
@@ -29,12 +31,12 @@ namespace BotSuite
 		/// <summary>
 		///     intern instance of browser object
 		/// </summary>
-		private readonly WebBrowser instance;
+		private readonly WebBrowser browser;
 
 		/// <summary>
 		///     The full loaded.
 		/// </summary>
-		private bool fullLoaded;
+		private bool loaded = false;
 
 		/// <summary>
 		///     Initializes a new instance of the <see cref="Browser" /> class.
@@ -47,14 +49,14 @@ namespace BotSuite
 		/// </returns>
 		public Browser(WebBrowser webBrowser)
 		{
-			this.instance = webBrowser;
-			this.instance.DocumentCompleted += this.SetBrowserCompleted;
-			this.fullLoaded = true;
+			this.browser = webBrowser;
+			this.browser.DocumentCompleted += this.browser_DocumentCompleted;
+			this.loaded = true;
 			UseNewIE();
 		}
 
 		/// <summary>
-		///     internal call; will be raise if site is loaded
+		///     internal call, will be raised when site is loaded
 		/// </summary>
 		/// <param name="sender">
 		///     the sender
@@ -62,9 +64,9 @@ namespace BotSuite
 		/// <param name="e">
 		///     the <see cref="WebBrowserDocumentCompletedEventArgs" />
 		/// </param>
-		protected void SetBrowserCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+		protected void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
-			this.fullLoaded = true;
+			this.loaded = true;
 		}
 
 		/// <summary>
@@ -78,7 +80,7 @@ namespace BotSuite
 		/// </returns>
 		public bool ElementExists(string id)
 		{
-			HtmlDocument htmlDocument = this.instance.Document;
+			HtmlDocument htmlDocument = this.browser.Document;
 			if (htmlDocument == null)
 			{
 				return false;
@@ -96,13 +98,13 @@ namespace BotSuite
 		/// </param>
 		public void ClickElementById(string id)
 		{
-			HtmlDocument htmlDocument = this.instance.Document;
+			HtmlDocument htmlDocument = this.browser.Document;
 			if (htmlDocument != null)
 			{
 				HtmlElement tmp = htmlDocument.GetElementById(id);
 				if (tmp != null)
 				{
-					tmp.InvokeMember("click");
+					tmp.InvokeMember(HtmlElementMember_Click);
 				}
 			}
 		}
@@ -118,7 +120,7 @@ namespace BotSuite
 		/// </param>
 		public void FillInputById(string id, string value)
 		{
-			HtmlDocument htmlDocument = this.instance.Document;
+			HtmlDocument htmlDocument = this.browser.Document;
 			if (htmlDocument != null)
 			{
 				HtmlElement elementById = htmlDocument.GetElementById(id);
@@ -127,19 +129,6 @@ namespace BotSuite
 					elementById.SetAttribute("value", value);
 				}
 			}
-		}
-
-		/// <summary>
-		///     navigate to an url and wait until it is completely loaded
-		/// </summary>
-		/// <param name="page">
-		///     the page
-		/// </param>
-		public void NavigateTo(string page)
-		{
-			this.instance.Navigate(page);
-			this.fullLoaded = false;
-			this.WaitTillLoad();
 		}
 
 		/// <summary>
@@ -153,7 +142,7 @@ namespace BotSuite
 		/// </returns>
 		public string GetInnerTextById(string id)
 		{
-			HtmlDocument htmlDocument = this.instance.Document;
+			HtmlDocument htmlDocument = this.browser.Document;
 			if (htmlDocument != null)
 			{
 				HtmlElement elementById = htmlDocument.GetElementById(id);
@@ -167,37 +156,20 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		///     The wait till load.
+		///     navigate to an url and wait until it is completely loaded
 		/// </summary>
-		private void WaitTillLoad()
+		/// <param name="page">
+		///     the page
+		/// </param>
+		public void NavigateTo(string page)
 		{
-			WebBrowserReadyState loadStatus;
-			int counter = 0;
-			while (true)
+			this.loaded = false;
+			this.browser.Navigate(page);
+
+			while(!this.loaded)
 			{
-				loadStatus = this.instance.ReadyState;
 				Application.DoEvents();
-
-				if ((counter > WaitTime) || (loadStatus == WebBrowserReadyState.Uninitialized)
-					|| (loadStatus == WebBrowserReadyState.Loading) || (loadStatus == WebBrowserReadyState.Interactive))
-				{
-					break;
-				}
-
-				counter++;
-			}
-
-			counter = 0;
-			while (true)
-			{
-				loadStatus = this.instance.ReadyState;
-				Application.DoEvents();
-				if ((loadStatus == WebBrowserReadyState.Complete) && this.fullLoaded)
-				{
-					break;
-				}
-
-				counter++;
+				System.Threading.Thread.Sleep(50);
 			}
 		}
 
@@ -227,7 +199,7 @@ namespace BotSuite
 		/// <returns>an <see cref="HtmlElement"/></returns>
 		public HtmlElement GetElementById(string id)
 		{
-			HtmlDocument htmlDocument = this.instance.Document;
+			HtmlDocument htmlDocument = this.browser.Document;
 			if (htmlDocument != null)
 			{
 				HtmlElement element = htmlDocument.GetElementById(id);
@@ -246,7 +218,7 @@ namespace BotSuite
 		{
 			List<HtmlElement> htmlElements = new List<HtmlElement>();
 
-			HtmlDocument htmlDocument = this.instance.Document;
+			HtmlDocument htmlDocument = this.browser.Document;
 			if (htmlDocument != null)
 			{
 				htmlElements.AddRange(htmlDocument.All.Cast<HtmlElement>().Where(htmlElement => htmlElement.GetAttribute("className") == className));
