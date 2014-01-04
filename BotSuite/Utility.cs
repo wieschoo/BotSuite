@@ -20,6 +20,8 @@ namespace BotSuite
     /// </summary>
 	public class Utility
 	{
+        private static Random _random = new Random();
+
 		/// <summary>
 		/// pause the current thread for x ms
 		/// </summary>
@@ -54,7 +56,17 @@ namespace BotSuite
 		/// <returns>random integer</returns>
 		public static Int32 Random(Int32 lower, Int32 upper)
 		{
-			return new Random().Next(lower, upper);
+            return _random.Next(lower, upper);
 		}
+
+        /// <summary>
+        /// create a random double between lower and upper
+        /// </summary>
+        /// <param name="lower">min number</param>
+        /// <param name="upper">max number</param>
+        /// <returns>random double</returns>
+        public static Double Random(Double lower, Double upper) {
+            return _random.NextDouble() * ((upper - lower) + lower);
+        }
 	}
 }
