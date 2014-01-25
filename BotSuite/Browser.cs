@@ -21,12 +21,7 @@ namespace BotSuite
 	/// </summary>
 	public class Browser
 	{
-		private const string HtmlElementMember_Click = "click";
-
-		/// <summary>
-		///     The time to wait.
-		/// </summary>
-		private const int WaitTime = 100000;
+		private const string HtmlElementMemberClick = "click";
 
 		/// <summary>
 		///     intern instance of browser object
@@ -36,7 +31,7 @@ namespace BotSuite
 		/// <summary>
 		///     The full loaded.
 		/// </summary>
-		private bool loaded = false;
+		private bool loaded;
 
 		/// <summary>
 		///     Initializes a new instance of the <see cref="Browser" /> class.
@@ -50,9 +45,28 @@ namespace BotSuite
 		public Browser(WebBrowser webBrowser)
 		{
 			this.browser = webBrowser;
-			this.browser.DocumentCompleted += this.browser_DocumentCompleted;
+			this.browser.DocumentCompleted += this.BrowserDocumentCompleted;
 			this.loaded = true;
 			UseNewIE();
+		}
+
+		/// <summary>
+		///     force the application to use IE8 or IE9
+		/// </summary>
+		private static void UseNewIE()
+		{
+			RegistryKey key =
+				Registry.CurrentUser.OpenSubKey(
+					"Software\\Microsoft\\Internet Explorer\\Main\\FeatureControl\\FEATURE_BROWSER_EMULATION",
+					true)
+				?? Registry.CurrentUser.CreateSubKey(
+					"Software\\Microsoft\\Internet Explorer\\Main\\FeatureControl\\FEATURE_BROWSER_EMULATION");
+
+			if(key != null)
+			{
+				key.SetValue(Process.GetCurrentProcess().MainModule.ModuleName, 9999, RegistryValueKind.DWord);
+				key.Close();
+			}
 		}
 
 		/// <summary>
@@ -64,7 +78,7 @@ namespace BotSuite
 		/// <param name="e">
 		///     the <see cref="WebBrowserDocumentCompletedEventArgs" />
 		/// </param>
-		protected void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+		protected void BrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
 			this.loaded = true;
 		}
@@ -104,7 +118,7 @@ namespace BotSuite
 				HtmlElement tmp = htmlDocument.GetElementById(id);
 				if (tmp != null)
 				{
-					tmp.InvokeMember(HtmlElementMember_Click);
+					tmp.InvokeMember(HtmlElementMemberClick);
 				}
 			}
 		}
@@ -174,26 +188,7 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		///     force the application to use IE8 or IE9
-		/// </summary>
-		private static void UseNewIE()
-		{
-			RegistryKey key =
-				Registry.CurrentUser.OpenSubKey(
-					"Software\\Microsoft\\Internet Explorer\\Main\\FeatureControl\\FEATURE_BROWSER_EMULATION",
-					true)
-				?? Registry.CurrentUser.CreateSubKey(
-					"Software\\Microsoft\\Internet Explorer\\Main\\FeatureControl\\FEATURE_BROWSER_EMULATION");
-
-			if (key != null)
-			{
-				key.SetValue(Process.GetCurrentProcess().MainModule.ModuleName, 9999, RegistryValueKind.DWord);
-				key.Close();
-			}
-		}
-
-		/// <summary>
-		/// gets an <see cref="HtmlElement"/> by its ID
+		///		gets an <see cref="HtmlElement"/> by its ID
 		/// </summary>
 		/// <param name="id">the id of the element to get</param>
 		/// <returns>an <see cref="HtmlElement"/></returns>
@@ -210,10 +205,10 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		/// Gets elements by css class name
+		///		Gets elements by css class name
 		/// </summary>
 		/// <param name="className">Name of the class.</param>
-		/// <returns></returns>
+		/// <returns>a list of <see cref="HtmlElement"/> objects with the given class</returns>
 		public List<HtmlElement> GetElementsByClassName(string className)
 		{
 			List<HtmlElement> htmlElements = new List<HtmlElement>();
@@ -222,6 +217,24 @@ namespace BotSuite
 			if (htmlDocument != null)
 			{
 				htmlElements.AddRange(htmlDocument.All.Cast<HtmlElement>().Where(htmlElement => htmlElement.GetAttribute("className") == className));
+			}
+
+			return htmlElements;
+		}
+
+		/// <summary>
+		///		Get elements by tag name
+		/// </summary>
+		/// <param name="tagName">name of the tag</param>
+		/// <returns>a list of <see cref="HtmlElement"/> objects with the given tag name</returns>
+		public List<HtmlElement> GetElementsByTagName(string tagName)
+		{
+			List<HtmlElement> htmlElements = new List<HtmlElement>();
+
+			HtmlDocument htmlDocument = this.browser.Document;
+			if (htmlDocument != null)
+			{
+				htmlElements.AddRange(htmlDocument.GetElementsByTagName(tagName).Cast<HtmlElement>());
 			}
 
 			return htmlElements;

@@ -212,8 +212,8 @@ namespace BotSuite
 		/// </summary>
 		public static void Jiggle()
 		{
-			int xchange = Utility.Random(-10, 10);
-			int ychange = Utility.Random(-10, 10);
+			int xchange = Utility.RandomInt(-10, 10);
+			int ychange = Utility.RandomInt(-10, 10);
 
 			Move(Cursor.Position.X + xchange, Cursor.Position.Y + ychange, true, 5);
 			Utility.RandomDelay(20, 60);

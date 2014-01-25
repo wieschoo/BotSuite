@@ -18,6 +18,8 @@ namespace BotSuite
 	/// </summary>
 	public class Utility
 	{
+		private static readonly Random Random = new Random();
+
 		/// <summary>
 		///     pause the current thread for x ms
 		/// </summary>
@@ -29,7 +31,7 @@ namespace BotSuite
 		/// </param>
 		public static void RandomDelay(int lower = 10, int upper = 30)
 		{
-			Thread.Sleep(Random(lower, upper));
+			Delay(RandomInt(lower, upper));
 		}
 
 		/// <summary>
@@ -44,7 +46,7 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		///     create a random integer (unif) between lower and upper
+		///     create a random integer between lower and upper
 		/// </summary>
 		/// <param name="lower">
 		///     min number
@@ -55,9 +57,26 @@ namespace BotSuite
 		/// <returns>
 		///     random integer
 		/// </returns>
-		public static int Random(int lower, int upper)
+		public static int RandomInt(int lower, int upper)
 		{
-			return new Random().Next(lower, upper);
+			return Random.Next(lower, upper);
+		}
+
+		/// <summary>
+		///     create a random double between lower and upper
+		/// </summary>
+		/// <param name="lower">
+		///     min number
+		/// </param>
+		/// <param name="upper">
+		///     max number
+		/// </param>
+		/// <returns>
+		///     random double
+		/// </returns>
+		public static double RandomDouble(double lower, double upper)
+		{
+			return Random.NextDouble() * (upper - lower + upper);
 		}
 	}
 }

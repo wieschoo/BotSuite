@@ -549,9 +549,7 @@ namespace BotSuite.Net
 
 				using (Stream s = resp.GetResponseStream())
 				{
-					this.LastResponseEncoding = (!string.IsNullOrEmpty(resp.CharacterSet))
-													? Encoding.GetEncoding(resp.CharacterSet)
-													: Encoding.Default;
+					this.SetLastReponseEncoding(resp.CharacterSet);
 
 					if (s != null)
 					{
@@ -594,6 +592,29 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
+		///		Sets the LastResponseEncoding to the specified charset
+		/// </summary>
+		/// <param name="charset">The charset</param>
+		private void SetLastReponseEncoding(string charset)
+		{
+			if (charset != null)
+			{
+				try
+				{
+					this.LastResponseEncoding = Encoding.GetEncoding(charset);
+				}
+				catch (Exception)
+				{
+					this.LastResponseEncoding = Encoding.Default;
+				}
+			}
+			else
+			{
+				this.LastResponseEncoding = Encoding.Default;
+			}
+		}
+
+		/// <summary>
 		///     Converts the cache of this HttpClient into a string
 		/// </summary>
 		/// <returns>the string from the cache</returns>
@@ -615,25 +636,27 @@ namespace BotSuite.Net
 		/// <returns>the image from the cache</returns>
 		private Image LoadImageFromCache()
 		{
-			Image retImg = null;
+			Image retImg;
 
-			if (this.Cache != null)
+			if (this.Cache == null)
 			{
-				try
+				return null;
+			}
+
+			try
+			{
+				using (MemoryStream ms = new MemoryStream())
 				{
-					using (MemoryStream ms = new MemoryStream())
-					{
-						BinaryWriter bw = new BinaryWriter(ms, this.LastResponseEncoding ?? Encoding.Default);
-						bw.Write(this.Cache);
-						ms.Seek(0, SeekOrigin.Begin);
-						retImg = Image.FromStream(ms);
-						bw.Dispose();
-					}
+					BinaryWriter bw = new BinaryWriter(ms, this.LastResponseEncoding ?? Encoding.Default);
+					bw.Write(this.Cache);
+					ms.Seek(0, SeekOrigin.Begin);
+					retImg = Image.FromStream(ms);
+					bw.Dispose();
 				}
-				catch
-				{
-					return null;
-				}
+			}
+			catch
+			{
+				return null;
 			}
 
 			return retImg;
