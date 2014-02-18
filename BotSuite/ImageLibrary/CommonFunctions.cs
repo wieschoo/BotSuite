@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace BotSuite.ImageLibrary
 {
@@ -140,7 +141,7 @@ namespace BotSuite.ImageLibrary
             return 1 - sim;
         }
         /// <summary>
-        /// identify the color of a part(rectangle) from an image by a given list of reference colors
+        /// identify the color of a part(rectangle) from an image by a given list of reference colors (root means square error from average)
         /// </summary>
         /// <param name="Img">image to look in</param>
         /// <param name="statReference">list of possible colors</param>
@@ -163,6 +164,100 @@ namespace BotSuite.ImageLibrary
                 currentScore = Math.Pow((item.Value[0] / 255.0) - (av[0] / 255.0), 2)
                     + Math.Pow((item.Value[1] / 255.0) - (av[1] / 255.0), 2)
                     + Math.Pow((item.Value[2] / 255.0) - (av[2] / 255.0), 2);
+                if (currentScore < bestScore)
+                {
+                    Foo = item.Key;
+                    bestScore = currentScore;
+                }
+            }
+            return Foo;
+        }
+        /// <summary>
+        /// identify the color of a part(rectangle) from an image by a given list of reference colors (majority vote)
+        /// </summary>
+        /// <param name="Img">image to look in</param>
+        /// <param name="statReference">list of possible colors</param>
+        /// <param name="Left">left of rectangle (default: 0)</param>
+        /// <param name="Top">top of rectangle (default: 0)</param>
+        /// <param name="Width">width of rectangle (default: full width)</param>
+        /// <param name="Height">height of rectangle (default: full height)</param>
+        /// <returns>Color</returns>
+        static public Color IdentifyColorByVoting(ImageData Img, Dictionary<Color, List<double>> statReference, int Left = 0, int Top = 0, int Width = -1, int Height = -1)
+        {
+            double[] av = CommonFunctions.AverageRGBValues(Img, Left, Top, Width, Height);
+
+            double bestScore = 255;
+            double currentScore = 0;
+
+            Color Foo = Color.White;
+
+            int[] votes = Enumerable.Repeat(0, statReference.Count).ToArray();
+
+            if (Width == -1)
+                Width = Img.Width;
+            if (Height == -1)
+                Height = Img.Height;
+
+            for (int x = Left; x < Left + Width; x++)
+            {
+                for (int y = Top; y < Top + Height; y++)
+                {
+                    // color from image
+                    Color CurrentColor = Img.GetPixel(x, y);
+                    int best_dist = 255*50;
+                    int best_idx = 0;
+                    for (int i = 0; i < statReference.Count;i++ )
+                    {
+                        List<double> RGB = statReference.ElementAt(i).Value;
+                        // from from dictionary
+                        Color CCol = Color.FromArgb(Convert.ToInt32(RGB.ElementAt(0)), Convert.ToInt32(RGB.ElementAt(1)), Convert.ToInt32(RGB.ElementAt(2)));
+                        // distance
+                        int current_dist = Math.Abs(CCol.R - CurrentColor.R) + Math.Abs(CCol.G - CurrentColor.G) + Math.Abs(CCol.B - CurrentColor.B);
+                        if (current_dist < best_dist)
+                        {
+                            best_dist = current_dist;
+                            best_idx = i;
+                        }
+                    }
+                    votes[best_idx]++;
+
+                }
+            }
+
+            int m=-1;
+            int ans = 0;
+            for (int i=0;i<votes.Length;i++)
+            {
+                if(votes[i]>m){
+                    m=votes[i];
+                    ans=i;
+                }
+            }
+
+
+            return statReference.ElementAt(ans).Key;
+        }
+
+        /// <summary>
+        /// identify color from list (choose the image with best matching)
+        /// </summary>
+        /// <param name="GivenColor">color to look for</param>
+        /// <param name="statReference">list of reference images</param>
+        /// <returns>color from dictionary</returns>
+        static public Color IdentifyColor(Color GivenColor, Dictionary<Color, List<double>> statReference)
+        {
+            double[] av = new double[3] { GivenColor.R,GivenColor.G,GivenColor.B};
+
+            double bestScore = 255;
+            double currentScore = 0;
+
+            Color Foo = Color.White;
+
+            foreach (KeyValuePair<Color, List<double>> item in statReference)
+            {
+                currentScore = Math.Abs((item.Value[0] / 255.0) - (av[0] / 255.0))
+                    + Math.Abs((item.Value[1] / 255.0) - (av[1] / 255.0))
+                    + Math.Abs((item.Value[2] / 255.0) - (av[2] / 255.0));
                 if (currentScore < bestScore)
                 {
                     Foo = item.Key;
