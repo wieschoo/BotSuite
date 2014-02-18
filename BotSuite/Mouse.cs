@@ -1,4 +1,4 @@
-﻿/* **************************************************************
+/* **************************************************************
  * Name:      BotSuite.NET
  * Purpose:   Framework for creating bots
  * Homepage:  http://www.wieschoo.com
@@ -281,22 +281,22 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		/// get the current position of the mouse pointer relative to a window
+		/// get the current position of the mouse pointer relative to a control
 		/// </summary>
         /// <example>
         /// <code>
         /// Point CurPos = Point.Empty;
         /// IntPtr hwnd = ... ;
-        /// CurPos = Mouse.GetPositionRelativeToWindow(hwnd);
+        /// CurPos = Mouse.GetPositionRelativeToControl(hwnd);
         /// </code>
         /// </example>
-		/// <param name="window">handle of window</param>
+        /// <param name="ControlHandle">handle of control</param>
 		/// <returns>Point position</returns>
-		public static Point GetPositionRelativeToWindow(IntPtr window)
+		public static Point GetPositionRelativeToControl(IntPtr ControlHandle)
 		{
 			Point position = Cursor.Position;
 			NativeMethods.RECT WINDOW = new NativeMethods.RECT();
-			NativeMethods.GetWindowRect(window, out WINDOW);
+			NativeMethods.GetWindowRect(ControlHandle, out WINDOW);
 			return new Point(position.X - WINDOW.Left, position.Y - WINDOW.Top);
 		}
 
