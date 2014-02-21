@@ -175,6 +175,9 @@ namespace BotSuite.ImageLibrary
         /// <summary>
         /// identify the color of a part(rectangle) from an image by a given list of reference colors (majority vote)
         /// </summary>
+        /// <remarks>
+        /// this tests every pixel in the given rectangle and majority votes the color from the given dictionary of possible colors
+        /// </remarks>
         /// <param name="Img">image to look in</param>
         /// <param name="statReference">list of possible colors</param>
         /// <param name="Left">left of rectangle (default: 0)</param>
@@ -185,9 +188,6 @@ namespace BotSuite.ImageLibrary
         static public Color IdentifyColorByVoting(ImageData Img, Dictionary<Color, List<double>> statReference, int Left = 0, int Top = 0, int Width = -1, int Height = -1)
         {
             double[] av = CommonFunctions.AverageRGBValues(Img, Left, Top, Width, Height);
-
-            double bestScore = 255;
-            double currentScore = 0;
 
             Color Foo = Color.White;
 
@@ -224,6 +224,7 @@ namespace BotSuite.ImageLibrary
                 }
             }
 
+            // this is faster than LINQ
             int m=-1;
             int ans = 0;
             for (int i=0;i<votes.Length;i++)
@@ -278,7 +279,7 @@ namespace BotSuite.ImageLibrary
             string keyword = "";
             foreach (KeyValuePair<string, ImageData> item in statReference)
             {
-                // exakte übereinstimmung der Größen ermöglicht einen simplen vergleich
+                // exact size match cause easier way of compare the image
                 if ((Img.Width == item.Value.Width) && (Img.Height == item.Value.Height))
                 {
                     double s = CommonFunctions.Similarity(Img, item.Value);
@@ -292,7 +293,7 @@ namespace BotSuite.ImageLibrary
                 {
                     if ((Img.Width > item.Value.Width) && (Img.Height > item.Value.Height))
                     {
-                        // im größeren suchen
+                        // search within the greater image
                         for (int column = 0; column < Img.Width - item.Value.Width; column++)
                         {
                             for (int row = 0; row < Img.Height - item.Value.Height; row++)

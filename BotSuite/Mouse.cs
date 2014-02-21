@@ -301,6 +301,48 @@ namespace BotSuite
 		}
 
         /// <summary>
+        /// tests if the mouse is hovering a control
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// bool OverTextbox = Mouse.HoverControl(Textbox1.Handle);
+        /// </code>
+        /// </example>
+        /// <param name="ControlHandle">handle of control</param>
+        /// <returns>true/false</returns>
+        public static bool HoverControl(IntPtr ControlHandle)
+        {
+            Point MousePosition = GetPositionRelativeToControl(ControlHandle);
+            NativeMethods.RECT WINDOW = new NativeMethods.RECT();
+            NativeMethods.GetWindowRect(ControlHandle, out WINDOW);
+            return InRectangle(MousePosition, WINDOW.Top, WINDOW.Left, WINDOW.Bottom, WINDOW.Right);
+
+        }
+
+        /// <summary>
+        /// returns whether the cursor is inside a rectangle or outside
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// Point Pos = GetPosition(); // get position of the mouse
+        /// bool InRectangle = Mouse.InRectangle(Pos,50, 10, 20, 70);
+        /// </code>
+        /// </example>
+        /// <param name="P">point to test</param>
+        /// <param name="t">top of rectangle</param>
+        /// <param name="l">left of rectangle</param>
+        /// <param name="b">bottom of rectangle</param>
+        /// <param name="r">right of rectangle</param>
+        /// <returns>inside=true/outside=false</returns>
+        public static bool InRectangle(Point P,int t, int l, int b, int r)
+        {
+           
+            return (
+                (l < P.X) && (P.X < r) && (t < P.Y) && (P.Y < b)
+                );
+        }
+
+        /// <summary>
         /// returns whether the cursor is inside a rectangle or outside
         /// </summary>
         /// <example>
@@ -315,10 +357,7 @@ namespace BotSuite
         /// <returns>inside=true/outside=false</returns>
         public static bool InRectangle(int t, int l, int b, int r)
         {
-            Point P = GetPosition();
-            return (
-                (l<P.X) && (P.X<r)  && (t<P.Y  ) && (P.Y<b)
-                );
+            return InRectangle(GetPosition(),t, l, b, r);
         }
 
 		/// <summary>
