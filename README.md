@@ -1,12 +1,13 @@
 BotSuite.NET
 =============
 
-This library helps you by creating bots for repeating actions. To getting started please visit the tutorial section at
+This library helps you by creating bots accelerates the development of bots significantly. 
+To getting started please visit the tutorial section and read the tutorial "Getting Started" at
 www.botsuite.net to get an introduction and more information. Please do not hesitate to contact us or add an issue here at the proect page on github.
 
 
 <h2>outstanding features</h2>
-- [x] fast and easy image recognition/manipulation
+- [x] fast,easy and robust image recognition/manipulation
 - [x] easy screenshot capturing
 - [x] mouse cursor control
 - [x] easy way to send HTTP request and handle their answers
@@ -23,30 +24,22 @@ If you have any problems you can ask there questions. Please notice that this is
 http://www.botsuite.net
 
 <h3>contributors</h3>
-<table>
-  <tr>
-    <th>name</th><th>url</th><th>text</th>
-  </tr>
-  <tr>
-    <td>DerpyHooves(Karill)</td><td>http://www.codebot.de</td><td>He is the one who likes a good and clear class design and who gets on our nerves till we use a clear coding style.
-He is a active developer of the BotSuite and created the HTTP classes and some other things were written by him.</td>
-  </tr>
-  <tr>
-    <td>wieschoo</td><td>http://www.wieschoo.com</td><td>He came up with the idea to share his code as a library and post the first release at codebot.de.</td>
-  </tr>
-  <tr>
-    <td>easysurfer</td><td>http://www.easysurfer.me</td><td>He created the FSE for the BotSuite.NET and has a cool blog.</td>
-  </tr>
-  <tr>
-    <td>3HMonkey</td><td>http://www.codebot.de</td><td>Control the keyboard without your fingers is possible per his code.</td>
-  </tr>
-  <tr>
-    <td>SourceCoder</td><td>http://www.codebot.de</td><td>He forced me to implement a memory class for the BotSuite.NET and send me his rudimentary memory library . So now we have a class to manipulate the memory.</td>
-  </tr>
-  <tr>
-    <td>gigagames and Absorber</td><td>http://www.codebot.de</td><td>They give us a small regex class for common regex requests.</td>
-  </tr>
-</table>
+active contibutors:
+<ul>
+<li>wieschoo</li>
+<li>DerpyHooves(Karill)</li>
+</ul>
+other contributors:
+<ul>
+<li>easysurfer</li>
+<li>Gr3enP0ison</li>
+<li>Farami</li>
+<li>3HMonkey</li>
+<li>SourceCoder</li>
+<li>gigagames</li>
+<li>Absorber</li>
+</ul>
+
 
 <h3>Software License Agreement</h3>
 
