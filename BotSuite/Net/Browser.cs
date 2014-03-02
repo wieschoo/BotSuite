@@ -8,16 +8,18 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
-namespace BotSuite
+namespace BotSuite.Net
 {
 	using System.Collections.Generic;
 	using System.Diagnostics;
 	using System.Linq;
+	using System.Threading;
 	using System.Windows.Forms;
+
 	using Microsoft.Win32;
 
 	/// <summary>
-	///     Wrapper for <see cref="WebBrowser"/>
+	///     Wrapper for <see cref="WebBrowser" />
 	/// </summary>
 	public class Browser
 	{
@@ -62,7 +64,7 @@ namespace BotSuite
 				?? Registry.CurrentUser.CreateSubKey(
 					"Software\\Microsoft\\Internet Explorer\\Main\\FeatureControl\\FEATURE_BROWSER_EMULATION");
 
-			if(key != null)
+			if (key != null)
 			{
 				key.SetValue(Process.GetCurrentProcess().MainModule.ModuleName, 9999, RegistryValueKind.DWord);
 				key.Close();
@@ -180,18 +182,18 @@ namespace BotSuite
 			this.loaded = false;
 			this.browser.Navigate(page);
 
-			while(!this.loaded)
+			while (!this.loaded)
 			{
 				Application.DoEvents();
-				System.Threading.Thread.Sleep(50);
+				Thread.Sleep(50);
 			}
 		}
 
 		/// <summary>
-		///		gets an <see cref="HtmlElement"/> by its ID
+		///     gets an <see cref="HtmlElement" /> by its ID
 		/// </summary>
 		/// <param name="id">the id of the element to get</param>
-		/// <returns>an <see cref="HtmlElement"/></returns>
+		/// <returns>an <see cref="HtmlElement" /></returns>
 		public HtmlElement GetElementById(string id)
 		{
 			HtmlDocument htmlDocument = this.browser.Document;
@@ -205,10 +207,10 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		///		Gets elements by css class name
+		///     Gets elements by css class name
 		/// </summary>
 		/// <param name="className">Name of the class.</param>
-		/// <returns>a list of <see cref="HtmlElement"/> objects with the given class</returns>
+		/// <returns>a list of <see cref="HtmlElement" /> objects with the given class</returns>
 		public List<HtmlElement> GetElementsByClassName(string className)
 		{
 			List<HtmlElement> htmlElements = new List<HtmlElement>();
@@ -216,17 +218,18 @@ namespace BotSuite
 			HtmlDocument htmlDocument = this.browser.Document;
 			if (htmlDocument != null)
 			{
-				htmlElements.AddRange(htmlDocument.All.Cast<HtmlElement>().Where(htmlElement => htmlElement.GetAttribute("className") == className));
+				htmlElements.AddRange(
+					htmlDocument.All.Cast<HtmlElement>().Where(htmlElement => htmlElement.GetAttribute("className") == className));
 			}
 
 			return htmlElements;
 		}
 
 		/// <summary>
-		///		Get elements by tag name
+		///     Gets elements by tag name
 		/// </summary>
 		/// <param name="tagName">name of the tag</param>
-		/// <returns>a list of <see cref="HtmlElement"/> objects with the given tag name</returns>
+		/// <returns>a list of <see cref="HtmlElement" /> objects with the given tag name</returns>
 		public List<HtmlElement> GetElementsByTagName(string tagName)
 		{
 			List<HtmlElement> htmlElements = new List<HtmlElement>();

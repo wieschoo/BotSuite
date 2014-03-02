@@ -553,26 +553,29 @@ namespace BotSuite.Imaging
 
 					int alphaChannel = pixelColor[1, 1].A;
 
-					int redChannel = (int)
-									((((pixelColor[0, 0].R * matrix.Matrix[0, 0]) + (pixelColor[1, 0].R * matrix.Matrix[1, 0])
-										+ (pixelColor[2, 0].R * matrix.Matrix[2, 0]) + (pixelColor[0, 1].R * matrix.Matrix[0, 1])
-										+ (pixelColor[1, 1].R * matrix.Matrix[1, 1]) + (pixelColor[2, 1].R * matrix.Matrix[2, 1])
-										+ (pixelColor[0, 2].R * matrix.Matrix[0, 2]) + (pixelColor[1, 2].R * matrix.Matrix[1, 2])
-										+ (pixelColor[2, 2].R * matrix.Matrix[2, 2])) / matrix.Factor) + matrix.Offset);
+					int redChannel =
+						(int)
+						((((pixelColor[0, 0].R * matrix.Matrix[0, 0]) + (pixelColor[1, 0].R * matrix.Matrix[1, 0])
+							+ (pixelColor[2, 0].R * matrix.Matrix[2, 0]) + (pixelColor[0, 1].R * matrix.Matrix[0, 1])
+							+ (pixelColor[1, 1].R * matrix.Matrix[1, 1]) + (pixelColor[2, 1].R * matrix.Matrix[2, 1])
+							+ (pixelColor[0, 2].R * matrix.Matrix[0, 2]) + (pixelColor[1, 2].R * matrix.Matrix[1, 2])
+							+ (pixelColor[2, 2].R * matrix.Matrix[2, 2])) / matrix.Factor) + matrix.Offset);
 
-					int greenChannel = (int)
-										((((pixelColor[0, 0].G * matrix.Matrix[0, 0]) + (pixelColor[1, 0].G * matrix.Matrix[1, 0])
-											+ (pixelColor[2, 0].G * matrix.Matrix[2, 0]) + (pixelColor[0, 1].G * matrix.Matrix[0, 1])
-											+ (pixelColor[1, 1].G * matrix.Matrix[1, 1]) + (pixelColor[2, 1].G * matrix.Matrix[2, 1])
-											+ (pixelColor[0, 2].G * matrix.Matrix[0, 2]) + (pixelColor[1, 2].G * matrix.Matrix[1, 2])
-											+ (pixelColor[2, 2].G * matrix.Matrix[2, 2])) / matrix.Factor) + matrix.Offset);
+					int greenChannel =
+						(int)
+						((((pixelColor[0, 0].G * matrix.Matrix[0, 0]) + (pixelColor[1, 0].G * matrix.Matrix[1, 0])
+							+ (pixelColor[2, 0].G * matrix.Matrix[2, 0]) + (pixelColor[0, 1].G * matrix.Matrix[0, 1])
+							+ (pixelColor[1, 1].G * matrix.Matrix[1, 1]) + (pixelColor[2, 1].G * matrix.Matrix[2, 1])
+							+ (pixelColor[0, 2].G * matrix.Matrix[0, 2]) + (pixelColor[1, 2].G * matrix.Matrix[1, 2])
+							+ (pixelColor[2, 2].G * matrix.Matrix[2, 2])) / matrix.Factor) + matrix.Offset);
 
-					int blueChannel = (int)
-									((((pixelColor[0, 0].B * matrix.Matrix[0, 0]) + (pixelColor[1, 0].B * matrix.Matrix[1, 0])
-										+ (pixelColor[2, 0].B * matrix.Matrix[2, 0]) + (pixelColor[0, 1].B * matrix.Matrix[0, 1])
-										+ (pixelColor[1, 1].B * matrix.Matrix[1, 1]) + (pixelColor[2, 1].B * matrix.Matrix[2, 1])
-										+ (pixelColor[0, 2].B * matrix.Matrix[0, 2]) + (pixelColor[1, 2].B * matrix.Matrix[1, 2])
-										+ (pixelColor[2, 2].B * matrix.Matrix[2, 2])) / matrix.Factor) + matrix.Offset);
+					int blueChannel =
+						(int)
+						((((pixelColor[0, 0].B * matrix.Matrix[0, 0]) + (pixelColor[1, 0].B * matrix.Matrix[1, 0])
+							+ (pixelColor[2, 0].B * matrix.Matrix[2, 0]) + (pixelColor[0, 1].B * matrix.Matrix[0, 1])
+							+ (pixelColor[1, 1].B * matrix.Matrix[1, 1]) + (pixelColor[2, 1].B * matrix.Matrix[2, 1])
+							+ (pixelColor[0, 2].B * matrix.Matrix[0, 2]) + (pixelColor[1, 2].B * matrix.Matrix[1, 2])
+							+ (pixelColor[2, 2].B * matrix.Matrix[2, 2])) / matrix.Factor) + matrix.Offset);
 
 					redChannel = (redChannel > 255) ? 255 : redChannel;
 					redChannel = (redChannel < 0) ? 0 : redChannel;

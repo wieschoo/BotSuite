@@ -15,6 +15,8 @@ namespace BotSuite
 	using System.Diagnostics;
 	using System.Linq;
 
+	using BotSuite.Native.Methods;
+
 	/// <summary>
 	///     Class with function for windows handling
 	/// </summary>
@@ -31,7 +33,7 @@ namespace BotSuite
 		/// </returns>
 		public static bool SetFrontWindow(string windowName)
 		{
-			return NativeMethods.SetForegroundWindow(FindWindowByWindowTitle(windowName));
+			return User32.SetForegroundWindow(FindWindowByWindowTitle(windowName));
 		}
 
 		/// <summary>
@@ -42,7 +44,7 @@ namespace BotSuite
 		/// </param>
 		public static void ShowWindow(IntPtr windowHandle)
 		{
-			NativeMethods.ShowWindow(windowHandle, 9);
+			User32.ShowWindow(windowHandle, 9);
 		}
 
 		/// <summary>

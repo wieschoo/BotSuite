@@ -15,13 +15,16 @@ namespace BotSuite
 	using System.Drawing.Imaging;
 	using System.Windows.Forms;
 
+	using BotSuite.Native.Methods;
+	using BotSuite.Native.Structs;
+
 	/// <summary>
 	///     This class provide functions to create screenshots
 	/// </summary>
 	public class ScreenShot
 	{
 		/// <summary>
-		///     create a complete screenshot
+		///     create a screenshot of the primary screen
 		/// </summary>
 		/// <returns>bitmap of captured screen</returns>
 		public static Bitmap Create()
@@ -44,7 +47,7 @@ namespace BotSuite
 			try
 			{
 				Rectangle r;
-				using (Graphics windowGraphic = Graphics.FromHdc(NativeMethods.GetWindowDC(windowHandle)))
+				using (Graphics windowGraphic = Graphics.FromHdc(User32.GetWindowDC(windowHandle)))
 				{
 					r = Rectangle.Round(windowGraphic.VisibleClipBounds);
 				}
@@ -55,7 +58,7 @@ namespace BotSuite
 					IntPtr hdc = g.GetHdc();
 					try
 					{
-						NativeMethods.PrintWindow(windowHandle, hdc, 0);
+						User32.PrintWindow(windowHandle, hdc, 0);
 					}
 					finally
 					{
@@ -131,8 +134,8 @@ namespace BotSuite
 		/// </returns>
 		public static Bitmap Create(IntPtr windowHandle)
 		{
-			NativeMethods.Rect window;
-			NativeMethods.GetWindowRect(windowHandle, out window);
+			Rect window;
+			User32.GetWindowRect(windowHandle, out window);
 			int winWidth = window.Right - window.Left;
 			int winHeight = window.Bottom - window.Top;
 			return Create(window.Left, window.Top, winWidth, winHeight);

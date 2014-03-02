@@ -1,4 +1,14 @@
-﻿namespace BotSuite.Imaging
+﻿// -----------------------------------------------------------------------
+//  <copyright file="ConvulationMatrix.cs" company="HoovesWare">
+//      Copyright (c) HoovesWare
+//  </copyright>
+//  <project>BotSuite.Net</project>
+//  <purpose>framework for creating bots</purpose>
+//  <homepage>http://botsuite.net/</homepage>
+//  <license>http://botsuite.net/license/index/</license>
+// -----------------------------------------------------------------------
+
+namespace BotSuite.Imaging
 {
 	/// <summary>
 	///     The convolution matrix.

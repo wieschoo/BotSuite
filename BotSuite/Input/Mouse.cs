@@ -8,11 +8,15 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
-namespace BotSuite
+namespace BotSuite.Input
 {
 	using System;
 	using System.Drawing;
 	using System.Windows.Forms;
+
+	using BotSuite.Native;
+	using BotSuite.Native.Methods;
+	using BotSuite.Native.Structs;
 
 	/// <summary>
 	///     class for simulate mouse actions like moving or clicking
@@ -34,7 +38,7 @@ namespace BotSuite
 		/// </summary>
 		public static void LeftDown()
 		{
-			NativeMethods.mouse_event((int)NativeMethods.MouseEventFlags.Leftdown, 0, 0, 0, new IntPtr(0));
+			User32.mouse_event((int)Constants.MouseEventFlags.Leftdown, 0, 0, 0, 0);
 		}
 
 		/// <summary>
@@ -42,7 +46,7 @@ namespace BotSuite
 		/// </summary>
 		public static void LeftUp()
 		{
-			NativeMethods.mouse_event((int)NativeMethods.MouseEventFlags.Leftup, 0, 0, 0, new IntPtr(0));
+			User32.mouse_event((int)Constants.MouseEventFlags.Leftup, 0, 0, 0, 0);
 		}
 
 		/// <summary>
@@ -60,7 +64,7 @@ namespace BotSuite
 		/// </summary>
 		public static void RightDown()
 		{
-			NativeMethods.mouse_event((int)NativeMethods.MouseEventFlags.Rightdown, 0, 0, 0, new IntPtr(0));
+			User32.mouse_event((int)Constants.MouseEventFlags.Rightdown, 0, 0, 0, 0);
 		}
 
 		/// <summary>
@@ -68,7 +72,7 @@ namespace BotSuite
 		/// </summary>
 		public static void RightUp()
 		{
-			NativeMethods.mouse_event((int)NativeMethods.MouseEventFlags.Rightup, 0, 0, 0, new IntPtr(0));
+			User32.mouse_event((int)Constants.MouseEventFlags.Rightup, 0, 0, 0, 0);
 		}
 
 		/// <summary>
@@ -248,9 +252,9 @@ namespace BotSuite
 			bool human = true,
 			int steps = 100)
 		{
-			NativeMethods.Rect window;
+			Rect window;
 
-			return NativeMethods.GetWindowRect(windowHandle, out window)
+			return User32.GetWindowRect(windowHandle, out window)
 					&& Move(window.Left + targetX, window.Top + targetY, human, steps);
 		}
 
@@ -266,8 +270,8 @@ namespace BotSuite
 		public static Point GetPositionRelativeToWindow(IntPtr windowHandle)
 		{
 			Point position = Cursor.Position;
-			NativeMethods.Rect window;
-			NativeMethods.GetWindowRect(windowHandle, out window);
+			Rect window;
+			User32.GetWindowRect(windowHandle, out window);
 			return new Point(position.X - window.Left, position.Y - window.Top);
 		}
 
@@ -303,7 +307,7 @@ namespace BotSuite
 		/// </param>
 		public static void Scroll(int wheeldelta)
 		{
-			NativeMethods.mouse_event((uint)NativeMethods.MouseEventFlags.Wheel, 0, 0, -wheeldelta, IntPtr.Zero);
+			User32.mouse_event((uint)Constants.MouseEventFlags.Wheel, 0, 0, -wheeldelta, 0);
 		}
 	}
 }

@@ -207,7 +207,7 @@ namespace BotSuite.Imaging
 			Marshal.Copy(this.bmpBytes, 0, ptr, byteSize);
 			returnBitmap.UnlockBits(bmpData);
 
-			if (!(left == 0 && top == 0 && width == Width && height == Height))
+			if (!(left == 0 && top == 0 && width == this.Width && height == this.Height))
 			{
 				Rectangle cropRect = new Rectangle(left, top, width, height);
 				Bitmap target = new Bitmap(cropRect.Width, cropRect.Height);
@@ -331,7 +331,10 @@ namespace BotSuite.Imaging
 		/// <returns>
 		///     The <see cref="ImageData" />.
 		/// </returns>
-		public ImageData Resize(int newWidth, int newHeight, InterpolationMode interpolationModemode = InterpolationMode.HighQualityBicubic)
+		public ImageData Resize(
+			int newWidth,
+			int newHeight,
+			InterpolationMode interpolationModemode = InterpolationMode.HighQualityBicubic)
 		{
 			// create a new bmpBitmap the size of the new image
 			Bitmap bmp = new Bitmap(newWidth, newHeight, this.bmpPixelFormat);

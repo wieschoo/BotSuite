@@ -8,7 +8,7 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
-namespace BotSuite
+namespace BotSuite.Input
 {
 	using System;
 	using System.Collections.Generic;
@@ -16,12 +16,13 @@ namespace BotSuite
 	using System.Threading;
 	using System.Windows.Forms;
 
+	using BotSuite.Native;
+	using BotSuite.Native.Methods;
+	using BotSuite.Native.Structs;
+
 	/// <summary>
 	///     A class that manages a global low level keyboard hook
 	/// </summary>
-	/// <remarks>
-	///     Singleton Pattern
-	/// </remarks>
 	public class Keyboard
 	{
 		/// <summary>
@@ -79,7 +80,7 @@ namespace BotSuite
 		/// <summary>
 		///     The safe delegate callback.
 		/// </summary>
-		private static readonly NativeMethods.KeyboardHookProc SafeDelegateCallback = HookProc;
+		private static readonly Delegates.KeyboardHookProc SafeDelegateCallback = HookProc;
 
 		/// <summary>
 		///     The hook.
@@ -89,8 +90,8 @@ namespace BotSuite
 		/// </remarks>
 		private void Hook()
 		{
-			IntPtr instance = NativeMethods.LoadLibrary("User32");
-			this.hhook = NativeMethods.SetWindowsHookEx(NativeMethods.WhKeyboardLl, SafeDelegateCallback, instance, 0);
+			IntPtr instance = Kernel32.LoadLibrary("User32");
+			this.hhook = User32.SetWindowsHookEx(Constants.WhKeyboardLl, SafeDelegateCallback, instance, 0);
 		}
 
 		/// <summary>
@@ -101,7 +102,7 @@ namespace BotSuite
 		/// </remarks>
 		private void Unhook()
 		{
-			NativeMethods.UnhookWindowsHookEx(this.hhook);
+			User32.UnhookWindowsHookEx(this.hhook);
 		}
 
 		/// <summary>
@@ -117,40 +118,40 @@ namespace BotSuite
 		///     keyhook event information
 		/// </param>
 		/// <remarks>
-		///     this is a private method. You cannot us it! See the constructor #ctor for an example.
+		///     this is a private method. You cannot use it! See the constructor #ctor for an example.
 		/// </remarks>
 		/// <returns>
 		///     the int
 		/// </returns>
-		private static int HookProc(int code, int wparam, ref NativeMethods.KeyboardHookStruct lparam)
+		private static int HookProc(int code, int wparam, ref KeyboardHookStruct lparam)
 		{
 			if (code < 0)
 			{
-				return NativeMethods.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
+				return User32.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
 			}
 
 			Keys key = (Keys)lparam.VkCode;
 			if (HookedKeys == null)
 			{
-				return NativeMethods.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
+				return User32.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
 			}
 
 			if (!HookedKeys.Contains(key))
 			{
-				return NativeMethods.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
+				return User32.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
 			}
 
 			KeyEventArgs kea = new KeyEventArgs(key);
-			if ((wparam == NativeMethods.WmKeydown || wparam == NativeMethods.WmSyskeydown) && (KeyDown != null))
+			if ((wparam == Constants.WmKeydown || wparam == Constants.WmSyskeydown) && (KeyDown != null))
 			{
 				KeyDown(Instance, kea);
 			}
-			else if ((wparam == NativeMethods.WmKeyup || wparam == NativeMethods.WmSyskeyup) && (KeyUp != null))
+			else if ((wparam == Constants.WmKeyup || wparam == Constants.WmSyskeyup) && (KeyUp != null))
 			{
 				KeyUp(Instance, kea);
 			}
 
-			return kea.Handled ? 1 : NativeMethods.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
+			return kea.Handled ? 1 : User32.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
 		}
 
 		/// <summary>
@@ -175,7 +176,7 @@ namespace BotSuite
 		/// </param>
 		public static void Type(string sequence, IntPtr hwnd)
 		{
-			NativeMethods.SetForegroundWindow(hwnd);
+			User32.SetForegroundWindow(hwnd);
 			SendKeys.SendWait(sequence.Trim());
 			SendKeys.Flush();
 		}
@@ -210,7 +211,7 @@ namespace BotSuite
 			const int CharEvent = 0x0102;
 
 			// send key down event
-			if (NativeMethods.SendMessage(hwnd, KeyDownEvent, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
+			if (User32.SendMessage(hwnd, KeyDownEvent, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
 			{
 				return;
 			}
@@ -218,7 +219,7 @@ namespace BotSuite
 			Utility.Delay(20);
 
 			// send character event
-			if (NativeMethods.SendMessage(hwnd, CharEvent, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
+			if (User32.SendMessage(hwnd, CharEvent, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
 			{
 				return;
 			}
@@ -226,7 +227,7 @@ namespace BotSuite
 			Utility.Delay(20);
 
 			// send key up event
-			if (NativeMethods.SendMessage(hwnd, KeyUpEvent, (uint)key, GetLParam(1, key, 0, 0, 1, 1)))
+			if (User32.SendMessage(hwnd, KeyUpEvent, (uint)key, GetLParam(1, key, 0, 0, 1, 1)))
 			{
 				return;
 			}
@@ -277,6 +278,28 @@ namespace BotSuite
 		}
 
 		/// <summary>
+		///     Press a key
+		/// </summary>
+		/// <param name="key">
+		///     key to press
+		/// </param>
+		public static void PressKey(Keys key)
+		{
+			PressKey((byte)key);
+		}
+
+		/// <summary>
+		///     Press a key
+		/// </summary>
+		/// <param name="key">
+		///     key to press
+		/// </param>
+		public static void PressKey(byte key)
+		{
+			HoldKey(key, 50);
+		}
+
+		/// <summary>
 		///     Hold down a key for a specific time
 		/// </summary>
 		/// <param name="key">
@@ -287,12 +310,23 @@ namespace BotSuite
 		/// </param>
 		public static void HoldKey(Keys key, int duration = 500)
 		{
-			const int KeyDownEvent = 0x0001;
-			const int KeyUpEvent = 0x0002;
+			HoldKey((byte)key, duration);
+		}
 
-			NativeMethods.keybd_event((byte)key, 0, KeyDownEvent, 0);
+		/// <summary>
+		///     Hold down a key for a specific time
+		/// </summary>
+		/// <param name="key">
+		///     key to hold
+		/// </param>
+		/// <param name="duration">
+		///     the duration
+		/// </param>
+		public static void HoldKey(byte key, int duration = 500)
+		{
+			User32.keybd_event(key, 0x45, Constants.KeyDownEvent, 0);
 			Thread.Sleep(duration);
-			NativeMethods.keybd_event((byte)key, 0, KeyUpEvent, 0);
+			User32.keybd_event(key, 0x45, Constants.KeyDownEvent | Constants.KeyUpEvent, 0);
 		}
 
 		/// <summary>
@@ -306,7 +340,7 @@ namespace BotSuite
 		/// </returns>
 		public static bool IsKeyDown(Keys key)
 		{
-			return NativeMethods.GetAsyncKeyState(key) == short.MinValue;
+			return User32.GetAsyncKeyState(key) == short.MinValue;
 		}
 	}
 }

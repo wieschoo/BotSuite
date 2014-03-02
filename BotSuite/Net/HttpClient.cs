@@ -592,7 +592,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///		Sets the LastResponseEncoding to the specified charset
+		///     Sets the LastResponseEncoding to the specified charset
 		/// </summary>
 		/// <param name="charset">The charset</param>
 		private void SetLastReponseEncoding(string charset)

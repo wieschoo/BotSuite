@@ -14,6 +14,8 @@ namespace BotSuite
 	using System.Reflection;
 	using System.Text;
 
+	using BotSuite.Native.Methods;
+
 	/// <summary>
 	///     class to handle ini files
 	/// </summary>
@@ -62,7 +64,7 @@ namespace BotSuite
 		/// </param>
 		public void Write(string section, string key, string value)
 		{
-			NativeMethods.WritePrivateProfileString(section, key, value, this.path);
+			Kernel32.WritePrivateProfileString(section, key, value, this.path);
 		}
 
 		/// <summary>
@@ -76,7 +78,7 @@ namespace BotSuite
 		/// </param>
 		public void Write(string key, string value)
 		{
-			NativeMethods.WritePrivateProfileString(Assembly.GetExecutingAssembly().GetName().Name, key, value, this.path);
+			Kernel32.WritePrivateProfileString(Assembly.GetExecutingAssembly().GetName().Name, key, value, this.path);
 		}
 
 		/// <summary>
@@ -94,7 +96,7 @@ namespace BotSuite
 		public string Read(string section, string key)
 		{
 			StringBuilder temp = new StringBuilder(255);
-			NativeMethods.GetPrivateProfileString(section, key, string.Empty, temp, 255, this.path);
+			Kernel32.GetPrivateProfileString(section, key, string.Empty, temp, 255, this.path);
 			return temp.ToString();
 		}
 
@@ -110,7 +112,7 @@ namespace BotSuite
 		public string Read(string key)
 		{
 			StringBuilder temp = new StringBuilder(255);
-			NativeMethods.GetPrivateProfileString(
+			Kernel32.GetPrivateProfileString(
 				Assembly.GetExecutingAssembly().GetName().Name,
 				key,
 				string.Empty,

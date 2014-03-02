@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="Singleton.cs" company="HoovesWare">
+//  <copyright file="Rect.cs" company="HoovesWare">
 //      Copyright (c) HoovesWare
 //  </copyright>
 //  <project>BotSuite.Net</project>
@@ -8,31 +8,34 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
-namespace BotSuite.FiniteStateEngine.Pattern
+namespace BotSuite.Native.Structs
 {
+	using System.Runtime.InteropServices;
+
 	/// <summary>
-	///     singleton pattern
+	///     The rect.
 	/// </summary>
-	/// <typeparam name="T">
-	///     type of object
-	/// </typeparam>
-	public static class Singleton<T>
-		where T : class, new()
+	[StructLayout(LayoutKind.Sequential)]
+	internal struct Rect
 	{
 		/// <summary>
-		///     private handle
+		///     The left.
 		/// </summary>
-		private static T pInstance;
+		public int Left;
 
 		/// <summary>
-		///     public constructor
+		///     The top.
 		/// </summary>
-		public static T Instance
-		{
-			get
-			{
-				return pInstance ?? (pInstance = new T());
-			}
-		}
+		public int Top;
+
+		/// <summary>
+		///     The right.
+		/// </summary>
+		public int Right;
+
+		/// <summary>
+		///     The bottom.
+		/// </summary>
+		public int Bottom;
 	}
 }

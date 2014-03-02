@@ -16,7 +16,9 @@ namespace BotSuite
 	using System.Linq;
 	using System.Text;
 
-	using global::BotSuite.Logging;
+	using BotSuite.Logging;
+	using BotSuite.Native;
+	using BotSuite.Native.Methods;
 
 	/// <summary>
 	///     control extern application by reading values, writing values, (to do: click controls)
@@ -144,11 +146,11 @@ namespace BotSuite
 		protected void AttachProcess()
 		{
 			this.attachedProcess = Process.GetProcessById(this.processId);
-			const NativeMethods.ProcessAccessType AccessFlags =
-				NativeMethods.ProcessAccessType.ProcessVmRead | NativeMethods.ProcessAccessType.ProcessVmWrite
-				| NativeMethods.ProcessAccessType.ProcessVmOperation;
+			const Constants.ProcessAccessType AccessFlags =
+				Constants.ProcessAccessType.ProcessVmRead | Constants.ProcessAccessType.ProcessVmWrite
+				| Constants.ProcessAccessType.ProcessVmOperation;
 
-			this.processHandle = NativeMethods.OpenProcess((uint)AccessFlags, 1, (uint)this.processId);
+			this.processHandle = Kernel32.OpenProcess((uint)AccessFlags, 1, (uint)this.processId);
 			this.attachedProcessModule = this.attachedProcess.MainModule;
 			this.BaseAddress = (int)this.attachedProcessModule.BaseAddress;
 		}
@@ -158,10 +160,10 @@ namespace BotSuite
 		/// </summary>
 		protected void DetachProcess()
 		{
-			int closeHandleReturn = NativeMethods.CloseHandle(this.processHandle);
+			int closeHandleReturn = Kernel32.CloseHandle(this.processHandle);
 			if (closeHandleReturn == 0)
 			{
-				// Code Zur Fehler Bearbeitung
+				// TODO: Code Zur Fehler Bearbeitung
 			}
 		}
 
@@ -184,7 +186,7 @@ namespace BotSuite
 		{
 			byte[] buffer = new byte[bytesToRead];
 			IntPtr ptrBytesRead;
-			NativeMethods.ReadProcessMemory(this.processHandle, memoryAddress, buffer, bytesToRead, out ptrBytesRead);
+			Kernel32.ReadProcessMemory(this.processHandle, memoryAddress, buffer, bytesToRead, out ptrBytesRead);
 			bytesRead = ptrBytesRead.ToInt32();
 			return buffer;
 		}
@@ -297,7 +299,7 @@ namespace BotSuite
 		protected int WriteMemoryAtAdress(IntPtr memoryAddress, byte[] bytesToWrite)
 		{
 			IntPtr ptrBytesWritten;
-			NativeMethods.WriteProcessMemory(
+			Kernel32.WriteProcessMemory(
 				this.processHandle,
 				memoryAddress,
 				bytesToWrite,
