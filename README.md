@@ -1,7 +1,7 @@
 BotSuite.NET
 =============
 
-This library helps you by creating bots accelerates the development of bots significantly. 
+This library helps you by accelerating the development of bots significantly. 
 To getting started please visit the tutorial section and read the tutorial "Getting Started" at
 www.botsuite.net to get an introduction and more information. Please do not hesitate to contact us or add an issue here at the proect page on github.
 
