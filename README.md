@@ -14,6 +14,7 @@ www.botsuite.net to get an introduction and more information. Please do not hesi
 - [x] common memory reading and writing functions
 - [x] includes a finite state engine
 - [x] captcha cracking with the appertaining artificial feed forward neural network
+- [x] memory read/write values
 
 <h3>history</h3>
 This project was first published by wieschoo at the german community:
@@ -26,8 +27,8 @@ http://www.botsuite.net
 <h3>contributors</h3>
 active contibutors:
 <ul>
-<li>wieschoo</li>
-<li>DerpyHooves(Karill)</li>
+<li>wieschoo (creator)</li>
+<li>DerpyHooves</li>
 </ul>
 other contributors:
 <ul>
