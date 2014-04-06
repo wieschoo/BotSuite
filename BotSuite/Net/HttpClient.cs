@@ -46,7 +46,7 @@ namespace BotSuite.Net
 		/// <summary>
 		///     the user agent string which is used for requests
 		/// </summary>
-		private readonly string userAgent = string.Empty;
+		private readonly UserAgent userAgent = null;
 
 		/// <summary>
 		///     a collection of all headers of the last response
@@ -144,19 +144,38 @@ namespace BotSuite.Net
 		/// <summary>
 		///     Initializes a new instance of the <see cref="HttpClient" /> class
 		/// </summary>
-		/// <param name="useragent">
+		/// <param name="userAgent">
 		///     a useragent string
 		/// </param>
 		/// <param name="initialReferer">
 		///     the Referer the first request will be sent from, i.e. www.google.com
 		/// </param>
-		public HttpClient(string useragent, string initialReferer = null)
+		public HttpClient(string userAgent, string initialReferer = null)
 		{
 			this.DecompressionMethod = DecompressionMethods.None;
 			this.MaximumRedirectCount = 100;
 			this.AllowAutoRedirect = true;
 			this.AutoReferer = true;
-			this.userAgent = useragent;
+			this.userAgent = new UserAgent(userAgent, "HttpClient");
+			this.Referer = initialReferer;
+		}
+
+		/// <summary>
+		///     Initializes a new instance of the <see cref="HttpClient" /> class
+		/// </summary>
+		/// <param name="userAgent">
+		///     an instance of the <see cref="UserAgent"/> class
+		/// </param>
+		/// <param name="initialReferer">
+		///     the Referer the first request will be sent from, i.e. www.google.com
+		/// </param>
+		public HttpClient(UserAgent userAgent, string initialReferer = null)
+		{
+			this.DecompressionMethod = DecompressionMethods.None;
+			this.MaximumRedirectCount = 100;
+			this.AllowAutoRedirect = true;
+			this.AutoReferer = true;
+			this.userAgent = userAgent;
 			this.Referer = initialReferer;
 		}
 
@@ -501,7 +520,7 @@ namespace BotSuite.Net
 
 			req.CookieContainer = this.cookies;
 			req.Method = method;
-			req.UserAgent = this.userAgent;
+			req.UserAgent = this.userAgent.UserAgentString;
 			req.AutomaticDecompression = this.DecompressionMethod;
 			req.ServicePoint.Expect100Continue = this.Expect100Continue;
 			req.AllowAutoRedirect = this.AllowAutoRedirect;

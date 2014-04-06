@@ -55,7 +55,7 @@ namespace BotSuite.Input
 		///     Registers the hotkey. You have to keep a reference to the returned object.
 		/// </summary>
 		/// <param name="keys"></param>
-		/// <returns></returns>
+		/// <returns>The registered hotkey.</returns>
 		public static HotKey Register(Keys keys)
 		{
 			HotKey hotKey = new HotKey { keys = keys };
@@ -83,6 +83,9 @@ namespace BotSuite.Input
 			}
 		}
 
+		/// <summary>
+		///	Destructor for the <see cref="HotKey"/> class
+		/// </summary>
 		~HotKey()
 		{
 			this.Dispose();

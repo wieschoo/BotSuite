@@ -46,17 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationTunnel.cs" />
-    <Compile Include="CommonRegex.cs" />
-    <Compile Include="ControlArtist.cs" />
     <Compile Include="DataTypes\Hex32.cs" />
-    <Compile Include="Encryption.cs" />
     <Compile Include="Input\HotKey.cs" />
     <Compile Include="Imaging\CommonFunctions.cs" />
     <Compile Include="Imaging\ConvulationMatrix.cs" />
     <Compile Include="Imaging\Filter.cs" />
     <Compile Include="Imaging\ImageData.cs" />
     <Compile Include="Imaging\Template.cs" />
-    <Compile Include="IniParser.cs" />
     <Compile Include="Input\Keyboard.cs" />
     <Compile Include="Logging\LogEventArgs.cs" />
     <Compile Include="Logging\Logger.cs" />
@@ -77,6 +73,7 @@
     <Compile Include="Net\HttpProxy.cs" />
     <Compile Include="Net\HttpProxyHacker.cs" />
     <Compile Include="Net\HttpRequestException.cs" />
+    <Compile Include="Net\UserAgent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenShot.cs" />
     <Compile Include="Utility.cs" />

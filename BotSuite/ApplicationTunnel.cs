@@ -15,13 +15,12 @@ namespace BotSuite
 	using System.Globalization;
 	using System.Linq;
 	using System.Text;
-
 	using BotSuite.Logging;
 	using BotSuite.Native;
 	using BotSuite.Native.Methods;
 
 	/// <summary>
-	///     control extern application by reading values, writing values, (to do: click controls)
+	///     control external applications by reading/writing values
 	/// </summary>
 	public class ApplicationTunnel
 	{
@@ -76,10 +75,10 @@ namespace BotSuite
 
 			if (programmInstances.Length == 0)
 			{
-				throw new ArgumentNullException();
+				throw new Exception(String.Format("No process found with given name \"{0}\"", processName));
 			}
 
-			this.processId = programmInstances[0].Id;
+			this.processId = programmInstances.First().Id;
 			this.BaseAddress = 0;
 			this.processHandle = IntPtr.Zero;
 			this.AttachProcess();
@@ -147,7 +146,8 @@ namespace BotSuite
 		{
 			this.attachedProcess = Process.GetProcessById(this.processId);
 			const Constants.ProcessAccessType AccessFlags =
-				Constants.ProcessAccessType.ProcessVmRead | Constants.ProcessAccessType.ProcessVmWrite
+				Constants.ProcessAccessType.ProcessVmRead
+				| Constants.ProcessAccessType.ProcessVmWrite
 				| Constants.ProcessAccessType.ProcessVmOperation;
 
 			this.processHandle = Kernel32.OpenProcess((uint)AccessFlags, 1, (uint)this.processId);
