@@ -7,108 +7,179 @@
  * *************************************************************/
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace BotSuite
 {
     /// <summary>
-    /// class for simulate mouse actions like moving or clicking
+    ///     Class for simulating mouse actions
     /// </summary>
-	public class Mouse
-	{
-		/// <summary>
-		/// causes a left-click (press and release)
-		/// </summary>
+    public class Mouse
+    {
+        /// <summary>
+        ///     Performs a left click
+        /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// Mouse.LeftClick();
         /// </code>
         /// </example>
-		/// <returns></returns>
-		public static void LeftClick()
-		{
-			LeftDown();
-			Utility.Delay(10, 30);
-			LeftUp();
-		}
+        /// <returns></returns>
+        public static void LeftClick()
+        {
+            LeftDown();
+            Utility.Delay(10, 30);
+            LeftUp();
+        }
 
-		/// <summary>
-		/// press down the left mouse button
-		/// </summary>
+        /// <summary>
+        ///     Simulates a left click at a specific point through the native methods
+        /// </summary>
+        /// <param name="handle">The handle of the window to click</param>
+        /// <param name="point">The point to click</param>
+        public static void LeftClick(IntPtr handle, Point point)
+        {
+            LeftDown(handle, point);
+            Utility.Delay(10, 30);
+            LeftUp(handle, point);
+        }
+
+        /// <summary>
+        ///     Performs a left button down
+        /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// Mouse.LeftDown();
         /// </code>
         /// </example>
-		/// <returns></returns>
-		public static void LeftDown()
-		{
-			NativeMethods.mouse_event((Int32)(NativeMethods.MouseEventFlags.LEFTDOWN), 0, 0, 0, new IntPtr(0));
-		}
+        /// <returns></returns>
+        public static void LeftDown()
+        {
+            NativeMethods.mouse_event((Int32) (NativeMethods.MouseEventFlags.LEFTDOWN), 0, 0, 0, new IntPtr(0));
+        }
+
+        private static IntPtr GetLParam(Point point)
+        {
+            return (IntPtr) ((point.Y << 16) | point.X);
+        }
 
         /// <summary>
-        /// release the left mouse button
+        ///     Simulates a left button down through the native methods
+        /// </summary>
+        /// <param name="handle">The handle of the window to click</param>
+        /// <param name="point">The point to click</param>
+        public static void LeftDown(IntPtr handle, Point point)
+        {
+            IntPtr wParam = IntPtr.Zero;
+            NativeMethods.SendMessage(handle, (uint) MouseEvents.WM_LBUTTONDOWN, wParam, GetLParam(point));
+        }
+
+        /// <summary>
+        ///     Performs a left button up
         /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// Mouse.LeftUp();
         /// </code>
         /// </example>
         /// <returns></returns>
-		public static void LeftUp()
-		{
-			NativeMethods.mouse_event((Int32)(NativeMethods.MouseEventFlags.LEFTUP), 0, 0, 0, new IntPtr(0));
-		}
+        public static void LeftUp()
+        {
+            NativeMethods.mouse_event((Int32) (NativeMethods.MouseEventFlags.LEFTUP), 0, 0, 0, new IntPtr(0));
+        }
 
         /// <summary>
-        /// causes a right-click (press and release)
+        ///     Simulates a left button up through the native methods
+        /// </summary>
+        /// <param name="handle">The handle of the window to click</param>
+        /// <param name="point">The point to click</param>
+        public static void LeftUp(IntPtr handle, Point point)
+        {
+            IntPtr wParam = IntPtr.Zero;
+            NativeMethods.SendMessage(handle, (uint) MouseEvents.WM_LBUTTONUP, wParam, GetLParam(point));
+        }
+
+        /// <summary>
+        ///     Performs a right click
         /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// Mouse.RightClick();
         /// </code>
         /// </example>
         /// <returns></returns>
-		public static void RightClick()
-		{
-			RightDown();
-			Utility.Delay(10, 30);
-			RightUp();
-		}
+        public static void RightClick()
+        {
+            RightDown();
+            Utility.Delay(10, 30);
+            RightUp();
+        }
 
         /// <summary>
-        /// press down the right mouse button
+        ///     Simulates a right click at a specific point through the native methods
+        /// </summary>
+        /// <param name="handle">The handle of the window to click</param>
+        /// <param name="point">The point to click</param>
+        public static void RightClick(IntPtr handle, Point point)
+        {
+            RightUp(handle, point);
+            Utility.Delay(10, 30);
+            RightDown(handle, point);
+        }
+
+        /// <summary>
+        ///     Performs a right button down
         /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// Mouse.RightDown();
         /// </code>
         /// </example>
         /// <returns></returns>
-		public static void RightDown()
-		{
-			NativeMethods.mouse_event((Int32)(NativeMethods.MouseEventFlags.RIGHTDOWN), 0, 0, 0, new IntPtr(0));
-		}
+        public static void RightDown()
+        {
+            NativeMethods.mouse_event((Int32) (NativeMethods.MouseEventFlags.RIGHTDOWN), 0, 0, 0, new IntPtr(0));
+        }
 
         /// <summary>
-        /// release the right mouse button
+        ///     Simulates a right button down through the native methods
+        /// </summary>
+        /// <param name="handle">The handle of the window to click</param>
+        /// <param name="point">The point to click</param>
+        public static void RightDown(IntPtr handle, Point point)
+        {
+            IntPtr wParam = IntPtr.Zero;
+            NativeMethods.SendMessage(handle, (uint) MouseEvents.WM_RBUTTONDOWN, wParam, GetLParam(point));
+        }
+
+        /// <summary>
+        ///     Performs a right button up
         /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// Mouse.RightUp();
         /// </code>
         /// </example>
         /// <returns></returns>
-		public static void RightUp()
-		{
-			NativeMethods.mouse_event((Int32)(NativeMethods.MouseEventFlags.RIGHTUP), 0, 0, 0, new IntPtr(0));
-		}
+        public static void RightUp()
+        {
+            NativeMethods.mouse_event((Int32) (NativeMethods.MouseEventFlags.RIGHTUP), 0, 0, 0, new IntPtr(0));
+        }
+
         /// <summary>
-        /// performs a double click
+        ///     Simulates a right button up through the native methods
+        /// </summary>
+        /// <param name="handle">The handle of the window to click</param>
+        /// <param name="point">The point to click</param>
+        public static void RightUp(IntPtr handle, Point point)
+        {
+            IntPtr wParam = IntPtr.Zero;
+            NativeMethods.SendMessage(handle, (uint) MouseEvents.WM_RBUTTONUP, wParam, GetLParam(point));
+        }
+
+        /// <summary>
+        ///     Performs a double-click (left button)
         /// </summary>
         public static void DoubleClick()
         {
@@ -117,95 +188,85 @@ namespace BotSuite
             LeftClick();
         }
 
-		/// <summary>
-		/// causes a mouse movement to a given point
-		/// </summary>
+        /// <summary>
+        ///     Simulates a double-click (left button) through the native methods
+        /// </summary>
+        /// <param name="handle">The handle of the window to click</param>
+        /// <param name="point">The point to click</param>
+        public static void DoubleClick(IntPtr handle, Point point)
+        {
+            LeftClick(handle, point);
+            Utility.Delay(150);
+            LeftClick(handle, point);
+        }
+
+        /// <summary>
+        ///     Moves the mouse to a specific point
+        /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// Point target = new Point(10,10);
         /// Mouse.Move(target,true,10);
         /// </code>
         /// </example>
-        /// <param name="TargetPosition">target coordinate</param>
-		/// <param name="human">prevent mouse jumps</param>
-		/// <param name="steps">points of pathpolygons</param>
-		/// <returns></returns>
-        public static Boolean Move(Point TargetPosition, Boolean human = true, Int32 steps = 100)
-		{
+        /// <param name="targetPosition">The target position</param>
+        /// <param name="human">Simulate human-like jumps</param>
+        /// <param name="steps">The points of pathpolygons</param>
+        /// <returns></returns>
+        public static Boolean Move(Point targetPosition, Boolean human = true, Int32 steps = 100)
+        {
             if (!human)
             {
-                Cursor.Position = TargetPosition;
+                Cursor.Position = targetPosition;
                 return true;
             }
-            else
+            Point start = GetPosition();
+            PointF iterPoint = start;
+
+            var slope = new PointF(targetPosition.X - start.X, targetPosition.Y - start.Y);
+
+            slope.X = slope.X/steps;
+            slope.Y = slope.Y/steps;
+
+            for (int i = 0; i < steps; i++)
             {
-                Point start = GetPosition();
-                PointF iterPoint = start;
-
-                PointF slope = new PointF(TargetPosition.X - start.X, TargetPosition.Y - start.Y);
-
-                slope.X = slope.X / steps;
-                slope.Y = slope.Y / steps;
-
-                for (int i = 0; i < steps; i++)
-                {
-                    iterPoint = new PointF(iterPoint.X + slope.X, iterPoint.Y + slope.Y);
-                    Cursor.Position = Point.Round(iterPoint);
-                    Utility.Delay(5, 10);
-                }
-
-                // test if it works
-                if ((Cursor.Position.X == TargetPosition.X) && (Cursor.Position.Y == TargetPosition.Y))
-                    return true;
-                else
-                    return false;
+                iterPoint = new PointF(iterPoint.X + slope.X, iterPoint.Y + slope.Y);
+                Cursor.Position = Point.Round(iterPoint);
+                Utility.Delay(5, 10);
             }
-            
-		}
 
-        /// <summary>
-        /// causes a mouse movement to given coordinates
-        /// </summary>
-        /// <example>
-        /// <code>
-        /// Mouse.Move(this.Left+10,this.Top+50,true,10);
-        /// </code>
-        /// </example>
-		/// <param name="targetX">x coordinate of target</param>
-        /// <param name="targetY">y coordinate of target</param>
-        /// <param name="human">prevent mouse jumps</param>
-        /// <param name="steps">points of pathpolygons</param>
-		/// <returns></returns>
-		public static Boolean Move(Int32 targetX, Int32 targetY, Boolean human = true, Int32 steps = 100)
-		{
-            return Move(new Point(targetX, targetY), human, steps);
-		}
-
-		/// <summary>
-		/// causes a mouse movement into the middle of a rectangle
-		/// </summary>
-		/// <example>
-		/// <code>
-		/// Rectangle r = new Rectangle(50, 50, 100, 100);
-		/// Mouse.Move(r,true,10);
-		/// </code>
-		/// </example>
-		/// <param name="R">the rectangle to move to</param>
-		/// <param name="human">prevent mouse jumps</param>
-		/// <param name="steps">points of pathpolygons</param>
-		/// <returns></returns>
-        public static Boolean Move(Rectangle R, Boolean human = true, Int32 steps = 100)
-        {
-            return Move(new Point(Convert.ToInt32(R.Left+(R.Width/2)), Convert.ToInt32(R.Top+(R.Height/2))), human, steps);
+            // test if it works
+            if ((Cursor.Position.X == targetPosition.X) && (Cursor.Position.Y == targetPosition.Y))
+                return true;
+            return false;
         }
 
         /// <summary>
-        /// causes a drag and drop
+        ///     Moves the mouse to the middle of a rectangle
         /// </summary>
-        /// <param name="source">drag point</param>
-        /// <param name="target">drop point</param>
-        /// <param name="human">prevent mouse jumps</param>
-        /// <param name="steps">points of pathpolygons</param>
+        /// <example>
+        ///     <code>
+        /// Rectangle r = new Rectangle(50, 50, 100, 100);
+        /// Mouse.Move(r,true,10);
+        /// </code>
+        /// </example>
+        /// <param name="R">The rectangle to move to</param>
+        /// <param name="human">Simulate human-like jumps</param>
+        /// <param name="steps">The points of pathpolygons</param>
+        /// <returns></returns>
+        public static Boolean Move(Rectangle R, Boolean human = true, Int32 steps = 100)
+        {
+            return Move(new Point(Convert.ToInt32(R.Left + (R.Width/2)), Convert.ToInt32(R.Top + (R.Height/2))), human,
+                steps);
+        }
+
+        /// <summary>
+        ///     Performs a drag-and-drop action
+        /// </summary>
+        /// <param name="source">The drag point</param>
+        /// <param name="target">The drop point</param>
+        /// <param name="human">Simulate human-like jumps</param>
+        /// <param name="steps">The points of pathpolygons</param>
         /// <returns></returns>
         public static void DragAndDrop(Point source, Point target, Boolean human = true, Int32 steps = 100)
         {
@@ -218,160 +279,175 @@ namespace BotSuite
             LeftClick();
         }
 
-		/// <summary>
-		/// get the current position of the mouse pointer
-		/// </summary>
+        /// <summary>
+        ///     Returns the current position of the mouse
+        /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// Point CurPos = Point.Empty;
         /// CurPos = Mouse.GetPosition();
         /// </code>
         /// </example>
-		/// <returns>Point position</returns>
-		public static Point GetPosition()
-		{
-			return Cursor.Position;
-		}
+        /// <returns>The mouse position</returns>
+        public static Point GetPosition()
+        {
+            return Cursor.Position;
+        }
 
-		/// <summary>
-		/// causes a slightly mouse jiggle +-10 pixel
-		/// </summary>
+        /// <summary>
+        ///     Simulates a mouse jiggle
+        /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// Mouse.Jiggle();
         /// </code>
         /// </example>
-		/// <returns></returns>
-		public static void Jiggle()
-		{
-			Int32 xChange = Utility.Random(-10, 10);
-			Int32 yChange = Utility.Random(-10, 10);
+        /// <returns></returns>
+        public static void Jiggle()
+        {
+            Int32 xChange = Utility.Random(-10, 10);
+            Int32 yChange = Utility.Random(-10, 10);
 
-			Move(Cursor.Position.X + xChange, Cursor.Position.Y + yChange, true, 5);
-			Utility.Delay(20, 60);
-			Move(Cursor.Position.X - xChange, Cursor.Position.Y - yChange, true, 5);
-		}
+            Move(new Point(Cursor.Position.X + xChange, Cursor.Position.Y + yChange), true, 5);
+            Utility.Delay(20, 60);
+            Move(new Point(Cursor.Position.X - xChange, Cursor.Position.Y - yChange), true, 5);
+        }
 
-		/// <summary>
-		/// move the mouse relative to the window
-		/// </summary>
+        /// <summary>
+        ///     Moves the mouse relatively to a window
+        /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// IntPtr hwnd = ... ;
         /// bool res = MoveRelativeToWindow(hwnd, 20, 35, true, 10);
         /// </code>
         /// </example>
-		/// <param name="windowHandle">handle of window</param>
-		/// <param name="targetX">x coordinate</param>
-		/// <param name="targetY">y coordinate</param>
-        /// <param name="human">prevent mouse jumps</param>
-        /// <param name="steps">points of pathpolygons</param>
-		/// <returns>true/false</returns>
-		public static Boolean MoveRelativeToWindow(IntPtr windowHandle, Int32 targetX, Int32 targetY, Boolean human = true, Int32 steps = 100)
-		{
-			NativeMethods.RECT WINDOW = new NativeMethods.RECT();
+        /// <param name="windowHandle">The handle of the window</param>
+        /// <param name="point">The target point</param>
+        /// <param name="human">Simulate human-like jumps</param>
+        /// <param name="steps">The points of pathpolygons</param>
+        /// <returns>true/false</returns>
+        public static Boolean MoveRelativeToWindow(IntPtr windowHandle, Point point, Boolean human = true,
+            Int32 steps = 100)
+        {
+            var WINDOW = new NativeMethods.RECT();
 
-			if(!NativeMethods.GetWindowRect(windowHandle, out WINDOW))
-				return false;
+            if (!NativeMethods.GetWindowRect(windowHandle, out WINDOW))
+                return false;
 
-			if(!Move(WINDOW.Left + targetX, WINDOW.Top + targetY, human, steps))
-				return false;
+            if (!Move(new Point(WINDOW.Left + point.X, WINDOW.Top + point.Y), human, steps))
+                return false;
 
-			return true;
-		}
+            return true;
+        }
 
-		/// <summary>
-		/// get the current position of the mouse pointer relative to a control
-		/// </summary>
+        /// <summary>
+        ///     Returns the current position of the mouse, relative to a window
+        /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// Point CurPos = Point.Empty;
         /// IntPtr hwnd = ... ;
         /// CurPos = Mouse.GetPositionRelativeToControl(hwnd);
         /// </code>
         /// </example>
-        /// <param name="ControlHandle">handle of control</param>
-		/// <returns>Point position</returns>
-		public static Point GetPositionRelativeToControl(IntPtr ControlHandle)
-		{
-			Point position = Cursor.Position;
-			NativeMethods.RECT WINDOW = new NativeMethods.RECT();
-			NativeMethods.GetWindowRect(ControlHandle, out WINDOW);
-			return new Point(position.X - WINDOW.Left, position.Y - WINDOW.Top);
-		}
-
-        /// <summary>
-        /// tests if the mouse is hovering a control
-        /// </summary>
-        /// <example>
-        /// <code>
-        /// bool OverTextbox = Mouse.HoverControl(Textbox1.Handle);
-        /// </code>
-        /// </example>
-        /// <param name="ControlHandle">handle of control</param>
-        /// <returns>true/false</returns>
-        public static bool HoverControl(IntPtr ControlHandle)
+        /// <param name="controlHandle">The handle of the window</param>
+        /// <returns>Point position</returns>
+        public static Point GetPositionRelativeToControl(IntPtr controlHandle)
         {
-            Point MousePosition = GetPositionRelativeToControl(ControlHandle);
-            NativeMethods.RECT WINDOW = new NativeMethods.RECT();
-            NativeMethods.GetWindowRect(ControlHandle, out WINDOW);
-            return InRectangle(MousePosition, WINDOW.Top, WINDOW.Left, WINDOW.Bottom, WINDOW.Right);
-
+            Point position = Cursor.Position;
+            var WINDOW = new NativeMethods.RECT();
+            NativeMethods.GetWindowRect(controlHandle, out WINDOW);
+            return new Point(position.X - WINDOW.Left, position.Y - WINDOW.Top);
         }
 
         /// <summary>
-        /// returns whether the cursor is inside a rectangle or outside
+        ///     Tests if the mouse is hovering a window
         /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
+        /// bool OverTextbox = Mouse.HoverControl(Textbox1.Handle);
+        /// </code>
+        /// </example>
+        /// <param name="controlHandle">The handle of the window</param>
+        /// <returns>true/false</returns>
+        public static bool HoverControl(IntPtr controlHandle)
+        {
+            Point mousePosition = GetPositionRelativeToControl(controlHandle);
+            var WINDOW = new NativeMethods.RECT();
+            NativeMethods.GetWindowRect(controlHandle, out WINDOW);
+            return InRectangle(mousePosition, WINDOW.Top, WINDOW.Left, WINDOW.Bottom, WINDOW.Right);
+        }
+
+        /// <summary>
+        ///     Returns whether the mouse is inside a rectangle or not
+        /// </summary>
+        /// <example>
+        ///     <code>
         /// Point Pos = GetPosition(); // get position of the mouse
         /// bool InRectangle = Mouse.InRectangle(Pos,50, 10, 20, 70);
         /// </code>
         /// </example>
-        /// <param name="P">point to test</param>
-        /// <param name="t">top of rectangle</param>
-        /// <param name="l">left of rectangle</param>
-        /// <param name="b">bottom of rectangle</param>
-        /// <param name="r">right of rectangle</param>
-        /// <returns>inside=true/outside=false</returns>
-        public static bool InRectangle(Point P,int t, int l, int b, int r)
+        /// <param name="point">The point to test</param>
+        /// <param name="top">The top of the rectangle</param>
+        /// <param name="left">The left of the rectangle</param>
+        /// <param name="bottom">The bottom of the rectangle</param>
+        /// <param name="right">The right of the rectangle</param>
+        /// <returns>inside=true / outside=false</returns>
+        public static bool InRectangle(Point point, int top, int left, int bottom, int right)
         {
-           
             return (
-                (l < P.X) && (P.X < r) && (t < P.Y) && (P.Y < b)
+                (left < point.X) && (point.X < right) && (top < point.Y) && (point.Y < bottom)
                 );
         }
 
         /// <summary>
-        /// returns whether the cursor is inside a rectangle or outside
+        ///     Returns whether the mouse is inside a rectangle or not
         /// </summary>
         /// <example>
-        /// <code>
+        ///     <code>
         /// bool InRectangle = Mouse.InRectangle(50, 10, 20, 70);
         /// </code>
         /// </example>
-        /// <param name="t">top of rectangle</param>
-        /// <param name="l">left of rectangle</param>
-        /// <param name="b">bottom of rectangle</param>
-        /// <param name="r">right of rectangle</param>
-        /// <returns>inside=true/outside=false</returns>
-        public static bool InRectangle(int t, int l, int b, int r)
+        /// <param name="top">The top of the rectangle</param>
+        /// <param name="left">The left of the rectangle</param>
+        /// <param name="bottom">The bottom of the rectangle</param>
+        /// <param name="right">The right of the rectangle</param>
+        /// <returns>inside=true / outside=false</returns>
+        public static bool InRectangle(int top, int left, int bottom, int right)
         {
-            return InRectangle(GetPosition(),t, l, b, r);
+            return InRectangle(GetPosition(), top, left, bottom, right);
         }
 
-		/// <summary>
-		/// simulates mouse scroll wheel actions
-		/// </summary>
-		/// <example>
-		/// <code>
-		/// Mouse.Scroll(-50);
-		/// </code>
-		/// </example>
-		/// <param name="wheeldelta">if positive, scrolls down, if negative, scrolls up</param>
-		public static void Scroll(int wheeldelta)
-		{
-			NativeMethods.mouse_event((uint)NativeMethods.MouseEventFlags.WHEEL, (uint)0, (uint)0, -wheeldelta, IntPtr.Zero);
-		}
-	}
+        /// <summary>
+        ///     Performs a mouse scroll
+        /// </summary>
+        /// <example>
+        ///     <code>
+        /// Mouse.Scroll(-50);
+        /// </code>
+        /// </example>
+        /// <param name="wheeldelta">Positive scrolls down, negative scrolls up</param>
+        public static void Scroll(int wheeldelta)
+        {
+            NativeMethods.mouse_event((uint) NativeMethods.MouseEventFlags.WHEEL, 0, 0, -wheeldelta, IntPtr.Zero);
+        }
+
+        private enum MouseEvents : uint
+        {
+            WM_MOUSEFIRST = 0x200,
+            WM_MOUSEMOVE = 0x200,
+            WM_LBUTTONDOWN = 0x201,
+            WM_LBUTTONUP = 0x202,
+            WM_LBUTTONDBLCLK = 0x203,
+            WM_RBUTTONDOWN = 0x204,
+            WM_RBUTTONUP = 0x205,
+            WM_RBUTTONDBLCLK = 0x206,
+            WM_MBUTTONDOWN = 0x207,
+            WM_MBUTTONUP = 0x208,
+            WM_MBUTTONDBLCLK = 0x209,
+            WM_MOUSEWHEEL = 0x20A,
+            WM_MOUSEHWHEEL = 0x20E
+        }
+    }
 }
