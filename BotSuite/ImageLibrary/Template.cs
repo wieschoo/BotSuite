@@ -209,11 +209,7 @@ namespace BotSuite.ImageLibrary
         /// <returns>A Rectangle list of matching positions</returns>
         public static List<Rectangle> AllImages(ImageData img, ImageData Ref, uint tolerance = 0)
         {
-            //Double bestScore = (Math.Abs(Byte.MaxValue - Byte.MinValue)*3);
             var retVal = new List<Rectangle>();
-            //Int32 currentScore = 0;
-            //Point location = Point.Empty;
-            //Boolean Found = false;
 
             for (int originalX = 0; originalX < img.Width - Ref.Width; originalX++)
             {
@@ -224,7 +220,6 @@ namespace BotSuite.ImageLibrary
 
                     if (CommonFunctions.ColorsSimilar(currentInnerPictureColor, currentOuterPictureColor, tolerance))
                     {
-                        //currentScore = 0;
                         Boolean allSimilar = true;
                         for (int referenceX = 0; referenceX < Ref.Width; referenceX++)
                         {
@@ -241,11 +236,6 @@ namespace BotSuite.ImageLibrary
                                     !CommonFunctions.ColorsSimilar(currentInnerPictureColor, currentOuterPictureColor,
                                         tolerance))
                                     allSimilar = false;
-
-                                /*currentScore +=
-                                    (Math.Abs(CurrentInnerPictureColor.R - CurrentOuterPictureColor.R)
-                                     + Math.Abs(CurrentInnerPictureColor.G - CurrentOuterPictureColor.G)
-                                     + Math.Abs(CurrentInnerPictureColor.B - CurrentOuterPictureColor.B));*/
                             }
                         }
 
