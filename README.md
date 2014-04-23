@@ -3,23 +3,22 @@ BotSuite.NET
 
 This library helps you by accelerating the development of bots significantly. 
 To getting started please visit the tutorial section and read the tutorial "Getting Started" at
-www.botsuite.net to get an introduction and more information. Please do not hesitate to contact us or add an issue here at the proect page on github.
+www.botsuite.net to get an introduction and more information. Please do not hesitate to contact us or add an issue here at the project page on github.
 
 
 <h2>outstanding features</h2>
-- [x] fast,easy and robust image recognition/manipulation
+- [x] fast, easy and robust image recognition/manipulation
 - [x] easy screenshot capturing
 - [x] mouse cursor control
-- [x] easy way to send HTTP request and handle their answers
+- [x] easy way to send HTTP requests and handle their answers
 - [x] common memory reading and writing functions
 - [x] includes a finite state engine
 - [x] captcha cracking with the appertaining artificial feed forward neural network
-- [x] memory read/write values
 
 <h3>history</h3>
 This project was first published by wieschoo at the german community:
 http://www.codebot.de
-If you have any problems you can ask there questions. Please notice that this is a german community. In addition you can use the contact formular at http://www.botsuite.net. We try to reply your questions quickly.
+If you have any problems you can ask questions there. Please notice that this is a german community. In addition you can use the contact form at http://www.botsuite.net. We try to reply to your questions quickly.
 
 <h3>documentation and additional information, tutorials</h3>
 http://www.botsuite.net
@@ -46,7 +45,7 @@ other contributors:
 
 The following project is under the terms of the BSD 2-Clause License:
 <pre>
-Copyright (c) 2013, wieschoo & enWare
+Copyright (c) 2013/2014, wieschoo & Binary Overdrive
 
 All rights reserved.
 
