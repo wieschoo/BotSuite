@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="AssemblyInfo.cs" company="HoovesWare">
-//      Copyright (c) HoovesWare
+//  <copyright file="AssemblyInfo.cs" company="Wieschoo &amp; Binary Overdrive">
+//      Copyright (c) Wieschoo &amp; Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
 //  <purpose>framework for creating bots</purpose>
@@ -18,9 +18,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("BotSuite")]
 [assembly: AssemblyDescription("BotSuite.Net, a component for easier bot-creation with .Net")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("wieschoo & enWare")]
+[assembly: AssemblyCompany("wieschoo & Binary Overdrive")]
 [assembly: AssemblyProduct("BotSuite")]
-[assembly: AssemblyCopyright("Copyright © 2012 wieschoo & enWare")]
+[assembly: AssemblyCopyright("Copyright © 2012 wieschoo & Binary Overdrive")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

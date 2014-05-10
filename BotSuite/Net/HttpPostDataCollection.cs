@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="HttpPostDataCollection.cs" company="HoovesWare">
-//      Copyright (c) HoovesWare
+//  <copyright file="HttpPostDataCollection.cs" company="Wieschoo &amp; Binary Overdrive">
+//      Copyright (c) Wieschoo &amp; Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
 //  <purpose>framework for creating bots</purpose>
