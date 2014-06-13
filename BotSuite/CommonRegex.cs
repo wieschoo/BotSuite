@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 // gigagames
 namespace BotSuite
 {
-    static class CommonRegex
+    public static class CommonRegex
     {
         /// <summary>
         /// search a pattern in a text 
