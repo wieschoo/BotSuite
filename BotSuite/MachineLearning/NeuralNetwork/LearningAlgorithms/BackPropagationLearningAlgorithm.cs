@@ -9,11 +9,11 @@ namespace BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms
     /// </summary>
     /// <remarks>
     /// 
-    ///     Neuron j in L-1                   
-    ///          o ---------> Signal f(W*S_j) 
-    ///     Neuron i in L 
-    ///          o ---------> Signal f(W*S_i) 
-    ///     Neuron k in L+1
+    /// Neuron j in L-1                   
+    ///  o ---------> Signal f(W*S_j) 
+    /// Neuron i in L 
+    ///  o ---------> Signal f(W*S_i) 
+    /// Neuron k in L+1
     /// 
     /// 
     /// for i

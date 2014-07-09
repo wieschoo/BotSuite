@@ -12,7 +12,8 @@ using System.Diagnostics;
 namespace BotSuite
 {
     /// <summary>
-    /// control extern application by reading values, writing values, (to do: click controls)
+    /// control extern application by reading values, writing values in memory blocks
+    /// can be used to create trainers by continuous writing a value at some memory address
     /// </summary>
     public class ApplicationTunnel
     {
@@ -54,9 +55,16 @@ namespace BotSuite
         }
 
         /// <summary>
-        /// constructor
+        /// creates a bridge to an application and connect to it by using the name of the corresponding process
         /// </summary>
-        /// <param name="ProcessName">name of process</param>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Bridge = new ApplicationTunnel("notepad.exe");
+        /// ]]>
+        /// </code>
+        /// </example>
+        /// <param name="ProcessName">name of process that should be the target process</param>
         public ApplicationTunnel(string ProcessName)
         {
 
@@ -73,7 +81,7 @@ namespace BotSuite
         }
 
         /// <summary>
-        /// destructor
+        /// remove all connections to the target process and detach from the process
         /// </summary>
         ~ApplicationTunnel()
         {
@@ -85,9 +93,12 @@ namespace BotSuite
         /// <summary>
         /// get id of process by given name
         /// </summary>
+        /// <remarks>
+        /// the function returns an array of possible ids since there can be multiple processes having the same name
+        /// </remarks>
         /// <example>
         /// <code>
-        /// Process[] ListOfProcess = Memory.GetProcessIdByName("the name");
+        /// Process[] ListOfProcess = ApplicationTunnel.GetProcessIdByName("notepad.exe");
         /// </code>
         /// </example>
         /// <param name="name">name of process</param>
@@ -98,10 +109,20 @@ namespace BotSuite
         }
 
         /// <summary>
-        /// returns the ModulBase
+        /// returns the modulbase address
         /// </summary>
         /// <param name="ProcName">name of process</param>
         /// <param name="ModuleName">name of modul</param>
+        /// <remarks>
+        /// in most cases the modul base adress is just 0x401000
+        /// </remarks>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// Int32 BaseAdress = ApplicationTunnel.GetModuleBase("notepade.exe");
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <returns></returns>
         public static Int32 GetModuleBase(string ProcName, string ModuleName)
         {
@@ -116,11 +137,11 @@ namespace BotSuite
             return BaseAddress;
         }
         /// <summary>
-        /// convert a hex string into int
+        /// convert a string containing a hex value into integer
         /// </summary>
         /// <example>
         /// <code>
-        /// int result = Memory.Hex2Int"00B28498");
+        /// int result = ApplicationTunnel.Hex2Int("00B28498");
         /// </code>
         /// </example>
         /// <param name="hex">hex</param>
@@ -159,8 +180,6 @@ namespace BotSuite
             }
         } 
         #endregion
-
-
 
 
         #region READ MEMORY
@@ -208,6 +227,19 @@ namespace BotSuite
         /// <summary>
         /// Read a value, see other Read-method
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// // direct access at 00B28498
+        /// int MyValue1 = Trainer.Read<int>(0x00B28498);
+        /// // direct access at "001AAAC4", 0x464
+        /// int MyValue2 = Trainer.Read<int>(0x001AAAC4, 0x464);
+        /// float MyValue1 = Trainer.Read<float>(0x00B28498);
+        /// double MyValue1 = Trainer.Read<double>(0x00B28498);
+        /// uint MyValue1 = Trainer.Read<uint>(0x00B28498);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <typeparam name="T">type of value</typeparam>
         /// <param name="pAddress">address as integer</param>
         /// <param name="Offsets">offsets to follow to get value</param>
@@ -309,8 +341,22 @@ namespace BotSuite
             Write<T>(off, WriteData, Offsets);
         }
         /// <summary>
-        /// write a t memory
+        /// write value at memory adress
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// Memory Trainer = new Memory(...); 
+        /// // direct access at 00B28498 
+        /// Trainer.Write<int>(0x00B28498, an integer);
+        /// // follow pointer access at "001AAAC4", 0x464
+        /// Trainer.Write<int>(0x001AAAC4, an integer,0x464);
+        /// Trainer.Write<float>(0x00B28498, a float var);
+        /// Trainer.Write<double>(0x00B28498, a double var);
+        /// Trainer.Write<uint>(0x00B28498, an unsigned integer);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <typeparam name="T">type of data to write</typeparam>
         /// <param name="pAddress">address to write</param>
         /// <param name="WriteData">data to write</param>
@@ -342,6 +388,15 @@ namespace BotSuite
         /// <summary>
         /// Write a string of ASCII
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// Memory Trainer = new Memory(...); 
+        /// // direct access at 00B28498 
+        /// Trainer.Write<int>(0x00B28498, "Hello");
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="pAddress">address to write</param>
         /// <param name="StringToWrite">string to write</param>
         public void WriteAscii(int pAddress, string StringToWrite)
@@ -366,7 +421,7 @@ namespace BotSuite
         /// <example>
         /// <code>
         /// // start in BaseAddress add follow the pointers by adding the offsets
-        /// int MyPointer2 = Trainer.Pointer( 0x284, 0xE4, 0xE4, 0x30, 0x108);
+        /// int MyPointer2 = Trainer.Pointer( 0x00B28498,0x284, 0xE4, 0xE4, 0x30, 0x108);
         /// </code>
         /// </example>
         /// <param name="start">start address</param>
@@ -407,6 +462,14 @@ namespace BotSuite
         /// <summary>
         /// returns handle of extern process
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Bridge = new ApplicationTunnel("notepad.exe");
+        /// IntPtr hTarget = Bridge.GetHandle();
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <returns></returns>
         public IntPtr GetHandle()
         {
@@ -415,6 +478,14 @@ namespace BotSuite
         /// <summary>
         /// tries to close the main window of process
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Bridge = new ApplicationTunnel("notepad.exe");
+        /// Bridge.Close();
+        /// ]]>
+        /// </code>
+        /// </example>
         public void Close()
         {
             AttachedProcess.CloseMainWindow();
@@ -432,6 +503,14 @@ namespace BotSuite
         /// <summary>
         /// kills radical the process
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Bridge = new ApplicationTunnel("notepad.exe");
+        /// Bridge.Kill();
+        /// ]]>
+        /// </code>
+        /// </example>
         public void Kill()
         {
             try

@@ -15,18 +15,18 @@ namespace BotSuite.Net
 	using System.Linq;
 
 	/// <summary>
-	///     represents a collection of multiple HttpHeader instances
+	/// represents a collection of multiple HttpHeader instances
 	/// </summary>
 	public class HttpHeaderCollection : List<HttpHeader>
 	{
 		/// <summary>
-		///     looks for an instance of the HttpHeader class in this collection by its key
+		/// looks for an instance of the HttpHeader class in this collection by its key
 		/// </summary>
 		/// <param name="key">
-		///     the key to search for
+		/// the key to search for
 		/// </param>
 		/// <returns>
-		///     an instance of the HttpHeader class which has the given key
+		/// an instance of the HttpHeader class which has the given key
 		/// </returns>
 		public HttpHeader this[string key]
 		{
@@ -43,13 +43,13 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     looks for an instance of the HttpHeader class in this collection by its key
+		/// looks for an instance of the HttpHeader class in this collection by its key
 		/// </summary>
 		/// <param name="key">
-		///     the key to search for
+		/// the key to search for
 		/// </param>
 		/// <returns>
-		///     an instance of the HttpHeader class which has the given key
+		/// an instance of the HttpHeader class which has the given key
 		/// </returns>
 		public HttpHeader GetHeaderByKey(string key)
 		{
@@ -57,13 +57,13 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     checks if this collection contains an instance of the HttpHeader class with a given key
+		/// checks if this collection contains an instance of the HttpHeader class with a given key
 		/// </summary>
 		/// <param name="key">
-		///     the key to look for
+		/// the key to look for
 		/// </param>
 		/// <returns>
-		///     true, if this collection contains an instance of the HttpHeader class with the given key, else false
+		/// true, if this collection contains an instance of the HttpHeader class with the given key, else false
 		/// </returns>
 		public bool Contains(string key)
 		{
@@ -71,7 +71,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     creates a string representation of this instance of the HttpHeaderCollection class
+		/// creates a string representation of this instance of the HttpHeaderCollection class
 		/// </summary>
 		/// <returns>a string representation of this instance of the HttpHeaderCollection class</returns>
 		public override string ToString()

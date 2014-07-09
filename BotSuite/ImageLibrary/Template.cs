@@ -5,30 +5,30 @@ using System.Drawing;
 namespace BotSuite.ImageLibrary
 {
     /// <summary>
-    ///     serach for patterns or images in a image
+    /// serach for patterns or images in a image
     /// </summary>
     public static class Template
     {
         /// <summary>
-        ///     Searches for a binary pattern
+        /// Searches for a binary pattern
         /// </summary>
         /// <param name="img">The image to look in</param>
         /// <param name="pattern">The pattern to look for</param>
         /// <param name="tolerance">Tolerance (0,...,255)</param>
         /// <example>
-        ///     <code>
+        /// <code>
         /// <![CDATA[
         /// ImageData img = new ImageData(...);
         /// int[,] pattern = new int[,] {   
-        ///             {1,1,0,0,0,0,0,0},
-        ///             {0,0,1,0,0,0,0,0},
-        ///             {0,0,1,0,0,0,0,0},
-        ///             {0,1,0,0,0,0,0,0},
-        ///             {1,0,0,0,0,0,0,0},
-        ///             {1,1,1,0,0,0,0,0},
-        ///             {0,0,0,0,0,0,0,0},
-        ///             {0,0,0,0,0,0,0,0}
-        ///         };
+        ///         {1,1,0,0,0,0,0,0},
+        ///         {0,0,1,0,0,0,0,0},
+        ///         {0,0,1,0,0,0,0,0},
+        ///         {0,1,0,0,0,0,0,0},
+        ///         {1,0,0,0,0,0,0,0},
+        ///         {1,1,1,0,0,0,0,0},
+        ///         {0,0,0,0,0,0,0,0},
+        ///         {0,0,0,0,0,0,0,0}
+        ///     };
         /// Rectangle location = Template.BinaryPattern(img, pattern, 2);
         /// ]]>
         /// </code>
@@ -94,7 +94,7 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Converts an Integer MultiArray to a Boolean MultiArray
+        /// Converts an Integer MultiArray to a Boolean MultiArray
         /// </summary>
         /// <param name="input">The input Integer MultiArray</param>
         /// <returns>The Boolean MultiArray</returns>
@@ -117,10 +117,10 @@ namespace BotSuite.ImageLibrary
 
 
         /// <summary>
-        ///     Searches for an image in another image
+        /// Searches for an image in another image
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// <![CDATA[
         /// ImageData Img = new ImageData(...);
         /// ImageData Search= new ImageData(...);
@@ -191,10 +191,10 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Searches for an image in another image
+        /// Searches for an image in another image
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// <![CDATA[
         /// ImageData Img = new ImageData(...);
         /// ImageData Search= new ImageData(...);

@@ -18,22 +18,22 @@ namespace BotSuite.Net
 	using System.Text;
 
 	/// <summary>
-	///     HttpClient class for making bots for Browsergames
+	/// HttpClient class for making bots for Browsergames
 	/// </summary>
 	public class HttpClient
 	{
 		/// <summary>
-		///     Gets all bytes of the last response
+		/// Gets all bytes of the last response
 		/// </summary>
 		public byte[] Cache { get; private set; }
 
 		/// <summary>
-		///     Contains all cookies for this instance of the HttpClient class
+		/// Contains all cookies for this instance of the HttpClient class
 		/// </summary>
 		private readonly CookieContainer cookies = new CookieContainer();
 
 		/// <summary>
-		///     Gets all cookies for this instance of the HttpClient class
+		/// Gets all cookies for this instance of the HttpClient class
 		/// </summary>
 		public CookieContainer Cookies
 		{
@@ -44,17 +44,17 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     the user agent string which is used for requests
+		/// the user agent string which is used for requests
 		/// </summary>
 		private readonly UserAgent userAgent = null;
 
 		/// <summary>
-		///     a collection of all headers of the last response
+		/// a collection of all headers of the last response
 		/// </summary>
 		private readonly HttpHeaderCollection headers = new HttpHeaderCollection();
 
 		/// <summary>
-		///     Gets a collection of all headers of the last response
+		/// Gets a collection of all headers of the last response
 		/// </summary>
 		public HttpHeaderCollection Headers
 		{
@@ -65,27 +65,27 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Gets or sets a value indicating whether the HttpClient should adjust the referer at every change of the URL
+		/// Gets or sets a value indicating whether the HttpClient should adjust the referer at every change of the URL
 		/// </summary>
 		public bool AutoReferer { get; set; }
 
 		/// <summary>
-		///     Gets or sets the current referer
+		/// Gets or sets the current referer
 		/// </summary>
 		public string Referer { get; set; }
 
 		/// <summary>
-		///     Gets or sets a value indicating whether the HttpClient should use the HttpClient.Proxy for requests
+		/// Gets or sets a value indicating whether the HttpClient should use the HttpClient.Proxy for requests
 		/// </summary>
 		public bool UseProxy { get; set; }
 
 		/// <summary>
-		///     Gets or sets a proxy object with settings for proxy usage for requests (when HttpClient.UseProxy is set to true)
+		/// Gets or sets a proxy object with settings for proxy usage for requests (when HttpClient.UseProxy is set to true)
 		/// </summary>
 		public HttpProxy Proxy { get; set; }
 
 		/// <summary>
-		///     Gets or sets a value indicating whether unsafe header parsing should be used
+		/// Gets or sets a value indicating whether unsafe header parsing should be used
 		/// </summary>
 		public bool UseUnsafeHeaderParsing
 		{
@@ -104,51 +104,51 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Gets or sets a value indicating whether auto-redirects should be allowed (false might cause more work for the
-		///     developer since more requests have to be made manually)
+		/// Gets or sets a value indicating whether auto-redirects should be allowed (false might cause more work for the
+		/// developer since more requests have to be made manually)
 		/// </summary>
 		public bool AllowAutoRedirect { get; set; }
 
 		/// <summary>
-		///     Gets or sets a value indicating whether BotSuites internal redirect method should be used (will only work if
-		///     .AllowAutoRedirect is false), else false
+		/// Gets or sets a value indicating whether BotSuites internal redirect method should be used (will only work if
+		/// .AllowAutoRedirect is false), else false
 		/// </summary>
 		public bool AllowBotSuiteAutoRedirect { get; set; }
 
 		/// <summary>
-		///     Gets or sets the maximum of consecutive requests for AllowAutoRedirect and AllowBotSuiteAutoRedirect
+		/// Gets or sets the maximum of consecutive requests for AllowAutoRedirect and AllowBotSuiteAutoRedirect
 		/// </summary>
 		public int MaximumRedirectCount { get; set; }
 
 		/// <summary>
-		///     Gets or sets a value indicating whether Expect100Continue of the HttpWebRequest.ServiceProvider is used upon
-		///     request
+		/// Gets or sets a value indicating whether Expect100Continue of the HttpWebRequest.ServiceProvider is used upon
+		/// request
 		/// </summary>
 		public bool Expect100Continue { get; set; }
 
 		/// <summary>
-		///     Gets the encoding of the last web-response
+		/// Gets the encoding of the last web-response
 		/// </summary>
 		public Encoding LastResponseEncoding { get; private set; }
 
 		/// <summary>
-		///     Gets or sets a value indicating whether or not the HttpClient should ignore SSL/TLS certificate validation failures
+		/// Gets or sets a value indicating whether or not the HttpClient should ignore SSL/TLS certificate validation failures
 		/// </summary>
 		public bool IgnoreCertificateValidationFailures { get; set; }
 
 		/// <summary>
-		///     Gets or sets the decompression method.
+		/// Gets or sets the decompression method.
 		/// </summary>
 		public DecompressionMethods DecompressionMethod { get; set; }
 
 		/// <summary>
-		///     Initializes a new instance of the <see cref="HttpClient" /> class
+		/// Initializes a new instance of the <see cref="HttpClient" /> class
 		/// </summary>
 		/// <param name="userAgent">
-		///     a useragent string
+		/// a useragent string
 		/// </param>
 		/// <param name="initialReferer">
-		///     the Referer the first request will be sent from, i.e. www.google.com
+		/// the Referer the first request will be sent from, i.e. www.google.com
 		/// </param>
 		public HttpClient(string userAgent, string initialReferer = null)
 		{
@@ -161,13 +161,13 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Initializes a new instance of the <see cref="HttpClient" /> class
+		/// Initializes a new instance of the <see cref="HttpClient" /> class
 		/// </summary>
 		/// <param name="userAgent">
-		///     an instance of the <see cref="UserAgent"/> class
+		/// an instance of the <see cref="UserAgent"/> class
 		/// </param>
 		/// <param name="initialReferer">
-		///     the Referer the first request will be sent from, i.e. www.google.com
+		/// the Referer the first request will be sent from, i.e. www.google.com
 		/// </param>
 		public HttpClient(UserAgent userAgent, string initialReferer = null)
 		{
@@ -180,22 +180,22 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     sends a HTTP POST request to a given URL with given POST data and a optional referer
+		/// sends a HTTP POST request to a given URL with given POST data and a optional referer
 		/// </summary>
 		/// <typeparam name="TRespType">
-		///     return type of the Post request
+		/// return type of the Post request
 		/// </typeparam>
 		/// <param name="url">
-		///     the URL to send the post request to
+		/// the URL to send the post request to
 		/// </param>
 		/// <param name="postdata">
-		///     the POST data
+		/// the POST data
 		/// </param>
 		/// <param name="referer">
-		///     the referer to send the request from
+		/// the referer to send the request from
 		/// </param>
 		/// <returns>
-		///     the response as TRespType
+		/// the response as TRespType
 		/// </returns>
 		public TRespType Post<TRespType>(string url, HttpPostDataCollection postdata, string referer = null)
 			where TRespType : class
@@ -204,23 +204,23 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     sends a HTTP POST request to a given URL with given POST data and a optional referer...
-		///     (better use overload with HttpPostDataCollection parameter, it's easier to use and more flexible)
+		/// sends a HTTP POST request to a given URL with given POST data and a optional referer...
+		/// (better use overload with HttpPostDataCollection parameter, it's easier to use and more flexible)
 		/// </summary>
 		/// <typeparam name="TRespType">
-		///     the return type for the response
+		/// the return type for the response
 		/// </typeparam>
 		/// <param name="url">
-		///     the URL to send the post request to
+		/// the URL to send the post request to
 		/// </param>
 		/// <param name="postdata">
-		///     the POST data
+		/// the POST data
 		/// </param>
 		/// <param name="referer">
-		///     the referer to send the request from
+		/// the referer to send the request from
 		/// </param>
 		/// <returns>
-		///     the response as TRespType
+		/// the response as TRespType
 		/// </returns>
 		public TRespType Post<TRespType>(string url, string postdata, string referer = null) where TRespType : class
 		{
@@ -258,22 +258,22 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     internal POST method
+		/// internal POST method
 		/// </summary>
 		/// <typeparam name="TRespType">
-		///     the return type for the response
+		/// the return type for the response
 		/// </typeparam>
 		/// <param name="url">
-		///     url to send post request to
+		/// url to send post request to
 		/// </param>
 		/// <param name="postdata">
-		///     data of the post request
+		/// data of the post request
 		/// </param>
 		/// <param name="referer">
-		///     referer for the post request
+		/// referer for the post request
 		/// </param>
 		/// <returns>
-		///     response as TRespType of site
+		/// response as TRespType of site
 		/// </returns>
 		private TRespType PostInternal<TRespType>(string url, string postdata, string referer = null) where TRespType : class
 		{
@@ -309,19 +309,19 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     sends a HTTP GET request to a given URL with a optional referer
+		/// sends a HTTP GET request to a given URL with a optional referer
 		/// </summary>
 		/// <typeparam name="TRespType">
-		///     the return type for the response
+		/// the return type for the response
 		/// </typeparam>
 		/// <param name="url">
-		///     the URL to send the request to
+		/// the URL to send the request to
 		/// </param>
 		/// <param name="referer">
-		///     the referer to send the request from
+		/// the referer to send the request from
 		/// </param>
 		/// <returns>
-		///     returns the response as TRespType of the requested website
+		/// returns the response as TRespType of the requested website
 		/// </returns>
 		public TRespType Get<TRespType>(string url, string referer = null) where TRespType : class
 		{
@@ -359,19 +359,19 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     internal GET method
+		/// internal GET method
 		/// </summary>
 		/// <typeparam name="TRespType">
-		///     the return type for the response
+		/// the return type for the response
 		/// </typeparam>
 		/// <param name="url">
-		///     url to send request to
+		/// url to send request to
 		/// </param>
 		/// <param name="referer">
-		///     referer for the request
+		/// referer for the request
 		/// </param>
 		/// <returns>
-		///     response as TRespType of the requested website
+		/// response as TRespType of the requested website
 		/// </returns>
 		private TRespType GetInternal<TRespType>(string url, string referer = null) where TRespType : class
 		{
@@ -399,16 +399,16 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     sends a HTTP HEAD request to a given URL with a optional referer
+		/// sends a HTTP HEAD request to a given URL with a optional referer
 		/// </summary>
 		/// <typeparam name="TRespType">
-		///     the return type for the response
+		/// the return type for the response
 		/// </typeparam>
 		/// <param name="url">
-		///     the URL to send the request to
+		/// the URL to send the request to
 		/// </param>
 		/// <param name="referer">
-		///     the referer to send the request from
+		/// the referer to send the request from
 		/// </param>
 		public void Head<TRespType>(string url, string referer = null) where TRespType : class
 		{
@@ -445,16 +445,16 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     internal HEAD request method
+		/// internal HEAD request method
 		/// </summary>
 		/// <typeparam name="TRespType">
-		///     the return type for the response
+		/// the return type for the response
 		/// </typeparam>
 		/// <param name="url">
-		///     url for the head request
+		/// url for the head request
 		/// </param>
 		/// <param name="referer">
-		///     referer for the head request
+		/// referer for the head request
 		/// </param>
 		private void HeadInternal<TRespType>(string url, string referer = null) where TRespType : class
 		{
@@ -479,13 +479,13 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     corrects some standard-failures made when someone writes and URL, like forgetting the protocol at the beginning
+		/// corrects some standard-failures made when someone writes and URL, like forgetting the protocol at the beginning
 		/// </summary>
 		/// <param name="url">
-		///     the URL that probably needs some correction
+		/// the URL that probably needs some correction
 		/// </param>
 		/// <returns>
-		///     the, if it was necessary, corrected URL
+		/// the, if it was necessary, corrected URL
 		/// </returns>
 		private static string CorrectUrl(string url)
 		{
@@ -498,16 +498,16 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Creates a HttpWebRequest and prepares it for usage (e.g. sets method and other parameters)
+		/// Creates a HttpWebRequest and prepares it for usage (e.g. sets method and other parameters)
 		/// </summary>
 		/// <param name="url">
-		///     The url to request will be used for
+		/// The url to request will be used for
 		/// </param>
 		/// <param name="method">
-		///     the method to use, e.g. POST or GET
+		/// the method to use, e.g. POST or GET
 		/// </param>
 		/// <returns>
-		///     a fully prepared HttpWebRequest
+		/// a fully prepared HttpWebRequest
 		/// </returns>
 		private HttpWebRequest PrepareRequest(string url, string method)
 		{
@@ -540,16 +540,16 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Receives the response for a HttpWebRequest
+		/// Receives the response for a HttpWebRequest
 		/// </summary>
 		/// <typeparam name="TRespType">
-		///     the return type for the response
+		/// the return type for the response
 		/// </typeparam>
 		/// <param name="req">
-		///     the HttpWebRequest the return is wanted for
+		/// the HttpWebRequest the return is wanted for
 		/// </param>
 		/// <returns>
-		///     the response as TRespType for the request
+		/// the response as TRespType for the request
 		/// </returns>
 		private TRespType GetResponse<TRespType>(HttpWebRequest req) where TRespType : class
 		{
@@ -611,7 +611,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Sets the LastResponseEncoding to the specified charset
+		/// Sets the LastResponseEncoding to the specified charset
 		/// </summary>
 		/// <param name="charset">The charset</param>
 		private void SetLastReponseEncoding(string charset)
@@ -634,7 +634,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Converts the cache of this HttpClient into a string
+		/// Converts the cache of this HttpClient into a string
 		/// </summary>
 		/// <returns>the string from the cache</returns>
 		private string LoadStringFromCache()
@@ -650,7 +650,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Converts the cache of this HttpClient into an image
+		/// Converts the cache of this HttpClient into an image
 		/// </summary>
 		/// <returns>the image from the cache</returns>
 		private Image LoadImageFromCache()
@@ -682,13 +682,13 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     repairs a cookie (path and uri)
+		/// repairs a cookie (path and uri)
 		/// </summary>
 		/// <param name="u">
-		///     the uri the cookie is for
+		/// the uri the cookie is for
 		/// </param>
 		/// <param name="c">
-		///     the cookie to repair
+		/// the cookie to repair
 		/// </param>
 		private void RepairCookie(Uri u, Cookie c)
 		{

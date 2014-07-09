@@ -14,26 +14,26 @@ namespace BotSuite.Net
 	using System.Net;
 
 	/// <summary>
-	///     proxy class for storing proxy informations for HttpClient
+	/// proxy class for storing proxy informations for HttpClient
 	/// </summary>
 	public class HttpProxy
 	{
 		/// <summary>
-		///     the internally used WebProxy instance
+		/// the internally used WebProxy instance
 		/// </summary>
 		private readonly WebProxy internalProxy = new WebProxy();
 
 		/// <summary>
-		///     Initializes a new instance of the <see cref="HttpProxy" /> class
+		/// Initializes a new instance of the <see cref="HttpProxy" /> class
 		/// </summary>
 		/// <param name="address">
-		///     url of proxy
+		/// url of proxy
 		/// </param>
 		/// <param name="username">
-		///     username for proxy, if applicable
+		/// username for proxy, if applicable
 		/// </param>
 		/// <param name="password">
-		///     password for proxy, if applicable
+		/// password for proxy, if applicable
 		/// </param>
 		public HttpProxy(string address, string username = null, string password = null)
 			: this(new Uri(address), username, password)
@@ -41,16 +41,16 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Initializes a new instance of the <see cref="HttpProxy" /> class
+		/// Initializes a new instance of the <see cref="HttpProxy" /> class
 		/// </summary>
 		/// <param name="address">
-		///     uri of proxy
+		/// uri of proxy
 		/// </param>
 		/// <param name="username">
-		///     username for proxy, if applicable
+		/// username for proxy, if applicable
 		/// </param>
 		/// <param name="password">
-		///     password for proxy, if applicable
+		/// password for proxy, if applicable
 		/// </param>
 		public HttpProxy(Uri address, string username = null, string password = null)
 		{
@@ -75,7 +75,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     returns the internally manageg WebProxy object for usage in HttpWebRequest
+		/// returns the internally manageg WebProxy object for usage in HttpWebRequest
 		/// </summary>
 		/// <returns>the internally used instance of the WebProxy class</returns>
 		internal WebProxy GetWebProxy()

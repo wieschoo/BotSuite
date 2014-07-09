@@ -16,17 +16,17 @@ namespace BotSuite.Net
 	using System.Linq;
 
 	/// <summary>
-	///     collection-class for HttpPostData-instances
+	/// collection-class for HttpPostData-instances
 	/// </summary>
 	public class HttpPostDataCollection : ICollection<HttpPostData>
 	{
 		/// <summary>
-		///     a list of all postdata instances in this collection
+		/// a list of all postdata instances in this collection
 		/// </summary>
 		private readonly List<HttpPostData> postData;
 
 		/// <summary>
-		///     Initializes a new instance of the <see cref="HttpPostDataCollection" /> class
+		/// Initializes a new instance of the <see cref="HttpPostDataCollection" /> class
 		/// </summary>
 		public HttpPostDataCollection()
 		{
@@ -34,10 +34,10 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     adds a HttpPostData instance to the collection
+		/// adds a HttpPostData instance to the collection
 		/// </summary>
 		/// <param name="item">
-		///     the item to add to the collection
+		/// the item to add to the collection
 		/// </param>
 		public void Add(HttpPostData item)
 		{
@@ -53,7 +53,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     deletes all items from the collection
+		/// deletes all items from the collection
 		/// </summary>
 		public void Clear()
 		{
@@ -61,13 +61,13 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     checks if a given item is already part of the collection
+		/// checks if a given item is already part of the collection
 		/// </summary>
 		/// <param name="item">
-		///     an instance of the HttpPostData class
+		/// an instance of the HttpPostData class
 		/// </param>
 		/// <returns>
-		///     true, if this collection contains the given instance of the HttpPostData class, else false
+		/// true, if this collection contains the given instance of the HttpPostData class, else false
 		/// </returns>
 		public bool Contains(HttpPostData item)
 		{
@@ -75,14 +75,14 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     copies the whole collection into a compatible one-dimensional array beginning at the given index of the target
-		///     array
+		/// copies the whole collection into a compatible one-dimensional array beginning at the given index of the target
+		/// array
 		/// </summary>
 		/// <param name="array">
-		///     the target array
+		/// the target array
 		/// </param>
 		/// <param name="arrayIndex">
-		///     the index where to insert the items in the target array
+		/// the index where to insert the items in the target array
 		/// </param>
 		public void CopyTo(HttpPostData[] array, int arrayIndex)
 		{
@@ -90,7 +90,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Gets the amount of items in the collection
+		/// Gets the amount of items in the collection
 		/// </summary>
 		public int Count
 		{
@@ -101,7 +101,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     Gets a value indicating whether the collection is read-only or not
+		/// Gets a value indicating whether the collection is read-only or not
 		/// </summary>
 		public bool IsReadOnly
 		{
@@ -112,13 +112,13 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     removes the given item from the collection
+		/// removes the given item from the collection
 		/// </summary>
 		/// <param name="item">
-		///     the item to remove from the collection
+		/// the item to remove from the collection
 		/// </param>
 		/// <returns>
-		///     true, if removal was succesfull, else false (like if the item wasn't part of the collection)
+		/// true, if removal was succesfull, else false (like if the item wasn't part of the collection)
 		/// </returns>
 		public bool Remove(HttpPostData item)
 		{
@@ -126,7 +126,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     returns the IEnumerator&lt;HttpPostData&gt; of this collection
+		/// returns the IEnumerator&lt;HttpPostData&gt; of this collection
 		/// </summary>
 		/// <returns>an Enumerator of this collection</returns>
 		public IEnumerator<HttpPostData> GetEnumerator()
@@ -135,7 +135,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     returns the System.Collections.IEnumarator for this collection
+		/// returns the System.Collections.IEnumarator for this collection
 		/// </summary>
 		/// <returns>a non-generic IEnumerator of this collection</returns>
 		IEnumerator IEnumerable.GetEnumerator()
@@ -144,7 +144,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     creates a string representation of this collection
+		/// creates a string representation of this collection
 		/// </summary>
 		/// <returns>a string representation of this collection</returns>
 		public override string ToString()
@@ -163,13 +163,13 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     creates a HttpPostDataCollection instance from a POST data string
+		/// creates a HttpPostDataCollection instance from a POST data string
 		/// </summary>
 		/// <param name="postdata">
-		///     the POST data string
+		/// the POST data string
 		/// </param>
 		/// <returns>
-		///     a HttpPostDataCollection instance from the given POST data string
+		/// a HttpPostDataCollection instance from the given POST data string
 		/// </returns>
 		public static HttpPostDataCollection FromString(string postdata)
 		{

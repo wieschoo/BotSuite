@@ -13,16 +13,21 @@ using System.Windows.Forms;
 namespace BotSuite
 {
     /// <summary>
-    ///     Class for simulating mouse actions
+    /// Class for simulating mouse actions
     /// </summary>
     public class Mouse
     {
         /// <summary>
-        ///     Performs a left click
+        /// performs a left click at current cursor position
         /// </summary>
+        /// <remarks>
+        /// you have to move the cursor at the correct position before fire a left click
+        /// </remarks>
         /// <example>
-        ///     <code>
+        /// <code>
+        /// <![CDATA[
         /// Mouse.LeftClick();
+        /// ]]>
         /// </code>
         /// </example>
         /// <returns></returns>
@@ -34,8 +39,17 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Simulates a left click at a specific point through the native methods
+        /// simulates a left click at a specific coordinate
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+        /// Point p = new Point(400,600);
+        /// Mouse.LeftClick(Trainer.GetHandle(),p);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="handle">The handle of the window to click</param>
         /// <param name="point">The point to click</param>
         public static void LeftClick(IntPtr handle, Point point)
@@ -46,10 +60,13 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Performs a left button down
+        /// performs a left button down at the current cursor position
         /// </summary>
+        /// <remarks>
+        /// make sure to release the mouse button using "LeftUp()". Otherwise there can happen unintended consequences
+        /// </remarks>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Mouse.LeftDown();
         /// </code>
         /// </example>
@@ -65,8 +82,20 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Simulates a left button down through the native methods
+        /// Simulates a left button down at the current cursor position
         /// </summary>
+        /// <remarks>
+        /// make sure to release the mouse button using "LeftUp()". Otherwise there can happen unintended consequences
+        /// </remarks>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+        /// Point p = new Point(400,600);
+        /// Mouse.LeftDown(Trainer.GetHandle(),p);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="handle">The handle of the window to click</param>
         /// <param name="point">The point to click</param>
         public static void LeftDown(IntPtr handle, Point point)
@@ -76,10 +105,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Performs a left button up
+        /// Performs a left button up
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Mouse.LeftUp();
         /// </code>
         /// </example>
@@ -90,8 +119,17 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Simulates a left button up through the native methods
+        /// Simulates a left button at a predefined cursor position
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+        /// Point p = new Point(400,600);
+        /// Mouse.LeftUp(Trainer.GetHandle(),p);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="handle">The handle of the window to click</param>
         /// <param name="point">The point to click</param>
         public static void LeftUp(IntPtr handle, Point point)
@@ -101,10 +139,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Performs a right click
+        /// Performs a right click
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Mouse.RightClick();
         /// </code>
         /// </example>
@@ -117,8 +155,17 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Simulates a right click at a specific point through the native methods
+        /// simulates a right click at a specific point 
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+        /// Point p = new Point(400,600);
+        /// Mouse.RightClick(Trainer.GetHandle(),p);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="handle">The handle of the window to click</param>
         /// <param name="point">The point to click</param>
         public static void RightClick(IntPtr handle, Point point)
@@ -129,10 +176,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Performs a right button down
+        /// performs a right button down
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Mouse.RightDown();
         /// </code>
         /// </example>
@@ -143,8 +190,17 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Simulates a right button down through the native methods
+        /// simulates a right button down
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+        /// Point p = new Point(400,600);
+        /// Mouse.RightDown(Trainer.GetHandle(),p);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="handle">The handle of the window to click</param>
         /// <param name="point">The point to click</param>
         public static void RightDown(IntPtr handle, Point point)
@@ -154,10 +210,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Performs a right button up
+        /// Performs a right button up
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Mouse.RightUp();
         /// </code>
         /// </example>
@@ -168,8 +224,17 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Simulates a right button up through the native methods
+        /// Simulates a right button up through the native methods
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+        /// Point p = new Point(400,600);
+        /// Mouse.RightUp(Trainer.GetHandle(),p);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="handle">The handle of the window to click</param>
         /// <param name="point">The point to click</param>
         public static void RightUp(IntPtr handle, Point point)
@@ -179,8 +244,15 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Performs a double-click (left button)
+        /// performs a double-click (left button) at the current cursor position
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// Mouse.DoubleClick();
+        /// ]]>
+        /// </code>
+        /// </example>
         public static void DoubleClick()
         {
             LeftClick();
@@ -189,8 +261,17 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Simulates a double-click (left button) through the native methods
+        /// Simulates a double-click (left button) at a given coordinate on screen relative to the window
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+        /// Point p = new Point(400,600);
+        /// Mouse.DoubleClick(Trainer.GetHandle(),p);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="handle">The handle of the window to click</param>
         /// <param name="point">The point to click</param>
         public static void DoubleClick(IntPtr handle, Point point)
@@ -201,10 +282,14 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Moves the mouse to a specific point
+        /// moves the mouse to a specific point "target" through "steps" number of points
         /// </summary>
+        /// <remarks>
+        /// The more points you`ll use the more smoother the curve will be
+        /// If the option "human" is false the cursor will jump to the target point and ignores "steps"
+        /// </remarks>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Point target = new Point(10,10);
         /// Mouse.Move(target,true,10);
         /// </code>
@@ -242,10 +327,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Moves the mouse to the middle of a rectangle
+        /// Moves the mouse to the middle of a rectangle
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Rectangle r = new Rectangle(50, 50, 100, 100);
         /// Mouse.Move(r,true,10);
         /// </code>
@@ -261,11 +346,15 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Performs a drag-and-drop action
+        /// Performs a drag-and-drop action
         /// </summary>
-        /// <param name="source">The drag point</param>
-        /// <param name="target">The drop point</param>
-        /// <param name="human">Simulate human-like jumps</param>
+        /// <remarks>
+        /// If the option "human" is true, then the mouse can jiggle and the movement have some delays to emulate human mouse movement behavior, 
+        /// since no human performs a complete linear straight cursor movement line
+        /// </remarks>
+        /// <param name="source">The drag point (drag from here)</param>
+        /// <param name="target">The drop point (drop here)</param>
+        /// <param name="human">Simulate human-like jumps </param>
         /// <param name="steps">The points of pathpolygons</param>
         /// <returns></returns>
         public static void DragAndDrop(Point source, Point target, Boolean human = true, Int32 steps = 100)
@@ -280,10 +369,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Returns the current position of the mouse
+        /// Returns the current position of the mouse
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Point CurPos = Point.Empty;
         /// CurPos = Mouse.GetPosition();
         /// </code>
@@ -295,10 +384,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Simulates a mouse jiggle
+        /// Simulates a mouse jiggle
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Mouse.Jiggle();
         /// </code>
         /// </example>
@@ -314,10 +403,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Moves the mouse relatively to a window
+        /// Moves the mouse relatively to a window
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// IntPtr hwnd = ... ;
         /// bool res = MoveRelativeToWindow(hwnd, 20, 35, true, 10);
         /// </code>
@@ -342,10 +431,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Returns the current position of the mouse, relative to a window
+        /// Returns the current position of the mouse, relative to a window
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Point CurPos = Point.Empty;
         /// IntPtr hwnd = ... ;
         /// CurPos = Mouse.GetPositionRelativeToControl(hwnd);
@@ -362,10 +451,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Tests if the mouse is hovering a window
+        /// Tests if the mouse is hovering a window
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// bool OverTextbox = Mouse.HoverControl(Textbox1.Handle);
         /// </code>
         /// </example>
@@ -380,10 +469,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Returns whether the mouse is inside a rectangle or not
+        /// Returns whether the mouse is inside a rectangle or not
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Point Pos = GetPosition(); // get position of the mouse
         /// bool InRectangle = Mouse.InRectangle(Pos,50, 10, 20, 70);
         /// </code>
@@ -402,10 +491,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Returns whether the mouse is inside a rectangle or not
+        /// Returns whether the mouse is inside a rectangle or not
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// bool InRectangle = Mouse.InRectangle(50, 10, 20, 70);
         /// </code>
         /// </example>
@@ -420,10 +509,10 @@ namespace BotSuite
         }
 
         /// <summary>
-        ///     Performs a mouse scroll
+        /// Performs a mouse scroll
         /// </summary>
         /// <example>
-        ///     <code>
+        /// <code>
         /// Mouse.Scroll(-50);
         /// </code>
         /// </example>
