@@ -1,4 +1,4 @@
-BotSuite.NET
+﻿BotSuite.NET
 =============
 
 This library helps you by accelerating the development of bots significantly. 
@@ -28,6 +28,7 @@ active contibutors:
 <ul>
 <li>wieschoo (creator)</li>
 <li>DerpyHooves</li>
+<li>darkunited</li>
 </ul>
 other contributors:
 <ul>
