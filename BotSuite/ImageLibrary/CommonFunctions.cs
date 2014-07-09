@@ -6,15 +6,18 @@ using System.Linq;
 namespace BotSuite.ImageLibrary
 {
     /// <summary>
-    ///     collection of common functions
+    /// collection of common functions
     /// </summary>
     public static class CommonFunctions
     {
         /// <summary>
-        ///     Tests if the colors are similar.
+        /// Tests if the colors are similar.
         /// </summary>
+        /// <remarks>
+        /// the tolerance has to be within the interval 0..255 and no bigger difference in each color channel is allowed
+        /// </remarks>
         /// <example>
-        ///     <code>
+        /// <code>
         /// <![CDATA[
         /// Color A = Color.White;
         /// Color B = Color.Blue;
@@ -39,19 +42,25 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Gets the average RGB values from a given rectangle in an image
-        ///     By default the average RGB values from the whole image are calculated
+        /// Gets the average RGB values from a given rectangle in an image
+        /// By default the average RGB values from the whole image are calculated
         /// </summary>
+        /// <remarks>
+        /// to detect the color of bubbles or coins this function can be helpful in connection with IdentifyColor()
+        /// </remarks>
         /// <example>
-        ///     <code>
+        /// <code>
         /// <![CDATA[
         /// ImageData Img = new ImageData(...);
+        /// // average color in whole image
         /// double[] AverageColor = CommonFunctions.AverageRGBValues(img);
         /// int left = 0;
         /// int top = 5;
+        /// // average color in clipped image
         /// double[] AverageColorShifted = CommonFunctions.AverageRGBValues(img,left,top);
         /// int width = 50;
         /// int height = 100;
+        /// // average color in predefined rectangle
         /// double[] AverageColorRectangle = CommonFunctions.AverageRGBValues(img,left,top,width,height);
         /// ]]>
         /// </code>
@@ -88,9 +97,20 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Gets the average color from an image in a given rectangle
-        ///     By default the the average color from the whole image is calculated
+        /// Gets the average color from an image in a given rectangle
+        /// By default the the average color from the whole image is calculated
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ImageData Img = new ImageData(...);
+        /// // average color in whole image
+        /// double[] AverageColor = CommonFunctions.AverageRGBValues(img);
+        /// // average color in predefined rectangle
+        /// Color AverageColorInRectangle = CommonFunctions.AverageRGBValues(img,left,top,width,height);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="img">The image to process</param>
         /// <param name="left">The left of the rectangle (default=0)</param>
         /// <param name="top">The top of the rectangle (default=0)</param>
@@ -104,8 +124,20 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Calculates the similarity of image A in a given rectangle and a reference image B
+        /// Calculates the similarity of image "img" in a given rectangle and a reference image "reference"
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ImageData Screenshot = new ImageData(...);
+        /// ImageData Coin = new ImageData(...);
+        /// // do magic or using a clipped region of screenshot (500px from left and 100px from top)
+        /// int left_region = 500;
+        /// int top_region = 100;
+        /// double measure = Similarity(Screenshot,Coin,left_region,top_region);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="img">Image A</param>
         /// <param name="reference">Image B</param>
         /// <param name="left">The offset from left of image A</param>
@@ -145,11 +177,42 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Identifies the colors of the pixels in a rectangle and compares them with those from an image by a given list of
-        ///     reference colors (root means square error
-        ///     from average)
+        /// Identifies the colors of the pixels in a rectangle from an image by a given list of
+        /// reference colors (root means square error
+        /// from average)
         /// </summary>
-        /// <param name="img">The image to look in</param>
+        /// <remarks>
+        /// if the color differs sometimes you can use this function to find the best matching colors in a dictionary list. 
+        /// In most you do not need to know the exact rgb values. You only wants to know whether the rectangle is more likely to the color 
+        /// red, blue, rgb(?,?,?), ....
+        /// 
+        /// this functions maps the result to the correct color. If the image contains a pale red and you want to identify this as #ff0000 
+        /// you have to add the pair (#FF8C8C "pale red", #FF0000)
+        /// 
+        /// This uses the RMSE root mean square error to find the best color. 
+        /// Attention! If there are some pixel that have to complete other colors, they can destroy the accurately 
+        /// see: IdentifyColorByVoting
+        /// </remarks>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ImageData Screenshot = new ImageData(...);
+        /// Dictionary<Color, List<double>> Choose = new Dictionary<Color, List<double>> ();
+        /// Choose.Add(Color.Red,    new List<double> { 255, 144.23, 140.89 });
+        /// Choose.Add(Color.White,  new List<double> { 218, 219, 222 });
+        /// Choose.Add(Color.Blue,   new List<double> { 21, 108, 182 });
+        /// Choose.Add(Color.Green,  new List<double> { 86, 191, 50 });
+        /// Choose.Add(Color.Yellow, new List<double> { 233, 203, 118 });
+        /// Choose.Add(Color.Orange, new List<double> { 246, 122, 11 });
+        /// Choose.Add(Color.Black,  new List<double> { 94, 98, 98 });
+        /// Choose.Add(Color.Violet, new List<double> { 223, 80, 195 });
+        /// Choose.Add(Color.MediumSeaGreen,  new List<double> { 106, 227, 216 });
+        /// // ...
+        /// Color PieceColor = CommonFunctions.IdentifyColor(Screenshot,Choose,leftoffset,topoffset,width,height);
+        /// ]]>
+        /// </code>
+        /// </example>
+        /// <param name="img">The image that should be analyzed</param>
         /// <param name="statReference">The list of possible colors</param>
         /// <param name="left">The left of the rectangle (default: 0)</param>
         /// <param name="top">The top of the rectangle (default: 0)</param>
@@ -180,13 +243,40 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Identifies the colors of the pixels in a rectangle and compares them with those from an image by a given list of
-        ///     reference colors (majority vote)
+        /// Identifies the colors of the pixels in a rectangle and compares them with those from an image by a given list of
+        /// reference colors (majority vote)
         /// </summary>
         /// <remarks>
-        ///     This tests every pixel in the given rectangle and majority votes the color from the given dictionary of possible
-        ///     colors
+        /// This tests every pixel in the given rectangle and majority votes the color from the given dictionary of possible
+        /// colors. Each pixel votes for a color.
+        /// 
+        /// if the image patch is 
+        /// 
+        /// " red red  "
+        /// " red blue "
+        /// 
+        /// then 4 pixels vote for similary colors to red and one pixel votes for a similar color to blue
+        /// 
         /// </remarks>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// ImageData Screenshot = new ImageData(...);
+        /// Dictionary<Color, List<double>> Choose = new Dictionary<Color, List<double>> ();
+        /// Choose.Add(Color.Red,    new List<double> { 255, 144.23, 140.89 });
+        /// Choose.Add(Color.White,  new List<double> { 218, 219, 222 });
+        /// Choose.Add(Color.Blue,   new List<double> { 21, 108, 182 });
+        /// Choose.Add(Color.Green,  new List<double> { 86, 191, 50 });
+        /// Choose.Add(Color.Yellow, new List<double> { 233, 203, 118 });
+        /// Choose.Add(Color.Orange, new List<double> { 246, 122, 11 });
+        /// Choose.Add(Color.Black,  new List<double> { 94, 98, 98 });
+        /// Choose.Add(Color.Violet, new List<double> { 223, 80, 195 });
+        /// Choose.Add(Color.MediumSeaGreen,  new List<double> { 106, 227, 216 });
+        /// // ...
+        /// Color PieceColor = CommonFunctions.IdentifyColorByVoting(Screenshot,Choose,leftoffset,topoffset,width,height);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="img">The image to look in</param>
         /// <param name="statReference">The list of possible colors</param>
         /// <param name="left">The left of the rectangle (default: 0)</param>
@@ -248,10 +338,31 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Identifies the best matching color from a list of images
+        /// Identifies the best matching color from a list of colors
         /// </summary>
+        /// <remarks>
+        /// In the example the color #FF8C8C "pale red" would be identify as red
+        /// </remarks>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// Dictionary<Color, List<double>> Choose = new Dictionary<Color, List<double>> ();
+        /// Choose.Add(Color.Red,    new List<double> { 255, 0, 0 });
+        /// Choose.Add(Color.White,  new List<double> { 218, 219, 222 });
+        /// Choose.Add(Color.Blue,   new List<double> { 21, 108, 182 });
+        /// Choose.Add(Color.Green,  new List<double> { 86, 191, 50 });
+        /// Choose.Add(Color.Yellow, new List<double> { 233, 203, 118 });
+        /// Choose.Add(Color.Orange, new List<double> { 246, 122, 11 });
+        /// Choose.Add(Color.Black,  new List<double> { 94, 98, 98 });
+        /// Choose.Add(Color.Violet, new List<double> { 223, 80, 195 });
+        /// Choose.Add(Color.MediumSeaGreen,  new List<double> { 106, 227, 216 });
+        /// // ...
+        /// Color PieceColor = CommonFunctions.IdentifyColor(Color.FromArgb(255,140,140),Choose);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="givenColor">The color to look for</param>
-        /// <param name="statReference">The list of images</param>
+        /// <param name="statReference">The list of colors</param>
         /// <returns>The best matching color from the list</returns>
         public static Color IdentifyColor(Color givenColor, Dictionary<Color, List<double>> statReference)
         {
@@ -276,8 +387,24 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Identifies the best matching image from a list of images
+        /// Identifies the best matching image from a list of images
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// Dictionary<string, ImageData> Choose = new Dictionary<string, ImageData> ();
+        /// Choose.Add("coin",    new ImageData("coin.bmp"));
+        /// Choose.Add("enemy",   new ImageData("warrior.bmp"));
+        /// Choose.Add("water",    new ImageData("blue_piece.bmp"));
+        /// // ...
+        /// string PieceColor = CommonFunctions.IdentifyImage(new ImageData("unkown.bmp"),Choose);
+        /// ]]>
+        /// </code>
+        /// </example>
+        /// <remarks>
+        /// If you want to compare an image patch to a collection of interesting images, you can use this 
+        /// function to find the best matching from the given list
+        /// </remarks>
         /// <param name="img">The image to look for</param>
         /// <param name="statReference">The list of images</param>
         /// <returns>The name of the best matching image in the list</returns>
@@ -322,7 +449,7 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Calculates the difference between two colors (a-b)
+        /// Calculates the difference between two colors (a-b)
         /// </summary>
         /// <param name="a">Color a</param>
         /// <param name="b">Color b</param>
@@ -342,7 +469,7 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Retrieves the red channel as an array
+        /// Retrieves the red channel as an array
         /// </summary>
         /// <param name="img">image</param>
         /// <returns>The red channel as an array</returns>
@@ -361,8 +488,15 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Finds all pixels matching a specified color
+        /// Finds all pixels matching a specified color
         /// </summary>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        /// List<Point> WaterPixel = CommonFunctions.FindColors(ScreenShot.create(),Color.Blue,20);
+        /// ]]>
+        /// </code>
+        /// </example>
         /// <param name="img">The image to look in</param>
         /// <param name="searchColor">The color to look for</param>
         /// <param name="tolerance">The tolerance to use</param>
@@ -384,9 +518,13 @@ namespace BotSuite.ImageLibrary
         }
 
         /// <summary>
-        ///     Finds all pixels matching a specified color
-        ///     /accelerated/
+        /// Finds all pixels matching a specified color
+        /// /accelerated/
         /// </summary>
+        /// <remarks>
+        /// this function skips in both dimension (x and y) a predefined amount of pixels in each iteration.
+        /// You can use this function to test every n-th pixel
+        /// </remarks>
         /// <param name="img">The image to look in</param>
         /// <param name="searchColor">The color to look for</param>
         /// <param name="skipX">The X pixels to skip each time</param>

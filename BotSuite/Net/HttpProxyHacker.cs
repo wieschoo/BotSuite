@@ -15,18 +15,18 @@ namespace BotSuite.Net
 	using System.Reflection;
 
 	/// <summary>
-	///     class used to change some settings so that a proxy can be used
+	/// class used to change some settings so that a proxy can be used
 	/// </summary>
 	internal class HttpProxyHacker
 	{
 		/// <summary>
-		///     en-/disabled allow unsafe header parsing
+		/// en-/disabled allow unsafe header parsing
 		/// </summary>
 		/// <param name="enable">
-		///     determines whether to en- or disable this option
+		/// determines whether to en- or disable this option
 		/// </param>
 		/// <returns>
-		///     whether the operation succeeded or not
+		/// whether the operation succeeded or not
 		/// </returns>
 		public static bool ToggleAllowUnsafeHeaderParsing(bool enable)
 		{
@@ -70,7 +70,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		///     checks if unsafe header parsing is active
+		/// checks if unsafe header parsing is active
 		/// </summary>
 		/// <returns>true, if unsafe header parsing is enabled, else false</returns>
 		public static bool IsUseUnsafeHeaderParsingActivated()

@@ -78,11 +78,5 @@ namespace BotSuite
                 LeftMargin, TopMargin, ClientRectangle.Width - LeftMargin - RightMargin, ClientRectangle.Height - TopMargin - BottomMargin);
         }
 
-//         public void MakeTransparent(Control C)
-//         {
-//             C.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-//             C.TransparencyKey = Color.FromKnownColor(KnownColor.Control);
-//             C.Update();
-//         }
     }
 }
