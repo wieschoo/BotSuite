@@ -46,7 +46,7 @@ namespace BotSuite.Net
 		/// <summary>
 		/// the user agent string which is used for requests
 		/// </summary>
-		private readonly UserAgent userAgent = null;
+		private readonly string userAgent = null;
 
 		/// <summary>
 		/// a collection of all headers of the last response
@@ -60,7 +60,7 @@ namespace BotSuite.Net
 		{
 			get
 			{
-				return this.headers;
+				return headers;
 			}
 		}
 
@@ -156,11 +156,11 @@ namespace BotSuite.Net
 			this.MaximumRedirectCount = 100;
 			this.AllowAutoRedirect = true;
 			this.AutoReferer = true;
-			this.userAgent = new UserAgent(userAgent, "HttpClient");
+		    this.userAgent = userAgent;
 			this.Referer = initialReferer;
 		}
 
-		/// <summary>
+		/*/// <summary>
 		/// Initializes a new instance of the <see cref="HttpClient" /> class
 		/// </summary>
 		/// <param name="userAgent">
@@ -169,7 +169,7 @@ namespace BotSuite.Net
 		/// <param name="initialReferer">
 		/// the Referer the first request will be sent from, i.e. www.google.com
 		/// </param>
-		public HttpClient(UserAgent userAgent, string initialReferer = null)
+        public HttpClient(string userAgent, string initialReferer = null)
 		{
 			this.DecompressionMethod = DecompressionMethods.None;
 			this.MaximumRedirectCount = 100;
@@ -177,7 +177,7 @@ namespace BotSuite.Net
 			this.AutoReferer = true;
 			this.userAgent = userAgent;
 			this.Referer = initialReferer;
-		}
+		}*/
 
 		/// <summary>
 		/// sends a HTTP POST request to a given URL with given POST data and a optional referer
@@ -520,7 +520,7 @@ namespace BotSuite.Net
 
 			req.CookieContainer = this.cookies;
 			req.Method = method;
-			req.UserAgent = this.userAgent.UserAgentString;
+			req.UserAgent = userAgent;
 			req.AutomaticDecompression = this.DecompressionMethod;
 			req.ServicePoint.Expect100Continue = this.Expect100Continue;
 			req.AllowAutoRedirect = this.AllowAutoRedirect;

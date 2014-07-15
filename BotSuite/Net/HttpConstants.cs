@@ -1,4 +1,4 @@
-﻿s// -----------------------------------------------------------------------
+﻿// -----------------------------------------------------------------------
 //  <copyright file="HttpConstants.cs" company="Wieschoo &amp; Binary Overdrive">
 //      Copyright (c) Wieschoo &amp; Binary Overdrive.
 //  </copyright>
