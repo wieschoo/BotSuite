@@ -2,35 +2,35 @@
 =============
 
 This library helps you by accelerating the development of bots significantly. 
-To getting started please visit the tutorial section and read the tutorial "Getting Started" at
-www.botsuite.net to get an introduction and more information. Please do not hesitate to contact us or add an issue here at the project page on github.
+To get started please visit the tutorial section and read "Getting Started" at
+www.botsuite.net. Do not hesitate to contact us or add an issue here, at our project page on GitHub.
 
 
-<h2>outstanding features</h2>
+<h2>Outstanding features</h2>
 - [x] fast, easy and robust image recognition/manipulation
 - [x] easy screenshot capturing
 - [x] mouse cursor control
-- [x] easy way to send HTTP requests and handle their answers
+- [x] easily send HTTP requests and handle their responses
 - [x] common memory reading and writing functions
-- [x] includes a finite state engine
-- [x] captcha cracking with the appertaining artificial feed forward neural network
+- [x] includes a final state engine
+- [x] Captcha cracking using exchange services
 
-<h3>history</h3>
-This project was first published by wieschoo at the german community:
+<h3>History</h3>
+This project was first published by wieschoo at the German community:
 http://www.codebot.de
-If you have any problems you can ask questions there. Please notice that this is a german community. In addition you can use the contact form at http://www.botsuite.net. We try to reply to your questions quickly.
+If you have any problems you can ask there. Please note that this is a German community. In addition you can use the contact form at http://www.botsuite.net. We try to reply to your questions quickly.
 
-<h3>documentation and additional information, tutorials</h3>
+<h3>Documentation, additional information and tutorials:</h3>
 http://www.botsuite.net
 
-<h3>contributors</h3>
-active contibutors:
+<h3>Contributors</h3>
+Active contributors:
 <ul>
 <li>wieschoo (creator)</li>
 <li>DerpyHooves</li>
 <li>darkunited</li>
 </ul>
-other contributors:
+Other contributors:
 <ul>
 <li>easysurfer</li>
 <li>Gr3enP0ison</li>
