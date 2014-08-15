@@ -28,7 +28,7 @@ Active contributors:
 <ul>
 <li>wieschoo (creator)</li>
 <li>DerpyHooves</li>
-<li>darkunited</li>
+<li>ViRb3</li>
 </ul>
 Other contributors:
 <ul>
