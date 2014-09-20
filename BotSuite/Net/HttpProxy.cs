@@ -21,7 +21,7 @@ namespace BotSuite.Net
 		/// <summary>
 		///     the internally used WebProxy instance
 		/// </summary>
-		private readonly WebProxy internalProxy = new WebProxy();
+		private readonly WebProxy _internalProxy = new WebProxy();
 
 		/// <summary>
 		///     Initializes a new instance of the <see cref="HttpProxy" /> class
@@ -70,8 +70,8 @@ namespace BotSuite.Net
 				credential = CredentialCache.DefaultNetworkCredentials;
 			}
 
-			this.internalProxy.Address = address;
-			this.internalProxy.Credentials = credential;
+			this._internalProxy.Address = address;
+			this._internalProxy.Credentials = credential;
 		}
 
 		/// <summary>
@@ -80,7 +80,7 @@ namespace BotSuite.Net
 		/// <returns>the internally used instance of the WebProxy class</returns>
 		internal WebProxy GetWebProxy()
 		{
-			return this.internalProxy;
+			return this._internalProxy;
 		}
 	}
 }

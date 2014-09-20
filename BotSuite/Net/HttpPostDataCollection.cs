@@ -23,14 +23,14 @@ namespace BotSuite.Net
 		/// <summary>
 		///     a list of all postdata instances in this collection
 		/// </summary>
-		private readonly List<HttpPostData> postData;
+		private readonly List<HttpPostData> _postData;
 
 		/// <summary>
 		///     Initializes a new instance of the <see cref="HttpPostDataCollection" /> class
 		/// </summary>
 		public HttpPostDataCollection()
 		{
-			this.postData = new List<HttpPostData>();
+			this._postData = new List<HttpPostData>();
 		}
 
 		/// <summary>
@@ -48,7 +48,7 @@ namespace BotSuite.Net
 
 			if (!this.Contains(item))
 			{
-				this.postData.Add(item);
+				this._postData.Add(item);
 			}
 		}
 
@@ -57,7 +57,7 @@ namespace BotSuite.Net
 		/// </summary>
 		public void Clear()
 		{
-			this.postData.Clear();
+			this._postData.Clear();
 		}
 
 		/// <summary>
@@ -71,7 +71,7 @@ namespace BotSuite.Net
 		/// </returns>
 		public bool Contains(HttpPostData item)
 		{
-			return this.postData.Contains(item);
+			return this._postData.Contains(item);
 		}
 
 		/// <summary>
@@ -86,7 +86,7 @@ namespace BotSuite.Net
 		/// </param>
 		public void CopyTo(HttpPostData[] array, int arrayIndex)
 		{
-			this.postData.CopyTo(array, arrayIndex);
+			this._postData.CopyTo(array, arrayIndex);
 		}
 
 		/// <summary>
@@ -96,7 +96,7 @@ namespace BotSuite.Net
 		{
 			get
 			{
-				return this.postData.Count;
+				return this._postData.Count;
 			}
 		}
 
@@ -122,7 +122,7 @@ namespace BotSuite.Net
 		/// </returns>
 		public bool Remove(HttpPostData item)
 		{
-			return this.postData.Remove(item);
+			return this._postData.Remove(item);
 		}
 
 		/// <summary>
@@ -131,7 +131,7 @@ namespace BotSuite.Net
 		/// <returns>an Enumerator of this collection</returns>
 		public IEnumerator<HttpPostData> GetEnumerator()
 		{
-			return this.postData.GetEnumerator();
+			return this._postData.GetEnumerator();
 		}
 
 		/// <summary>
@@ -150,10 +150,10 @@ namespace BotSuite.Net
 		public override string ToString()
 		{
 			string returnValue = string.Empty;
-			foreach (HttpPostData data in this.postData)
+			foreach (HttpPostData data in this._postData)
 			{
 				returnValue += data.ToString();
-				if (data != this.postData.Last())
+				if (data != this._postData.Last())
 				{
 					returnValue += "&";
 				}

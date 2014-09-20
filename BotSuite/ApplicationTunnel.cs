@@ -15,9 +15,9 @@ namespace BotSuite
 	using System.Globalization;
 	using System.Linq;
 	using System.Text;
-	using BotSuite.Logging;
-	using BotSuite.Native;
-	using BotSuite.Native.Methods;
+	using Logging;
+	using Win32;
+	using Win32.Methods;
 
 	/// <summary>
 	///     control external applications by reading/writing values
@@ -27,22 +27,22 @@ namespace BotSuite
 		/// <summary>
 		///     intern id of process
 		/// </summary>
-		private readonly int processId;
+		private readonly int _processId;
 
 		/// <summary>
 		///     process data
 		/// </summary>
-		private Process attachedProcess;
+		private Process _attachedProcess;
 
 		/// <summary>
 		///     handle of modul
 		/// </summary>
-		private ProcessModule attachedProcessModule;
+		private ProcessModule _attachedProcessModule;
 
 		/// <summary>
 		///     handle of process
 		/// </summary>
-		private IntPtr processHandle;
+		private IntPtr _processHandle;
 
 		/// <summary>
 		///     Gets the base address.
@@ -57,9 +57,9 @@ namespace BotSuite
 		/// </param>
 		public ApplicationTunnel(int id)
 		{
-			this.processId = id;
+			this._processId = id;
 			this.BaseAddress = 0;
-			this.processHandle = IntPtr.Zero;
+			this._processHandle = IntPtr.Zero;
 			this.AttachProcess();
 		}
 
@@ -78,9 +78,9 @@ namespace BotSuite
 				throw new Exception(String.Format("No process found with given name \"{0}\"", processName));
 			}
 
-			this.processId = programmInstances.First().Id;
+			this._processId = programmInstances.First().Id;
 			this.BaseAddress = 0;
-			this.processHandle = IntPtr.Zero;
+			this._processHandle = IntPtr.Zero;
 			this.AttachProcess();
 		}
 
@@ -144,15 +144,15 @@ namespace BotSuite
 		/// </summary>
 		protected void AttachProcess()
 		{
-			this.attachedProcess = Process.GetProcessById(this.processId);
-			const Constants.ProcessAccessType AccessFlags =
+			this._attachedProcess = Process.GetProcessById(this._processId);
+			const Constants.ProcessAccessType ACCESS_FLAGS =
 				Constants.ProcessAccessType.ProcessVmRead
 				| Constants.ProcessAccessType.ProcessVmWrite
 				| Constants.ProcessAccessType.ProcessVmOperation;
 
-			this.processHandle = Kernel32.OpenProcess((uint)AccessFlags, 1, (uint)this.processId);
-			this.attachedProcessModule = this.attachedProcess.MainModule;
-			this.BaseAddress = (int)this.attachedProcessModule.BaseAddress;
+			this._processHandle = Kernel32.OpenProcess((uint)ACCESS_FLAGS, 1, (uint)this._processId);
+			this._attachedProcessModule = this._attachedProcess.MainModule;
+			this.BaseAddress = (int)this._attachedProcessModule.BaseAddress;
 		}
 
 		/// <summary>
@@ -160,7 +160,7 @@ namespace BotSuite
 		/// </summary>
 		protected void DetachProcess()
 		{
-			int closeHandleReturn = Kernel32.CloseHandle(this.processHandle);
+			int closeHandleReturn = Kernel32.CloseHandle(this._processHandle);
 			if (closeHandleReturn == 0)
 			{
 				// TODO: Code Zur Fehler Bearbeitung
@@ -186,7 +186,7 @@ namespace BotSuite
 		{
 			byte[] buffer = new byte[bytesToRead];
 			IntPtr ptrBytesRead;
-			Kernel32.ReadProcessMemory(this.processHandle, memoryAddress, buffer, bytesToRead, out ptrBytesRead);
+			Kernel32.ReadProcessMemory(this._processHandle, memoryAddress, buffer, bytesToRead, out ptrBytesRead);
 			bytesRead = ptrBytesRead.ToInt32();
 			return buffer;
 		}
@@ -300,7 +300,7 @@ namespace BotSuite
 		{
 			IntPtr ptrBytesWritten;
 			Kernel32.WriteProcessMemory(
-				this.processHandle,
+				this._processHandle,
 				memoryAddress,
 				bytesToWrite,
 				(uint)bytesToWrite.Length,
@@ -451,7 +451,7 @@ namespace BotSuite
 		/// <returns>a handle</returns>
 		public IntPtr GetHandle()
 		{
-			return this.processHandle;
+			return this._processHandle;
 		}
 
 		/// <summary>
@@ -459,16 +459,16 @@ namespace BotSuite
 		/// </summary>
 		public void Close()
 		{
-			this.attachedProcess.CloseMainWindow();
-			this.attachedProcess.WaitForExit(4000);
+			this._attachedProcess.CloseMainWindow();
+			this._attachedProcess.WaitForExit(4000);
 
-			if (!this.attachedProcess.HasExited)
+			if (!this._attachedProcess.HasExited)
 			{
 				this.Kill();
 			}
 			else
 			{
-				this.attachedProcess.Dispose();
+				this._attachedProcess.Dispose();
 			}
 		}
 
@@ -479,8 +479,8 @@ namespace BotSuite
 		{
 			try
 			{
-				this.attachedProcess.Kill();
-				this.attachedProcess.WaitForExit();
+				this._attachedProcess.Kill();
+				this._attachedProcess.WaitForExit();
 			}
 			catch (Exception exception)
 			{

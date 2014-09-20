@@ -8,6 +8,9 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
 namespace BotSuite.Input
 {
 	using System;
@@ -15,10 +18,8 @@ namespace BotSuite.Input
 	using System.Linq;
 	using System.Threading;
 	using System.Windows.Forms;
-
-	using BotSuite.Native;
-	using BotSuite.Native.Methods;
-	using BotSuite.Native.Structs;
+	using Win32;
+	using Win32.Methods;
 
 	/// <summary>
 	///     A class that manages a global low level keyboard hook
@@ -28,25 +29,17 @@ namespace BotSuite.Input
 		/// <summary>
 		///     The instance.
 		/// </summary>
-		private static readonly Keyboard Instance;
-
-		/// <summary>
-		///     Initializes static members of the <see cref="Keyboard" /> class.
-		/// </summary>
-		static Keyboard()
-		{
-			Instance = new Keyboard();
-		}
+		private static readonly Keyboard _instance;
 
 		/// <summary>
 		///     The collections of keys to watch for
 		/// </summary>
-		private static readonly List<Keys> HookedKeys = new List<Keys>();
+		private static readonly List<Keys> _hookedKeys = new List<Keys>();
 
 		/// <summary>
 		///     Handle to the hook, need this to unhook and call the next hook
 		/// </summary>
-		private IntPtr hhook = IntPtr.Zero;
+		private IntPtr _hhook = IntPtr.Zero;
 
 		/// <summary>
 		///     Occurs when one of the hooked keys is pressed
@@ -59,11 +52,16 @@ namespace BotSuite.Input
 		public static event KeyEventHandler KeyUp;
 
 		/// <summary>
+		///     Initializes static members of the <see cref="Keyboard" /> class.
+		/// </summary>
+		static Keyboard()
+		{
+			_instance = new Keyboard();
+		}
+
+		/// <summary>
 		///     Initializes a new instance of the <see cref="Keyboard" /> class and installs the keyboard hook.
 		/// </summary>
-		/// <remarks>
-		///     use the whole class by the code from the example!
-		/// </remarks>
 		public Keyboard()
 		{
 			this.Hook();
@@ -80,7 +78,31 @@ namespace BotSuite.Input
 		/// <summary>
 		///     The safe delegate callback.
 		/// </summary>
-		private static readonly Delegates.KeyboardHookProc SafeDelegateCallback = HookProc;
+		private static readonly Delegates.KeyboardHookProc _safeDelegateCallback = HookProc;
+
+		/// <summary>
+		///		Adds a key to the hooked keys list
+		/// </summary>
+		/// <param name="key">The key to be added</param>
+		public static void HookKey(Keys key)
+		{
+			if(!_hookedKeys.Contains(key))
+			{
+				_hookedKeys.Add(key);
+			}
+		}
+
+		/// <summary>
+		///		Removes a key from the hooked keys list
+		/// </summary>
+		/// <param name="key">The key to be removed</param>
+		public static void UnhookKey(Keys key)
+		{
+			if(_hookedKeys.Contains(key))
+			{
+				_hookedKeys.Remove(key);
+			}
+		}
 
 		/// <summary>
 		///     The hook.
@@ -90,8 +112,13 @@ namespace BotSuite.Input
 		/// </remarks>
 		private void Hook()
 		{
-			IntPtr instance = Kernel32.LoadLibrary("User32");
-			this.hhook = User32.SetWindowsHookEx(Constants.WhKeyboardLl, SafeDelegateCallback, instance, 0);
+			using (Process curProcess = Process.GetCurrentProcess())
+			{
+				using (ProcessModule curModule = curProcess.MainModule)
+				{
+					this._hhook = User32.SetWindowsHookEx(Constants.WH_KEYBOARD_LL, _safeDelegateCallback, Kernel32.GetModuleHandle(curModule.ModuleName), 0);
+				}
+			}
 		}
 
 		/// <summary>
@@ -102,7 +129,7 @@ namespace BotSuite.Input
 		/// </remarks>
 		private void Unhook()
 		{
-			User32.UnhookWindowsHookEx(this.hhook);
+			User32.UnhookWindowsHookEx(this._hhook);
 		}
 
 		/// <summary>
@@ -111,10 +138,10 @@ namespace BotSuite.Input
 		/// <param name="code">
 		///     hook code, do sth iff &gt;=0
 		/// </param>
-		/// <param name="wparam">
+		/// <param name="wParam">
 		///     event type
 		/// </param>
-		/// <param name="lparam">
+		/// <param name="lParam">
 		///     keyhook event information
 		/// </param>
 		/// <remarks>
@@ -123,39 +150,39 @@ namespace BotSuite.Input
 		/// <returns>
 		///     the int
 		/// </returns>
-		private static int HookProc(int code, int wparam, ref KeyboardHookStruct lparam)
+		private static IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam)
 		{
 			if (code < 0)
 			{
-				return User32.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
+				return User32.CallNextHookEx(_instance._hhook, code, wParam, lParam);
 			}
 
-			Keys key = (Keys)lparam.VkCode;
-			if (HookedKeys == null)
+			Keys key = (Keys) Marshal.ReadInt32(lParam);
+			if (_hookedKeys == null)
 			{
-				return User32.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
+				return User32.CallNextHookEx(_instance._hhook, code, wParam, lParam);
 			}
 
-			if (!HookedKeys.Contains(key))
+			if (!_hookedKeys.Contains(key))
 			{
-				return User32.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
+				return User32.CallNextHookEx(_instance._hhook, code, wParam, lParam);
 			}
 
 			KeyEventArgs kea = new KeyEventArgs(key);
-			if ((wparam == Constants.WmKeydown || wparam == Constants.WmSyskeydown) && (KeyDown != null))
+			if((wParam.ToInt32() == Constants.WM_KEYDOWN || wParam.ToInt32() == Constants.WM_SYSKEYDOWN) && (KeyDown != null))
 			{
-				KeyDown(Instance, kea);
+				KeyDown(_instance, kea);
 			}
-			else if ((wparam == Constants.WmKeyup || wparam == Constants.WmSyskeyup) && (KeyUp != null))
+			else if((wParam.ToInt32() == Constants.WM_KEYUP || wParam.ToInt32() == Constants.WM_SYSKEYUP) && (KeyUp != null))
 			{
-				KeyUp(Instance, kea);
+				KeyUp(_instance, kea);
 			}
 
-			return kea.Handled ? 1 : User32.CallNextHookEx(Instance.hhook, code, wparam, ref lparam);
+			return kea.Handled ? (IntPtr) 1 : User32.CallNextHookEx(_instance._hhook, code, wParam, lParam);
 		}
 
 		/// <summary>
-		///     types a key or o sequence of keys
+		///     types a key or a sequence of keys
 		/// </summary>
 		/// <param name="sequence">
 		///     Sequence to type
@@ -206,12 +233,12 @@ namespace BotSuite.Input
 		/// </param>
 		public static void TypeToHiddenWindow(Keys key, IntPtr hwnd)
 		{
-			const int KeyDownEvent = 0x0100;
-			const int KeyUpEvent = 0x0101;
-			const int CharEvent = 0x0102;
+			const int KEY_DOWN_EVENT = 0x0100;
+			const int KEY_UP_EVENT = 0x0101;
+			const int CHAR_EVENT = 0x0102;
 
 			// send key down event
-			if (User32.SendMessage(hwnd, KeyDownEvent, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
+			if (User32.SendMessage(hwnd, KEY_DOWN_EVENT, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
 			{
 				return;
 			}
@@ -219,7 +246,7 @@ namespace BotSuite.Input
 			Utility.Delay(20);
 
 			// send character event
-			if (User32.SendMessage(hwnd, CharEvent, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
+			if (User32.SendMessage(hwnd, CHAR_EVENT, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
 			{
 				return;
 			}
@@ -227,7 +254,7 @@ namespace BotSuite.Input
 			Utility.Delay(20);
 
 			// send key up event
-			if (User32.SendMessage(hwnd, KeyUpEvent, (uint)key, GetLParam(1, key, 0, 0, 1, 1)))
+			if (User32.SendMessage(hwnd, KEY_UP_EVENT, (uint)key, GetLParam(1, key, 0, 0, 1, 1)))
 			{
 				return;
 			}
@@ -324,9 +351,9 @@ namespace BotSuite.Input
 		/// </param>
 		public static void HoldKey(byte key, int duration = 500)
 		{
-			User32.keybd_event(key, 0x45, Constants.KeyDownEvent, 0);
+			User32.keybd_event(key, 0x45, Constants.KEY_DOWN_EVENT, 0);
 			Thread.Sleep(duration);
-			User32.keybd_event(key, 0x45, Constants.KeyDownEvent | Constants.KeyUpEvent, 0);
+			User32.keybd_event(key, 0x45, Constants.KEY_DOWN_EVENT | Constants.KEY_UP_EVENT, 0);
 		}
 
 		/// <summary>
@@ -340,7 +367,8 @@ namespace BotSuite.Input
 		/// </returns>
 		public static bool IsKeyDown(Keys key)
 		{
-			return User32.GetAsyncKeyState(key) == short.MinValue;
+			short state = User32.GetAsyncKeyState(key);
+			return state == short.MinValue || state == 1;
 		}
 	}
 }

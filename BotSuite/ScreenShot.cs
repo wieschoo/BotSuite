@@ -14,9 +14,8 @@ namespace BotSuite
 	using System.Drawing;
 	using System.Drawing.Imaging;
 	using System.Windows.Forms;
-
-	using BotSuite.Native.Methods;
-	using BotSuite.Native.Structs;
+	using Win32.Methods;
+	using Win32.Structs;
 
 	/// <summary>
 	///     This class provide functions to create screenshots

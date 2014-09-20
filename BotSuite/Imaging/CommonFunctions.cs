@@ -73,7 +73,7 @@ namespace BotSuite.Imaging
 		/// <returns>
 		///     averag rgb-values
 		/// </returns>
-		public static double[] AverageRGBValues(ImageData img, int left = 0, int top = 0, int width = -1, int height = -1)
+		public static double[] AverageRgbValues(ImageData img, int left = 0, int top = 0, int width = -1, int height = -1)
 		{
 			long[] totals = { 0, 0, 0 };
 
@@ -126,7 +126,7 @@ namespace BotSuite.Imaging
 		/// </returns>
 		public static Color AverageColor(ImageData img, int left = 0, int top = 0, int width = -1, int height = -1)
 		{
-			double[] retvar = AverageRGBValues(img, left, top, width, height);
+			double[] retvar = AverageRgbValues(img, left, top, width, height);
 			return Color.FromArgb(Convert.ToInt32(retvar[0]), Convert.ToInt32(retvar[1]), Convert.ToInt32(retvar[2]));
 		}
 
@@ -230,7 +230,7 @@ namespace BotSuite.Imaging
 			int width = -1,
 			int height = -1)
 		{
-			double[] av = AverageRGBValues(img, left, top, width, height);
+			double[] av = AverageRgbValues(img, left, top, width, height);
 
 			double bestScore = 255;
 

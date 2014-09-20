@@ -8,7 +8,7 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
-namespace BotSuite.Native
+namespace BotSuite.Win32
 {
 	using System;
 
@@ -17,37 +17,37 @@ namespace BotSuite.Native
 		/// <summary>
 		///     defines the callback type for the hook
 		/// </summary>
-		internal const int WhKeyboardLl = 13;
+		internal const int WH_KEYBOARD_LL = 13;
 
 		/// <summary>
 		///     The wm keydown.
 		/// </summary>
-		internal const int WmKeydown = 0x100;
+		internal const int WM_KEYDOWN = 0x100;
 
 		/// <summary>
 		///     The wm keyup.
 		/// </summary>
-		internal const int WmKeyup = 0x101;
+		internal const int WM_KEYUP = 0x101;
 
 		/// <summary>
 		///     The wm syskeydown.
 		/// </summary>
-		internal const int WmSyskeydown = 0x104;
+		internal const int WM_SYSKEYDOWN = 0x104;
 
 		/// <summary>
 		///     The wm syskeyup.
 		/// </summary>
-		internal const int WmSyskeyup = 0x105;
+		internal const int WM_SYSKEYUP = 0x105;
 
 		/// <summary>
 		///     The key down event.
 		/// </summary>
-		internal const int KeyDownEvent = 0x1;
+		internal const int KEY_DOWN_EVENT = 0x1;
 
 		/// <summary>
 		///     The key up event.
 		/// </summary>
-		internal const int KeyUpEvent = 0x2;
+		internal const int KEY_UP_EVENT = 0x2;
 
 		/// <summary>
 		///     The mouse event flags.

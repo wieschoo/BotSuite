@@ -36,22 +36,22 @@ namespace BotSuite.Imaging
 		/// <summary>
 		///     The bmp bytes.
 		/// </summary>
-		private byte[] bmpBytes;
+		private byte[] _bmpBytes;
 
 		/// <summary>
 		///     The bmp stride.
 		/// </summary>
-		private int bmpStride;
+		private int _bmpStride;
 
 		/// <summary>
 		///     The bmp pixel format.
 		/// </summary>
-		private PixelFormat bmpPixelFormat;
+		private PixelFormat _bmpPixelFormat;
 
 		/// <summary>
 		///     The raw format offset.
 		/// </summary>
-		private int rawFormatOffset;
+		private int _rawFormatOffset;
 
 		/// <summary>
 		///     Gets or sets the size.
@@ -150,27 +150,27 @@ namespace BotSuite.Imaging
 		public void LoadBitmap(Bitmap bmp)
 		{
 			// extract bitmap data
-			this.bmpPixelFormat = bmp.PixelFormat;
+			this._bmpPixelFormat = bmp.PixelFormat;
 			this.Width = bmp.Width;
 			this.Height = bmp.Height;
 			switch (bmp.PixelFormat)
 			{
 				case PixelFormat.Format32bppArgb:
-					this.rawFormatOffset = 4;
+					this._rawFormatOffset = 4;
 					break;
 				case PixelFormat.Format24bppRgb:
-					this.rawFormatOffset = 3;
+					this._rawFormatOffset = 3;
 					break;
 			}
 
 			// load bytes
 			Rectangle bmpRectangle = new Rectangle(0, 0, bmp.Width, bmp.Height);
-			BitmapData bmpData = bmp.LockBits(bmpRectangle, ImageLockMode.ReadOnly, this.bmpPixelFormat);
+			BitmapData bmpData = bmp.LockBits(bmpRectangle, ImageLockMode.ReadOnly, this._bmpPixelFormat);
 			IntPtr ptr = bmpData.Scan0;
-			this.bmpStride = bmpData.Stride;
-			int byteSize = this.bmpStride * bmp.Height;
-			this.bmpBytes = new byte[byteSize];
-			Marshal.Copy(ptr, this.bmpBytes, 0, byteSize);
+			this._bmpStride = bmpData.Stride;
+			int byteSize = this._bmpStride * bmp.Height;
+			this._bmpBytes = new byte[byteSize];
+			Marshal.Copy(ptr, this._bmpBytes, 0, byteSize);
 			bmp.UnlockBits(bmpData);
 		}
 
@@ -200,11 +200,11 @@ namespace BotSuite.Imaging
 			Bitmap returnBitmap = new Bitmap(this.Width, this.Height);
 			Rectangle r = new Rectangle(0, 0, this.Width, this.Height);
 
-			BitmapData bmpData = returnBitmap.LockBits(r, ImageLockMode.ReadWrite, this.bmpPixelFormat);
+			BitmapData bmpData = returnBitmap.LockBits(r, ImageLockMode.ReadWrite, this._bmpPixelFormat);
 			int inStride = bmpData.Stride;
 			int byteSize = inStride * returnBitmap.Height;
 			IntPtr ptr = bmpData.Scan0;
-			Marshal.Copy(this.bmpBytes, 0, ptr, byteSize);
+			Marshal.Copy(this._bmpBytes, 0, ptr, byteSize);
 			returnBitmap.UnlockBits(bmpData);
 
 			if (!(left == 0 && top == 0 && width == this.Width && height == this.Height))
@@ -239,9 +239,9 @@ namespace BotSuite.Imaging
 				if ((0 <= x) && (x < this.Width) && (0 <= y) && (y < this.Height))
 				{
 					return Color.FromArgb(
-						this.bmpBytes[y * this.bmpStride + x * this.rawFormatOffset + 2],
-						this.bmpBytes[y * this.bmpStride + x * this.rawFormatOffset + 1],
-						this.bmpBytes[y * this.bmpStride + x * this.rawFormatOffset]);
+						this._bmpBytes[y * this._bmpStride + x * this._rawFormatOffset + 2],
+						this._bmpBytes[y * this._bmpStride + x * this._rawFormatOffset + 1],
+						this._bmpBytes[y * this._bmpStride + x * this._rawFormatOffset]);
 				}
 
 				return Color.Empty;
@@ -251,9 +251,9 @@ namespace BotSuite.Imaging
 			{
 				if ((0 <= x) && (x < this.Width) && (0 <= y) && (y < this.Height))
 				{
-					this.bmpBytes[y * this.bmpStride + x * this.rawFormatOffset + 2] = value.R;
-					this.bmpBytes[y * this.bmpStride + x * this.rawFormatOffset + 1] = value.G;
-					this.bmpBytes[y * this.bmpStride + x * this.rawFormatOffset] = value.B;
+					this._bmpBytes[y * this._bmpStride + x * this._rawFormatOffset + 2] = value.R;
+					this._bmpBytes[y * this._bmpStride + x * this._rawFormatOffset + 1] = value.G;
+					this._bmpBytes[y * this._bmpStride + x * this._rawFormatOffset] = value.B;
 				}
 			}
 		}
@@ -337,7 +337,7 @@ namespace BotSuite.Imaging
 			InterpolationMode interpolationModemode = InterpolationMode.HighQualityBicubic)
 		{
 			// create a new bmpBitmap the size of the new image
-			Bitmap bmp = new Bitmap(newWidth, newHeight, this.bmpPixelFormat);
+			Bitmap bmp = new Bitmap(newWidth, newHeight, this._bmpPixelFormat);
 
 			// create a new graphic from the bmpBitmap
 			Graphics graphic = Graphics.FromImage(bmp);

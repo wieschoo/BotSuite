@@ -14,8 +14,7 @@ namespace BotSuite.Input
 	using System.Collections.Generic;
 	using System.Runtime.InteropServices;
 	using System.Windows.Forms;
-
-	using BotSuite.Logging;
+	using Logging;
 
 	/// <summary>
 	///     A class for setting HotKeys
@@ -38,11 +37,11 @@ namespace BotSuite.Input
 		/// </summary>
 		public object Tag;
 
-		private Keys keys;
+		private Keys _keys;
 
-		private int id;
+		private int _id;
 
-		private bool disposed;
+		private bool _disposed;
 
 		/// <summary>
 		///     Creates a new instance of the <see cref="HotKey" /> class
@@ -58,7 +57,7 @@ namespace BotSuite.Input
 		/// <returns>The registered hotkey.</returns>
 		public static HotKey Register(Keys keys)
 		{
-			HotKey hotKey = new HotKey { keys = keys };
+			HotKey hotKey = new HotKey { _keys = keys };
 			Wnd.HotKeyRegister(hotKey);
 			return hotKey;
 		}
@@ -79,7 +78,7 @@ namespace BotSuite.Input
 		{
 			get
 			{
-				return this.keys;
+				return this._keys;
 			}
 		}
 
@@ -96,27 +95,23 @@ namespace BotSuite.Input
 		/// </summary>
 		public void Dispose()
 		{
-			if (this.disposed)
+			if (this._disposed)
 			{
 				return;
 			}
-			this.disposed = true;
+			this._disposed = true;
 			Wnd.HotKeyUnRegister(this);
 		}
 
 		private class Wnd : Control
 		{
-			private static Wnd def;
+			private const int MOD_ALT = 0x1;
+			private const int MOD_CONTROL = 0x2;
+			private const int MOD_SHIFT = 0x4;
+			private const int WM_HOTKEY = 0x312;
 
-			private const int ModAlt = 0x1;
-
-			private const int ModControl = 0x2;
-
-			private const int ModShift = 0x4;
-
-			private const int WmHotkey = 0x312;
-
-			private readonly List<IntPtr> hotkeys = new List<IntPtr>();
+			private static Wnd _def;
+			private readonly List<IntPtr> _hotkeys = new List<IntPtr>();
 
 			private Wnd()
 			{
@@ -127,47 +122,47 @@ namespace BotSuite.Input
 			{
 				get
 				{
-					if (def == null)
+					if (_def == null)
 					{
-						def = new Wnd();
-						def.CreateHandle();
+						_def = new Wnd();
+						_def.CreateHandle();
 					}
 
-					return def;
+					return _def;
 				}
 			}
 
 			private int GetNewId(IntPtr item)
 			{
 				int i = 0;
-				foreach (IntPtr r in this.hotkeys)
+				foreach (IntPtr r in this._hotkeys)
 				{
 					if ((long)r == 0)
 					{
-						this.hotkeys[i] = item;
+						this._hotkeys[i] = item;
 						return i;
 					}
 
 					i++;
 				}
 
-				this.hotkeys.Add(item);
+				this._hotkeys.Add(item);
 				return i;
 			}
 
 			private IntPtr GetObject(int id)
 			{
-				return this.hotkeys[id];
+				return this._hotkeys[id];
 			}
 
 			private void RemoveId(int id)
 			{
-				this.hotkeys[id] = (IntPtr)0;
+				this._hotkeys[id] = (IntPtr)0;
 			}
 
 			protected override void WndProc(ref Message m)
 			{
-				if (m.Msg == WmHotkey)
+				if (m.Msg == WM_HOTKEY)
 				{
 					HotKey h = (HotKey)GCHandle.FromIntPtr(this.GetObject((int)m.WParam)).Target;
 					if (h.HotKeyPressed != null)
@@ -183,40 +178,40 @@ namespace BotSuite.Input
 
 			internal static void HotKeyRegister(HotKey h)
 			{
-				h.id = Default.GetNewId(GCHandle.ToIntPtr(GCHandle.Alloc(h, GCHandleType.WeakTrackResurrection)));
+				h._id = Default.GetNewId(GCHandle.ToIntPtr(GCHandle.Alloc(h, GCHandleType.WeakTrackResurrection)));
 				int modifiers = 0;
-				if ((h.keys & Keys.Alt) == Keys.Alt)
+				if ((h._keys & Keys.Alt) == Keys.Alt)
 				{
-					modifiers = modifiers | ModAlt;
+					modifiers = modifiers | MOD_ALT;
 				}
 
-				if ((h.keys & Keys.Control) == Keys.Control)
+				if ((h._keys & Keys.Control) == Keys.Control)
 				{
-					modifiers = modifiers | ModControl;
+					modifiers = modifiers | MOD_CONTROL;
 				}
 
-				if ((h.keys & Keys.Shift) == Keys.Shift)
+				if ((h._keys & Keys.Shift) == Keys.Shift)
 				{
-					modifiers = modifiers | ModShift;
+					modifiers = modifiers | MOD_SHIFT;
 				}
 
-				Keys k = h.keys & ~Keys.Control & ~Keys.Shift & ~Keys.Alt;
-				RegisterHotKey(Default.Handle, h.id, modifiers, (int)k);
+				Keys k = h._keys & ~Keys.Control & ~Keys.Shift & ~Keys.Alt;
+				RegisterHotKey(Default.Handle, h._id, modifiers, (int)k);
 			}
 
 			internal static void HotKeyUnRegister(HotKey h)
 			{
 				try
 				{
-					UnregisterHotKey(Default.Handle, h.id);
+					UnregisterHotKey(Default.Handle, h._id);
 				}
 				catch (Exception exception)
 				{
 					Logger.LogException(exception);
 				}
 
-				GCHandle.FromIntPtr(Default.GetObject(h.id)).Free();
-				Default.RemoveId(h.id);
+				GCHandle.FromIntPtr(Default.GetObject(h._id)).Free();
+				Default.RemoveId(h._id);
 			}
 		}
 	}

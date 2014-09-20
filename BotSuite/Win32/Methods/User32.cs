@@ -8,13 +8,12 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
-namespace BotSuite.Native.Methods
+namespace BotSuite.Win32.Methods
 {
 	using System;
 	using System.Runtime.InteropServices;
 	using System.Windows.Forms;
-
-	using BotSuite.Native.Structs;
+	using Structs;
 
 	internal class User32
 	{
@@ -172,7 +171,7 @@ namespace BotSuite.Native.Methods
 		///     The <see cref="int" />.
 		/// </returns>
 		[DllImport("user32")]
-		internal static extern int CallNextHookEx(IntPtr idHook, int nCode, int wParam, ref KeyboardHookStruct lParam);
+		internal static extern IntPtr CallNextHookEx(IntPtr idHook, int nCode, IntPtr wParam, IntPtr lParam);
 
 		/// <summary>
 		///     The print window.

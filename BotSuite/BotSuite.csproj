@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -12,6 +12,7 @@
     <AssemblyName>BotSuite</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\BotSuite.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -56,12 +59,12 @@
     <Compile Include="Input\Keyboard.cs" />
     <Compile Include="Logging\LogEventArgs.cs" />
     <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Native\Constants.cs" />
-    <Compile Include="Native\Delegates.cs" />
-    <Compile Include="Native\Methods\Kernel32.cs" />
-    <Compile Include="Native\Methods\User32.cs" />
-    <Compile Include="Native\Structs\KeyboardHookStruct.cs" />
-    <Compile Include="Native\Structs\Rect.cs" />
+    <Compile Include="Win32\Constants.cs" />
+    <Compile Include="Win32\Delegates.cs" />
+    <Compile Include="Win32\Methods\Kernel32.cs" />
+    <Compile Include="Win32\Methods\User32.cs" />
+    <Compile Include="Win32\Structs\KeyboardHookStruct.cs" />
+    <Compile Include="Win32\Structs\Rect.cs" />
     <Compile Include="Net\Browser.cs" />
     <Compile Include="Net\HttpConstants.cs" />
     <Compile Include="Net\HttpHeader.cs" />

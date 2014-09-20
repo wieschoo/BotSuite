@@ -14,8 +14,7 @@ namespace BotSuite
 	using System.Collections.Generic;
 	using System.Diagnostics;
 	using System.Linq;
-
-	using BotSuite.Native.Methods;
+	using Win32.Methods;
 
 	/// <summary>
 	///     Class with function for windows handling

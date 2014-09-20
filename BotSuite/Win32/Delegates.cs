@@ -8,10 +8,10 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
-namespace BotSuite.Native
-{
-	using BotSuite.Native.Structs;
+using System;
 
+namespace BotSuite.Win32
+{
 	internal class Delegates
 	{
 		/// <summary>
@@ -29,6 +29,6 @@ namespace BotSuite.Native
 		/// <returns>
 		///     some proc
 		/// </returns>
-		public delegate int KeyboardHookProc(int code, int wParam, ref KeyboardHookStruct lParam);
+		public delegate IntPtr KeyboardHookProc(int code, IntPtr wParam, IntPtr lParam);
 	}
 }

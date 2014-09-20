@@ -13,10 +13,9 @@ namespace BotSuite.Input
 	using System;
 	using System.Drawing;
 	using System.Windows.Forms;
-
-	using BotSuite.Native;
-	using BotSuite.Native.Methods;
-	using BotSuite.Native.Structs;
+	using Win32;
+	using Win32.Methods;
+	using Win32.Structs;
 
 	/// <summary>
 	///     class for simulate mouse actions like moving or clicking

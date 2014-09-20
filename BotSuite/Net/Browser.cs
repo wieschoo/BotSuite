@@ -8,14 +8,14 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
+
 namespace BotSuite.Net
 {
+	using System;
 	using System.Collections.Generic;
 	using System.Diagnostics;
 	using System.Linq;
-	using System.Threading;
 	using System.Windows.Forms;
-
 	using Microsoft.Win32;
 
 	/// <summary>
@@ -23,17 +23,15 @@ namespace BotSuite.Net
 	/// </summary>
 	public class Browser
 	{
-		private const string HtmlElementMemberClick = "click";
+		private const string REG_HKLM = "HKEY_LOCAL_MACHINE";
+		private const string REG_HKCU = "HKEY_CURRENT_USER";
+
+		private const string HTML_ELEMENT_MEMBER_CLICK = "click";
 
 		/// <summary>
 		///     intern instance of browser object
 		/// </summary>
-		private readonly WebBrowser browser;
-
-		/// <summary>
-		///     The full loaded.
-		/// </summary>
-		private bool loaded;
+		private readonly WebBrowser _browser;
 
 		/// <summary>
 		///     Initializes a new instance of the <see cref="Browser" /> class.
@@ -46,16 +44,15 @@ namespace BotSuite.Net
 		/// </returns>
 		public Browser(WebBrowser webBrowser)
 		{
-			this.browser = webBrowser;
-			this.browser.DocumentCompleted += this.BrowserDocumentCompleted;
-			this.loaded = true;
-			UseNewIE();
+			this._browser = webBrowser;
+			this._browser.DocumentCompleted += this.BrowserDocumentCompleted;
+			UseNewInternetExplorer();
 		}
 
 		/// <summary>
-		///     force the application to use IE8 or IE9
+		///     force the application to use IE11 Edge Mode
 		/// </summary>
-		private static void UseNewIE()
+		private static void UseNewInternetExplorer()
 		{
 			RegistryKey key =
 				Registry.CurrentUser.OpenSubKey(
@@ -66,8 +63,20 @@ namespace BotSuite.Net
 
 			if (key != null)
 			{
-				key.SetValue(Process.GetCurrentProcess().MainModule.ModuleName, 9999, RegistryValueKind.DWord);
+				key.SetValue(Process.GetCurrentProcess().MainModule.ModuleName, 11001, RegistryValueKind.DWord);
 				key.Close();
+			}
+		}
+
+		private static void FixBrowserVersion(string root, string appName, int lvl)
+		{
+			try
+			{
+				Registry.SetValue(root + @"\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", appName, lvl);
+			}
+			catch(Exception ex)
+			{
+				Logging.Logger.LogException(ex);
 			}
 		}
 
@@ -82,7 +91,7 @@ namespace BotSuite.Net
 		/// </param>
 		protected void BrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
-			this.loaded = true;
+			
 		}
 
 		/// <summary>
@@ -96,7 +105,7 @@ namespace BotSuite.Net
 		/// </returns>
 		public bool ElementExists(string id)
 		{
-			HtmlDocument htmlDocument = this.browser.Document;
+			HtmlDocument htmlDocument = this._browser.Document;
 			if (htmlDocument == null)
 			{
 				return false;
@@ -114,13 +123,13 @@ namespace BotSuite.Net
 		/// </param>
 		public void ClickElementById(string id)
 		{
-			HtmlDocument htmlDocument = this.browser.Document;
+			HtmlDocument htmlDocument = this._browser.Document;
 			if (htmlDocument != null)
 			{
 				HtmlElement tmp = htmlDocument.GetElementById(id);
 				if (tmp != null)
 				{
-					tmp.InvokeMember(HtmlElementMemberClick);
+					tmp.InvokeMember(HTML_ELEMENT_MEMBER_CLICK);
 				}
 			}
 		}
@@ -136,7 +145,7 @@ namespace BotSuite.Net
 		/// </param>
 		public void FillInputById(string id, string value)
 		{
-			HtmlDocument htmlDocument = this.browser.Document;
+			HtmlDocument htmlDocument = this._browser.Document;
 			if (htmlDocument != null)
 			{
 				HtmlElement elementById = htmlDocument.GetElementById(id);
@@ -158,7 +167,7 @@ namespace BotSuite.Net
 		/// </returns>
 		public string GetInnerTextById(string id)
 		{
-			HtmlDocument htmlDocument = this.browser.Document;
+			HtmlDocument htmlDocument = this._browser.Document;
 			if (htmlDocument != null)
 			{
 				HtmlElement elementById = htmlDocument.GetElementById(id);
@@ -179,14 +188,7 @@ namespace BotSuite.Net
 		/// </param>
 		public void NavigateTo(string page)
 		{
-			this.loaded = false;
-			this.browser.Navigate(page);
-
-			while (!this.loaded)
-			{
-				Application.DoEvents();
-				Thread.Sleep(50);
-			}
+			this._browser.Navigate(page);
 		}
 
 		/// <summary>
@@ -196,7 +198,7 @@ namespace BotSuite.Net
 		/// <returns>an <see cref="HtmlElement" /></returns>
 		public HtmlElement GetElementById(string id)
 		{
-			HtmlDocument htmlDocument = this.browser.Document;
+			HtmlDocument htmlDocument = this._browser.Document;
 			if (htmlDocument != null)
 			{
 				HtmlElement element = htmlDocument.GetElementById(id);
@@ -215,7 +217,7 @@ namespace BotSuite.Net
 		{
 			List<HtmlElement> htmlElements = new List<HtmlElement>();
 
-			HtmlDocument htmlDocument = this.browser.Document;
+			HtmlDocument htmlDocument = this._browser.Document;
 			if (htmlDocument != null)
 			{
 				htmlElements.AddRange(
@@ -234,7 +236,7 @@ namespace BotSuite.Net
 		{
 			List<HtmlElement> htmlElements = new List<HtmlElement>();
 
-			HtmlDocument htmlDocument = this.browser.Document;
+			HtmlDocument htmlDocument = this._browser.Document;
 			if (htmlDocument != null)
 			{
 				htmlElements.AddRange(htmlDocument.GetElementsByTagName(tagName).Cast<HtmlElement>());

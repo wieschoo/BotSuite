@@ -30,7 +30,7 @@ namespace BotSuite.Net
 		/// <summary>
 		///     Contains all cookies for this instance of the HttpClient class
 		/// </summary>
-		private readonly CookieContainer cookies = new CookieContainer();
+		private readonly CookieContainer _cookies = new CookieContainer();
 
 		/// <summary>
 		///     Gets all cookies for this instance of the HttpClient class
@@ -39,19 +39,19 @@ namespace BotSuite.Net
 		{
 			get
 			{
-				return this.cookies;
+				return this._cookies;
 			}
 		}
 
 		/// <summary>
 		///     the user agent string which is used for requests
 		/// </summary>
-		private readonly UserAgent userAgent = null;
+		private readonly UserAgent _userAgent = null;
 
 		/// <summary>
 		///     a collection of all headers of the last response
 		/// </summary>
-		private readonly HttpHeaderCollection headers = new HttpHeaderCollection();
+		private readonly HttpHeaderCollection _headers = new HttpHeaderCollection();
 
 		/// <summary>
 		///     Gets a collection of all headers of the last response
@@ -60,7 +60,7 @@ namespace BotSuite.Net
 		{
 			get
 			{
-				return this.headers;
+				return this._headers;
 			}
 		}
 
@@ -156,7 +156,7 @@ namespace BotSuite.Net
 			this.MaximumRedirectCount = 100;
 			this.AllowAutoRedirect = true;
 			this.AutoReferer = true;
-			this.userAgent = new UserAgent(userAgent, "HttpClient");
+			this._userAgent = new UserAgent(userAgent, "HttpClient");
 			this.Referer = initialReferer;
 		}
 
@@ -175,7 +175,7 @@ namespace BotSuite.Net
 			this.MaximumRedirectCount = 100;
 			this.AllowAutoRedirect = true;
 			this.AutoReferer = true;
-			this.userAgent = userAgent;
+			this._userAgent = userAgent;
 			this.Referer = initialReferer;
 		}
 
@@ -242,9 +242,9 @@ namespace BotSuite.Net
 				{
 					response = this.PostInternal<TRespType>(url, postdata, referer);
 				}
-				else if (this.headers.Contains(HttpConstants.HeaderNames.Location))
+				else if (this._headers.Contains(HttpConstants.HeaderNames.LOCATION))
 				{
-					response = this.GetInternal<TRespType>(this.Headers[HttpConstants.HeaderNames.Location].Value);
+					response = this.GetInternal<TRespType>(this.Headers[HttpConstants.HeaderNames.LOCATION].Value);
 				}
 				else
 				{
@@ -277,7 +277,7 @@ namespace BotSuite.Net
 		/// </returns>
 		private TRespType PostInternal<TRespType>(string url, string postdata, string referer = null) where TRespType : class
 		{
-			this.headers.Clear(); // DerpyHooves 2013-06-21
+			this._headers.Clear(); // DerpyHooves 2013-06-21
 
 			if (referer != null)
 			{
@@ -343,9 +343,9 @@ namespace BotSuite.Net
 				{
 					response = this.GetInternal<TRespType>(url, referer);
 				}
-				else if (this.headers.Contains(HttpConstants.HeaderNames.Location))
+				else if (this._headers.Contains(HttpConstants.HeaderNames.LOCATION))
 				{
-					response = this.GetInternal<TRespType>(this.Headers[HttpConstants.HeaderNames.Location].Value);
+					response = this.GetInternal<TRespType>(this.Headers[HttpConstants.HeaderNames.LOCATION].Value);
 				}
 				else
 				{
@@ -375,7 +375,7 @@ namespace BotSuite.Net
 		/// </returns>
 		private TRespType GetInternal<TRespType>(string url, string referer = null) where TRespType : class
 		{
-			this.headers.Clear();
+			this._headers.Clear();
 
 			if (referer != null)
 			{
@@ -426,9 +426,9 @@ namespace BotSuite.Net
 					{
 						this.HeadInternal<TRespType>(url, referer);
 					}
-					else if (this.headers.Contains(HttpConstants.HeaderNames.Location))
+					else if (this._headers.Contains(HttpConstants.HeaderNames.LOCATION))
 					{
-						this.HeadInternal<TRespType>(this.Headers[HttpConstants.HeaderNames.Location].Value);
+						this.HeadInternal<TRespType>(this.Headers[HttpConstants.HeaderNames.LOCATION].Value);
 					}
 					else
 					{
@@ -458,7 +458,7 @@ namespace BotSuite.Net
 		/// </param>
 		private void HeadInternal<TRespType>(string url, string referer = null) where TRespType : class
 		{
-			this.headers.Clear(); // DerpyHooves 2013-06-21
+			this._headers.Clear(); // DerpyHooves 2013-06-21
 
 			if (referer != null)
 			{
@@ -518,9 +518,9 @@ namespace BotSuite.Net
 			ServicePointManager.ServerCertificateValidationCallback =
 				(sender, cert, chain, errors) => this.IgnoreCertificateValidationFailures;
 
-			req.CookieContainer = this.cookies;
+			req.CookieContainer = this._cookies;
 			req.Method = method;
-			req.UserAgent = this.userAgent.UserAgentString;
+			req.UserAgent = this._userAgent.UserAgentString;
 			req.AutomaticDecompression = this.DecompressionMethod;
 			req.ServicePoint.Expect100Continue = this.Expect100Continue;
 			req.AllowAutoRedirect = this.AllowAutoRedirect;
@@ -704,7 +704,7 @@ namespace BotSuite.Net
 			}
 
 			Cookie nc = new Cookie(c.Name, c.Value, path, c.Domain);
-			this.cookies.Add(u, nc);
+			this._cookies.Add(u, nc);
 		}
 	}
 }

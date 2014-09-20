@@ -18,7 +18,7 @@ namespace BotSuite
 	/// </summary>
 	public class Utility
 	{
-		private static readonly Random Random = new Random();
+		private static readonly Random _random = new Random();
 
 		/// <summary>
 		///     pause the current thread for x ms
@@ -59,7 +59,7 @@ namespace BotSuite
 		/// </returns>
 		public static int RandomInt(int lower, int upper)
 		{
-			return Random.Next(lower, upper);
+			return _random.Next(lower, upper);
 		}
 
 		/// <summary>
@@ -76,7 +76,7 @@ namespace BotSuite
 		/// </returns>
 		public static double RandomDouble(double lower, double upper)
 		{
-			return Random.NextDouble() * (upper - lower + upper);
+			return _random.NextDouble() * (upper - lower + upper);
 		}
 	}
 }

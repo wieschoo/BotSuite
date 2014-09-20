@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="Rect.cs" company="Wieschoo &amp; Binary Overdrive">
+//  <copyright file="KeyboardHookStruct.cs" company="Wieschoo &amp; Binary Overdrive">
 //      Copyright (c) Wieschoo &amp; Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
@@ -8,34 +8,39 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
-namespace BotSuite.Native.Structs
+namespace BotSuite.Win32.Structs
 {
 	using System.Runtime.InteropServices;
 
 	/// <summary>
-	///     The rect.
+	///     The keyboard hook struct.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
-	internal struct Rect
+	public struct KeyboardHookStruct
 	{
 		/// <summary>
-		///     The left.
+		///     The vk code.
 		/// </summary>
-		public int Left;
+		public int VkCode;
 
 		/// <summary>
-		///     The top.
+		///     The scan code.
 		/// </summary>
-		public int Top;
+		public int ScanCode;
 
 		/// <summary>
-		///     The right.
+		///     The flags.
 		/// </summary>
-		public int Right;
+		public int Flags;
 
 		/// <summary>
-		///     The bottom.
+		///     The time.
 		/// </summary>
-		public int Bottom;
+		public int Time;
+
+		/// <summary>
+		///     The dw extra info.
+		/// </summary>
+		public int DwExtraInfo;
 	}
 }

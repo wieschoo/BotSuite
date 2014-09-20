@@ -20,7 +20,7 @@ namespace BotSuite.DataTypes
 		/// <summary>
 		///     The hash code var.
 		/// </summary>
-		private readonly int hashCodeVar;
+		private readonly int _hashCodeVar;
 
 		/// <summary>
 		///     Gets or sets the int value.
@@ -38,7 +38,7 @@ namespace BotSuite.DataTypes
 		/// </param>
 		public Hex32(int i)
 		{
-			this.hashCodeVar = i;
+			this._hashCodeVar = i;
 			this.IntValue = i;
 		}
 
@@ -81,7 +81,7 @@ namespace BotSuite.DataTypes
 		/// </returns>
 		public override int GetHashCode()
 		{
-			return this.hashCodeVar * 0x00010000 + this.hashCodeVar;
+			return this._hashCodeVar * 0x00010000 + this._hashCodeVar;
 		}
 
 		/// <summary>

@@ -21,7 +21,7 @@ namespace BotSuite.Net
 		/// <summary>
 		///     the key/name of the POST data
 		/// </summary>
-		private string key;
+		private string _key;
 
 		/// <summary>
 		///     Gets or sets the key/name of the POST data
@@ -30,19 +30,19 @@ namespace BotSuite.Net
 		{
 			get
 			{
-				return this.key;
+				return this._key;
 			}
 
 			set
 			{
-				this.key = value;
+				this._key = value;
 			}
 		}
 
 		/// <summary>
 		///     the value of the POST data
 		/// </summary>
-		private string value;
+		private string _value;
 
 		/// <summary>
 		///     Gets or sets the value of the POST data
@@ -51,12 +51,12 @@ namespace BotSuite.Net
 		{
 			get
 			{
-				return this.value;
+				return this._value;
 			}
 
 			set
 			{
-				this.value = value;
+				this._value = value;
 			}
 		}
 
@@ -71,8 +71,8 @@ namespace BotSuite.Net
 		/// </param>
 		public HttpPostData(string key, string value)
 		{
-			this.key = key;
-			this.value = value;
+			this._key = key;
+			this._value = value;
 		}
 
 		/// <summary>
@@ -81,7 +81,7 @@ namespace BotSuite.Net
 		/// <returns>a string representation of the POST data key-value-pair</returns>
 		public override string ToString()
 		{
-			return string.Concat(HttpUtility.UrlEncode(this.key), '=', HttpUtility.UrlEncode(this.value));
+			return string.Concat(HttpUtility.UrlEncode(this._key), '=', HttpUtility.UrlEncode(this._value));
 		}
 
 		/// <summary>
@@ -95,7 +95,7 @@ namespace BotSuite.Net
 		/// </returns>
 		public bool Equals(HttpPostData other)
 		{
-			return this.key.Equals(other.key);
+			return this._key.Equals(other._key);
 		}
 
 		/// <summary>
@@ -109,7 +109,7 @@ namespace BotSuite.Net
 		/// </returns>
 		public int CompareTo(HttpPostData other)
 		{
-			return string.Compare(this.key, other.key, StringComparison.Ordinal);
+			return string.Compare(this._key, other._key, StringComparison.Ordinal);
 		}
 	}
 }

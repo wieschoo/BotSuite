@@ -25,7 +25,7 @@ namespace BotSuite.Logging
 		/// <summary>
 		///     The instance logger.
 		/// </summary>
-		private static Logger instanceLogger;
+		private static Logger _instanceLogger;
 
 		/// <summary>
 		///     Prevents a default instance of the <see cref="Logger" /> class from being created.
@@ -53,12 +53,12 @@ namespace BotSuite.Logging
 		/// </param>
 		private static void AddLogEntryInternal(string logEntry)
 		{
-			if (instanceLogger == null)
+			if (_instanceLogger == null)
 			{
-				instanceLogger = new Logger();
+				_instanceLogger = new Logger();
 			}
 
-			instanceLogger.AddLogEntry(logEntry);
+			_instanceLogger.AddLogEntry(logEntry);
 		}
 
 		/// <summary>

@@ -8,7 +8,7 @@
 //  <license>http://botsuite.net/license/index/</license>
 // -----------------------------------------------------------------------
 
-namespace BotSuite.Native.Methods
+namespace BotSuite.Win32.Methods
 {
 	using System;
 	using System.Runtime.InteropServices;
@@ -169,5 +169,17 @@ namespace BotSuite.Native.Methods
 			StringBuilder retVal,
 			int size,
 			string filePath);
+
+		/// <summary>
+		///		Gets the module handle to a module name
+		/// </summary>
+		/// <param name="lpModuleName">
+		///		The module name
+		/// </param>
+		/// <returns>
+		///		A module handle
+		/// </returns>
+		[DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+		internal static extern IntPtr GetModuleHandle(string lpModuleName);
 	}
 }

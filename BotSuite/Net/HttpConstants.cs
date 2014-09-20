@@ -23,102 +23,102 @@ namespace BotSuite.Net
 			/// <summary>
 			///     the Accept-Ranges header field name
 			/// </summary>
-			public const string AcceptRanges = "Accept-Ranges";
+			public const string ACCEPT_RANGES = "Accept-Ranges";
 
 			/// <summary>
 			///     the Age header field name
 			/// </summary>
-			public const string Age = "Age";
+			public const string AGE = "Age";
 
 			/// <summary>
 			///     the Allow header field name
 			/// </summary>
-			public const string Allow = "Allow";
+			public const string ALLOW = "Allow";
 
 			/// <summary>
 			///     the Cache-Control header field name
 			/// </summary>
-			public const string CacheControl = "Cache-Control";
+			public const string CACHE_CONTROL = "Cache-Control";
 
 			/// <summary>
 			///     the Connection header field name
 			/// </summary>
-			public const string Connection = "Connection";
+			public const string CONNECTION = "Connection";
 
 			/// <summary>
 			///     the Content-Encoding header field name
 			/// </summary>
-			public const string ContentEncoding = "Content-Encoding";
+			public const string CONTENT_ENCODING = "Content-Encoding";
 
 			/// <summary>
 			///     the Content-Language header field name
 			/// </summary>
-			public const string ContentLanguage = "Content-Language";
+			public const string CONTENT_LANGUAGE = "Content-Language";
 
 			/// <summary>
 			///     the Content-Length header field name
 			/// </summary>
-			public const string ContentLength = "Content-Length";
+			public const string CONTENT_LENGTH = "Content-Length";
 
 			/// <summary>
 			///     the Content-Location header field name
 			/// </summary>
-			public const string ContentLocation = "Content-Location";
+			public const string CONTENT_LOCATION = "Content-Location";
 
 			/// <summary>
 			///     the Content-MD5 header field name
 			/// </summary>
-			public const string ContentMd5 = "Content-MD5";
+			public const string CONTENT_MD5 = "Content-MD5";
 
 			/// <summary>
 			///     the Content-Disposition header field name
 			/// </summary>
-			public const string ContentDisposition = "Content-Disposition";
+			public const string CONTENT_DISPOSITION = "Content-Disposition";
 
 			/// <summary>
 			///     the Content-Range header field name
 			/// </summary>
-			public const string ContentRange = "Content-Range";
+			public const string CONTENT_RANGE = "Content-Range";
 
 			/// <summary>
 			///     the Content-Security-Policy header field name
 			/// </summary>
-			public const string ContentSecurityPolicy = "Content-Security-Policy";
+			public const string CONTENT_SECURITY_POLICY = "Content-Security-Policy";
 
 			/// <summary>
 			///     the Content-Type header field name
 			/// </summary>
-			public const string ContentType = "Content-Type";
+			public const string CONTENT_TYPE = "Content-Type";
 
 			/// <summary>
 			///     the Date header field name
 			/// </summary>
-			public const string Date = "Date";
+			public const string DATE = "Date";
 
 			/// <summary>
 			///     the ETag header field name
 			/// </summary>
-			public const string ETag = "ETag";
+			public const string E_TAG = "ETag";
 
 			/// <summary>
 			///     the Expires header field name
 			/// </summary>
-			public const string Expires = "Expires";
+			public const string EXPIRES = "Expires";
 
 			/// <summary>
 			///     the Last-Modified header field name
 			/// </summary>
-			public const string LastModified = "Last-Modified";
+			public const string LAST_MODIFIED = "Last-Modified";
 
 			/// <summary>
 			///     the Link header field name
 			/// </summary>
-			public const string Link = "Link";
+			public const string LINK = "Link";
 
 			/// <summary>
 			///     the Location header field name
 			/// </summary>
-			public const string Location = "Location";
+			public const string LOCATION = "Location";
 
 			/// <summary>
 			///     the P3P header field name
@@ -128,62 +128,62 @@ namespace BotSuite.Net
 			/// <summary>
 			///     the Pragma header field name
 			/// </summary>
-			public const string Pragma = "Pragma";
+			public const string PRAGMA = "Pragma";
 
 			/// <summary>
 			///     the Proxy-Authenticate header field name
 			/// </summary>
-			public const string ProxyAuthenticate = "Proxy-Authenticate";
+			public const string PROXY_AUTHENTICATE = "Proxy-Authenticate";
 
 			/// <summary>
 			///     the Refresh header field name
 			/// </summary>
-			public const string Refresh = "Refresh";
+			public const string REFRESH = "Refresh";
 
 			/// <summary>
 			///     the Retry-After header field name
 			/// </summary>
-			public const string RetryAfter = "Retry-After";
+			public const string RETRY_AFTER = "Retry-After";
 
 			/// <summary>
 			///     the Server header field name
 			/// </summary>
-			public const string Server = "Server";
+			public const string SERVER = "Server";
 
 			/// <summary>
 			///     the Set-Cookie header field name
 			/// </summary>
-			public const string SetCookie = "Set-Cookie";
+			public const string SET_COOKIE = "Set-Cookie";
 
 			/// <summary>
 			///     the Trailer header field name
 			/// </summary>
-			public const string Trailer = "Trailer";
+			public const string TRAILER = "Trailer";
 
 			/// <summary>
 			///     the Transfer-Encoding header field name
 			/// </summary>
-			public const string TransferEncoding = "Transfer-Encoding";
+			public const string TRANSFER_ENCODING = "Transfer-Encoding";
 
 			/// <summary>
 			///     the Vary header field name
 			/// </summary>
-			public const string Vary = "Vary";
+			public const string VARY = "Vary";
 
 			/// <summary>
 			///     the Via header field name
 			/// </summary>
-			public const string Via = "Via";
+			public const string VIA = "Via";
 
 			/// <summary>
 			///     the Warning header field name
 			/// </summary>
-			public const string Warning = "Warning";
+			public const string WARNING = "Warning";
 
 			/// <summary>
 			///     the WWW-Authenticate header field name
 			/// </summary>
-			public const string WwwAuthenticate = "WWW-Authenticate";
+			public const string WWW_AUTHENTICATE = "WWW-Authenticate";
 		}
 	}
 }
