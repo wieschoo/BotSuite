@@ -1,0 +1,253 @@
+body,
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #ececec;
+    background: url(noise-bg.png), -webkit-linear-gradient(top, #d7d7d7, #ececec 200px);
+    background: url(noise-bg.png), -moz-linear-gradient(top, #d7d7d7, #ececec 200px);
+    background: url(noise-bg.png), linear-gradient(top, #d7d7d7, #ececec 200px);
+}
+header {
+    background: rgba(15, 35, 44, 1);
+    background: url(noise-bg.png), -webkit-radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), -webkit-linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
+    background: url(noise-bg.png), -moz-radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), -moz-linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
+    background: url(noise-bg.png), -ms-radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), -ms-linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
+    background: url(noise-bg.png), radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
+    -webkit-font-smoothing: antialiased;
+    box-shadow: outset 0 1px rgba(255, 255, 255, 0.5);
+}
+#heading h1,
+#heading h2,
+#heading h3,
+#heading h4,
+#heading h5,
+#heading h6 {
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+h3 {
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+section h2 {
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    color: #777;
+    font-weight: 300;
+}
+.mymenu {
+    background: rgba(0, 0, 0, 0.6);
+    background: -webkit-linear-gradient(#48A000, #a4cb00);
+    background: -moz-linear-gradient(#48A000, #a4cb00);
+    background: -ms-linear-gradient(#48A000, #a4cb00);
+    background: linear-gradient(#48A000, #a4cb00);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 -1px rgba(0, 0, 0, 1), 0 2px 8px rgba(0, 0, 0, 1);
+}
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+.navbar-default .navbar-nav > li {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 1px 0 rgba(255, 255, 255, 0.15);
+}
+.navbar-default .navbar-nav > li:hover {
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    background: -moz-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    background: -ms-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    color: #fff;
+    cursor: pointer;
+}
+.navbar-default .navbar-nav > .active> a {
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    background: -moz-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    background: -ms-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    color: #fff;
+    cursor: pointer;
+}
+.navbar-default .navbar-nav > li:active {
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+    background: -ms-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+    box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    cursor: pointer;
+}
+.navbar-default .navbar-nav > li:last-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 0 rgba(255, 255, 255, 0.15);
+}
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fff;
+}
+.navbar-default .navbar-nav > li > a:active {
+    color: #fff;
+}
+#heading h1 {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(80, 80, 80, 0.5);
+    font-size: 4em;
+    font-weight: 300;
+}
+#heading h2 {
+    color: #a4cb00;
+    font-size: 2em;
+    font-weight: 300;
+}
+section h1 {
+    color: #000;
+    font-size: 3em;
+    font-size: 56px;
+    font-weight: 300;
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+}
+.btnhighlight {
+    background-color: #76b347;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #76b347), color-stop(100%, #5e9e2e));
+    background-image: -webkit-linear-gradient(top, #76b347, #5e9e2e);
+    background-image: -moz-linear-gradient(top, #76b347, #5e9e2e);
+    background-image: -ms-linear-gradient(top, #76b347, #5e9e2e);
+    background-image: -o-linear-gradient(top, #76b347, #5e9e2e);
+    background-image: linear-gradient(top, #76b347, #5e9e2e);
+    -webkit-box-shadow: inset 0 1px 0 0 #8dbf67;
+    box-shadow: inset 0 1px 0 0 #8dbf67;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+}
+.myhighlight {
+    margin-bottom: 2em;
+    padding: 1.5em .5em .5em 1em;
+    background-color: #eff7fd;
+    border: solid 1px #e0e0e0;
+}
+#docu table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+#docu table thead {
+    background: #263849;
+    color: white;
+    font-weight: normal;
+    background-color: #7fbf4d;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7fbf4d), color-stop(100%, #63a62f));
+    background-image: -webkit-linear-gradient(top, #7fbf4d, #63a62f);
+    background-image: -moz-linear-gradient(top, #7fbf4d, #63a62f);
+    background-image: -ms-linear-gradient(top, #7fbf4d, #63a62f);
+    background-image: -o-linear-gradient(top, #7fbf4d, #63a62f);
+    background-image: linear-gradient(top, #7fbf4d, #63a62f);
+}
+#docu table tbody {
+    border-bottom: 1px #eee solid;
+}
+#docu table tbody td {
+    padding: 5px;
+}
+#docu table thead th {
+    font-weight: normal;
+    padding: 5px 10px 5px 10px;
+    text-align: left;
+}
+#docu tr {
+    border-top: 1px solid white;
+}
+#docu tbody .even {
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#docu tbody .odd {
+    background-color: #f8f8f8;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#docu tbody tr:nth-child(even) {
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#docu tbody tr:nth-child(odd) {
+    background-color: #f8f8f8;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#docu table tbody .even:hover,
+#docu .odd:hover,
+#docu table tbody tr:hover {
+    background-color: #E5F5FF;
+    background-color: #EAF5BC;
+    border-top: 1px solid #63a62f;
+    border-bottom: 1px solid #63a62f;
+    cursor: pointer;
+}
+#docu table img {
+    margin-right: 9px;
+}
+#docu table a:hover {
+    text-decoration: none;
+}
+#docu .function_gray {
+    color: #999;
+}
+#docu .function_green {
+    color: #63a62f;
+}
+#faq .question {
+    color: #263849;
+    margin-bottom: 5px;
+}
+#faq .answer {
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.divider {
+    padding: 0;
+    margin: 0;
+    background-color: #dadada;
+    border-bottom: 1px solid #fff;
+    height: 1px;
+    margin: .5em 0 1.5em;
+    display: block;
+    font-size: 1px;
+}
+.divider span {
+    padding: 0;
+    margin: 0;
+    background-color: #5e9e2e;
+    display: block;
+    height: 1px;
+    width: 20%;
+    font-size: 1px;
+}
+#tutorial h3 {
+    border-bottom: #CCC 1px solid;
+}
+a {
+    color: #729a31;
+    text-decoration: none;
+}
+a:hover {
+    color: #729a31;
+    text-decoration: underline;
+}
+.code,
+pre {
+    padding: 5px;
+    background-color: #EEE;
+    color: #333;
+    line-height: 120%;
+    border: 1px solid #8dbf67;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    font-family: Consolas, 'Courier New', Courier, monospace;
+    font-size: 13px;
+}
