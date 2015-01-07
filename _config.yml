@@ -1,0 +1,11 @@
+# Site settings
+title: BotSuite
+email: example@botsuite.net
+description: "official page for BotSuite.NET"
+baseurl: ""
+url: "http://botsuite.net"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+highlighter: rouge
