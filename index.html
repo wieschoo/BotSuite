@@ -1,18 +1,66 @@
 <!doctype html>
 
-<html>
+<html ng-app="BotSuiteApp">
 
 <head>
     <title>BotSuite.NET</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700" type="text/css">
     <link rel="stylesheet" href="template/style.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 </head>
+    <script>
+   var app = angular.module('BotSuiteApp', [])
+   .filter('characters', function () {
+        return function (input, chars, breakOnWord) {
+            if (input && input.length > chars) {
+                input = input.substring(0, chars);
 
-<body>
+                if (!breakOnWord) {
+                    var lastspace = input.lastIndexOf(' ');
+                    //get last space
+                    if (lastspace !== -1) {
+                        input = input.substr(0, lastspace);
+                    }
+                }else{
+                    while(input.charAt(input.length-1) === ' '){
+                        input = input.substr(0, input.length -1);
+                    }
+                }
+                return input + '';
+            }
+            return input;
+        };
+    })
+    .controller('BotSuiteCtrl', ['$scope', '$http',
+        function($scope, $http, $sce, $q) {
+            $scope.test = "hh";
+            //$http.get('').
+            $http.get('https://api.github.com/repos/wieschoo/botsuite').
+            then(function(repoInfo) {
+                $scope.repoInfo = repoInfo.data;
+            });
+            //
+            $http.get('https://api.github.com/repos/wieschoo/BotSuite/contributors').
+            then(function(contrInfo) {
+                $scope.contrInfo = contrInfo.data;
+                console.log($scope.contrInfo);
+            });
+            //
+            $http.get('https://api.github.com/repos/wieschoo/BotSuite/commits').
+            then(function(commitsInfo) {
+                $scope.commitsInfo = commitsInfo.data;
+                console.log($scope.commitsInfo);
+            });
+            
+            
+        }]);
+</script>
+<body ng-controller="BotSuiteCtrl">
     <header id="heading">
         <div class="row">
             <div class="col-md-12">&nbsp;
@@ -34,11 +82,9 @@
                             <ul class="nav navbar-nav pull-right">
                                 <li><a href="index.html">Start</a>
                                 </li>
-                                <li><a target="_blank" href="https://github.com/wieschoo/BotSuite/graphs/contributors">Credits</a>
-                                </li>
-                                <li><a href="showcases.html">Showcases</a>
-                                </li>
                                 <li><a target="_blank" href="https://github.com/wieschoo/BotSuite/issues">Issue Tracker</a>
+                                </li>
+                                <li><a target="_blank" href="https://github.com/wieschoo/BotSuite">Fork</a>
                                 </li>
                             </ul>
                         </div>
@@ -71,6 +117,27 @@
         <div class="col-sm-10 col-xs-12" style="border-radius: 5px;box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4); background-color:#fff;">
             <section>
                 <h1 class="text-center">Why using BotSuite.Net</h1>
+                <div class="row" style="margin-bottom:20px; height:80px;">
+                    <div class="col-xs-8  col-xs-offset-2">
+                    <h3><i class="fa fa-star"></i>  {{repoInfo.stargazers_count}} GitHub Stargazers, 
+                    <i class="fa fa-github"></i>  {{repoInfo.watchers_count}} GitHub Watchers and
+                    <i class="fa fa-code-fork"></i>  {{repoInfo.forks_count}} Forks</h3>
+                    </div>
+                    
+                </div>
+                <div class="row" style="margin-bottom:80px; height:80px;">
+                    <div class="col-xs-8  col-xs-offset-2">
+                    last 5 commits
+                        <table>
+                        <tr ng-repeat="commit in commitsInfo | limitTo:5" >
+                            <td style="width:20%; color:#427e16; font-weight-bold;"><i class="fa fa-cloud-upload"></i> {{commit.sha | characters:7}}</td>
+                            <td style="width:20%; ">{{commit.author.login}}</td>
+                            <td style="width:20%; ">{{commit.commit.committer.date}}</td>
+                            <td style="font-style:italic;">{{commit.commit.message}}</td>
+                        </tr>
+                        </table>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-xs-4 col-md-2 col-sm-3 col-lg-2 col-lg-offset-1">
                         <img src="http://botsuite.net/images/hat.png" class="center-block img-responsive">
@@ -124,7 +191,6 @@
                 </div>
             </section>
             <section>
-                <h1 class="text-center">How BotSuite.NET helps you</h1>
                 <div class=" myhighlight">
                     <div class="row col-xs-offset-2 col-md-offset-0">
                         <div class="col-md-4 col-xs-10">
@@ -165,12 +231,54 @@
                 </div>
             </section>
             <section>
-                <h1 class="text-center">Guide For BotSuite.NET</h1>
-                <h2>First steps</h2>
-                <p>If you are new to this project we recommend to browse our tutorial section to see how easy you can use the BotSuite.NET. Learn how to use the functions in some case studies and what's the idea behind the code in the library.</p>
-                <h2>Show cases</h2>
-                <p>Did you create a bot with our library? We are pleased about your submit's for the show case section. A picture can say more than thousand words. We have moving picture.</p>
+            <!-- page content -->
+    <div class="row">
+        <div class="col-sm-1 hidden-xs">&nbsp;</div>
+        <div class="col-sm-10 col-xs-12"> <section>
+                <h1 class="text-center">Showcases</h1>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <iframe width="100%" height="300px" src="//www.youtube.com/embed/mY9ANr4_Nd0" frameborder="0" allowfullscreen></iframe><p>This bot was written in C++ and WxWidgets and can be seen as the start of the BotSuite.NET.</p>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <iframe width="100%" height="300px" src="//www.youtube.com/embed/cU1ZSWYF-iI" frameborder="0" allowfullscreen></iframe><p>
+The first bot done with the BotSuite.NET. I just scans the screen a click on the correct buildings.</p>
 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <iframe width="100%" height="300px" src="//www.youtube.com/embed/8Pu4ognGuNs" frameborder="0" allowfullscreen></iframe>
+<p>A nother versions for a billiard game. This time the bot was done in C# with the BotSuite.NET. It can recognize the balls.
+</p>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                       <iframe width="100%" height="300px" src="//www.youtube.com/embed/thPpKCpkGcc" frameborder="0" allowfullscreen></iframe>
+<p>
+After running this bot I got a high rank in this game. 
+</p>
+
+                    </div>
+                </div>
+
+            </section>
+            <div class="row">
+                <div class="col-12-xs">&nbsp;</div>
+            </div>
+        </div>
+
+    </div>
+            </section>
+            <section>
+                <h1 class="text-center">Contributors</h1>
+                
+                
+                <div ng-repeat="con in contrInfo " style="width:25%;float:left; border:#d1d1d1 1px solid;margin:2%;-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;" class="myhighlight">
+                    <img src="{{con.avatar_url}}" style="width:50px;height:50px;margin-right:7px;"> <a href="{{con.html_url}}" target="_blank">{{con.login}}</a> with {{con.contributions}} contributions 
+                </div>
+                <div style="clear:left;"></div>
 
             </section>
             <div class="row">
@@ -182,6 +290,7 @@
     <div class="row">
         <div class="col-12-xs">&nbsp;</div>
     </div>
+
 </body>
 
 </html>
