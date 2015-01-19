@@ -12,6 +12,18 @@ The download should contain:
 * A XML file (BotSuite.xml), which provides the code documentation (Intellisense)
 * A file containing license information (license)
 
+After downloading the BotSuite, just put the DLL and the XML whereever you want (together) and then add a reference to the DLL in to your .NET project.  
+The entry point of the BotSuite is the "BotSuite" namespace, containing classes and sub namespaces.
+
+### Contact ###
+
+You can contact me in different ways:
+
+* If there is a problem with the BotSuite, please open an issue
+* If you want to contribute to the BotSuite, please make a fork and create pull requests with your changes
+* If you want to get (very frequent) updates on my projects (including the BotSuite), you can follow me on Twitter: https://twitter.com/KarillEndusa
+* There are several (german) communities where you can find me: http://forum.mds-tv.de and http://codebot.de
+
 ### License ###
 
 This project is licensed under the BSD 3-Clause License.  
