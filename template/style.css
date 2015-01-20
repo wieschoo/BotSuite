@@ -2,16 +2,14 @@ body,
 html {
     font-family: 'Source Sans Pro', sans-serif;
     background: #ececec;
-    background: url(noise-bg.png), -webkit-linear-gradient(top, #d7d7d7, #ececec 200px);
-    background: url(noise-bg.png), -moz-linear-gradient(top, #d7d7d7, #ececec 200px);
-    background: url(noise-bg.png), linear-gradient(top, #d7d7d7, #ececec 200px);
+
 }
 header {
     background: rgba(15, 35, 44, 1);
-    background: url(noise-bg.png), -webkit-radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), -webkit-linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
-    background: url(noise-bg.png), -moz-radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), -moz-linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
-    background: url(noise-bg.png), -ms-radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), -ms-linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
-    background: url(noise-bg.png), radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
+    background: url(/images/pattern.png), -webkit-radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), -webkit-linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
+    background: url(/images/pattern.png), -moz-radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), -moz-linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
+    background: url(/images/pattern.png), -ms-radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), -ms-linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
+    background: url(/images/pattern.png), radial-gradient(center center, cover circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4)), linear-gradient(rgba(15, 35, 44, 1) 50%, rgba(16, 21, 25, 1));
     -webkit-font-smoothing: antialiased;
     box-shadow: outset 0 1px rgba(255, 255, 255, 0.5);
 }
