@@ -22,24 +22,24 @@ namespace BotSuite
 	public class Window
 	{
 		/// <summary>
-		///     set a window into the front
+		///     Set a window to be in the front.
 		/// </summary>
-		/// <param name="windowName">
-		///     the window name
+		/// <param name="windowHandle">
+		///     The window handle.
 		/// </param>
 		/// <returns>
-		///     true, if action worked
+		///     True, if the action was successfull, else false.
 		/// </returns>
-		public static bool SetFrontWindow(string windowName)
+		public static bool SetFrontWindow(IntPtr windowHandle)
 		{
-			return User32.SetForegroundWindow(FindWindowByWindowTitle(windowName));
+			return User32.SetForegroundWindow(windowHandle);
 		}
 
 		/// <summary>
-		///     show a window
+		///     Show a window.
 		/// </summary>
 		/// <param name="windowHandle">
-		///     the window handle
+		///     The window handle.
 		/// </param>
 		public static void ShowWindow(IntPtr windowHandle)
 		{
@@ -47,14 +47,16 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		///     collect MainWindows
+		///     Get all main windows of running processes.
 		/// </summary>
-		/// <returns>Returns an array of window handles.</returns>
+		/// <returns>
+		///		An array of window handles.
+		///	</returns>
 		public static IntPtr[] GetAllMainWindows()
 		{
 			List<IntPtr> hwnds = new List<IntPtr>();
 			Process[] processes = Process.GetProcesses();
-			if (processes.Length <= 0)
+			if(processes.Length <= 0)
 			{
 				return hwnds.ToArray();
 			}
@@ -65,17 +67,17 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		///     try to find a window by using the name of the corresponding process
+		///     Try to find a window by using the name of the corresponding process.
 		/// </summary>
 		/// <param name="processName">
-		///     handle of window
+		///     Name of the process.
 		/// </param>
 		/// <returns>
-		///     the handle of the window
+		///     The handle of the window.
 		/// </returns>
 		public static IntPtr FindWindowByProcessName(string processName)
 		{
-			if (processName.EndsWith(".exe"))
+			if(processName.EndsWith(".exe"))
 			{
 				processName = processName.Remove(processName.Length - 4, 4);
 			}
@@ -85,45 +87,86 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		///     get a handle of a window by name
+		///     Get a handle of a window by name.
+		///     The title has to match the <paramref name="windowTitle"/> exactly.
 		/// </summary>
 		/// <param name="windowTitle">
-		///     name of window
+		///     Exact name of the window.
 		/// </param>
 		/// <returns>
-		///     handle of window
+		///     The handle of the window.
 		/// </returns>
-		public static IntPtr FindWindowByWindowTitle(string windowTitle)
+		public static IntPtr FindWindowByExactWindowTitle(string windowTitle)
 		{
 			IntPtr hwnd = (IntPtr)0;
 			Process[] processes = Process.GetProcesses();
-			if (processes.Length <= 0)
+
+			if(processes.Length <= 0)
 			{
 				return hwnd;
 			}
 
-			foreach (Process process in processes.Where(process => process.MainWindowTitle == windowTitle))
+			Process process = processes.FirstOrDefault(p => p.MainWindowTitle == windowTitle);
+
+			if(process != null)
 			{
 				hwnd = process.MainWindowHandle;
-				break;
 			}
 
 			return hwnd;
 		}
 
 		/// <summary>
-		///     get a handle of a window by the id of the process
+		///     Get a handle of a window by name.
+		///     The title only has to contain the <paramref name="windowTitle"/> and does not need to match it exactly.
 		/// </summary>
-		/// <param name="id">
-		///     The process Id of the process in question.
+		/// <param name="windowTitle">
+		///     Title of the window.
 		/// </param>
 		/// <returns>
-		///     handle of window
+		///     The handle of the window.
 		/// </returns>
-		public static IntPtr FindWindowByProcessId(int id)
+		public static IntPtr FindWindowByWindowTitle(string windowTitle)
 		{
-			Process process = Process.GetProcessById(id);
-			return process.MainWindowHandle;
+			IntPtr hwnd = (IntPtr)0;
+			Process[] processes = Process.GetProcesses();
+
+			if(processes.Length <= 0)
+			{
+				return hwnd;
+			}
+
+			Process process = processes.FirstOrDefault(p => p.MainWindowTitle == windowTitle);
+
+			if(process != null)
+			{
+				hwnd = process.MainWindowHandle;
+			}
+
+			return hwnd;
+		}
+
+		/// <summary>
+		///		Get a handle of a window by the id of the process.
+		/// </summary>
+		/// <param name="processId">
+		///		The id of the process in question.
+		/// </param>
+		/// <returns>
+		///		The handle of the window.
+		/// </returns>
+		public static IntPtr FindWindowByProcessId(int processId)
+		{
+			Process process = Process.GetProcessById(processId);
+
+			if(process != null)
+			{
+				return process.MainWindowHandle;
+			}
+			else
+			{
+				return (IntPtr)0;
+			}
 		}
 	}
 }
