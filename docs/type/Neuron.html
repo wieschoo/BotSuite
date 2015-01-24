@@ -1,0 +1,2128 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>BotSuite - Neuron</title>
+        <meta name="viewport" content="width=device-width">
+
+		
+			<link rel="stylesheet" type="text/css" href="../assets/css/font.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="../assets/css/style.css?version=0.9.5.10" />
+			
+			<!--[if IE 8]>
+				<script src="../assets/js/vendor.ie8.js?version=0.9.5.10"></script>
+			<![endif]-->
+			<![if !IE 8]>
+				<script src="../assets/js/vendor.js?version=0.9.5.10"></script>
+			<![endif]>
+
+			<script src="../assets/js/frame.js?version=0.9.5.10"></script>
+		
+
+		<script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>        
+        
+		<!-- DropDowns -->
+		<div id="dropdown-1" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+
+					<li><a href="#_f"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> _f</a></li>
+
+				
+
+					<li><a href="#_intervall_max"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> _intervall_max</a></li>
+
+				
+
+					<li><a href="#_intervall_min"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> _intervall_min</a></li>
+
+				
+
+					<li><a href="#_neuron_output"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> _neuron_output</a></li>
+
+				
+
+					<li><a href="#_remember_threshold"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> _remember_threshold</a></li>
+
+				
+
+					<li><a href="#_remember_weight"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> _remember_weight</a></li>
+
+				
+
+					<li><a href="#_synapsevalue_with_threshold"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> _synapsevalue_with_threshold</a></li>
+
+				
+
+					<li><a href="#_threshold"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> _threshold</a></li>
+
+				
+
+					<li><a href="#_usefull_variable"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> _usefull_variable</a></li>
+
+				
+
+					<li><a href="#_weight"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> _weight</a></li>
+
+				
+
+					<li><a href="#prng"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> prng</a></li>
+
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-2" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-3" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+
+					<li><a href="#Neuron"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Neuron(Int32 NumberOfInputs, iActivationFunction ActivationFunction)</a></li>
+
+				
+
+				
+
+					<li><a href="#ShuffleBoth3"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> ShuffleBoth()</a></li>
+
+				
+
+					<li><a href="#ShuffleThreshold3"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> ShuffleThreshold()</a></li>
+
+				
+
+					<li><a href="#ShuffleWeight3"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> ShuffleWeight()</a></li>
+
+				
+
+					<li><a href="#Signal2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Signal(Single[] input)</a></li>
+
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-4" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+
+					<li><a href="#Derivative"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> Derivative</a></li>
+
+				
+
+					<li><a href="#F"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> F</a></li>
+
+				
+
+					<li><a href="#Item"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> Item</a></li>
+
+				
+
+					<li><a href="#Last_Threshold"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> Last_Threshold</a></li>
+
+				
+
+					<li><a href="#Last_Weight"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> Last_Weight</a></li>
+
+				
+
+					<li><a href="#LastSumOfInputsWithTreshold"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> LastSumOfInputsWithTreshold</a></li>
+
+				
+
+					<li><a href="#NumberOfNeurons"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> NumberOfNeurons</a></li>
+
+				
+
+					<li><a href="#Output"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> Output</a></li>
+
+				
+
+					<li><a href="#Randomization_LeftIntervall"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> Randomization_LeftIntervall</a></li>
+
+				
+
+					<li><a href="#Randomization_RightIntervall"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> Randomization_RightIntervall</a></li>
+
+				
+
+					<li><a href="#Threshold"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> Threshold</a></li>
+
+				
+
+					<li><a href="#UsefulVariable"><img alt="Property-Icon" src="../assets/images/icons/properties_public.png"> UsefulVariable</a></li>
+
+				
+			</ul>
+		</div>
+		<!-- DropDowns Ende -->
+
+	    <div class="ui-layout-north">
+			<div class="toolbar">
+
+				
+					<a href="#" data-dropdown="#dropdown-1" class="button"><img src="../assets/images/icons/field_public.png"/> Fields <span class="info">(11)</span> <i class="icon-caret-down"></i></a>
+				
+					<a href="#" data-dropdown="#dropdown-3" class="button"><img src="../assets/images/icons/method_public.png"/> Methods <span class="info">(5)</span> <i class="icon-caret-down"></i></a>
+				
+					<a href="#" data-dropdown="#dropdown-4" class="button"><img src="../assets/images/icons/properties_public.png"/> Properties <span class="info">(12)</span> <i class="icon-caret-down"></i></a>
+				
+
+				<div class="right">
+					<span class="toolbar-info"> Namespace: BotSuite.MachineLearning.NeuralNetwork</span>
+					<a href="#" id="expand-all-button" class="button"><i class="icon-align-justify" title="expand all"></i></a>
+					<a href="#" id="print-button" class="button"><i class="icon-print" title="print"></i></a>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+        
+		<div class="ui-layout-center">
+
+			<div>
+				<h3 class="box-title first-heading">Syntax</h3>					
+				<div class="syntax-box">
+					<pre class="wrap-pre"><code>public class Neuron</code></pre>
+				</div>
+
+				
+
+				
+        
+				
+
+					
+						<h3 class="box-title">Summary</h3>
+						<div class="doc-box markdown">
+							<p>this class represents a neuron</p>
+
+						</div>
+					
+
+					
+						<h3 class="box-title">Remarks</h3>
+						<div class="doc-box markdown">
+							<p>output = f( threshold* \sum<em>{j=1}^{N</em>Inputs} s<em>{t-1,j}w</em>j )</p>
+
+						</div>
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+				
+
+				
+					<h3 class="box-title">Uses</h3>
+					<div class="list-box">
+						<ul>
+						
+							<li><a href="../type/iActivationFunction.html">iActivationFunction</a></li>
+						
+						</ul>
+					</div>
+				
+
+				
+					<h3 class="box-title">Used by</h3>
+					<div class="list-box">
+						<ul>
+						
+							<li><a href="../type/Layer.html">Layer</a></li>
+						
+						</ul>
+					</div>
+				
+
+				
+					<h3 class="box-title">Fields</h3>
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="_f" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>_f</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>intern handle of the activation function</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  iActivationFunction _f</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="_intervall_max" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>_intervall_max</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>intern interval for randomisation</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Single _intervall_max</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="_intervall_min" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>_intervall_min</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>intern interval for randomisation</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Single _intervall_min</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="_neuron_output" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>_neuron_output</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>the output</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Single _neuron_output</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="_remember_threshold" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>_remember_threshold</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>intern theshold variable</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Single _remember_threshold</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="_remember_weight" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>_remember_weight</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>intern weights of inputs</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Single[] _remember_weight</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="_synapsevalue_with_threshold" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>_synapsevalue_with_threshold</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>values for faster computation</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Single _synapsevalue_with_threshold</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="_threshold" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>_threshold</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>intern theshold variable</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Single _threshold</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="_usefull_variable" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>_usefull_variable</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>values for faster computation</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Single _usefull_variable</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="_weight" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>_weight</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>intern weights of inputs</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Single[] _weight</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="prng" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>prng</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>intern instance of a PseudoRandomNumberGenerator</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Random prng</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+				
+
+				
+
+				
+					<h3 class="box-title">Methods</h3>
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Neuron" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Neuron(Int32 NumberOfInputs, iActivationFunction ActivationFunction)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>initialise the neuron</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void Neuron(Int32 NumberOfInputs, iActivationFunction ActivationFunction)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">NumberOfInputs</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>number of inputs in layer before</p>
+
+						</div>
+					
+						<p class="key">ActivationFunction</p>
+						
+						
+									
+									<small>iActivationFunction</small>
+
+														
+						
+						<div class="inline">
+							<p>activation function for current neuron (default: sigmoid function)</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ShuffleBoth3" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>ShuffleBoth()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>set all random</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void ShuffleBoth()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="ShuffleBoth3-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="319" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Neuron.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.MachineLearning.NeuralNetwork.Neuron]]></text></a><a xlink:href="../type/Neuron.html#ShuffleBoth3" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShuffleBoth]]></text></a><path d="M0.00,100.50L159.83,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="159,100 154,95 154,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Neuron.html#ShuffleThreshold3" xmlns:xlink="xlink"><text x="169.83" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShuffleThreshold]]></text></a><path d="M159.83,125.50L149.83,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M149.83,125.50L149.83,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M149.83,135.50L159.83,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="159,135 154,130 154,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Neuron.html#ShuffleWeight3" xmlns:xlink="xlink"><text x="169.83" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShuffleWeight]]></text></a><path d="M159.83,160.50L149.83,160.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M149.83,160.50L149.83,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M149.83,170.50L159.83,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="159,170 154,165 154,175" fill="#979797" stroke="#979797" stroke-width="" /><path d="M159.58,45L159.58,185.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ShuffleThreshold3" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>ShuffleThreshold()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>set random threshold</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void ShuffleThreshold()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ShuffleWeight3" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>ShuffleWeight()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>set random weights</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void ShuffleWeight()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Signal2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Signal(Single[] input)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>get the signal from this neuron</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single Signal(Single[] input)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">input</p>
+						
+						
+									
+									<small>Single[]</small>
+
+														
+						
+						<div class="inline">
+							
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="Signal2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="319" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Neuron.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.MachineLearning.NeuralNetwork.Neuron]]></text></a><rect height="35" width="512" x="339.52" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/iActivationFunction.html" xmlns:xlink="xlink"><text x="354.15" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions.IActivationFunction]]></text></a><a xlink:href="../type/Neuron.html#Signal2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Signal]]></text></a><path d="M0.00,100.50L159.83,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="159,100 154,95 154,105" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="125.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if (_f != null)]]></text><a xlink:href="../type/iActivationFunction.html#Function4" xmlns:xlink="xlink"><text x="169.83" y="145.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Function]]></text></a><path d="M159.83,155.50L595.15,155.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="595,155 590,150 590,160" fill="#979797" stroke="#979797" stroke-width="" /><text x="169.83" y="180.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Single]]></text><path d="M159.83,190.50L595.15,190.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="159,190 164,195 164,185" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="205.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="10.00" y="235.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Single]]></text><path d="M0.00,245.50L159.83,245.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="0,245 5,250 5,240" fill="#979797" stroke="#979797" stroke-width="" /><path d="M159.58,45L159.58,260.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M595.51,45L595.51,260.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+				
+
+				
+					<h3 class="box-title">Properties</h3>
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Derivative" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>Derivative</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>get gradient value for stochastic gradient descent</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single Derivative { get; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="F" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>F</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>set or get the activationfunction</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public iActivationFunction F { get; set; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Item" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>Item</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>pointer to all neurons that affect this neuron</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single Item { get; set; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">NeuronIdx</p>
+						
+												
+						
+						<div class="inline">
+							
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Last_Threshold" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>Last_Threshold</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>remember last threshold</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single Last_Threshold { get; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Last_Weight" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>Last_Weight</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>remember last weights</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single[] Last_Weight { get; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="LastSumOfInputsWithTreshold" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>LastSumOfInputsWithTreshold</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>this is useful for calculations</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single LastSumOfInputsWithTreshold { get; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="NumberOfNeurons" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>NumberOfNeurons</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>returns number of neurons which affect this neuron</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Int32 NumberOfNeurons { get; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Output" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>Output</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>get the output of this neuron</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single Output { get; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Randomization_LeftIntervall" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>Randomization_LeftIntervall</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Get or set the minimum value for randomisation of weights and threshold</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single Randomization_LeftIntervall { get; set; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Randomization_RightIntervall" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>Randomization_RightIntervall</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>get or set the right end of interval value for randomization</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single Randomization_RightIntervall { get; set; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Threshold" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>Threshold</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>thresholding</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single Threshold { get; set; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="UsefulVariable" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_public.png"/> <p>UsefulVariable</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>simplify the calculation</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Single UsefulVariable { get; set; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+				
+
+				
+					<div class="svg-diagram">
+						<h3 class="box-title">Class Diagram</h3>
+						<div id="sd-class-diagram" class="svgpan">
+							
+							<svg><g transform="translate(304.00, 50.00)"><rect height="771" width="367" x="0.55" y="0.55" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><text x="150.01" y="20.50" fill="" style="" text-anchor="" font-family="" font-size="11.00" onmouseover="" onmouseout=""><![CDATA[public  class]]></text><a xlink:href="../type/Neuron.html" xmlns:xlink="xlink"><text x="158.00" y="35.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Neuron]]></text></a><path d="M0.5,45.50L367.00,45.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="53.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#_f" xmlns:xlink="xlink"><text x="40.00" y="65.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_f]]></text></a><image width="16.00" height="16.00" x="15.00" y="78.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#_intervall_max" xmlns:xlink="xlink"><text x="40.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_intervall_max]]></text></a><image width="16.00" height="16.00" x="15.00" y="103.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#_intervall_min" xmlns:xlink="xlink"><text x="40.00" y="115.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_intervall_min]]></text></a><image width="16.00" height="16.00" x="15.00" y="128.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#_neuron_output" xmlns:xlink="xlink"><text x="40.00" y="140.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_neuron_output]]></text></a><image width="16.00" height="16.00" x="15.00" y="153.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#_remember_threshold" xmlns:xlink="xlink"><text x="40.00" y="165.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_remember_threshold]]></text></a><image width="16.00" height="16.00" x="15.00" y="178.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#_remember_weight" xmlns:xlink="xlink"><text x="40.00" y="190.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_remember_weight]]></text></a><image width="16.00" height="16.00" x="15.00" y="203.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#_synapsevalue_with_threshold" xmlns:xlink="xlink"><text x="40.00" y="215.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_synapsevalue_with_threshold]]></text></a><image width="16.00" height="16.00" x="15.00" y="228.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#_threshold" xmlns:xlink="xlink"><text x="40.00" y="240.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_threshold]]></text></a><image width="16.00" height="16.00" x="15.00" y="253.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#_usefull_variable" xmlns:xlink="xlink"><text x="40.00" y="265.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_usefull_variable]]></text></a><image width="16.00" height="16.00" x="15.00" y="278.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#_weight" xmlns:xlink="xlink"><text x="40.00" y="290.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_weight]]></text></a><image width="16.00" height="16.00" x="15.00" y="303.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#prng" xmlns:xlink="xlink"><text x="40.00" y="315.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[prng]]></text></a><path d="M0.5,330.50L367.00,330.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="338.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#ShuffleBoth3" xmlns:xlink="xlink"><text x="40.00" y="350.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShuffleBoth]]></text></a><image width="16.00" height="16.00" x="15.00" y="363.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#ShuffleThreshold3" xmlns:xlink="xlink"><text x="40.00" y="375.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShuffleThreshold]]></text></a><image width="16.00" height="16.00" x="15.00" y="388.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#ShuffleWeight3" xmlns:xlink="xlink"><text x="40.00" y="400.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShuffleWeight]]></text></a><image width="16.00" height="16.00" x="15.00" y="413.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#Signal2" xmlns:xlink="xlink"><text x="40.00" y="425.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Signal]]></text></a><image width="16.00" height="16.00" x="15.00" y="438.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#Neuron" xmlns:xlink="xlink"><text x="40.00" y="450.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Neuron]]></text></a><path d="M0.5,465.50L367.00,465.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="473.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#Derivative" xmlns:xlink="xlink"><text x="40.00" y="485.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Derivative { get; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="498.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#F" xmlns:xlink="xlink"><text x="40.00" y="510.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[F { get; set; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="523.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#Item" xmlns:xlink="xlink"><text x="40.00" y="535.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Item { get; set; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="548.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#Last_Threshold" xmlns:xlink="xlink"><text x="40.00" y="560.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Last_Threshold { get; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="573.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#Last_Weight" xmlns:xlink="xlink"><text x="40.00" y="585.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Last_Weight { get; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="598.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#LastSumOfInputsWithTreshold" xmlns:xlink="xlink"><text x="40.00" y="610.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LastSumOfInputsWithTreshold { get; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="623.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#NumberOfNeurons" xmlns:xlink="xlink"><text x="40.00" y="635.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[NumberOfNeurons { get; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="648.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#Output" xmlns:xlink="xlink"><text x="40.00" y="660.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Output { get; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="673.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#Randomization_LeftIntervall" xmlns:xlink="xlink"><text x="40.00" y="685.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Randomization_LeftIntervall { get; set; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="698.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#Randomization_RightIntervall" xmlns:xlink="xlink"><text x="40.00" y="710.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Randomization_RightIntervall { get; set; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="723.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#Threshold" xmlns:xlink="xlink"><text x="40.00" y="735.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Threshold { get; set; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="748.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Neuron.html#UsefulVariable" xmlns:xlink="xlink"><text x="40.00" y="760.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[UsefulVariable { get; set; }]]></text></a></g><g transform="translate(0.00, 100.00)"><rect height="446" width="254" x="0.55" y="0.55" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><text x="93.51" y="20.50" fill="" style="" text-anchor="" font-family="" font-size="11.00" onmouseover="" onmouseout=""><![CDATA[public  class]]></text><a xlink:href="../type/Layer.html" xmlns:xlink="xlink"><text x="107.72" y="35.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Layer]]></text></a><path d="M0.5,45.50L254.00,45.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="53.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#_inputs_of_layer" xmlns:xlink="xlink"><text x="40.00" y="65.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_inputs_of_layer]]></text></a><image width="16.00" height="16.00" x="15.00" y="78.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#_neurons" xmlns:xlink="xlink"><text x="40.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_neurons]]></text></a><image width="16.00" height="16.00" x="15.00" y="103.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#_neurons_in_layer" xmlns:xlink="xlink"><text x="40.00" y="115.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_neurons_in_layer]]></text></a><image width="16.00" height="16.00" x="15.00" y="128.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#_output" xmlns:xlink="xlink"><text x="40.00" y="140.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_output]]></text></a><path d="M0.5,155.50L254.00,155.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="163.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#SetIntervalForPRNG" xmlns:xlink="xlink"><text x="40.00" y="175.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SetIntervalForPRNG]]></text></a><image width="16.00" height="16.00" x="15.00" y="188.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#ShuffleBoth" xmlns:xlink="xlink"><text x="40.00" y="200.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShuffleBoth]]></text></a><image width="16.00" height="16.00" x="15.00" y="213.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#ShuffleThreshold" xmlns:xlink="xlink"><text x="40.00" y="225.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShuffleThreshold]]></text></a><image width="16.00" height="16.00" x="15.00" y="238.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#ShuffleWeight" xmlns:xlink="xlink"><text x="40.00" y="250.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShuffleWeight]]></text></a><image width="16.00" height="16.00" x="15.00" y="263.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#Signal" xmlns:xlink="xlink"><text x="40.00" y="275.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Signal]]></text></a><image width="16.00" height="16.00" x="15.00" y="288.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#Layer" xmlns:xlink="xlink"><text x="40.00" y="300.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Layer]]></text></a><path d="M0.5,315.50L254.00,315.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="323.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#ActivationFunction" xmlns:xlink="xlink"><text x="40.00" y="335.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ActivationFunction { set; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="348.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#GetLastOuput" xmlns:xlink="xlink"><text x="40.00" y="360.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetLastOuput { get; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="373.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#InputsOfLayer" xmlns:xlink="xlink"><text x="40.00" y="385.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[InputsOfLayer { get; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="398.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#Item" xmlns:xlink="xlink"><text x="40.00" y="410.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Item { get; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="423.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Layer.html#NeuronsInLayer" xmlns:xlink="xlink"><text x="40.00" y="435.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[NeuronsInLayer { get; }]]></text></a></g><g><path d="M127.00,100.00L127.00,75.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g><g><path d="M127.00,74.50L304.00,74.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M294.00,69.50L304.00,74.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M294.00,79.50L304.00,74.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g><g transform="translate(721.00, 100.00)"><rect height="101" width="197" x="0.55" y="0.55" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><text x="54.26" y="20.50" fill="" style="" text-anchor="" font-family="" font-size="11.00" onmouseover="" onmouseout=""><![CDATA[public  interface]]></text><a xlink:href="../type/iActivationFunction.html" xmlns:xlink="xlink"><text x="32.01" y="35.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[iActivationFunction]]></text></a><path d="M0.5,45.50L197.00,45.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="53.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/iActivationFunction.html#Derivative4" xmlns:xlink="xlink"><text x="40.00" y="65.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Derivative]]></text></a><image width="16.00" height="16.00" x="15.00" y="78.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/iActivationFunction.html#Function4" xmlns:xlink="xlink"><text x="40.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Function]]></text></a></g><g><path d="M819.50,100.00L819.50,75.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M814.50,90.00L819.50,100.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M824.50,90.00L819.50,100.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M819.50,74.50L671.00,74.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+						</div>
+						<div class="legend">
+							<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+							<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+							<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+						</div>
+					</div>
+				
+			</div>
+		</div>
+
+    </body>
+</html>
+

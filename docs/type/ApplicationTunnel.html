@@ -1,0 +1,2628 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>BotSuite - ApplicationTunnel</title>
+        <meta name="viewport" content="width=device-width">
+
+		
+			<link rel="stylesheet" type="text/css" href="../assets/css/font.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="../assets/css/style.css?version=0.9.5.10" />
+			
+			<!--[if IE 8]>
+				<script src="../assets/js/vendor.ie8.js?version=0.9.5.10"></script>
+			<![endif]-->
+			<![if !IE 8]>
+				<script src="../assets/js/vendor.js?version=0.9.5.10"></script>
+			<![endif]>
+
+			<script src="../assets/js/frame.js?version=0.9.5.10"></script>
+		
+
+		<script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>        
+        
+		<!-- DropDowns -->
+		<div id="dropdown-1" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+
+					<li><a href="#AttachedProcess"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> AttachedProcess</a></li>
+
+				
+
+					<li><a href="#AttachedProcessModule"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> AttachedProcessModule</a></li>
+
+				
+
+					<li><a href="#ProcessHandle"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> ProcessHandle</a></li>
+
+				
+
+					<li><a href="#ProcessId"><img alt="Field-Icon" src="../assets/images/icons/field_protected.png"> ProcessId</a></li>
+
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-2" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-3" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+
+					<li><a href="#ApplicationTunnel"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> ApplicationTunnel(Int32 Id)</a></li>
+
+				
+
+					<li><a href="#ApplicationTunnel2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> ApplicationTunnel(String ProcessName)</a></li>
+
+				
+
+				
+
+					<li><a href="#AttachProcess"><img alt="Method-Icon" src="../assets/images/icons/method_protected.png"> AttachProcess()</a></li>
+
+				
+
+					<li><a href="#Close"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Close()</a></li>
+
+				
+
+					<li><a href="#DetachProcess"><img alt="Method-Icon" src="../assets/images/icons/method_protected.png"> DetachProcess()</a></li>
+
+				
+
+					<li><a href="#Finalize"><img alt="Method-Icon" src="../assets/images/icons/method_protected.png"> Finalize()</a></li>
+
+				
+
+					<li><a href="#GetHandle"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> GetHandle()</a></li>
+
+				
+
+					<li><a href="#GetModuleBase"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> GetModuleBase(String ProcName, String ModuleName)</a></li>
+
+				
+
+					<li><a href="#GetProcessIdByName"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> GetProcessIdByName(String name)</a></li>
+
+				
+
+					<li><a href="#Hex2Int"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Hex2Int(String hex)</a></li>
+
+				
+
+					<li><a href="#Kill"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Kill()</a></li>
+
+				
+
+					<li><a href="#Pointer"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Pointer(Int32 start, Int32[] Offsets)</a></li>
+
+				
+
+					<li><a href="#Pointer2"><img alt="Method-Icon" src="../assets/images/icons/method_protected.png"> Pointer(String start, Int32[] Offsets)</a></li>
+
+				
+
+					<li><a href="#Read2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Read<T>(Int32 pAddress, Int32[] Offsets)</a></li>
+
+				
+
+					<li><a href="#Read"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Read<T>(String pAddress, Int32[] Offsets)</a></li>
+
+				
+
+					<li><a href="#ReadMemoryAtAdress"><img alt="Method-Icon" src="../assets/images/icons/method_protected.png"> ReadMemoryAtAdress(IntPtr MemoryAddress, UInt32 bytesToRead, Int32& bytesRead)</a></li>
+
+				
+
+					<li><a href="#Write2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Write<T>(Int32 pAddress, T WriteData, Int32[] Offsets)</a></li>
+
+				
+
+					<li><a href="#Write"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Write<T>(String pAddress, T WriteData, Int32[] Offsets)</a></li>
+
+				
+
+					<li><a href="#WriteAscii"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> WriteAscii(Int32 pAddress, String StringToWrite)</a></li>
+
+				
+
+					<li><a href="#WriteMemoryAtAdress"><img alt="Method-Icon" src="../assets/images/icons/method_protected.png"> WriteMemoryAtAdress(IntPtr MemoryAddress, Byte[] bytesToWrite)</a></li>
+
+				
+
+					<li><a href="#WriteUnicode"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> WriteUnicode(Int32 pAddress, String StringToWrite)</a></li>
+
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-4" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+
+					<li><a href="#BaseAddress"><img alt="Property-Icon" src="../assets/images/icons/properties_protected.png"> BaseAddress</a></li>
+
+				
+			</ul>
+		</div>
+		<!-- DropDowns Ende -->
+
+	    <div class="ui-layout-north">
+			<div class="toolbar">
+
+				
+					<a href="#" data-dropdown="#dropdown-1" class="button"><img src="../assets/images/icons/field_public.png"/> Fields <span class="info">(4)</span> <i class="icon-caret-down"></i></a>
+				
+					<a href="#" data-dropdown="#dropdown-3" class="button"><img src="../assets/images/icons/method_public.png"/> Methods <span class="info">(21)</span> <i class="icon-caret-down"></i></a>
+				
+					<a href="#" data-dropdown="#dropdown-4" class="button"><img src="../assets/images/icons/properties_public.png"/> Properties <span class="info">(1)</span> <i class="icon-caret-down"></i></a>
+				
+
+				<div class="right">
+					<span class="toolbar-info"> Namespace: BotSuite</span>
+					<a href="#" id="expand-all-button" class="button"><i class="icon-align-justify" title="expand all"></i></a>
+					<a href="#" id="print-button" class="button"><i class="icon-print" title="print"></i></a>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+        
+		<div class="ui-layout-center">
+
+			<div>
+				<h3 class="box-title first-heading">Syntax</h3>					
+				<div class="syntax-box">
+					<pre class="wrap-pre"><code>public class ApplicationTunnel</code></pre>
+				</div>
+
+				
+
+				
+        
+				
+
+					
+						<h3 class="box-title">Summary</h3>
+						<div class="doc-box markdown">
+							<p>control extern application by reading values, writing values in memory blocks
+can be used to create trainers by continuous writing a value at some memory address</p>
+
+						</div>
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+				
+
+				
+					<h3 class="box-title">Uses</h3>
+					<div class="list-box">
+						<ul>
+						
+							<li><a href="../type/NativeMethods.html">NativeMethods</a></li>
+						
+						</ul>
+					</div>
+				
+
+				
+
+				
+					<h3 class="box-title">Fields</h3>
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="AttachedProcess" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>AttachedProcess</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>process data</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Process AttachedProcess</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="AttachedProcessModule" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>AttachedProcessModule</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>handle of modul</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  ProcessModule AttachedProcessModule</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ProcessHandle" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>ProcessHandle</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>handle of process</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  IntPtr ProcessHandle</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ProcessId" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/field_protected.png"/> <p>ProcessId</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>intern id of process</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected  Int32 ProcessId</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+				
+
+				
+
+				
+					<h3 class="box-title">Methods</h3>
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ApplicationTunnel" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>ApplicationTunnel(Int32 Id)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>constructor</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void ApplicationTunnel(Int32 Id)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">Id</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>id of process</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ApplicationTunnel2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>ApplicationTunnel(String ProcessName)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>creates a bridge to an application and connect to it by using the name of the corresponding process</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void ApplicationTunnel(String ProcessName)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">ProcessName</p>
+						
+						
+									
+									<small>String</small>
+
+														
+						
+						<div class="inline">
+							<p>name of process that should be the target process</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Bridge = new ApplicationTunnel("notepad.exe");</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="AttachProcess" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_protected.png"/> <p>AttachProcess()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>private function to attach a running process</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected void AttachProcess()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="AttachProcess-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="181" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/ApplicationTunnel.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ApplicationTunnel]]></text></a><rect height="35" width="165" x="201.56" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/NativeMethods.html" xmlns:xlink="xlink"><text x="216.63" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.NativeMethods]]></text></a><a xlink:href="../type/ApplicationTunnel.html#AttachProcess" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[AttachProcess]]></text></a><path d="M0.00,100.50L91.06,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,100 86,95 86,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/NativeMethods.html#OpenProcess" xmlns:xlink="xlink"><text x="101.06" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[OpenProcess]]></text></a><path d="M91.06,135.50L283.89,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="283,135 278,130 278,140" fill="#979797" stroke="#979797" stroke-width="" /><text x="101.06" y="160.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return IntPtr]]></text><path d="M91.06,170.50L283.89,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,170 96,175 96,165" fill="#979797" stroke="#979797" stroke-width="" /><path d="M91.51,45L91.51,185.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M283.59,45L283.59,185.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Close" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Close()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>tries to close the main window of process</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void Close()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Bridge = new ApplicationTunnel("notepad.exe");
+    Bridge.Close();</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="Close-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="181" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/ApplicationTunnel.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ApplicationTunnel]]></text></a><a xlink:href="../type/ApplicationTunnel.html#Close" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Close]]></text></a><path d="M0.00,100.50L91.06,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,100 86,95 86,105" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="125.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if (!AttachedProcess.HasExited)]]></text><a xlink:href="../type/ApplicationTunnel.html#Kill" xmlns:xlink="xlink"><text x="101.06" y="145.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Kill]]></text></a><path d="M91.06,145.50L81.06,145.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,145.50L81.06,155.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,155.50L91.06,155.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,155 86,150 86,160" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="170.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><path d="M91.51,45L91.51,190.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="DetachProcess" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_protected.png"/> <p>DetachProcess()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>private function to detach a running process</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected void DetachProcess()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Finalize" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_protected.png"/> <p>Finalize()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>remove all connections to the target process and detach from the process</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected void Finalize()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="GetHandle" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>GetHandle()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>returns handle of extern process</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public IntPtr GetHandle()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Bridge = new ApplicationTunnel("notepad.exe");
+    IntPtr hTarget = Bridge.GetHandle();</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="GetModuleBase" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>GetModuleBase(String ProcName, String ModuleName)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>returns the modulbase address</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Int32 GetModuleBase(String ProcName, String ModuleName)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">ProcName</p>
+						
+						
+									
+									<small>String</small>
+
+														
+						
+						<div class="inline">
+							<p>name of process</p>
+
+						</div>
+					
+						<p class="key">ModuleName</p>
+						
+						
+									
+									<small>String</small>
+
+														
+						
+						<div class="inline">
+							<p>name of modul</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>in most cases the modul base adress is just 0x401000</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>Int32 BaseAdress = ApplicationTunnel.GetModuleBase("notepade.exe");</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="GetProcessIdByName" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>GetProcessIdByName(String name)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>get id of process by given name</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Process[] GetProcessIdByName(String name)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">name</p>
+						
+						
+									
+									<small>String</small>
+
+														
+						
+						<div class="inline">
+							<p>name of process</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>the function returns an array of possible ids since there can be multiple processes having the same name</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Process[] ListOfProcess = ApplicationTunnel.GetProcessIdByName("notepad.exe");
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Hex2Int" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Hex2Int(String hex)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>convert a string containing a hex value into integer</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Int32 Hex2Int(String hex)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">hex</p>
+						
+						
+									
+									<small>String</small>
+
+														
+						
+						<div class="inline">
+							<p>hex</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>result as integer</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>int result = ApplicationTunnel.Hex2Int("00B28498");
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Kill" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Kill()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>kills radical the process</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void Kill()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Bridge = new ApplicationTunnel("notepad.exe");
+    Bridge.Kill();</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Pointer" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Pointer(Int32 start, Int32[] Offsets)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>follow a pointer by start address</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public Int32 Pointer(Int32 start, Int32[] Offsets)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">start</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>start address</p>
+
+						</div>
+					
+						<p class="key">Offsets</p>
+						
+						
+									
+									<small>Int32[]</small>
+
+														
+						
+						<div class="inline">
+							<p>offsets</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>// start in BaseAddress add follow the pointers by adding the offsets
+int MyPointer2 = Trainer.Pointer( 0x00B28498,0x284, 0xE4, 0xE4, 0x30, 0x108);
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Pointer2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_protected.png"/> <p>Pointer(String start, Int32[] Offsets)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>follow a pointer by start address</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected Int32 Pointer(String start, Int32[] Offsets)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">start</p>
+						
+						
+									
+									<small>String</small>
+
+														
+						
+						<div class="inline">
+							<p>start address</p>
+
+						</div>
+					
+						<p class="key">Offsets</p>
+						
+						
+									
+									<small>Int32[]</small>
+
+														
+						
+						<div class="inline">
+							<p>offsets</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>// start in 00B28498 add follow the pointers by adding the offsets
+int MyPointer2 = Trainer.Pointer("00B28498", 0x284, 0xE4, 0xE4, 0x30, 0x108);
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="Pointer2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="181" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/ApplicationTunnel.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ApplicationTunnel]]></text></a><a xlink:href="../type/ApplicationTunnel.html#Pointer2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Pointer]]></text></a><path d="M0.00,100.50L91.06,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,100 86,95 86,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/ApplicationTunnel.html#Hex2Int" xmlns:xlink="xlink"><text x="101.06" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Hex2Int]]></text></a><path d="M91.06,125.50L81.06,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,125.50L81.06,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,135.50L91.06,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,135 86,130 86,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/ApplicationTunnel.html#Pointer" xmlns:xlink="xlink"><text x="101.06" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Pointer]]></text></a><path d="M91.06,160.50L81.06,160.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,160.50L81.06,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,170.50L91.06,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,170 86,165 86,175" fill="#979797" stroke="#979797" stroke-width="" /><text x="10.00" y="195.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Int32]]></text><path d="M0.00,205.50L91.06,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="0,205 5,210 5,200" fill="#979797" stroke="#979797" stroke-width="" /><path d="M91.51,45L91.51,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Read2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Read<T>(Int32 pAddress, Int32[] Offsets)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Read a value, see other Read-method</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public T Read&lt;T&gt;(Int32 pAddress, Int32[] Offsets)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">pAddress</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>address as integer</p>
+
+						</div>
+					
+						<p class="key">Offsets</p>
+						
+						
+									
+									<small>Int32[]</small>
+
+														
+						
+						<div class="inline">
+							<p>offsets to follow to get value</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+				<p class="member-box-title">Type Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">T</p>						
+						<div class="inline">
+							<p>type of value</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>value to read</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>// direct access at 00B28498
+    int MyValue1 = Trainer.Read<int>(0x00B28498);
+    // direct access at "001AAAC4", 0x464
+    int MyValue2 = Trainer.Read<int>(0x001AAAC4, 0x464);
+    float MyValue1 = Trainer.Read<float>(0x00B28498);
+    double MyValue1 = Trainer.Read<double>(0x00B28498);
+    uint MyValue1 = Trainer.Read<uint>(0x00B28498);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="Read2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="181" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/ApplicationTunnel.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ApplicationTunnel]]></text></a><a xlink:href="../type/ApplicationTunnel.html#Read2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Read]]></text></a><path d="M0.00,100.50L91.06,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,100 86,95 86,105" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="125.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if (Offsets.Length > 0)]]></text><a xlink:href="../type/ApplicationTunnel.html#Pointer" xmlns:xlink="xlink"><text x="101.06" y="145.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Pointer]]></text></a><path d="M91.06,145.50L81.06,145.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,145.50L81.06,155.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,155.50L91.06,155.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,155 86,150 86,160" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="170.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="20.00" y="200.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if (typeof(T) == typeof(byte))]]></text><a xlink:href="" xmlns:xlink="xlink"><text x="101.06" y="220.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ReadMemoryAtAdress]]></text></a><path d="M91.06,220.50L81.06,220.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,220.50L81.06,230.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,230.50L91.06,230.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,230 86,225 86,235" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="245.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="20.00" y="275.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[else]]></text><a xlink:href="" xmlns:xlink="xlink"><text x="101.06" y="295.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ReadMemoryAtAdress]]></text></a><path d="M91.06,295.50L81.06,295.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,295.50L81.06,305.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,305.50L91.06,305.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,305 86,300 86,310" fill="#979797" stroke="#979797" stroke-width="" /><text x="35.00" y="330.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if (typeof(T) == typeof(int))]]></text><a xlink:href="" xmlns:xlink="xlink"><text x="101.06" y="350.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ReadMemoryAtAdress]]></text></a><path d="M91.06,350.50L81.06,350.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,350.50L81.06,360.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,360.50L91.06,360.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,360 86,355 86,365" fill="#979797" stroke="#979797" stroke-width="" /><text x="35.00" y="375.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="35.00" y="405.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[else]]></text><a xlink:href="" xmlns:xlink="xlink"><text x="101.06" y="425.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ReadMemoryAtAdress]]></text></a><path d="M91.06,425.50L81.06,425.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,425.50L81.06,435.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,435.50L91.06,435.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,435 86,430 86,440" fill="#979797" stroke="#979797" stroke-width="" /><text x="50.00" y="460.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if (typeof(T) == typeof(float))]]></text><a xlink:href="" xmlns:xlink="xlink"><text x="101.06" y="480.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ReadMemoryAtAdress]]></text></a><path d="M91.06,480.50L81.06,480.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,480.50L81.06,490.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,490.50L91.06,490.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,490 86,485 86,495" fill="#979797" stroke="#979797" stroke-width="" /><text x="50.00" y="505.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="50.00" y="535.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[else]]></text><a xlink:href="" xmlns:xlink="xlink"><text x="101.06" y="555.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ReadMemoryAtAdress]]></text></a><path d="M91.06,555.50L81.06,555.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,555.50L81.06,565.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,565.50L91.06,565.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,565 86,560 86,570" fill="#979797" stroke="#979797" stroke-width="" /><text x="50.00" y="580.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="35.00" y="600.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="20.00" y="620.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="10.00" y="650.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return T]]></text><path d="M0.00,660.50L91.06,660.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="0,660 5,665 5,655" fill="#979797" stroke="#979797" stroke-width="" /><path d="M91.51,45L91.51,675.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Read" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Read<T>(String pAddress, Int32[] Offsets)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>read a value at a adress</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public T Read&lt;T&gt;(String pAddress, Int32[] Offsets)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">pAddress</p>
+						
+						
+									
+									<small>String</small>
+
+														
+						
+						<div class="inline">
+							<p>address as string</p>
+
+						</div>
+					
+						<p class="key">Offsets</p>
+						
+						
+									
+									<small>Int32[]</small>
+
+														
+						
+						<div class="inline">
+							<p>offsets to follow to get value</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+				<p class="member-box-title">Type Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">T</p>						
+						<div class="inline">
+							<p>type of value</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>value to read</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>// direct access at 00B28498
+    int MyValue1 = Trainer.Read<int>("00B28498");
+    // direct access at "001AAAC4", 0x464
+    int MyValue2 = Trainer.Read<int>("001AAAC4", 0x464);
+    float MyValue1 = Trainer.Read<float>("00B28498");
+    double MyValue1 = Trainer.Read<double>("00B28498");
+    uint MyValue1 = Trainer.Read<uint>("00B28498");</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="Read-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="181" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/ApplicationTunnel.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ApplicationTunnel]]></text></a><a xlink:href="../type/ApplicationTunnel.html#Read" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Read]]></text></a><path d="M0.00,100.50L91.06,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,100 86,95 86,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/ApplicationTunnel.html#Read2" xmlns:xlink="xlink"><text x="101.06" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Read]]></text></a><path d="M91.06,125.50L81.06,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,125.50L81.06,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,135.50L91.06,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,135 86,130 86,140" fill="#979797" stroke="#979797" stroke-width="" /><text x="10.00" y="160.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return T]]></text><path d="M0.00,170.50L91.06,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="0,170 5,175 5,165" fill="#979797" stroke="#979797" stroke-width="" /><path d="M91.51,45L91.51,185.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ReadMemoryAtAdress" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_protected.png"/> <p>ReadMemoryAtAdress(IntPtr MemoryAddress, UInt32 bytesToRead, Int32& bytesRead)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>private function to read memory</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected Byte[] ReadMemoryAtAdress(IntPtr MemoryAddress, UInt32 bytesToRead, Int32&amp; bytesRead)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">MemoryAddress</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>address</p>
+
+						</div>
+					
+						<p class="key">bytesToRead</p>
+						
+						
+									
+									<small>UInt32</small>
+
+														
+						
+						<div class="inline">
+							<p>bytes</p>
+
+						</div>
+					
+						<p class="key">bytesRead</p>
+						
+						
+									
+									<small>Int32&</small>
+
+														
+						
+						<div class="inline">
+							<p>result</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Write2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Write<T>(Int32 pAddress, T WriteData, Int32[] Offsets)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>write value at memory adress</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void Write&lt;T&gt;(Int32 pAddress, T WriteData, Int32[] Offsets)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">pAddress</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>address to write</p>
+
+						</div>
+					
+						<p class="key">WriteData</p>
+						
+						
+									
+									<small>T</small>
+
+														
+						
+						<div class="inline">
+							<p>data to write</p>
+
+						</div>
+					
+						<p class="key">Offsets</p>
+						
+						
+									
+									<small>Int32[]</small>
+
+														
+						
+						<div class="inline">
+							<p>offsets</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+				<p class="member-box-title">Type Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">T</p>						
+						<div class="inline">
+							<p>type of data to write</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>Memory Trainer = new Memory(...); 
+    // direct access at 00B28498 
+    Trainer.Write<int>(0x00B28498, an integer);
+    // follow pointer access at "001AAAC4", 0x464
+    Trainer.Write<int>(0x001AAAC4, an integer,0x464);
+    Trainer.Write<float>(0x00B28498, a float var);
+    Trainer.Write<double>(0x00B28498, a double var);
+    Trainer.Write<uint>(0x00B28498, an unsigned integer);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="Write2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="181" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/ApplicationTunnel.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ApplicationTunnel]]></text></a><a xlink:href="../type/ApplicationTunnel.html#Write2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Write]]></text></a><path d="M0.00,100.50L91.06,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,100 86,95 86,105" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="125.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if (Offsets.Length > 0)]]></text><a xlink:href="../type/ApplicationTunnel.html#Pointer" xmlns:xlink="xlink"><text x="101.06" y="145.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Pointer]]></text></a><path d="M91.06,145.50L81.06,145.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,145.50L81.06,155.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,155.50L91.06,155.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,155 86,150 86,160" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="170.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="20.00" y="200.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if (typeof(T) == typeof(byte))]]></text><a xlink:href="../type/ApplicationTunnel.html#WriteMemoryAtAdress" xmlns:xlink="xlink"><text x="101.06" y="220.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WriteMemoryAtAdress]]></text></a><path d="M91.06,220.50L81.06,220.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,220.50L81.06,230.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,230.50L91.06,230.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,230 86,225 86,235" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="245.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="20.00" y="275.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[else]]></text><a xlink:href="../type/ApplicationTunnel.html#WriteMemoryAtAdress" xmlns:xlink="xlink"><text x="101.06" y="295.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WriteMemoryAtAdress]]></text></a><path d="M91.06,295.50L81.06,295.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,295.50L81.06,305.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,305.50L91.06,305.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,305 86,300 86,310" fill="#979797" stroke="#979797" stroke-width="" /><text x="35.00" y="330.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if (typeof(T) == typeof(float))]]></text><a xlink:href="../type/ApplicationTunnel.html#WriteMemoryAtAdress" xmlns:xlink="xlink"><text x="101.06" y="350.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WriteMemoryAtAdress]]></text></a><path d="M91.06,350.50L81.06,350.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,350.50L81.06,360.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,360.50L91.06,360.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,360 86,355 86,365" fill="#979797" stroke="#979797" stroke-width="" /><text x="35.00" y="375.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="35.00" y="405.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[else]]></text><a xlink:href="../type/ApplicationTunnel.html#WriteMemoryAtAdress" xmlns:xlink="xlink"><text x="101.06" y="425.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WriteMemoryAtAdress]]></text></a><path d="M91.06,425.50L81.06,425.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,425.50L81.06,435.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,435.50L91.06,435.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,435 86,430 86,440" fill="#979797" stroke="#979797" stroke-width="" /><text x="35.00" y="450.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="20.00" y="470.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><path d="M91.51,45L91.51,490.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Write" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Write<T>(String pAddress, T WriteData, Int32[] Offsets)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>write a value at memory</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void Write&lt;T&gt;(String pAddress, T WriteData, Int32[] Offsets)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">pAddress</p>
+						
+						
+									
+									<small>String</small>
+
+														
+						
+						<div class="inline">
+							<p>address to write</p>
+
+						</div>
+					
+						<p class="key">WriteData</p>
+						
+						
+									
+									<small>T</small>
+
+														
+						
+						<div class="inline">
+							<p>data to write</p>
+
+						</div>
+					
+						<p class="key">Offsets</p>
+						
+						
+									
+									<small>Int32[]</small>
+
+														
+						
+						<div class="inline">
+							<p>offsets</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+				<p class="member-box-title">Type Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">T</p>						
+						<div class="inline">
+							<p>type of value</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>Memory Trainer = new Memory(...); 
+    // direct access at 00B28498 
+    Trainer.Write<int>("00B28498", an integer);
+    // follow pointer access at "001AAAC4", 0x464
+    Trainer.Write<int>("001AAAC4", an integer,0x464);
+    Trainer.Write<float>("00B28498", a float var);
+    Trainer.Write<double>("00B28498", a double var);
+    Trainer.Write<uint>("00B28498", an unsigned integer);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="Write-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="181" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/ApplicationTunnel.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ApplicationTunnel]]></text></a><a xlink:href="../type/ApplicationTunnel.html#Write" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Write]]></text></a><path d="M0.00,100.50L91.06,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,100 86,95 86,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/ApplicationTunnel.html#Write2" xmlns:xlink="xlink"><text x="101.06" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Write]]></text></a><path d="M91.06,125.50L81.06,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,125.50L81.06,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M81.06,135.50L91.06,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="91,135 86,130 86,140" fill="#979797" stroke="#979797" stroke-width="" /><path d="M91.51,45L91.51,150.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="WriteAscii" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>WriteAscii(Int32 pAddress, String StringToWrite)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Write a string of ASCII</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void WriteAscii(Int32 pAddress, String StringToWrite)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">pAddress</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>address to write</p>
+
+						</div>
+					
+						<p class="key">StringToWrite</p>
+						
+						
+									
+									<small>String</small>
+
+														
+						
+						<div class="inline">
+							<p>string to write</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>Memory Trainer = new Memory(...); 
+    // direct access at 00B28498 
+    Trainer.Write<int>(0x00B28498, "Hello");</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="WriteMemoryAtAdress" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_protected.png"/> <p>WriteMemoryAtAdress(IntPtr MemoryAddress, Byte[] bytesToWrite)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>private function to write at memory</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected Int32 WriteMemoryAtAdress(IntPtr MemoryAddress, Byte[] bytesToWrite)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">MemoryAddress</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>address</p>
+
+						</div>
+					
+						<p class="key">bytesToWrite</p>
+						
+						
+									
+									<small>Byte[]</small>
+
+														
+						
+						<div class="inline">
+							<p>bytes to write</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="WriteUnicode" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>WriteUnicode(Int32 pAddress, String StringToWrite)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Writes a unicode string</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void WriteUnicode(Int32 pAddress, String StringToWrite)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">pAddress</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>address to write</p>
+
+						</div>
+					
+						<p class="key">StringToWrite</p>
+						
+						
+									
+									<small>String</small>
+
+														
+						
+						<div class="inline">
+							<p>string to write</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+				
+
+				
+					<h3 class="box-title">Properties</h3>
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="BaseAddress" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/properties_protected.png"/> <p>BaseAddress</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>base adress</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>protected Int32 BaseAddress { get; set; }</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+				
+
+				
+					<div class="svg-diagram">
+						<h3 class="box-title">Class Diagram</h3>
+						<div id="sd-class-diagram" class="svgpan">
+							
+							<svg><g transform="translate(0.00, 50.00)"><rect height="721" width="248" x="0.55" y="0.55" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><text x="90.51" y="20.50" fill="" style="" text-anchor="" font-family="" font-size="11.00" onmouseover="" onmouseout=""><![CDATA[public  class]]></text><a xlink:href="../type/ApplicationTunnel.html" xmlns:xlink="xlink"><text x="62.43" y="35.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ApplicationTunnel]]></text></a><path d="M0.5,45.50L248.00,45.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="53.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#AttachedProcess" xmlns:xlink="xlink"><text x="40.00" y="65.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[AttachedProcess]]></text></a><image width="16.00" height="16.00" x="15.00" y="78.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#AttachedProcessModule" xmlns:xlink="xlink"><text x="40.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[AttachedProcessModule]]></text></a><image width="16.00" height="16.00" x="15.00" y="103.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#ProcessHandle" xmlns:xlink="xlink"><text x="40.00" y="115.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ProcessHandle]]></text></a><image width="16.00" height="16.00" x="15.00" y="128.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANJQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev+vv97eLK07h/y691yKlf5dOrfLTpr9b8NWO19eyy+NhopoU459ezXJvYvsvl9euu/vWsjGsf3bxa/88yo4Aut8/mWprXtcTh7tuW7sAvwtnw8OjW6+HNxdvxrL3e5NvG7ure6Mhdj24i8Ovf9vLp////Ur1AkwAAAAF0Uk5TAEDm2GYAAAABYktHREWOs6hXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAmElEQVQY03XO1w7CMAxAUTPLCHsGB9qGssJOQ6Hs9f/fRFClijyQt3tkWwH4/xLJlNHpTNbK/XS+UCQlqxx3pVojpN5oxtBqd0iX9jAG1qcDaqMGx+VDbwSMjSdTRHTA5TMh5oslYzpxBcDXm6301S74wl4v84OQMlRwDKKGk+eLUJ0BLniN7t+kUHfjz1JPmPB4vgx4G/0B6jkQpxrfs9YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#ProcessId" xmlns:xlink="xlink"><text x="40.00" y="140.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ProcessId]]></text></a><path d="M0.5,155.50L248.00,155.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="163.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAASNQTFRF/wD/8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+7eLK07h/y691yKlfz7+T0NbZ5MrkqFCp0mvT027UfjB/nzyfjTWOfC196t7G9eyy+NhopoU459ez6NHoqVCqy2fMlTiWeit78NXw9euu/vWsjGsf3bxa/88yo4Au7djtfzCAdSd169Hr7tuW7sAv7NLscSRy5szm8OjW6+HN5NvG7ure6Mhdj24i8Ovf9vLp////QObm/wAAAAF0Uk5TAEDm2GYAAAABYktHRGDFt3wQAAAACXBIWXMAAAsSAAALEgHS3X78AAAAs0lEQVQY02NggANGJmYGZMDIxMLEisRnY2Ln4GTiArO5eXj5+JkEBIWEhJlE4CpExcQlhCSlpBlkuGV55OQVGBSVxMSVVVTVGNShKjQ0tbR1dPX0GdQNDI2MTUwZzMwtLK2sbWwZ7AztHRwcnRgYnF1c9d3cPRgMPb28fXz9gJr8zQMCgxgYDIMdfHxCQAIMoWHhQDLC2NchxC8SyYlRPg5+0Sie8HGA6EAIxMTGoQjEo/ABB3UZPUWDqOwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTM6MDYrMDI6MDAEcFEeAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#AttachProcess" xmlns:xlink="xlink"><text x="40.00" y="175.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[AttachProcess]]></text></a><image width="16.00" height="16.00" x="15.00" y="188.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#Close" xmlns:xlink="xlink"><text x="40.00" y="200.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Close]]></text></a><image width="16.00" height="16.00" x="15.00" y="213.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAASNQTFRF/wD/8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+7eLK07h/y691yKlfz7+T0NbZ5MrkqFCp0mvT027UfjB/nzyfjTWOfC196t7G9eyy+NhopoU459ez6NHoqVCqy2fMlTiWeit78NXw9euu/vWsjGsf3bxa/88yo4Au7djtfzCAdSd169Hr7tuW7sAv7NLscSRy5szm8OjW6+HN5NvG7ure6Mhdj24i8Ovf9vLp////QObm/wAAAAF0Uk5TAEDm2GYAAAABYktHRGDFt3wQAAAACXBIWXMAAAsSAAALEgHS3X78AAAAs0lEQVQY02NggANGJmYGZMDIxMLEisRnY2Ln4GTiArO5eXj5+JkEBIWEhJlE4CpExcQlhCSlpBlkuGV55OQVGBSVxMSVVVTVGNShKjQ0tbR1dPX0GdQNDI2MTUwZzMwtLK2sbWwZ7AztHRwcnRgYnF1c9d3cPRgMPb28fXz9gJr8zQMCgxgYDIMdfHxCQAIMoWHhQDLC2NchxC8SyYlRPg5+0Sie8HGA6EAIxMTGoQjEo/ABB3UZPUWDqOwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTM6MDYrMDI6MDAEcFEeAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#DetachProcess" xmlns:xlink="xlink"><text x="40.00" y="225.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[DetachProcess]]></text></a><image width="16.00" height="16.00" x="15.00" y="238.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAASNQTFRF/wD/8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+7eLK07h/y691yKlfz7+T0NbZ5MrkqFCp0mvT027UfjB/nzyfjTWOfC196t7G9eyy+NhopoU459ez6NHoqVCqy2fMlTiWeit78NXw9euu/vWsjGsf3bxa/88yo4Au7djtfzCAdSd169Hr7tuW7sAv7NLscSRy5szm8OjW6+HN5NvG7ure6Mhdj24i8Ovf9vLp////QObm/wAAAAF0Uk5TAEDm2GYAAAABYktHRGDFt3wQAAAACXBIWXMAAAsSAAALEgHS3X78AAAAs0lEQVQY02NggANGJmYGZMDIxMLEisRnY2Ln4GTiArO5eXj5+JkEBIWEhJlE4CpExcQlhCSlpBlkuGV55OQVGBSVxMSVVVTVGNShKjQ0tbR1dPX0GdQNDI2MTUwZzMwtLK2sbWwZ7AztHRwcnRgYnF1c9d3cPRgMPb28fXz9gJr8zQMCgxgYDIMdfHxCQAIMoWHhQDLC2NchxC8SyYlRPg5+0Sie8HGA6EAIxMTGoQjEo/ABB3UZPUWDqOwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTM6MDYrMDI6MDAEcFEeAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#Finalize" xmlns:xlink="xlink"><text x="40.00" y="250.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Finalize]]></text></a><image width="16.00" height="16.00" x="15.00" y="263.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#GetHandle" xmlns:xlink="xlink"><text x="40.00" y="275.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetHandle]]></text></a><image width="16.00" height="16.00" x="15.00" y="288.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#GetModuleBase" xmlns:xlink="xlink"><text x="40.00" y="300.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetModuleBase]]></text></a><image width="16.00" height="16.00" x="15.00" y="313.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#GetProcessIdByName" xmlns:xlink="xlink"><text x="40.00" y="325.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetProcessIdByName]]></text></a><image width="16.00" height="16.00" x="15.00" y="338.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#Hex2Int" xmlns:xlink="xlink"><text x="40.00" y="350.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Hex2Int]]></text></a><image width="16.00" height="16.00" x="15.00" y="363.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#Kill" xmlns:xlink="xlink"><text x="40.00" y="375.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Kill]]></text></a><image width="16.00" height="16.00" x="15.00" y="388.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#Pointer" xmlns:xlink="xlink"><text x="40.00" y="400.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Pointer]]></text></a><image width="16.00" height="16.00" x="15.00" y="413.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAASNQTFRF/wD/8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+7eLK07h/y691yKlfz7+T0NbZ5MrkqFCp0mvT027UfjB/nzyfjTWOfC196t7G9eyy+NhopoU459ez6NHoqVCqy2fMlTiWeit78NXw9euu/vWsjGsf3bxa/88yo4Au7djtfzCAdSd169Hr7tuW7sAv7NLscSRy5szm8OjW6+HN5NvG7ure6Mhdj24i8Ovf9vLp////QObm/wAAAAF0Uk5TAEDm2GYAAAABYktHRGDFt3wQAAAACXBIWXMAAAsSAAALEgHS3X78AAAAs0lEQVQY02NggANGJmYGZMDIxMLEisRnY2Ln4GTiArO5eXj5+JkEBIWEhJlE4CpExcQlhCSlpBlkuGV55OQVGBSVxMSVVVTVGNShKjQ0tbR1dPX0GdQNDI2MTUwZzMwtLK2sbWwZ7AztHRwcnRgYnF1c9d3cPRgMPb28fXz9gJr8zQMCgxgYDIMdfHxCQAIMoWHhQDLC2NchxC8SyYlRPg5+0Sie8HGA6EAIxMTGoQjEo/ABB3UZPUWDqOwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTM6MDYrMDI6MDAEcFEeAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#Pointer2" xmlns:xlink="xlink"><text x="40.00" y="425.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Pointer]]></text></a><image width="16.00" height="16.00" x="15.00" y="438.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#Read2" xmlns:xlink="xlink"><text x="40.00" y="450.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Read]]></text></a><image width="16.00" height="16.00" x="15.00" y="463.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#Read" xmlns:xlink="xlink"><text x="40.00" y="475.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Read]]></text></a><image width="16.00" height="16.00" x="15.00" y="488.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAASNQTFRF/wD/8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+7eLK07h/y691yKlfz7+T0NbZ5MrkqFCp0mvT027UfjB/nzyfjTWOfC196t7G9eyy+NhopoU459ez6NHoqVCqy2fMlTiWeit78NXw9euu/vWsjGsf3bxa/88yo4Au7djtfzCAdSd169Hr7tuW7sAv7NLscSRy5szm8OjW6+HN5NvG7ure6Mhdj24i8Ovf9vLp////QObm/wAAAAF0Uk5TAEDm2GYAAAABYktHRGDFt3wQAAAACXBIWXMAAAsSAAALEgHS3X78AAAAs0lEQVQY02NggANGJmYGZMDIxMLEisRnY2Ln4GTiArO5eXj5+JkEBIWEhJlE4CpExcQlhCSlpBlkuGV55OQVGBSVxMSVVVTVGNShKjQ0tbR1dPX0GdQNDI2MTUwZzMwtLK2sbWwZ7AztHRwcnRgYnF1c9d3cPRgMPb28fXz9gJr8zQMCgxgYDIMdfHxCQAIMoWHhQDLC2NchxC8SyYlRPg5+0Sie8HGA6EAIxMTGoQjEo/ABB3UZPUWDqOwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTM6MDYrMDI6MDAEcFEeAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="" xmlns:xlink="xlink"><text x="40.00" y="500.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ReadMemoryAtAdress]]></text></a><image width="16.00" height="16.00" x="15.00" y="513.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#Write2" xmlns:xlink="xlink"><text x="40.00" y="525.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Write]]></text></a><image width="16.00" height="16.00" x="15.00" y="538.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#Write" xmlns:xlink="xlink"><text x="40.00" y="550.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Write]]></text></a><image width="16.00" height="16.00" x="15.00" y="563.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#WriteAscii" xmlns:xlink="xlink"><text x="40.00" y="575.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WriteAscii]]></text></a><image width="16.00" height="16.00" x="15.00" y="588.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAASNQTFRF/wD/8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+7eLK07h/y691yKlfz7+T0NbZ5MrkqFCp0mvT027UfjB/nzyfjTWOfC196t7G9eyy+NhopoU459ez6NHoqVCqy2fMlTiWeit78NXw9euu/vWsjGsf3bxa/88yo4Au7djtfzCAdSd169Hr7tuW7sAv7NLscSRy5szm8OjW6+HN5NvG7ure6Mhdj24i8Ovf9vLp////QObm/wAAAAF0Uk5TAEDm2GYAAAABYktHRGDFt3wQAAAACXBIWXMAAAsSAAALEgHS3X78AAAAs0lEQVQY02NggANGJmYGZMDIxMLEisRnY2Ln4GTiArO5eXj5+JkEBIWEhJlE4CpExcQlhCSlpBlkuGV55OQVGBSVxMSVVVTVGNShKjQ0tbR1dPX0GdQNDI2MTUwZzMwtLK2sbWwZ7AztHRwcnRgYnF1c9d3cPRgMPb28fXz9gJr8zQMCgxgYDIMdfHxCQAIMoWHhQDLC2NchxC8SyYlRPg5+0Sie8HGA6EAIxMTGoQjEo/ABB3UZPUWDqOwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTM6MDYrMDI6MDAEcFEeAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#WriteMemoryAtAdress" xmlns:xlink="xlink"><text x="40.00" y="600.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WriteMemoryAtAdress]]></text></a><image width="16.00" height="16.00" x="15.00" y="613.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#WriteUnicode" xmlns:xlink="xlink"><text x="40.00" y="625.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WriteUnicode]]></text></a><image width="16.00" height="16.00" x="15.00" y="638.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#ApplicationTunnel" xmlns:xlink="xlink"><text x="40.00" y="650.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ApplicationTunnel]]></text></a><image width="16.00" height="16.00" x="15.00" y="663.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#ApplicationTunnel2" xmlns:xlink="xlink"><text x="40.00" y="675.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ApplicationTunnel]]></text></a><path d="M0.5,690.50L248.00,690.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="698.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAaFQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB1M2607h/y691yKlf5dOrwMfR/f7++Pv+8vb94NrI8uqy+NhopoU459ezwsnToq/E/v//7OOo/vWsjGsf3bxa/88yo4AuwcjS/P7/+Pr97/T75u776tmV7sAv+fv/ra6s6+HNyM/Z9v//7Pn/4fD/xszG7urec3V8S0tOTU9UTVFWTFBTS09STE9S6Mhdj24i8Ovf9vLpE2dLaAAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAA7ElEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIqOiQXaEAcSiE9ITIpKTklJTWNgSPfKyMjMyMiIysrOyc3LZ2AoAKooLCouiSpNyc0tAwtkZJQDVVTE5KWU5VcyMFQBVVRXV9fU1uWm5NcDDW1obGpqam5pbWvNTQHpQAK57R2dKAJdYD4AsfI82OwsdZsAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTM6NDErMDI6MDBFnWFqAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ApplicationTunnel.html#BaseAddress" xmlns:xlink="xlink"><text x="40.00" y="710.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BaseAddress { get; set; }]]></text></a></g><g transform="translate(298.00, 100.00)"><rect height="911" width="236" x="0.55" y="0.55" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><text x="84.51" y="20.50" fill="" style="" text-anchor="" font-family="" font-size="11.00" onmouseover="" onmouseout=""><![CDATA[public  class]]></text><a xlink:href="../type/NativeMethods.html" xmlns:xlink="xlink"><text x="66.11" y="35.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[NativeMethods]]></text></a><path d="M0.5,45.50L236.00,45.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="53.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFevfLTpr9b8NWO1XJvYvsvlv9jvWprXtcThxLJ/wrB9wKx7vKl4uaV1taBxspxprJdpwtnww7B9wJwn79ty//CMWUkjxdvxrL3ewK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////7zab9wAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAj0lEQVQY033L1RICMQxA0aKLFNfS4rC4JcXd//+PWFgmU17IU+6ZhLE/4/H6ftofCFoho8ORKI9ZcepEMsV5OpMlyOULvChKkkCVRUVUpQGqVm9IA5pKOSlbBG37DR1n6/b6g+FoPJnabrMZoNYIc7aQy8/tSgMi4JqeN3oLsMM9wcF9ORKczpfr7f54fvMFdrwQjykqOgcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WH_KEYBOARD_LL" xmlns:xlink="xlink"><text x="40.00" y="65.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WH_KEYBOARD_LL]]></text></a><image width="16.00" height="16.00" x="15.00" y="78.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFevfLTpr9b8NWO1XJvYvsvlv9jvWprXtcThxLJ/wrB9wKx7vKl4uaV1taBxspxprJdpwtnww7B9wJwn79ty//CMWUkjxdvxrL3ewK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////7zab9wAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAj0lEQVQY033L1RICMQxA0aKLFNfS4rC4JcXd//+PWFgmU17IU+6ZhLE/4/H6ftofCFoho8ORKI9ZcepEMsV5OpMlyOULvChKkkCVRUVUpQGqVm9IA5pKOSlbBG37DR1n6/b6g+FoPJnabrMZoNYIc7aQy8/tSgMi4JqeN3oLsMM9wcF9ORKczpfr7f54fvMFdrwQjykqOgcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WM_KEYDOWN" xmlns:xlink="xlink"><text x="40.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WM_KEYDOWN]]></text></a><image width="16.00" height="16.00" x="15.00" y="103.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFevfLTpr9b8NWO1XJvYvsvlv9jvWprXtcThxLJ/wrB9wKx7vKl4uaV1taBxspxprJdpwtnww7B9wJwn79ty//CMWUkjxdvxrL3ewK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////7zab9wAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAj0lEQVQY033L1RICMQxA0aKLFNfS4rC4JcXd//+PWFgmU17IU+6ZhLE/4/H6ftofCFoho8ORKI9ZcepEMsV5OpMlyOULvChKkkCVRUVUpQGqVm9IA5pKOSlbBG37DR1n6/b6g+FoPJnabrMZoNYIc7aQy8/tSgMi4JqeN3oLsMM9wcF9ORKczpfr7f54fvMFdrwQjykqOgcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WM_KEYUP" xmlns:xlink="xlink"><text x="40.00" y="115.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WM_KEYUP]]></text></a><image width="16.00" height="16.00" x="15.00" y="128.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFevfLTpr9b8NWO1XJvYvsvlv9jvWprXtcThxLJ/wrB9wKx7vKl4uaV1taBxspxprJdpwtnww7B9wJwn79ty//CMWUkjxdvxrL3ewK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////7zab9wAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAj0lEQVQY033L1RICMQxA0aKLFNfS4rC4JcXd//+PWFgmU17IU+6ZhLE/4/H6ftofCFoho8ORKI9ZcepEMsV5OpMlyOULvChKkkCVRUVUpQGqVm9IA5pKOSlbBG37DR1n6/b6g+FoPJnabrMZoNYIc7aQy8/tSgMi4JqeN3oLsMM9wcF9ORKczpfr7f54fvMFdrwQjykqOgcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WM_SYSKEYDOWN" xmlns:xlink="xlink"><text x="40.00" y="140.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WM_SYSKEYDOWN]]></text></a><image width="16.00" height="16.00" x="15.00" y="153.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFevfLTpr9b8NWO1XJvYvsvlv9jvWprXtcThxLJ/wrB9wKx7vKl4uaV1taBxspxprJdpwtnww7B9wJwn79ty//CMWUkjxdvxrL3ewK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////7zab9wAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAj0lEQVQY033L1RICMQxA0aKLFNfS4rC4JcXd//+PWFgmU17IU+6ZhLE/4/H6ftofCFoho8ORKI9ZcepEMsV5OpMlyOULvChKkkCVRUVUpQGqVm9IA5pKOSlbBG37DR1n6/b6g+FoPJnabrMZoNYIc7aQy8/tSgMi4JqeN3oLsMM9wcF9ORKczpfr7f54fvMFdrwQjykqOgcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WM_SYSKEYUP" xmlns:xlink="xlink"><text x="40.00" y="165.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WM_SYSKEYUP]]></text></a><path d="M0.5,180.50L236.00,180.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="188.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="" xmlns:xlink="xlink"><text x="40.00" y="200.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[CallNextHookEx]]></text></a><image width="16.00" height="16.00" x="15.00" y="213.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#CloseHandle" xmlns:xlink="xlink"><text x="40.00" y="225.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[CloseHandle]]></text></a><image width="16.00" height="16.00" x="15.00" y="238.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#GetAsyncKeyState" xmlns:xlink="xlink"><text x="40.00" y="250.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetAsyncKeyState]]></text></a><image width="16.00" height="16.00" x="15.00" y="263.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#GetPrivateProfileString" xmlns:xlink="xlink"><text x="40.00" y="275.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPrivateProfileString]]></text></a><image width="16.00" height="16.00" x="15.00" y="288.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#GetWindowDC" xmlns:xlink="xlink"><text x="40.00" y="300.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetWindowDC]]></text></a><image width="16.00" height="16.00" x="15.00" y="313.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#GetWindowLong" xmlns:xlink="xlink"><text x="40.00" y="325.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetWindowLong]]></text></a><image width="16.00" height="16.00" x="15.00" y="338.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="" xmlns:xlink="xlink"><text x="40.00" y="350.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetWindowRect]]></text></a><image width="16.00" height="16.00" x="15.00" y="363.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#HideMaximizeButton" xmlns:xlink="xlink"><text x="40.00" y="375.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[HideMaximizeButton]]></text></a><image width="16.00" height="16.00" x="15.00" y="388.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#HideMinimizeButton" xmlns:xlink="xlink"><text x="40.00" y="400.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[HideMinimizeButton]]></text></a><image width="16.00" height="16.00" x="15.00" y="413.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#keybd_event" xmlns:xlink="xlink"><text x="40.00" y="425.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[keybd_event]]></text></a><image width="16.00" height="16.00" x="15.00" y="438.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#LoadLibrary" xmlns:xlink="xlink"><text x="40.00" y="450.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LoadLibrary]]></text></a><image width="16.00" height="16.00" x="15.00" y="463.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#mouse_event" xmlns:xlink="xlink"><text x="40.00" y="475.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[mouse_event]]></text></a><image width="16.00" height="16.00" x="15.00" y="488.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#OpenProcess" xmlns:xlink="xlink"><text x="40.00" y="500.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[OpenProcess]]></text></a><image width="16.00" height="16.00" x="15.00" y="513.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#PostMessage" xmlns:xlink="xlink"><text x="40.00" y="525.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[PostMessage]]></text></a><image width="16.00" height="16.00" x="15.00" y="538.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#PrintWindow" xmlns:xlink="xlink"><text x="40.00" y="550.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[PrintWindow]]></text></a><image width="16.00" height="16.00" x="15.00" y="563.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="" xmlns:xlink="xlink"><text x="40.00" y="575.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ReadProcessMemory]]></text></a><image width="16.00" height="16.00" x="15.00" y="588.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#SendMessage2" xmlns:xlink="xlink"><text x="40.00" y="600.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SendMessage]]></text></a><image width="16.00" height="16.00" x="15.00" y="613.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#SendMessage" xmlns:xlink="xlink"><text x="40.00" y="625.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SendMessage]]></text></a><image width="16.00" height="16.00" x="15.00" y="638.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#SetForegroundWindow" xmlns:xlink="xlink"><text x="40.00" y="650.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SetForegroundWindow]]></text></a><image width="16.00" height="16.00" x="15.00" y="663.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#SetWindowLong" xmlns:xlink="xlink"><text x="40.00" y="675.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SetWindowLong]]></text></a><image width="16.00" height="16.00" x="15.00" y="688.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#SetWindowsHookEx" xmlns:xlink="xlink"><text x="40.00" y="700.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SetWindowsHookEx]]></text></a><image width="16.00" height="16.00" x="15.00" y="713.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#ShowMaximizeButton" xmlns:xlink="xlink"><text x="40.00" y="725.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShowMaximizeButton]]></text></a><image width="16.00" height="16.00" x="15.00" y="738.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#ShowMinimizeButton" xmlns:xlink="xlink"><text x="40.00" y="750.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShowMinimizeButton]]></text></a><image width="16.00" height="16.00" x="15.00" y="763.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#ShowWindow" xmlns:xlink="xlink"><text x="40.00" y="775.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShowWindow]]></text></a><image width="16.00" height="16.00" x="15.00" y="788.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#UnhookWindowsHookEx" xmlns:xlink="xlink"><text x="40.00" y="800.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[UnhookWindowsHookEx]]></text></a><image width="16.00" height="16.00" x="15.00" y="813.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#VkKeyScan" xmlns:xlink="xlink"><text x="40.00" y="825.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[VkKeyScan]]></text></a><image width="16.00" height="16.00" x="15.00" y="838.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WritePrivateProfileString" xmlns:xlink="xlink"><text x="40.00" y="850.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WritePrivateProfileString]]></text></a><image width="16.00" height="16.00" x="15.00" y="863.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="" xmlns:xlink="xlink"><text x="40.00" y="875.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WriteProcessMemory]]></text></a><image width="16.00" height="16.00" x="15.00" y="888.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#NativeMethods" xmlns:xlink="xlink"><text x="40.00" y="900.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[NativeMethods]]></text></a></g><g><path d="M416.00,100.00L416.00,75.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M411.00,90.00L416.00,100.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M421.00,90.00L416.00,100.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M416.00,74.50L248.00,74.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+						</div>
+						<div class="legend">
+							<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+							<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+							<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+						</div>
+					</div>
+				
+			</div>
+		</div>
+
+    </body>
+</html>
+

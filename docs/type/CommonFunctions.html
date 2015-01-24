@@ -1,0 +1,1919 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>BotSuite - CommonFunctions</title>
+        <meta name="viewport" content="width=device-width">
+
+		
+			<link rel="stylesheet" type="text/css" href="../assets/css/font.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="../assets/css/style.css?version=0.9.5.10" />
+			
+			<!--[if IE 8]>
+				<script src="../assets/js/vendor.ie8.js?version=0.9.5.10"></script>
+			<![endif]-->
+			<![if !IE 8]>
+				<script src="../assets/js/vendor.js?version=0.9.5.10"></script>
+			<![endif]>
+
+			<script src="../assets/js/frame.js?version=0.9.5.10"></script>
+		
+
+		<script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>        
+        
+		<!-- DropDowns -->
+		<div id="dropdown-1" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-2" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-3" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+
+				
+
+					<li><a href="#AverageColor"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> AverageColor(ImageData img, Int32 left, Int32 top, Int32 width, Int32 height)</a></li>
+
+				
+
+					<li><a href="#AverageRGBValues"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> AverageRGBValues(ImageData img, Int32 left, Int32 top, Int32 width, Int32 height)</a></li>
+
+				
+
+					<li><a href="#ColorDifference"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> ColorDifference(Color a, Color b)</a></li>
+
+				
+
+					<li><a href="#ColorsSimilar"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> ColorsSimilar(Color one, Color two, UInt32 tolerance)</a></li>
+
+				
+
+					<li><a href="#ExtractRedChannel"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> ExtractRedChannel(ImageData img)</a></li>
+
+				
+
+					<li><a href="#FindColors"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> FindColors(ImageData img, Color searchColor, UInt32 tolerance)</a></li>
+
+				
+
+					<li><a href="#FindColors2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> FindColors(ImageData img, Color searchColor, UInt32 tolerance, Int32 skipX, Int32 skipY)</a></li>
+
+				
+
+					<li><a href="#IdentifyColor"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> IdentifyColor(ImageData img, Dictionary statReference, Int32 left, Int32 top, Int32 width, Int32 height)</a></li>
+
+				
+
+					<li><a href="#IdentifyColor2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> IdentifyColor(Color givenColor, Dictionary statReference)</a></li>
+
+				
+
+					<li><a href="#IdentifyColorByVoting"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> IdentifyColorByVoting(ImageData img, Dictionary statReference, Int32 left, Int32 top, Int32 width, Int32 height)</a></li>
+
+				
+
+					<li><a href="#IdentifyImage"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> IdentifyImage(ImageData img, Dictionary statReference)</a></li>
+
+				
+
+					<li><a href="#Similarity"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Similarity(ImageData img, ImageData reference, Int32 left, Int32 top, Int32 width, Int32 height, Int32 offsetLeft, Int32 offsetTop)</a></li>
+
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-4" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+			</ul>
+		</div>
+		<!-- DropDowns Ende -->
+
+	    <div class="ui-layout-north">
+			<div class="toolbar">
+
+				
+					<a href="#" data-dropdown="#dropdown-3" class="button"><img src="../assets/images/icons/method_public.png"/> Methods <span class="info">(12)</span> <i class="icon-caret-down"></i></a>
+				
+
+				<div class="right">
+					<span class="toolbar-info"> Namespace: BotSuite.ImageLibrary</span>
+					<a href="#" id="expand-all-button" class="button"><i class="icon-align-justify" title="expand all"></i></a>
+					<a href="#" id="print-button" class="button"><i class="icon-print" title="print"></i></a>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+        
+		<div class="ui-layout-center">
+
+			<div>
+				<h3 class="box-title first-heading">Syntax</h3>					
+				<div class="syntax-box">
+					<pre class="wrap-pre"><code>public static class CommonFunctions</code></pre>
+				</div>
+
+				
+
+				
+        
+				
+
+					
+						<h3 class="box-title">Summary</h3>
+						<div class="doc-box markdown">
+							<p>collection of common functions</p>
+
+						</div>
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+				
+
+				
+					<h3 class="box-title">Uses</h3>
+					<div class="list-box">
+						<ul>
+						
+							<li><a href="../type/ImageData.html">ImageData</a></li>
+						
+						</ul>
+					</div>
+				
+
+				
+
+				
+
+				
+
+				
+					<h3 class="box-title">Methods</h3>
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="AverageColor" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>AverageColor(ImageData img, Int32 left, Int32 top, Int32 width, Int32 height)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Gets the average color from an image in a given rectangle
+By default the the average color from the whole image is calculated</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Color AverageColor(ImageData img, Int32 left, Int32 top, Int32 width, Int32 height)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">img</p>
+						
+						
+									
+									<small>ImageData</small>
+
+														
+						
+						<div class="inline">
+							<p>The image to process</p>
+
+						</div>
+					
+						<p class="key">left</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The left of the rectangle (default=0)</p>
+
+						</div>
+					
+						<p class="key">top</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The top of the rectangle (default=0)</p>
+
+						</div>
+					
+						<p class="key">width</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The width of the rectangle (default=full width)</p>
+
+						</div>
+					
+						<p class="key">height</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The height of the rectangle (default=full height)</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>average color</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ImageData Img = new ImageData(...);
+    // average color in whole image
+    double[] AverageColor = CommonFunctions.AverageRGBValues(img);
+    // average color in predefined rectangle
+    Color AverageColorInRectangle = CommonFunctions.AverageRGBValues(img,left,top,width,height);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="AverageRGBValues" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>AverageRGBValues(ImageData img, Int32 left, Int32 top, Int32 width, Int32 height)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Gets the average RGB values from a given rectangle in an image
+By default the average RGB values from the whole image are calculated</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Double[] AverageRGBValues(ImageData img, Int32 left, Int32 top, Int32 width, Int32 height)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">img</p>
+						
+						
+									
+									<small>ImageData</small>
+
+														
+						
+						<div class="inline">
+							<p>The image to process</p>
+
+						</div>
+					
+						<p class="key">left</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The left of the rectangle (default=0)</p>
+
+						</div>
+					
+						<p class="key">top</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The top of the rectangle (default=0)</p>
+
+						</div>
+					
+						<p class="key">width</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The width of the rectangle (default=full width)</p>
+
+						</div>
+					
+						<p class="key">height</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The height of the rectangle (default=full height)</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>The average RGB values</p>
+
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>to detect the color of bubbles or coins this function can be helpful in connection with IdentifyColor()</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ImageData Img = new ImageData(...);
+    // average color in whole image
+    double[] AverageColor = CommonFunctions.AverageRGBValues(img);
+    int left = 0;
+    int top = 5;
+    // average color in clipped image
+    double[] AverageColorShifted = CommonFunctions.AverageRGBValues(img,left,top);
+    int width = 50;
+    int height = 100;
+    // average color in predefined rectangle
+    double[] AverageColorRectangle = CommonFunctions.AverageRGBValues(img,left,top,width,height);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="AverageRGBValues-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="271" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/CommonFunctions.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ImageLibrary.CommonFunctions]]></text></a><rect height="35" width="226" x="291.51" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/ImageData.html" xmlns:xlink="xlink"><text x="306.05" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ImageLibrary.ImageData]]></text></a><a xlink:href="../type/CommonFunctions.html#AverageRGBValues" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[AverageRGBValues]]></text></a><path d="M0.00,100.50L135.78,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="135,100 130,95 130,105" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="125.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[for (int x = left; x < left + width; x++)]]></text><text x="35.00" y="145.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[for (int y = top; y < top + height; y++)]]></text><a xlink:href="../type/ImageData.html#GetPixel" xmlns:xlink="xlink"><text x="145.78" y="165.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPixel]]></text></a><path d="M135.78,175.50L404.11,175.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="404,175 399,170 399,180" fill="#979797" stroke="#979797" stroke-width="" /><text x="145.78" y="200.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Color]]></text><path d="M135.78,210.50L404.11,210.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="135,210 140,215 140,205" fill="#979797" stroke="#979797" stroke-width="" /><text x="35.00" y="225.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="20.00" y="245.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="10.00" y="275.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Double[] ]]></text><path d="M0.00,285.50L135.78,285.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="0,285 5,290 5,280" fill="#979797" stroke="#979797" stroke-width="" /><path d="M135.58,45L135.58,300.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M404.51,45L404.51,300.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ColorDifference" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>ColorDifference(Color a, Color b)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Calculates the difference between two colors (a-b)</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Color ColorDifference(Color a, Color b)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">a</p>
+						
+						
+									
+									<small>Color</small>
+
+														
+						
+						<div class="inline">
+							<p>Color a</p>
+
+						</div>
+					
+						<p class="key">b</p>
+						
+						
+									
+									<small>Color</small>
+
+														
+						
+						<div class="inline">
+							<p>Color b</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ColorsSimilar" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>ColorsSimilar(Color one, Color two, UInt32 tolerance)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Tests if the colors are similar.</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Boolean ColorsSimilar(Color one, Color two, UInt32 tolerance)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">one</p>
+						
+						
+									
+									<small>Color</small>
+
+														
+						
+						<div class="inline">
+							<p>Color A</p>
+
+						</div>
+					
+						<p class="key">two</p>
+						
+						
+									
+									<small>Color</small>
+
+														
+						
+						<div class="inline">
+							<p>Color B</p>
+
+						</div>
+					
+						<p class="key">tolerance</p>
+						
+						
+									
+									<small>UInt32</small>
+
+														
+						
+						<div class="inline">
+							<p>Tolerance (0,...,255)</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>Similar or not</p>
+
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>the tolerance has to be within the interval 0..255 and no bigger difference in each color channel is allowed</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>Color A = Color.White;
+    Color B = Color.Blue;
+    bool similar = CommonFunctions.ColorsSimilar(A,B,50);
+    bool match   = CommonFunctions.ColorsSimilar(A,B,0);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ExtractRedChannel" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>ExtractRedChannel(ImageData img)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Retrieves the red channel as an array</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static UInt32[,] ExtractRedChannel(ImageData img)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">img</p>
+						
+						
+									
+									<small>ImageData</small>
+
+														
+						
+						<div class="inline">
+							<p>image</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>The red channel as an array</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="FindColors" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>FindColors(ImageData img, Color searchColor, UInt32 tolerance)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Finds all pixels matching a specified color</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static List&lt;Point&gt; FindColors(ImageData img, Color searchColor, UInt32 tolerance)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">img</p>
+						
+						
+									
+									<small>ImageData</small>
+
+														
+						
+						<div class="inline">
+							<p>The image to look in</p>
+
+						</div>
+					
+						<p class="key">searchColor</p>
+						
+						
+									
+									<small>Color</small>
+
+														
+						
+						<div class="inline">
+							<p>The color to look for</p>
+
+						</div>
+					
+						<p class="key">tolerance</p>
+						
+						
+									
+									<small>UInt32</small>
+
+														
+						
+						<div class="inline">
+							<p>The tolerance to use</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>List<Point> WaterPixel = CommonFunctions.FindColors(ScreenShot.create(),Color.Blue,20);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="FindColors2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>FindColors(ImageData img, Color searchColor, UInt32 tolerance, Int32 skipX, Int32 skipY)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Finds all pixels matching a specified color
+/accelerated/</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static List&lt;Point&gt; FindColors(ImageData img, Color searchColor, UInt32 tolerance, Int32 skipX, Int32 skipY)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">img</p>
+						
+						
+									
+									<small>ImageData</small>
+
+														
+						
+						<div class="inline">
+							<p>The image to look in</p>
+
+						</div>
+					
+						<p class="key">searchColor</p>
+						
+						
+									
+									<small>Color</small>
+
+														
+						
+						<div class="inline">
+							<p>The color to look for</p>
+
+						</div>
+					
+						<p class="key">skipX</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The X pixels to skip each time</p>
+
+						</div>
+					
+						<p class="key">skipY</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The Y pixels to skip each time</p>
+
+						</div>
+					
+						<p class="key">tolerance</p>
+						
+						
+									
+									<small>UInt32</small>
+
+														
+						
+						<div class="inline">
+							<p>The tolerance to use</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>this function skips in both dimension (x and y) a predefined amount of pixels in each iteration.
+You can use this function to test every n-th pixel</p>
+
+				</div>
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="IdentifyColor" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>IdentifyColor(ImageData img, Dictionary statReference, Int32 left, Int32 top, Int32 width, Int32 height)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Identifies the colors of the pixels in a rectangle from an image by a given list of
+reference colors (root means square error
+from average)</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Color IdentifyColor(ImageData img, Dictionary statReference, Int32 left, Int32 top, Int32 width, Int32 height)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">img</p>
+						
+						
+									
+									<small>ImageData</small>
+
+														
+						
+						<div class="inline">
+							<p>The image that should be analyzed</p>
+
+						</div>
+					
+						<p class="key">statReference</p>
+						
+						
+									
+									<small>Dictionary</small>
+
+														
+						
+						<div class="inline">
+							<p>The list of possible colors</p>
+
+						</div>
+					
+						<p class="key">left</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The left of the rectangle (default: 0)</p>
+
+						</div>
+					
+						<p class="key">top</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The top of the rectangle (default: 0)</p>
+
+						</div>
+					
+						<p class="key">width</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The width of the rectangle (default: full width)</p>
+
+						</div>
+					
+						<p class="key">height</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The height of the rectangle (default: full height)</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>The best matching color</p>
+
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>if the color differs sometimes you can use this function to find the best matching colors in a dictionary list. 
+In most you do not need to know the exact rgb values. You only wants to know whether the rectangle is more likely to the color 
+red, blue, rgb(?,?,?), ....</p>
+
+<p>this functions maps the result to the correct color. If the image contains a pale red and you want to identify this as #ff0000 
+you have to add the pair (#FF8C8C "pale red", #FF0000)</p>
+
+<p>This uses the RMSE root mean square error to find the best color. 
+Attention! If there are some pixel that have to complete other colors, they can destroy the accurately 
+see: IdentifyColorByVoting</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ImageData Screenshot = new ImageData(...);
+    Dictionary<Color, List<double>> Choose = new Dictionary<Color, List<double>> ();
+    Choose.Add(Color.Red,    new List<double> { 255, 144.23, 140.89 });
+    Choose.Add(Color.White,  new List<double> { 218, 219, 222 });
+    Choose.Add(Color.Blue,   new List<double> { 21, 108, 182 });
+    Choose.Add(Color.Green,  new List<double> { 86, 191, 50 });
+    Choose.Add(Color.Yellow, new List<double> { 233, 203, 118 });
+    Choose.Add(Color.Orange, new List<double> { 246, 122, 11 });
+    Choose.Add(Color.Black,  new List<double> { 94, 98, 98 });
+    Choose.Add(Color.Violet, new List<double> { 223, 80, 195 });
+    Choose.Add(Color.MediumSeaGreen,  new List<double> { 106, 227, 216 });
+    // ...
+    Color PieceColor = CommonFunctions.IdentifyColor(Screenshot,Choose,leftoffset,topoffset,width,height);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="IdentifyColor2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>IdentifyColor(Color givenColor, Dictionary statReference)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Identifies the best matching color from a list of colors</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Color IdentifyColor(Color givenColor, Dictionary statReference)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">givenColor</p>
+						
+						
+									
+									<small>Color</small>
+
+														
+						
+						<div class="inline">
+							<p>The color to look for</p>
+
+						</div>
+					
+						<p class="key">statReference</p>
+						
+						
+									
+									<small>Dictionary</small>
+
+														
+						
+						<div class="inline">
+							<p>The list of colors</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>The best matching color from the list</p>
+
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>In the example the color #FF8C8C "pale red" would be identify as red</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>Dictionary<Color, List<double>> Choose = new Dictionary<Color, List<double>> ();
+    Choose.Add(Color.Red,    new List<double> { 255, 0, 0 });
+    Choose.Add(Color.White,  new List<double> { 218, 219, 222 });
+    Choose.Add(Color.Blue,   new List<double> { 21, 108, 182 });
+    Choose.Add(Color.Green,  new List<double> { 86, 191, 50 });
+    Choose.Add(Color.Yellow, new List<double> { 233, 203, 118 });
+    Choose.Add(Color.Orange, new List<double> { 246, 122, 11 });
+    Choose.Add(Color.Black,  new List<double> { 94, 98, 98 });
+    Choose.Add(Color.Violet, new List<double> { 223, 80, 195 });
+    Choose.Add(Color.MediumSeaGreen,  new List<double> { 106, 227, 216 });
+    // ...
+    Color PieceColor = CommonFunctions.IdentifyColor(Color.FromArgb(255,140,140),Choose);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="IdentifyColorByVoting" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>IdentifyColorByVoting(ImageData img, Dictionary statReference, Int32 left, Int32 top, Int32 width, Int32 height)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Identifies the colors of the pixels in a rectangle and compares them with those from an image by a given list of
+reference colors (majority vote)</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Color IdentifyColorByVoting(ImageData img, Dictionary statReference, Int32 left, Int32 top, Int32 width, Int32 height)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">img</p>
+						
+						
+									
+									<small>ImageData</small>
+
+														
+						
+						<div class="inline">
+							<p>The image to look in</p>
+
+						</div>
+					
+						<p class="key">statReference</p>
+						
+						
+									
+									<small>Dictionary</small>
+
+														
+						
+						<div class="inline">
+							<p>The list of possible colors</p>
+
+						</div>
+					
+						<p class="key">left</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The left of the rectangle (default: 0)</p>
+
+						</div>
+					
+						<p class="key">top</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The top of the rectangle (default: 0)</p>
+
+						</div>
+					
+						<p class="key">width</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The width of the rectangle (default: full width)</p>
+
+						</div>
+					
+						<p class="key">height</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The height of the rectangle (default: full height)</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>The best matching color</p>
+
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>This tests every pixel in the given rectangle and majority votes the color from the given dictionary of possible
+colors. Each pixel votes for a color.</p>
+
+<p>if the image patch is </p>
+
+<p>" red red  "
+" red blue "</p>
+
+<p>then 4 pixels vote for similary colors to red and one pixel votes for a similar color to blue</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ImageData Screenshot = new ImageData(...);
+    Dictionary<Color, List<double>> Choose = new Dictionary<Color, List<double>> ();
+    Choose.Add(Color.Red,    new List<double> { 255, 144.23, 140.89 });
+    Choose.Add(Color.White,  new List<double> { 218, 219, 222 });
+    Choose.Add(Color.Blue,   new List<double> { 21, 108, 182 });
+    Choose.Add(Color.Green,  new List<double> { 86, 191, 50 });
+    Choose.Add(Color.Yellow, new List<double> { 233, 203, 118 });
+    Choose.Add(Color.Orange, new List<double> { 246, 122, 11 });
+    Choose.Add(Color.Black,  new List<double> { 94, 98, 98 });
+    Choose.Add(Color.Violet, new List<double> { 223, 80, 195 });
+    Choose.Add(Color.MediumSeaGreen,  new List<double> { 106, 227, 216 });
+    // ...
+    Color PieceColor = CommonFunctions.IdentifyColorByVoting(Screenshot,Choose,leftoffset,topoffset,width,height);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="IdentifyColorByVoting-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="271" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/CommonFunctions.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ImageLibrary.CommonFunctions]]></text></a><rect height="35" width="226" x="291.51" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/ImageData.html" xmlns:xlink="xlink"><text x="306.05" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ImageLibrary.ImageData]]></text></a><a xlink:href="../type/CommonFunctions.html#IdentifyColorByVoting" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[IdentifyColorByVoting]]></text></a><path d="M0.00,100.50L135.78,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="135,100 130,95 130,105" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="125.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[for (int x = left; x < left + width; x++)]]></text><text x="35.00" y="145.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[for (int y = top; y < top + height; y++)]]></text><a xlink:href="../type/ImageData.html#GetPixel" xmlns:xlink="xlink"><text x="145.78" y="165.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPixel]]></text></a><path d="M135.78,175.50L404.11,175.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="404,175 399,170 399,180" fill="#979797" stroke="#979797" stroke-width="" /><text x="145.78" y="200.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Color]]></text><path d="M135.78,210.50L404.11,210.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="135,210 140,215 140,205" fill="#979797" stroke="#979797" stroke-width="" /><text x="35.00" y="225.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="20.00" y="245.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="10.00" y="275.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Color]]></text><path d="M0.00,285.50L135.78,285.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="0,285 5,290 5,280" fill="#979797" stroke="#979797" stroke-width="" /><path d="M135.58,45L135.58,300.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M404.51,45L404.51,300.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="IdentifyImage" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>IdentifyImage(ImageData img, Dictionary statReference)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Identifies the best matching image from a list of images</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static String IdentifyImage(ImageData img, Dictionary statReference)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">img</p>
+						
+						
+									
+									<small>ImageData</small>
+
+														
+						
+						<div class="inline">
+							<p>The image to look for</p>
+
+						</div>
+					
+						<p class="key">statReference</p>
+						
+						
+									
+									<small>Dictionary</small>
+
+														
+						
+						<div class="inline">
+							<p>The list of images</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>The name of the best matching image in the list</p>
+
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>If you want to compare an image patch to a collection of interesting images, you can use this 
+function to find the best matching from the given list</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>Dictionary<string, ImageData> Choose = new Dictionary<string, ImageData> ();
+    Choose.Add("coin",    new ImageData("coin.bmp"));
+    Choose.Add("enemy",   new ImageData("warrior.bmp"));
+    Choose.Add("water",    new ImageData("blue_piece.bmp"));
+    // ...
+    string PieceColor = CommonFunctions.IdentifyImage(new ImageData("unkown.bmp"),Choose);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Similarity" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Similarity(ImageData img, ImageData reference, Int32 left, Int32 top, Int32 width, Int32 height, Int32 offsetLeft, Int32 offsetTop)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Calculates the similarity of image "img" in a given rectangle and a reference image "reference"</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Double Similarity(ImageData img, ImageData reference, Int32 left, Int32 top, Int32 width, Int32 height, Int32 offsetLeft, Int32 offsetTop)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">img</p>
+						
+						
+									
+									<small>ImageData</small>
+
+														
+						
+						<div class="inline">
+							<p>Image A</p>
+
+						</div>
+					
+						<p class="key">reference</p>
+						
+						
+									
+									<small>ImageData</small>
+
+														
+						
+						<div class="inline">
+							<p>Image B</p>
+
+						</div>
+					
+						<p class="key">left</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The offset from left of image A</p>
+
+						</div>
+					
+						<p class="key">top</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The offset from top of image A</p>
+
+						</div>
+					
+						<p class="key">width</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The width of the rectangle (default: full width)</p>
+
+						</div>
+					
+						<p class="key">height</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The height of the rectangle (default: full height)</p>
+
+						</div>
+					
+						<p class="key">offsetLeft</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The left offset</p>
+
+						</div>
+					
+						<p class="key">offsetTop</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The top offset</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>The similarity result (1=exact, 0=none)</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ImageData Screenshot = new ImageData(...);
+    ImageData Coin = new ImageData(...);
+    // do magic or using a clipped region of screenshot (500px from left and 100px from top)
+    int left<em>region = 500;
+    int top</em>region = 100;
+    double measure = Similarity(Screenshot,Coin,left<em>region,top</em>region);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="Similarity-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="271" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/CommonFunctions.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ImageLibrary.CommonFunctions]]></text></a><rect height="35" width="226" x="291.51" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/ImageData.html" xmlns:xlink="xlink"><text x="306.05" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.ImageLibrary.ImageData]]></text></a><a xlink:href="../type/CommonFunctions.html#Similarity" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Similarity]]></text></a><path d="M0.00,100.50L135.78,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="135,100 130,95 130,105" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="125.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if ((img.Width == reference.Width) && (img.Height == reference.Height))]]></text><text x="35.00" y="145.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[for (Int32 column = left; column < left + width; column++)]]></text><text x="50.00" y="165.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[for (Int32 row = top; row < top + height; row++)]]></text><a xlink:href="../type/ImageData.html#GetPixel" xmlns:xlink="xlink"><text x="145.78" y="185.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPixel]]></text></a><path d="M135.78,195.50L404.11,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="404,195 399,190 399,200" fill="#979797" stroke="#979797" stroke-width="" /><text x="145.78" y="220.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Color]]></text><path d="M135.78,230.50L404.11,230.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="135,230 140,235 140,225" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/ImageData.html#GetPixel" xmlns:xlink="xlink"><text x="145.78" y="255.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPixel]]></text></a><path d="M135.78,265.50L404.11,265.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="404,265 399,260 399,270" fill="#979797" stroke="#979797" stroke-width="" /><text x="145.78" y="290.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Color]]></text><path d="M135.78,300.50L404.11,300.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="135,300 140,305 140,295" fill="#979797" stroke="#979797" stroke-width="" /><text x="50.00" y="315.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="35.00" y="335.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="20.00" y="355.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="10.00" y="385.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Double]]></text><path d="M0.00,395.50L135.78,395.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="0,395 5,400 5,390" fill="#979797" stroke="#979797" stroke-width="" /><path d="M135.58,45L135.58,410.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M404.51,45L404.51,410.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+				
+
+				
+
+				
+					<div class="svg-diagram">
+						<h3 class="box-title">Class Diagram</h3>
+						<div id="sd-class-diagram" class="svgpan">
+							
+							<svg><g transform="translate(0.00, 50.00)"><rect height="351" width="218" x="0.55" y="0.55" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><text x="60.63" y="20.50" fill="" style="" text-anchor="" font-family="" font-size="11.00" onmouseover="" onmouseout=""><![CDATA[public static class]]></text><a xlink:href="../type/CommonFunctions.html" xmlns:xlink="xlink"><text x="44.03" y="35.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[CommonFunctions]]></text></a><path d="M0.5,45.50L218.00,45.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="53.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#AverageColor" xmlns:xlink="xlink"><text x="40.00" y="65.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[AverageColor]]></text></a><image width="16.00" height="16.00" x="15.00" y="78.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#AverageRGBValues" xmlns:xlink="xlink"><text x="40.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[AverageRGBValues]]></text></a><image width="16.00" height="16.00" x="15.00" y="103.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#ColorDifference" xmlns:xlink="xlink"><text x="40.00" y="115.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ColorDifference]]></text></a><image width="16.00" height="16.00" x="15.00" y="128.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#ColorsSimilar" xmlns:xlink="xlink"><text x="40.00" y="140.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ColorsSimilar]]></text></a><image width="16.00" height="16.00" x="15.00" y="153.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#ExtractRedChannel" xmlns:xlink="xlink"><text x="40.00" y="165.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ExtractRedChannel]]></text></a><image width="16.00" height="16.00" x="15.00" y="178.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#FindColors" xmlns:xlink="xlink"><text x="40.00" y="190.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[FindColors]]></text></a><image width="16.00" height="16.00" x="15.00" y="203.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#FindColors2" xmlns:xlink="xlink"><text x="40.00" y="215.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[FindColors]]></text></a><image width="16.00" height="16.00" x="15.00" y="228.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#IdentifyColor" xmlns:xlink="xlink"><text x="40.00" y="240.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[IdentifyColor]]></text></a><image width="16.00" height="16.00" x="15.00" y="253.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#IdentifyColor2" xmlns:xlink="xlink"><text x="40.00" y="265.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[IdentifyColor]]></text></a><image width="16.00" height="16.00" x="15.00" y="278.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#IdentifyColorByVoting" xmlns:xlink="xlink"><text x="40.00" y="290.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[IdentifyColorByVoting]]></text></a><image width="16.00" height="16.00" x="15.00" y="303.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#IdentifyImage" xmlns:xlink="xlink"><text x="40.00" y="315.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[IdentifyImage]]></text></a><image width="16.00" height="16.00" x="15.00" y="328.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/CommonFunctions.html#Similarity" xmlns:xlink="xlink"><text x="40.00" y="340.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Similarity]]></text></a></g><g transform="translate(268.00, 100.00)"><rect height="571" width="208" x="0.55" y="0.55" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><text x="70.51" y="20.50" fill="" style="" text-anchor="" font-family="" font-size="11.00" onmouseover="" onmouseout=""><![CDATA[public  class]]></text><a xlink:href="../type/ImageData.html" xmlns:xlink="xlink"><text x="64.95" y="35.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ImageData]]></text></a><path d="M0.5,45.50L208.00,45.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="53.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAPZQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev8PL0ytHeuMDSsbrNrLfLfLTpr9b8NWO1+vv93+PqoKvCvcbWeoqhXJvYvsvlxMzZmKe8b4CXt8/mWprXtcTh4+bqu8XUkJ60ydDdZHaNZHaOwtnw0tfivsfWY3WNxdvxrL3eu8PUQUtYXW+HyM7ZsrvOVWiBxMzauMHSq7fLT2J7dYWcbX+WZ3eQXnCJV2qCT2N8////oVh58wAAAAF0Uk5TAEDm2GYAAAABYktHRFGUaXwqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAqklEQVQY02NgwA0YmZhR+CysbOwcSHxOLm4eXnY+OJ9fQJCHR0hYBC4gKibOIyEpJQ0XkJGVlJOUlwYJKCgqKasoyMioqqlLS0trMDAoaqpoaevoysgAudJ6QAX6BgwMKoZGxiABE6AOUzNzCwtLK1NrYwifwUITCGxs7RjspR3AxjtqOjk52Sg5w+1T0XRxcnFxdYMLaCm623q4enrBBUy9fXz9/ANMYXwAXkgU2UqB5RoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#BmpBytes" xmlns:xlink="xlink"><text x="40.00" y="65.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BmpBytes]]></text></a><image width="16.00" height="16.00" x="15.00" y="78.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAPZQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev8PL0ytHeuMDSsbrNrLfLfLTpr9b8NWO1+vv93+PqoKvCvcbWeoqhXJvYvsvlxMzZmKe8b4CXt8/mWprXtcTh4+bqu8XUkJ60ydDdZHaNZHaOwtnw0tfivsfWY3WNxdvxrL3eu8PUQUtYXW+HyM7ZsrvOVWiBxMzauMHSq7fLT2J7dYWcbX+WZ3eQXnCJV2qCT2N8////oVh58wAAAAF0Uk5TAEDm2GYAAAABYktHRFGUaXwqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAqklEQVQY02NgwA0YmZhR+CysbOwcSHxOLm4eXnY+OJ9fQJCHR0hYBC4gKibOIyEpJQ0XkJGVlJOUlwYJKCgqKasoyMioqqlLS0trMDAoaqpoaevoysgAudJ6QAX6BgwMKoZGxiABE6AOUzNzCwtLK1NrYwifwUITCGxs7RjspR3AxjtqOjk52Sg5w+1T0XRxcnFxdYMLaCm623q4enrBBUy9fXz9/ANMYXwAXkgU2UqB5RoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#BmpPixelFormat" xmlns:xlink="xlink"><text x="40.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BmpPixelFormat]]></text></a><image width="16.00" height="16.00" x="15.00" y="103.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAPZQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev8PL0ytHeuMDSsbrNrLfLfLTpr9b8NWO1+vv93+PqoKvCvcbWeoqhXJvYvsvlxMzZmKe8b4CXt8/mWprXtcTh4+bqu8XUkJ60ydDdZHaNZHaOwtnw0tfivsfWY3WNxdvxrL3eu8PUQUtYXW+HyM7ZsrvOVWiBxMzauMHSq7fLT2J7dYWcbX+WZ3eQXnCJV2qCT2N8////oVh58wAAAAF0Uk5TAEDm2GYAAAABYktHRFGUaXwqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAqklEQVQY02NgwA0YmZhR+CysbOwcSHxOLm4eXnY+OJ9fQJCHR0hYBC4gKibOIyEpJQ0XkJGVlJOUlwYJKCgqKasoyMioqqlLS0trMDAoaqpoaevoysgAudJ6QAX6BgwMKoZGxiABE6AOUzNzCwtLK1NrYwifwUITCGxs7RjspR3AxjtqOjk52Sg5w+1T0XRxcnFxdYMLaCm623q4enrBBUy9fXz9/ANMYXwAXkgU2UqB5RoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#BmpStride" xmlns:xlink="xlink"><text x="40.00" y="115.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BmpStride]]></text></a><image width="16.00" height="16.00" x="15.00" y="128.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAPZQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev8PL0ytHeuMDSsbrNrLfLfLTpr9b8NWO1+vv93+PqoKvCvcbWeoqhXJvYvsvlxMzZmKe8b4CXt8/mWprXtcTh4+bqu8XUkJ60ydDdZHaNZHaOwtnw0tfivsfWY3WNxdvxrL3eu8PUQUtYXW+HyM7ZsrvOVWiBxMzauMHSq7fLT2J7dYWcbX+WZ3eQXnCJV2qCT2N8////oVh58wAAAAF0Uk5TAEDm2GYAAAABYktHRFGUaXwqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAqklEQVQY02NgwA0YmZhR+CysbOwcSHxOLm4eXnY+OJ9fQJCHR0hYBC4gKibOIyEpJQ0XkJGVlJOUlwYJKCgqKasoyMioqqlLS0trMDAoaqpoaevoysgAudJ6QAX6BgwMKoZGxiABE6AOUzNzCwtLK1NrYwifwUITCGxs7RjspR3AxjtqOjk52Sg5w+1T0XRxcnFxdYMLaCm623q4enrBBUy9fXz9/ANMYXwAXkgU2UqB5RoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#RawFormatOffset" xmlns:xlink="xlink"><text x="40.00" y="140.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RawFormatOffset]]></text></a><path d="M0.5,155.50L208.00,155.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="163.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#Clone" xmlns:xlink="xlink"><text x="40.00" y="175.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Clone]]></text></a><image width="16.00" height="16.00" x="15.00" y="188.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#CreateBitmap" xmlns:xlink="xlink"><text x="40.00" y="200.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[CreateBitmap]]></text></a><image width="16.00" height="16.00" x="15.00" y="213.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#GetPixel" xmlns:xlink="xlink"><text x="40.00" y="225.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPixel]]></text></a><image width="16.00" height="16.00" x="15.00" y="238.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#LoadBitmap" xmlns:xlink="xlink"><text x="40.00" y="250.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LoadBitmap]]></text></a><image width="16.00" height="16.00" x="15.00" y="263.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#Resize" xmlns:xlink="xlink"><text x="40.00" y="275.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Resize]]></text></a><image width="16.00" height="16.00" x="15.00" y="288.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#Resize2" xmlns:xlink="xlink"><text x="40.00" y="300.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Resize]]></text></a><image width="16.00" height="16.00" x="15.00" y="313.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#Save" xmlns:xlink="xlink"><text x="40.00" y="325.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Save]]></text></a><image width="16.00" height="16.00" x="15.00" y="338.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#SetPixel" xmlns:xlink="xlink"><text x="40.00" y="350.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SetPixel]]></text></a><image width="16.00" height="16.00" x="15.00" y="363.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#ImageData3" xmlns:xlink="xlink"><text x="40.00" y="375.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ImageData]]></text></a><image width="16.00" height="16.00" x="15.00" y="388.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#ImageData" xmlns:xlink="xlink"><text x="40.00" y="400.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ImageData]]></text></a><image width="16.00" height="16.00" x="15.00" y="413.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#ImageData2" xmlns:xlink="xlink"><text x="40.00" y="425.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ImageData]]></text></a><path d="M0.5,440.50L208.00,440.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="448.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#Bitmap" xmlns:xlink="xlink"><text x="40.00" y="460.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Bitmap { get; set; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="473.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#Height" xmlns:xlink="xlink"><text x="40.00" y="485.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Height { get; set; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="498.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#Item" xmlns:xlink="xlink"><text x="40.00" y="510.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Item { get; set; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="523.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#Size" xmlns:xlink="xlink"><text x="40.00" y="535.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Size { get; set; }]]></text></a><image width="16.00" height="16.00" x="15.00" y="548.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAXpQTFRF/wD/uKyjxLiV3dnUtaaBo5eAoJaAmY96k4VzgHFczci/nLiZpsGu0MjC+uuwf21b/+tu+uJy9Ndn3L1Ui3JRiZxphcyF7evngGtX/+1orphY+eFy991q8s9W7cdL+roipqJfU6xBfZ3fqrrarKSP+eN/lYRTTzow9ttp89JY7cNA6rsx7KgRjJBQQZ4ypMX/ucnl9uGDcGFL4s16Z2BSUD1B37IyyJkdxJMVjmIUUWZAP5cpt8rx5dOGiZKncGFK3sFhWU1X/9AfMycVCgcQLiECZVZPW3hZMowYwcjR////6enihHVe5eTfzsrC1qkuGxALYFxdlp2kp76kKWYc//37/P7+rK2wclxB09nj4+3/Rk5UwMfR/f7++Pv+8vb96PD83On/wsnToq/E/v//1uX/wcjS/P7/+Pr97/T75u773un60uL40OL/+fv/y979yM/Z9v//7Pn/4fD/1er/0ur/c3V8S0tOTU9UTVFWTFBTS09STE9SS05RJyP7MgAAAAF0Uk5TAEDm2GYAAAABYktHREoeDLXGAAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NgAAJGJmYWVjZ2Dk4ubh4Qn4GXj19AQEBQSFhEVAwsIC4hKSUgLSMrJ6+gyKCkpKSsoqomqa6hqaWto6vHoKRvoGJoZGwiaWpmbmFpZc2gZKNia2Rn7+Do5Ozi6ubuweDp5e3j6+Vn7x8QGMTAEBwCFAgN9fIKC4+IjIoG2xADEoiNi09ISIQIJHklJ6ckg0AqRCANqCI9IzMrOycXJpCcnAdWkQ8RKACqKCwsLCouKYUIlJVXVFRUVlXXVNdCBAgCAG+1MCPQVilsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjQxKzAyOjAwRZ1hagAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/ImageData.html#Width" xmlns:xlink="xlink"><text x="40.00" y="560.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Width { get; set; }]]></text></a></g><g><path d="M372.00,100.00L372.00,75.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M367.00,90.00L372.00,100.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M377.00,90.00L372.00,100.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M372.00,74.50L218.00,74.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+						</div>
+						<div class="legend">
+							<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+							<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+							<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+						</div>
+					</div>
+				
+			</div>
+		</div>
+
+    </body>
+</html>
+

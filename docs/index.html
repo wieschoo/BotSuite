@@ -1,0 +1,1419 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html class="index">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>BotSuite</title>
+        <meta name="viewport" content="width=device-width">
+
+		
+
+		
+			<link rel="stylesheet" type="text/css" href="assets/css/font.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="assets/css/style.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="assets/css/dynamic.css?version=0.9.5.10" />
+			
+			<!--[if IE 8]>
+				<script src="assets/js/vendor.ie8.js?version=0.9.5.10"></script>
+			<![endif]-->
+			<![if !IE 8]>
+				<script src="assets/js/vendor.js?version=0.9.5.10"></script>
+			<![endif]>
+
+			<script src="assets/js/app.js?version=0.9.5.10"></script>
+		
+
+		<script>
+			var homeString = "Home";
+			var searchIndex = [ 
+	
+			
+
+
+
+
+
+
+
+
+
+
+
+	{ "Name" : "BotSuite", "Url" : "#namespace/BotSuite", "Type" : "Namespace" },
+	
+		{ "Name" : "ApplicationTunnel", "Url" : "#type/ApplicationTunnel", "Type" : "Type" },
+
+		
+			{ "Name" : "AttachedProcess", "Url" : "#type/ApplicationTunnel?AttachedProcess", "Type" : "Field" },
+		
+			{ "Name" : "AttachedProcessModule", "Url" : "#type/ApplicationTunnel?AttachedProcessModule", "Type" : "Field" },
+		
+			{ "Name" : "ProcessHandle", "Url" : "#type/ApplicationTunnel?ProcessHandle", "Type" : "Field" },
+		
+			{ "Name" : "ProcessId", "Url" : "#type/ApplicationTunnel?ProcessId", "Type" : "Field" },
+		
+			{ "Name" : "BaseAddress", "Url" : "#type/ApplicationTunnel?BaseAddress", "Type" : "Property" },
+		
+			{ "Name" : "AttachProcess", "Url" : "#type/ApplicationTunnel?AttachProcess", "Type" : "Method" },
+		
+			{ "Name" : "Close", "Url" : "#type/ApplicationTunnel?Close", "Type" : "Method" },
+		
+			{ "Name" : "DetachProcess", "Url" : "#type/ApplicationTunnel?DetachProcess", "Type" : "Method" },
+		
+			{ "Name" : "Finalize", "Url" : "#type/ApplicationTunnel?Finalize", "Type" : "Method" },
+		
+			{ "Name" : "GetHandle", "Url" : "#type/ApplicationTunnel?GetHandle", "Type" : "Method" },
+		
+			{ "Name" : "GetModuleBase", "Url" : "#type/ApplicationTunnel?GetModuleBase", "Type" : "Method" },
+		
+			{ "Name" : "GetProcessIdByName", "Url" : "#type/ApplicationTunnel?GetProcessIdByName", "Type" : "Method" },
+		
+			{ "Name" : "Hex2Int", "Url" : "#type/ApplicationTunnel?Hex2Int", "Type" : "Method" },
+		
+			{ "Name" : "Kill", "Url" : "#type/ApplicationTunnel?Kill", "Type" : "Method" },
+		
+			{ "Name" : "Pointer", "Url" : "#type/ApplicationTunnel?Pointer", "Type" : "Method" },
+		
+			{ "Name" : "Pointer", "Url" : "#type/ApplicationTunnel?Pointer2", "Type" : "Method" },
+		
+			{ "Name" : "Read", "Url" : "#type/ApplicationTunnel?Read2", "Type" : "Method" },
+		
+			{ "Name" : "Read", "Url" : "#type/ApplicationTunnel?Read", "Type" : "Method" },
+		
+			{ "Name" : "ReadMemoryAtAdress", "Url" : "#type/ApplicationTunnel?ReadMemoryAtAdress", "Type" : "Method" },
+		
+			{ "Name" : "Write", "Url" : "#type/ApplicationTunnel?Write2", "Type" : "Method" },
+		
+			{ "Name" : "Write", "Url" : "#type/ApplicationTunnel?Write", "Type" : "Method" },
+		
+			{ "Name" : "WriteAscii", "Url" : "#type/ApplicationTunnel?WriteAscii", "Type" : "Method" },
+		
+			{ "Name" : "WriteMemoryAtAdress", "Url" : "#type/ApplicationTunnel?WriteMemoryAtAdress", "Type" : "Method" },
+		
+			{ "Name" : "WriteUnicode", "Url" : "#type/ApplicationTunnel?WriteUnicode", "Type" : "Method" },
+		
+		{ "Name" : "Browser", "Url" : "#type/Browser", "Type" : "Type" },
+
+		
+			{ "Name" : "FullLoaded", "Url" : "#type/Browser?FullLoaded", "Type" : "Field" },
+		
+			{ "Name" : "Instance", "Url" : "#type/Browser?Instance", "Type" : "Field" },
+		
+			{ "Name" : "ClickElementById", "Url" : "#type/Browser?ClickElementById", "Type" : "Method" },
+		
+			{ "Name" : "ElementExists", "Url" : "#type/Browser?ElementExists", "Type" : "Method" },
+		
+			{ "Name" : "FillInputById", "Url" : "#type/Browser?FillInputById", "Type" : "Method" },
+		
+			{ "Name" : "GetInnerNumberById", "Url" : "#type/Browser?GetInnerNumberById", "Type" : "Method" },
+		
+			{ "Name" : "GetInnerTextById", "Url" : "#type/Browser?GetInnerTextById", "Type" : "Method" },
+		
+			{ "Name" : "NavigateTo", "Url" : "#type/Browser?NavigateTo", "Type" : "Method" },
+		
+			{ "Name" : "SetBrowserCompleted", "Url" : "#type/Browser?SetBrowserCompleted", "Type" : "Method" },
+		
+			{ "Name" : "UseNewIE", "Url" : "#type/Browser?UseNewIE", "Type" : "Method" },
+		
+			{ "Name" : "WaitTillLoad", "Url" : "#type/Browser?WaitTillLoad", "Type" : "Method" },
+		
+		{ "Name" : "CommonRegex", "Url" : "#type/CommonRegex", "Type" : "Type" },
+
+		
+			{ "Name" : "Between", "Url" : "#type/CommonRegex?Between", "Type" : "Method" },
+		
+			{ "Name" : "Search", "Url" : "#type/CommonRegex?Search", "Type" : "Method" },
+		
+		{ "Name" : "ControlArtist", "Url" : "#type/ControlArtist", "Type" : "Type" },
+
+		
+			{ "Name" : "ClientRectangle", "Url" : "#type/ControlArtist?ClientRectangle", "Type" : "Field" },
+		
+			{ "Name" : "formGraphics", "Url" : "#type/ControlArtist?formGraphics", "Type" : "Field" },
+		
+			{ "Name" : "DrawRectangle", "Url" : "#type/ControlArtist?DrawRectangle", "Type" : "Method" },
+		
+			{ "Name" : "GetDrawRectangle", "Url" : "#type/ControlArtist?GetDrawRectangle", "Type" : "Method" },
+		
+		{ "Name" : "Encryption", "Url" : "#type/Encryption", "Type" : "Type" },
+
+		
+			{ "Name" : "DecryptAndDeserialize", "Url" : "#type/Encryption?DecryptAndDeserialize", "Type" : "Method" },
+		
+			{ "Name" : "EncryptAndSerialize", "Url" : "#type/Encryption?EncryptAndSerialize", "Type" : "Method" },
+		
+		{ "Name" : "IniParser", "Url" : "#type/IniParser", "Type" : "Type" },
+
+		
+			{ "Name" : "Path", "Url" : "#type/IniParser?Path", "Type" : "Field" },
+		
+			{ "Name" : "Read", "Url" : "#type/IniParser?Read4", "Type" : "Method" },
+		
+			{ "Name" : "Read", "Url" : "#type/IniParser?Read3", "Type" : "Method" },
+		
+			{ "Name" : "Write", "Url" : "#type/IniParser?Write4", "Type" : "Method" },
+		
+			{ "Name" : "Write", "Url" : "#type/IniParser?Write3", "Type" : "Method" },
+		
+		{ "Name" : "Keyboard", "Url" : "#type/Keyboard", "Type" : "Type" },
+
+		
+			{ "Name" : "_instance", "Url" : "#type/Keyboard?_instance", "Type" : "Field" },
+		
+			{ "Name" : "hhook", "Url" : "#type/Keyboard?hhook", "Type" : "Field" },
+		
+			{ "Name" : "HookedKeys", "Url" : "#type/Keyboard?HookedKeys", "Type" : "Field" },
+		
+			{ "Name" : "SAFE_delegate_callback", "Url" : "#type/Keyboard?SAFE_delegate_callback", "Type" : "Field" },
+		
+			{ "Name" : "Instance", "Url" : "#type/Keyboard?Instance", "Type" : "Property" },
+		
+			{ "Name" : "KeyDown", "Url" : "#type/Keyboard?KeyDown", "Type" : "Event" },
+		
+			{ "Name" : "KeyUp", "Url" : "#type/Keyboard?KeyUp", "Type" : "Event" },
+		
+			{ "Name" : "Finalize", "Url" : "#type/Keyboard?Finalize2", "Type" : "Method" },
+		
+			{ "Name" : "GetLParam", "Url" : "#type/Keyboard?GetLParam", "Type" : "Method" },
+		
+			{ "Name" : "HoldKey", "Url" : "#type/Keyboard?HoldKey", "Type" : "Method" },
+		
+			{ "Name" : "hook", "Url" : "#type/Keyboard?hook", "Type" : "Method" },
+		
+			{ "Name" : "hookProc", "Url" : "#type/Keyboard?hookProc", "Type" : "Method" },
+		
+			{ "Name" : "IsKeyDown", "Url" : "#type/Keyboard?IsKeyDown", "Type" : "Method" },
+		
+			{ "Name" : "Type", "Url" : "#type/Keyboard?Type", "Type" : "Method" },
+		
+			{ "Name" : "Type", "Url" : "#type/Keyboard?Type2", "Type" : "Method" },
+		
+			{ "Name" : "TypeToHiddenWindow", "Url" : "#type/Keyboard?TypeToHiddenWindow2", "Type" : "Method" },
+		
+			{ "Name" : "TypeToHiddenWindow", "Url" : "#type/Keyboard?TypeToHiddenWindow", "Type" : "Method" },
+		
+			{ "Name" : "unhook", "Url" : "#type/Keyboard?unhook", "Type" : "Method" },
+		
+		{ "Name" : "Mouse", "Url" : "#type/Mouse", "Type" : "Type" },
+
+		
+			{ "Name" : "DoubleClick", "Url" : "#type/Mouse?DoubleClick", "Type" : "Method" },
+		
+			{ "Name" : "DoubleClick", "Url" : "#type/Mouse?DoubleClick2", "Type" : "Method" },
+		
+			{ "Name" : "DragAndDrop", "Url" : "#type/Mouse?DragAndDrop", "Type" : "Method" },
+		
+			{ "Name" : "GetLParam", "Url" : "#type/Mouse?GetLParam2", "Type" : "Method" },
+		
+			{ "Name" : "GetPosition", "Url" : "#type/Mouse?GetPosition", "Type" : "Method" },
+		
+			{ "Name" : "GetPositionRelativeToControl", "Url" : "#type/Mouse?GetPositionRelativeToControl", "Type" : "Method" },
+		
+			{ "Name" : "HoverControl", "Url" : "#type/Mouse?HoverControl", "Type" : "Method" },
+		
+			{ "Name" : "InRectangle", "Url" : "#type/Mouse?InRectangle", "Type" : "Method" },
+		
+			{ "Name" : "InRectangle", "Url" : "#type/Mouse?InRectangle2", "Type" : "Method" },
+		
+			{ "Name" : "Jiggle", "Url" : "#type/Mouse?Jiggle", "Type" : "Method" },
+		
+			{ "Name" : "LeftClick", "Url" : "#type/Mouse?LeftClick", "Type" : "Method" },
+		
+			{ "Name" : "LeftClick", "Url" : "#type/Mouse?LeftClick2", "Type" : "Method" },
+		
+			{ "Name" : "LeftDown", "Url" : "#type/Mouse?LeftDown", "Type" : "Method" },
+		
+			{ "Name" : "LeftDown", "Url" : "#type/Mouse?LeftDown2", "Type" : "Method" },
+		
+			{ "Name" : "LeftUp", "Url" : "#type/Mouse?LeftUp", "Type" : "Method" },
+		
+			{ "Name" : "LeftUp", "Url" : "#type/Mouse?LeftUp2", "Type" : "Method" },
+		
+			{ "Name" : "Move", "Url" : "#type/Mouse?Move", "Type" : "Method" },
+		
+			{ "Name" : "Move", "Url" : "#type/Mouse?Move2", "Type" : "Method" },
+		
+			{ "Name" : "MoveRelativeToWindow", "Url" : "#type/Mouse?MoveRelativeToWindow", "Type" : "Method" },
+		
+			{ "Name" : "RightClick", "Url" : "#type/Mouse?RightClick", "Type" : "Method" },
+		
+			{ "Name" : "RightClick", "Url" : "#type/Mouse?RightClick2", "Type" : "Method" },
+		
+			{ "Name" : "RightDown", "Url" : "#type/Mouse?RightDown", "Type" : "Method" },
+		
+			{ "Name" : "RightDown", "Url" : "#type/Mouse?RightDown2", "Type" : "Method" },
+		
+			{ "Name" : "RightUp", "Url" : "#type/Mouse?RightUp", "Type" : "Method" },
+		
+			{ "Name" : "RightUp", "Url" : "#type/Mouse?RightUp2", "Type" : "Method" },
+		
+			{ "Name" : "Scroll", "Url" : "#type/Mouse?Scroll", "Type" : "Method" },
+		
+		{ "Name" : "NativeMethods", "Url" : "#type/NativeMethods", "Type" : "Type" },
+
+		
+			{ "Name" : "WH_KEYBOARD_LL", "Url" : "#type/NativeMethods?WH_KEYBOARD_LL", "Type" : "Field" },
+		
+			{ "Name" : "WM_KEYDOWN", "Url" : "#type/NativeMethods?WM_KEYDOWN", "Type" : "Field" },
+		
+			{ "Name" : "WM_KEYUP", "Url" : "#type/NativeMethods?WM_KEYUP", "Type" : "Field" },
+		
+			{ "Name" : "WM_SYSKEYDOWN", "Url" : "#type/NativeMethods?WM_SYSKEYDOWN", "Type" : "Field" },
+		
+			{ "Name" : "WM_SYSKEYUP", "Url" : "#type/NativeMethods?WM_SYSKEYUP", "Type" : "Field" },
+		
+			{ "Name" : "CallNextHookEx", "Url" : "#type/NativeMethods?CallNextHookEx", "Type" : "Method" },
+		
+			{ "Name" : "CloseHandle", "Url" : "#type/NativeMethods?CloseHandle", "Type" : "Method" },
+		
+			{ "Name" : "GetAsyncKeyState", "Url" : "#type/NativeMethods?GetAsyncKeyState", "Type" : "Method" },
+		
+			{ "Name" : "GetPrivateProfileString", "Url" : "#type/NativeMethods?GetPrivateProfileString", "Type" : "Method" },
+		
+			{ "Name" : "GetWindowDC", "Url" : "#type/NativeMethods?GetWindowDC", "Type" : "Method" },
+		
+			{ "Name" : "GetWindowLong", "Url" : "#type/NativeMethods?GetWindowLong", "Type" : "Method" },
+		
+			{ "Name" : "GetWindowRect", "Url" : "#type/NativeMethods?GetWindowRect", "Type" : "Method" },
+		
+			{ "Name" : "HideMaximizeButton", "Url" : "#type/NativeMethods?HideMaximizeButton", "Type" : "Method" },
+		
+			{ "Name" : "HideMinimizeButton", "Url" : "#type/NativeMethods?HideMinimizeButton", "Type" : "Method" },
+		
+			{ "Name" : "keybd_event", "Url" : "#type/NativeMethods?keybd_event", "Type" : "Method" },
+		
+			{ "Name" : "LoadLibrary", "Url" : "#type/NativeMethods?LoadLibrary", "Type" : "Method" },
+		
+			{ "Name" : "mouse_event", "Url" : "#type/NativeMethods?mouse_event", "Type" : "Method" },
+		
+			{ "Name" : "OpenProcess", "Url" : "#type/NativeMethods?OpenProcess", "Type" : "Method" },
+		
+			{ "Name" : "PostMessage", "Url" : "#type/NativeMethods?PostMessage", "Type" : "Method" },
+		
+			{ "Name" : "PrintWindow", "Url" : "#type/NativeMethods?PrintWindow", "Type" : "Method" },
+		
+			{ "Name" : "ReadProcessMemory", "Url" : "#type/NativeMethods?ReadProcessMemory", "Type" : "Method" },
+		
+			{ "Name" : "SendMessage", "Url" : "#type/NativeMethods?SendMessage2", "Type" : "Method" },
+		
+			{ "Name" : "SendMessage", "Url" : "#type/NativeMethods?SendMessage", "Type" : "Method" },
+		
+			{ "Name" : "SetForegroundWindow", "Url" : "#type/NativeMethods?SetForegroundWindow", "Type" : "Method" },
+		
+			{ "Name" : "SetWindowLong", "Url" : "#type/NativeMethods?SetWindowLong", "Type" : "Method" },
+		
+			{ "Name" : "SetWindowsHookEx", "Url" : "#type/NativeMethods?SetWindowsHookEx", "Type" : "Method" },
+		
+			{ "Name" : "ShowMaximizeButton", "Url" : "#type/NativeMethods?ShowMaximizeButton", "Type" : "Method" },
+		
+			{ "Name" : "ShowMinimizeButton", "Url" : "#type/NativeMethods?ShowMinimizeButton", "Type" : "Method" },
+		
+			{ "Name" : "ShowWindow", "Url" : "#type/NativeMethods?ShowWindow", "Type" : "Method" },
+		
+			{ "Name" : "UnhookWindowsHookEx", "Url" : "#type/NativeMethods?UnhookWindowsHookEx", "Type" : "Method" },
+		
+			{ "Name" : "VkKeyScan", "Url" : "#type/NativeMethods?VkKeyScan", "Type" : "Method" },
+		
+			{ "Name" : "WritePrivateProfileString", "Url" : "#type/NativeMethods?WritePrivateProfileString", "Type" : "Method" },
+		
+			{ "Name" : "WriteProcessMemory", "Url" : "#type/NativeMethods?WriteProcessMemory", "Type" : "Method" },
+		
+		{ "Name" : "ScreenShot", "Url" : "#type/ScreenShot", "Type" : "Type" },
+
+		
+			{ "Name" : "Create", "Url" : "#type/ScreenShot?Create", "Type" : "Method" },
+		
+			{ "Name" : "Create", "Url" : "#type/ScreenShot?Create2", "Type" : "Method" },
+		
+			{ "Name" : "Create", "Url" : "#type/ScreenShot?Create3", "Type" : "Method" },
+		
+			{ "Name" : "CreateFromHidden", "Url" : "#type/ScreenShot?CreateFromHidden", "Type" : "Method" },
+		
+			{ "Name" : "CreateFromHidden2", "Url" : "#type/ScreenShot?CreateFromHidden2", "Type" : "Method" },
+		
+			{ "Name" : "CreateRelativeToControl", "Url" : "#type/ScreenShot?CreateRelativeToControl", "Type" : "Method" },
+		
+		{ "Name" : "Utility", "Url" : "#type/Utility", "Type" : "Type" },
+
+		
+			{ "Name" : "_random", "Url" : "#type/Utility?_random", "Type" : "Field" },
+		
+			{ "Name" : "Delay", "Url" : "#type/Utility?Delay2", "Type" : "Method" },
+		
+			{ "Name" : "Delay", "Url" : "#type/Utility?Delay", "Type" : "Method" },
+		
+			{ "Name" : "Random", "Url" : "#type/Utility?Random2", "Type" : "Method" },
+		
+			{ "Name" : "Random", "Url" : "#type/Utility?Random", "Type" : "Method" },
+		
+		{ "Name" : "Window", "Url" : "#type/Window", "Type" : "Type" },
+
+		
+			{ "Name" : "FindWindowByProcessId", "Url" : "#type/Window?FindWindowByProcessId", "Type" : "Method" },
+		
+			{ "Name" : "FindWindowByProcessName", "Url" : "#type/Window?FindWindowByProcessName", "Type" : "Method" },
+		
+			{ "Name" : "FindWindowByWindowTitle", "Url" : "#type/Window?FindWindowByWindowTitle", "Type" : "Method" },
+		
+			{ "Name" : "GetAllMainWindows", "Url" : "#type/Window?GetAllMainWindows", "Type" : "Method" },
+		
+			{ "Name" : "HideMaximizeButton", "Url" : "#type/Window?HideMaximizeButton2", "Type" : "Method" },
+		
+			{ "Name" : "HideMinimizeButton", "Url" : "#type/Window?HideMinimizeButton2", "Type" : "Method" },
+		
+			{ "Name" : "SetFrontWindow", "Url" : "#type/Window?SetFrontWindow", "Type" : "Method" },
+		
+			{ "Name" : "ShowMaximizeButton", "Url" : "#type/Window?ShowMaximizeButton2", "Type" : "Method" },
+		
+			{ "Name" : "ShowMinimizeButton", "Url" : "#type/Window?ShowMinimizeButton2", "Type" : "Method" },
+		
+			{ "Name" : "ShowWindow", "Url" : "#type/Window?ShowWindow2", "Type" : "Method" },
+		
+	{ "Name" : "BotSuite.BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions", "Url" : "#namespace/BotSuite.BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions", "Type" : "Namespace" },
+	
+		{ "Name" : "TanhActivationFunction", "Url" : "#type/TanhActivationFunction", "Type" : "Type" },
+
+		
+			{ "Name" : "Derivative", "Url" : "#type/TanhActivationFunction?Derivative7", "Type" : "Method" },
+		
+			{ "Name" : "Function", "Url" : "#type/TanhActivationFunction?Function7", "Type" : "Method" },
+		
+	{ "Name" : "BotSuite.DataTypes", "Url" : "#namespace/BotSuite.DataTypes", "Type" : "Namespace" },
+	
+		{ "Name" : "Hex32", "Url" : "#type/Hex32", "Type" : "Type" },
+
+		
+			{ "Name" : "IntValue", "Url" : "#type/Hex32?IntValue", "Type" : "Field" },
+		
+			{ "Name" : "CompareTo", "Url" : "#type/Hex32?CompareTo", "Type" : "Method" },
+		
+			{ "Name" : "Equals", "Url" : "#type/Hex32?Equals2", "Type" : "Method" },
+		
+			{ "Name" : "Equals", "Url" : "#type/Hex32?Equals", "Type" : "Method" },
+		
+			{ "Name" : "GetHashCode", "Url" : "#type/Hex32?GetHashCode", "Type" : "Method" },
+		
+			{ "Name" : "op_Addition", "Url" : "#type/Hex32?op_Addition", "Type" : "Method" },
+		
+			{ "Name" : "op_Division", "Url" : "#type/Hex32?op_Division", "Type" : "Method" },
+		
+			{ "Name" : "op_Equality", "Url" : "#type/Hex32?op_Equality", "Type" : "Method" },
+		
+			{ "Name" : "op_GreaterThan", "Url" : "#type/Hex32?op_GreaterThan", "Type" : "Method" },
+		
+			{ "Name" : "op_Implicit", "Url" : "#type/Hex32?op_Implicit2", "Type" : "Method" },
+		
+			{ "Name" : "op_Implicit", "Url" : "#type/Hex32?op_Implicit", "Type" : "Method" },
+		
+			{ "Name" : "op_Inequality", "Url" : "#type/Hex32?op_Inequality", "Type" : "Method" },
+		
+			{ "Name" : "op_LessThan", "Url" : "#type/Hex32?op_LessThan", "Type" : "Method" },
+		
+			{ "Name" : "op_Multiply", "Url" : "#type/Hex32?op_Multiply", "Type" : "Method" },
+		
+			{ "Name" : "op_Subtraction", "Url" : "#type/Hex32?op_Subtraction", "Type" : "Method" },
+		
+			{ "Name" : "ToString", "Url" : "#type/Hex32?ToString", "Type" : "Method" },
+		
+	{ "Name" : "BotSuite.FiniteStateEngine.Pattern", "Url" : "#namespace/BotSuite.FiniteStateEngine.Pattern", "Type" : "Namespace" },
+	
+		{ "Name" : "Singleton", "Url" : "#type/Singleton", "Type" : "Type" },
+
+		
+			{ "Name" : "pInstance", "Url" : "#type/Singleton?pInstance", "Type" : "Field" },
+		
+			{ "Name" : "Instance", "Url" : "#type/Singleton?Instance", "Type" : "Property" },
+		
+	{ "Name" : "BotSuite.FiniteStateEngine.StateEngine", "Url" : "#namespace/BotSuite.FiniteStateEngine.StateEngine", "Type" : "Namespace" },
+	
+		{ "Name" : "State", "Url" : "#type/State", "Type" : "Type" },
+
+		
+			{ "Name" : "Name", "Url" : "#type/State?Name", "Type" : "Field" },
+		
+			{ "Name" : "Enter", "Url" : "#type/State?Enter", "Type" : "Method" },
+		
+			{ "Name" : "Leave", "Url" : "#type/State?Leave", "Type" : "Method" },
+		
+			{ "Name" : "OnMessage", "Url" : "#type/State?OnMessage", "Type" : "Method" },
+		
+			{ "Name" : "Run", "Url" : "#type/State?Run", "Type" : "Method" },
+		
+		{ "Name" : "StateMachine", "Url" : "#type/StateMachine", "Type" : "Type" },
+
+		
+			{ "Name" : "CurrentState", "Url" : "#type/StateMachine?CurrentState", "Type" : "Field" },
+		
+			{ "Name" : "GlobalState", "Url" : "#type/StateMachine?GlobalState", "Type" : "Field" },
+		
+			{ "Name" : "PreviousState", "Url" : "#type/StateMachine?PreviousState", "Type" : "Field" },
+		
+			{ "Name" : "StateMachineOwner", "Url" : "#type/StateMachine?StateMachineOwner", "Type" : "Field" },
+		
+			{ "Name" : "ChangeGlobalState", "Url" : "#type/StateMachine?ChangeGlobalState", "Type" : "Method" },
+		
+			{ "Name" : "ChangeState", "Url" : "#type/StateMachine?ChangeState", "Type" : "Method" },
+		
+			{ "Name" : "HandleMessage", "Url" : "#type/StateMachine?HandleMessage2", "Type" : "Method" },
+		
+			{ "Name" : "RunCurrentState", "Url" : "#type/StateMachine?RunCurrentState", "Type" : "Method" },
+		
+	{ "Name" : "BotSuite.FiniteStateEngine.StateEngine.Entites", "Url" : "#namespace/BotSuite.FiniteStateEngine.StateEngine.Entites", "Type" : "Namespace" },
+	
+		{ "Name" : "BaseEntity", "Url" : "#type/BaseEntity", "Type" : "Type" },
+
+		
+			{ "Name" : "ID", "Url" : "#type/BaseEntity?ID", "Type" : "Field" },
+		
+			{ "Name" : "HandleMessage", "Url" : "#type/BaseEntity?HandleMessage", "Type" : "Method" },
+		
+			{ "Name" : "Update", "Url" : "#type/BaseEntity?Update", "Type" : "Method" },
+		
+		{ "Name" : "EntityManager", "Url" : "#type/EntityManager", "Type" : "Type" },
+
+		
+			{ "Name" : "dicEntites", "Url" : "#type/EntityManager?dicEntites", "Type" : "Field" },
+		
+			{ "Name" : "GetEntityByID", "Url" : "#type/EntityManager?GetEntityByID", "Type" : "Method" },
+		
+			{ "Name" : "RegisterEntity", "Url" : "#type/EntityManager?RegisterEntity", "Type" : "Method" },
+		
+			{ "Name" : "RemoveEntity", "Url" : "#type/EntityManager?RemoveEntity", "Type" : "Method" },
+		
+	{ "Name" : "BotSuite.FiniteStateEngine.StateEngine.Messaging", "Url" : "#namespace/BotSuite.FiniteStateEngine.StateEngine.Messaging", "Type" : "Namespace" },
+	
+		{ "Name" : "MessageDispatcher", "Url" : "#type/MessageDispatcher", "Type" : "Type" },
+
+		
+			{ "Name" : "lstDelayedMessages", "Url" : "#type/MessageDispatcher?lstDelayedMessages", "Type" : "Field" },
+		
+			{ "Name" : "DischargeMessage", "Url" : "#type/MessageDispatcher?DischargeMessage", "Type" : "Method" },
+		
+			{ "Name" : "DispatchMessage", "Url" : "#type/MessageDispatcher?DispatchMessage", "Type" : "Method" },
+		
+			{ "Name" : "HandleDelayedMessages", "Url" : "#type/MessageDispatcher?HandleDelayedMessages", "Type" : "Method" },
+		
+		{ "Name" : "Telegram", "Url" : "#type/Telegram", "Type" : "Type" },
+
+		
+			{ "Name" : "AdditionalInfo", "Url" : "#type/Telegram?AdditionalInfo", "Type" : "Field" },
+		
+			{ "Name" : "DispatchTime", "Url" : "#type/Telegram?DispatchTime", "Type" : "Field" },
+		
+			{ "Name" : "Message", "Url" : "#type/Telegram?Message", "Type" : "Field" },
+		
+			{ "Name" : "Reciever", "Url" : "#type/Telegram?Reciever", "Type" : "Field" },
+		
+			{ "Name" : "Sender", "Url" : "#type/Telegram?Sender", "Type" : "Field" },
+		
+	{ "Name" : "BotSuite.ImageLibrary", "Url" : "#namespace/BotSuite.ImageLibrary", "Type" : "Namespace" },
+	
+		{ "Name" : "CommonFunctions", "Url" : "#type/CommonFunctions", "Type" : "Type" },
+
+		
+			{ "Name" : "AverageColor", "Url" : "#type/CommonFunctions?AverageColor", "Type" : "Method" },
+		
+			{ "Name" : "AverageRGBValues", "Url" : "#type/CommonFunctions?AverageRGBValues", "Type" : "Method" },
+		
+			{ "Name" : "ColorDifference", "Url" : "#type/CommonFunctions?ColorDifference", "Type" : "Method" },
+		
+			{ "Name" : "ColorsSimilar", "Url" : "#type/CommonFunctions?ColorsSimilar", "Type" : "Method" },
+		
+			{ "Name" : "ExtractRedChannel", "Url" : "#type/CommonFunctions?ExtractRedChannel", "Type" : "Method" },
+		
+			{ "Name" : "FindColors", "Url" : "#type/CommonFunctions?FindColors", "Type" : "Method" },
+		
+			{ "Name" : "FindColors", "Url" : "#type/CommonFunctions?FindColors2", "Type" : "Method" },
+		
+			{ "Name" : "IdentifyColor", "Url" : "#type/CommonFunctions?IdentifyColor", "Type" : "Method" },
+		
+			{ "Name" : "IdentifyColor", "Url" : "#type/CommonFunctions?IdentifyColor2", "Type" : "Method" },
+		
+			{ "Name" : "IdentifyColorByVoting", "Url" : "#type/CommonFunctions?IdentifyColorByVoting", "Type" : "Method" },
+		
+			{ "Name" : "IdentifyImage", "Url" : "#type/CommonFunctions?IdentifyImage", "Type" : "Method" },
+		
+			{ "Name" : "Similarity", "Url" : "#type/CommonFunctions?Similarity", "Type" : "Method" },
+		
+		{ "Name" : "Filter", "Url" : "#type/Filter", "Type" : "Type" },
+
+		
+			{ "Name" : "Add", "Url" : "#type/Filter?Add", "Type" : "Method" },
+		
+			{ "Name" : "ApplyConvolution3x3", "Url" : "#type/Filter?ApplyConvolution3x3", "Type" : "Method" },
+		
+			{ "Name" : "BlackAndWhite", "Url" : "#type/Filter?BlackAndWhite", "Type" : "Method" },
+		
+			{ "Name" : "Blur", "Url" : "#type/Filter?Blur", "Type" : "Method" },
+		
+			{ "Name" : "Brightness", "Url" : "#type/Filter?Brightness", "Type" : "Method" },
+		
+			{ "Name" : "Contrast", "Url" : "#type/Filter?Contrast", "Type" : "Method" },
+		
+			{ "Name" : "DecreaseColourDepth", "Url" : "#type/Filter?DecreaseColourDepth", "Type" : "Method" },
+		
+			{ "Name" : "Difference", "Url" : "#type/Filter?Difference", "Type" : "Method" },
+		
+			{ "Name" : "Emboss", "Url" : "#type/Filter?Emboss", "Type" : "Method" },
+		
+			{ "Name" : "FindEdges", "Url" : "#type/Filter?FindEdges", "Type" : "Method" },
+		
+			{ "Name" : "GaussianBlur", "Url" : "#type/Filter?GaussianBlur", "Type" : "Method" },
+		
+			{ "Name" : "Grayscale", "Url" : "#type/Filter?Grayscale", "Type" : "Method" },
+		
+			{ "Name" : "Invert", "Url" : "#type/Filter?Invert", "Type" : "Method" },
+		
+			{ "Name" : "MarkPoint", "Url" : "#type/Filter?MarkPoint", "Type" : "Method" },
+		
+			{ "Name" : "RemoveMean", "Url" : "#type/Filter?RemoveMean", "Type" : "Method" },
+		
+			{ "Name" : "ReplaceDifferentColor", "Url" : "#type/Filter?ReplaceDifferentColor", "Type" : "Method" },
+		
+			{ "Name" : "ReplaceSimilarColor", "Url" : "#type/Filter?ReplaceSimilarColor", "Type" : "Method" },
+		
+			{ "Name" : "Sepia", "Url" : "#type/Filter?Sepia", "Type" : "Method" },
+		
+			{ "Name" : "Sharpen", "Url" : "#type/Filter?Sharpen", "Type" : "Method" },
+		
+			{ "Name" : "Threshold", "Url" : "#type/Filter?Threshold", "Type" : "Method" },
+		
+		{ "Name" : "ImageData", "Url" : "#type/ImageData", "Type" : "Type" },
+
+		
+			{ "Name" : "BmpBytes", "Url" : "#type/ImageData?BmpBytes", "Type" : "Field" },
+		
+			{ "Name" : "BmpPixelFormat", "Url" : "#type/ImageData?BmpPixelFormat", "Type" : "Field" },
+		
+			{ "Name" : "BmpStride", "Url" : "#type/ImageData?BmpStride", "Type" : "Field" },
+		
+			{ "Name" : "RawFormatOffset", "Url" : "#type/ImageData?RawFormatOffset", "Type" : "Field" },
+		
+			{ "Name" : "Bitmap", "Url" : "#type/ImageData?Bitmap", "Type" : "Property" },
+		
+			{ "Name" : "Height", "Url" : "#type/ImageData?Height", "Type" : "Property" },
+		
+			{ "Name" : "Item", "Url" : "#type/ImageData?Item", "Type" : "Property" },
+		
+			{ "Name" : "Size", "Url" : "#type/ImageData?Size", "Type" : "Property" },
+		
+			{ "Name" : "Width", "Url" : "#type/ImageData?Width", "Type" : "Property" },
+		
+			{ "Name" : "Clone", "Url" : "#type/ImageData?Clone", "Type" : "Method" },
+		
+			{ "Name" : "CreateBitmap", "Url" : "#type/ImageData?CreateBitmap", "Type" : "Method" },
+		
+			{ "Name" : "GetPixel", "Url" : "#type/ImageData?GetPixel", "Type" : "Method" },
+		
+			{ "Name" : "LoadBitmap", "Url" : "#type/ImageData?LoadBitmap", "Type" : "Method" },
+		
+			{ "Name" : "Resize", "Url" : "#type/ImageData?Resize", "Type" : "Method" },
+		
+			{ "Name" : "Resize", "Url" : "#type/ImageData?Resize2", "Type" : "Method" },
+		
+			{ "Name" : "Save", "Url" : "#type/ImageData?Save", "Type" : "Method" },
+		
+			{ "Name" : "SetPixel", "Url" : "#type/ImageData?SetPixel", "Type" : "Method" },
+		
+		{ "Name" : "Template", "Url" : "#type/Template", "Type" : "Type" },
+
+		
+			{ "Name" : "AllImages", "Url" : "#type/Template?AllImages", "Type" : "Method" },
+		
+			{ "Name" : "BinaryPattern", "Url" : "#type/Template?BinaryPattern", "Type" : "Method" },
+		
+			{ "Name" : "Image", "Url" : "#type/Template?Image", "Type" : "Method" },
+		
+			{ "Name" : "ToMultiArrayBool", "Url" : "#type/Template?ToMultiArrayBool", "Type" : "Method" },
+		
+	{ "Name" : "BotSuite.MachineLearning.NeuralNetwork", "Url" : "#namespace/BotSuite.MachineLearning.NeuralNetwork", "Type" : "Namespace" },
+	
+		{ "Name" : "Layer", "Url" : "#type/Layer", "Type" : "Type" },
+
+		
+			{ "Name" : "_inputs_of_layer", "Url" : "#type/Layer?_inputs_of_layer", "Type" : "Field" },
+		
+			{ "Name" : "_neurons", "Url" : "#type/Layer?_neurons", "Type" : "Field" },
+		
+			{ "Name" : "_neurons_in_layer", "Url" : "#type/Layer?_neurons_in_layer", "Type" : "Field" },
+		
+			{ "Name" : "_output", "Url" : "#type/Layer?_output", "Type" : "Field" },
+		
+			{ "Name" : "ActivationFunction", "Url" : "#type/Layer?ActivationFunction", "Type" : "Property" },
+		
+			{ "Name" : "GetLastOuput", "Url" : "#type/Layer?GetLastOuput", "Type" : "Property" },
+		
+			{ "Name" : "InputsOfLayer", "Url" : "#type/Layer?InputsOfLayer", "Type" : "Property" },
+		
+			{ "Name" : "Item", "Url" : "#type/Layer?Item", "Type" : "Property" },
+		
+			{ "Name" : "NeuronsInLayer", "Url" : "#type/Layer?NeuronsInLayer", "Type" : "Property" },
+		
+			{ "Name" : "SetIntervalForPRNG", "Url" : "#type/Layer?SetIntervalForPRNG", "Type" : "Method" },
+		
+			{ "Name" : "ShuffleBoth", "Url" : "#type/Layer?ShuffleBoth", "Type" : "Method" },
+		
+			{ "Name" : "ShuffleThreshold", "Url" : "#type/Layer?ShuffleThreshold", "Type" : "Method" },
+		
+			{ "Name" : "ShuffleWeight", "Url" : "#type/Layer?ShuffleWeight", "Type" : "Method" },
+		
+			{ "Name" : "Signal", "Url" : "#type/Layer?Signal", "Type" : "Method" },
+		
+		{ "Name" : "NeuralNetwork", "Url" : "#type/NeuralNetwork", "Type" : "Type" },
+
+		
+			{ "Name" : "NetworkLayers", "Url" : "#type/NeuralNetwork?NetworkLayers", "Type" : "Field" },
+		
+			{ "Name" : "ProtectedNumberOfInputs", "Url" : "#type/NeuralNetwork?ProtectedNumberOfInputs", "Type" : "Field" },
+		
+			{ "Name" : "TeacherAlgorithm", "Url" : "#type/NeuralNetwork?TeacherAlgorithm", "Type" : "Field" },
+		
+			{ "Name" : "f", "Url" : "#type/NeuralNetwork?f", "Type" : "Property" },
+		
+			{ "Name" : "Item", "Url" : "#type/NeuralNetwork?Item", "Type" : "Property" },
+		
+			{ "Name" : "NumberOfInputs", "Url" : "#type/NeuralNetwork?NumberOfInputs", "Type" : "Property" },
+		
+			{ "Name" : "NumberOfLayers", "Url" : "#type/NeuralNetwork?NumberOfLayers", "Type" : "Property" },
+		
+			{ "Name" : "NumberOfOutputs", "Url" : "#type/NeuralNetwork?NumberOfOutputs", "Type" : "Property" },
+		
+			{ "Name" : "Teacher", "Url" : "#type/NeuralNetwork?Teacher", "Type" : "Property" },
+		
+			{ "Name" : "Learn", "Url" : "#type/NeuralNetwork?Learn3", "Type" : "Method" },
+		
+			{ "Name" : "Load", "Url" : "#type/NeuralNetwork?Load", "Type" : "Method" },
+		
+			{ "Name" : "Output", "Url" : "#type/NeuralNetwork?Output", "Type" : "Method" },
+		
+			{ "Name" : "PredictionError", "Url" : "#type/NeuralNetwork?PredictionError", "Type" : "Method" },
+		
+			{ "Name" : "SetIntervalForPRNG", "Url" : "#type/NeuralNetwork?SetIntervalForPRNG2", "Type" : "Method" },
+		
+			{ "Name" : "ShuffleBoth", "Url" : "#type/NeuralNetwork?ShuffleBoth2", "Type" : "Method" },
+		
+			{ "Name" : "ShuffleThreshold", "Url" : "#type/NeuralNetwork?ShuffleThreshold2", "Type" : "Method" },
+		
+			{ "Name" : "ShuffleWeight", "Url" : "#type/NeuralNetwork?ShuffleWeight2", "Type" : "Method" },
+		
+			{ "Name" : "Store", "Url" : "#type/NeuralNetwork?Store", "Type" : "Method" },
+		
+		{ "Name" : "Neuron", "Url" : "#type/Neuron", "Type" : "Type" },
+
+		
+			{ "Name" : "_f", "Url" : "#type/Neuron?_f", "Type" : "Field" },
+		
+			{ "Name" : "_intervall_max", "Url" : "#type/Neuron?_intervall_max", "Type" : "Field" },
+		
+			{ "Name" : "_intervall_min", "Url" : "#type/Neuron?_intervall_min", "Type" : "Field" },
+		
+			{ "Name" : "_neuron_output", "Url" : "#type/Neuron?_neuron_output", "Type" : "Field" },
+		
+			{ "Name" : "_remember_threshold", "Url" : "#type/Neuron?_remember_threshold", "Type" : "Field" },
+		
+			{ "Name" : "_remember_weight", "Url" : "#type/Neuron?_remember_weight", "Type" : "Field" },
+		
+			{ "Name" : "_synapsevalue_with_threshold", "Url" : "#type/Neuron?_synapsevalue_with_threshold", "Type" : "Field" },
+		
+			{ "Name" : "_threshold", "Url" : "#type/Neuron?_threshold", "Type" : "Field" },
+		
+			{ "Name" : "_usefull_variable", "Url" : "#type/Neuron?_usefull_variable", "Type" : "Field" },
+		
+			{ "Name" : "_weight", "Url" : "#type/Neuron?_weight", "Type" : "Field" },
+		
+			{ "Name" : "prng", "Url" : "#type/Neuron?prng", "Type" : "Field" },
+		
+			{ "Name" : "Derivative", "Url" : "#type/Neuron?Derivative", "Type" : "Property" },
+		
+			{ "Name" : "F", "Url" : "#type/Neuron?F", "Type" : "Property" },
+		
+			{ "Name" : "Item", "Url" : "#type/Neuron?Item", "Type" : "Property" },
+		
+			{ "Name" : "Last_Threshold", "Url" : "#type/Neuron?Last_Threshold", "Type" : "Property" },
+		
+			{ "Name" : "Last_Weight", "Url" : "#type/Neuron?Last_Weight", "Type" : "Property" },
+		
+			{ "Name" : "LastSumOfInputsWithTreshold", "Url" : "#type/Neuron?LastSumOfInputsWithTreshold", "Type" : "Property" },
+		
+			{ "Name" : "NumberOfNeurons", "Url" : "#type/Neuron?NumberOfNeurons", "Type" : "Property" },
+		
+			{ "Name" : "Output", "Url" : "#type/Neuron?Output", "Type" : "Property" },
+		
+			{ "Name" : "Randomization_LeftIntervall", "Url" : "#type/Neuron?Randomization_LeftIntervall", "Type" : "Property" },
+		
+			{ "Name" : "Randomization_RightIntervall", "Url" : "#type/Neuron?Randomization_RightIntervall", "Type" : "Property" },
+		
+			{ "Name" : "Threshold", "Url" : "#type/Neuron?Threshold", "Type" : "Property" },
+		
+			{ "Name" : "UsefulVariable", "Url" : "#type/Neuron?UsefulVariable", "Type" : "Property" },
+		
+			{ "Name" : "ShuffleBoth", "Url" : "#type/Neuron?ShuffleBoth3", "Type" : "Method" },
+		
+			{ "Name" : "ShuffleThreshold", "Url" : "#type/Neuron?ShuffleThreshold3", "Type" : "Method" },
+		
+			{ "Name" : "ShuffleWeight", "Url" : "#type/Neuron?ShuffleWeight3", "Type" : "Method" },
+		
+			{ "Name" : "Signal", "Url" : "#type/Neuron?Signal2", "Type" : "Method" },
+		
+	{ "Name" : "BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions", "Url" : "#namespace/BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions", "Type" : "Namespace" },
+	
+		{ "Name" : "BipolarSigmoidActivationFunction", "Url" : "#type/BipolarSigmoidActivationFunction", "Type" : "Type" },
+
+		
+			{ "Name" : "_beta", "Url" : "#type/BipolarSigmoidActivationFunction?_beta", "Type" : "Field" },
+		
+			{ "Name" : "Beta", "Url" : "#type/BipolarSigmoidActivationFunction?Beta", "Type" : "Property" },
+		
+			{ "Name" : "Derivative", "Url" : "#type/BipolarSigmoidActivationFunction?Derivative", "Type" : "Method" },
+		
+			{ "Name" : "Function", "Url" : "#type/BipolarSigmoidActivationFunction?Function", "Type" : "Method" },
+		
+		{ "Name" : "GaussianActivationFunction", "Url" : "#type/GaussianActivationFunction", "Type" : "Type" },
+
+		
+			{ "Name" : "_double_sigma_square_reziproke", "Url" : "#type/GaussianActivationFunction?_double_sigma_square_reziproke", "Type" : "Field" },
+		
+			{ "Name" : "_mu", "Url" : "#type/GaussianActivationFunction?_mu", "Type" : "Field" },
+		
+			{ "Name" : "_normalisation", "Url" : "#type/GaussianActivationFunction?_normalisation", "Type" : "Field" },
+		
+			{ "Name" : "_sigma", "Url" : "#type/GaussianActivationFunction?_sigma", "Type" : "Field" },
+		
+			{ "Name" : "Mu", "Url" : "#type/GaussianActivationFunction?Mu", "Type" : "Property" },
+		
+			{ "Name" : "Sigma", "Url" : "#type/GaussianActivationFunction?Sigma", "Type" : "Property" },
+		
+			{ "Name" : "Derivative", "Url" : "#type/GaussianActivationFunction?Derivative2", "Type" : "Method" },
+		
+			{ "Name" : "Function", "Url" : "#type/GaussianActivationFunction?Function2", "Type" : "Method" },
+		
+		{ "Name" : "HeavisideActivationFunction", "Url" : "#type/HeavisideActivationFunction", "Type" : "Type" },
+
+		
+			{ "Name" : "Derivative", "Url" : "#type/HeavisideActivationFunction?Derivative3", "Type" : "Method" },
+		
+			{ "Name" : "Function", "Url" : "#type/HeavisideActivationFunction?Function3", "Type" : "Method" },
+		
+		{ "Name" : "iActivationFunction", "Url" : "#type/iActivationFunction", "Type" : "Type" },
+
+		
+			{ "Name" : "Derivative", "Url" : "#type/iActivationFunction?Derivative4", "Type" : "Method" },
+		
+			{ "Name" : "Function", "Url" : "#type/iActivationFunction?Function4", "Type" : "Method" },
+		
+		{ "Name" : "LinearActivationFunction", "Url" : "#type/LinearActivationFunction", "Type" : "Type" },
+
+		
+			{ "Name" : "_hinge", "Url" : "#type/LinearActivationFunction?_hinge", "Type" : "Field" },
+		
+			{ "Name" : "_k", "Url" : "#type/LinearActivationFunction?_k", "Type" : "Field" },
+		
+			{ "Name" : "K", "Url" : "#type/LinearActivationFunction?K", "Type" : "Property" },
+		
+			{ "Name" : "Derivative", "Url" : "#type/LinearActivationFunction?Derivative5", "Type" : "Method" },
+		
+			{ "Name" : "Function", "Url" : "#type/LinearActivationFunction?Function5", "Type" : "Method" },
+		
+		{ "Name" : "SigmoidActivationFunction", "Url" : "#type/SigmoidActivationFunction", "Type" : "Type" },
+
+		
+			{ "Name" : "_beta", "Url" : "#type/SigmoidActivationFunction?_beta", "Type" : "Field" },
+		
+			{ "Name" : "Beta", "Url" : "#type/SigmoidActivationFunction?Beta", "Type" : "Property" },
+		
+			{ "Name" : "Derivative", "Url" : "#type/SigmoidActivationFunction?Derivative6", "Type" : "Method" },
+		
+			{ "Name" : "Function", "Url" : "#type/SigmoidActivationFunction?Function6", "Type" : "Method" },
+		
+	{ "Name" : "BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms", "Url" : "#namespace/BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms", "Type" : "Namespace" },
+	
+		{ "Name" : "BackPropagationLearningAlgorithm", "Url" : "#type/BackPropagationLearningAlgorithm", "Type" : "Type" },
+
+		
+			{ "Name" : "_alpha", "Url" : "#type/BackPropagationLearningAlgorithm?_alpha", "Type" : "Field" },
+		
+			{ "Name" : "_error_vector", "Url" : "#type/BackPropagationLearningAlgorithm?_error_vector", "Type" : "Field" },
+		
+			{ "Name" : "_gamma", "Url" : "#type/BackPropagationLearningAlgorithm?_gamma", "Type" : "Field" },
+		
+			{ "Name" : "LearningRate", "Url" : "#type/BackPropagationLearningAlgorithm?LearningRate", "Type" : "Property" },
+		
+			{ "Name" : "RumelhartCoefficient", "Url" : "#type/BackPropagationLearningAlgorithm?RumelhartCoefficient", "Type" : "Property" },
+		
+			{ "Name" : "CalculateUsefulVariable", "Url" : "#type/BackPropagationLearningAlgorithm?CalculateUsefulVariable", "Type" : "Method" },
+		
+			{ "Name" : "Learn", "Url" : "#type/BackPropagationLearningAlgorithm?Learn", "Type" : "Method" },
+		
+			{ "Name" : "SetWeight", "Url" : "#type/BackPropagationLearningAlgorithm?SetWeight", "Type" : "Method" },
+		
+		{ "Name" : "LearningAlgorithm", "Url" : "#type/LearningAlgorithm", "Type" : "Type" },
+
+		
+			{ "Name" : "_error_treshold", "Url" : "#type/LearningAlgorithm?_error_treshold", "Type" : "Field" },
+		
+			{ "Name" : "_maximum_of_epochs", "Url" : "#type/LearningAlgorithm?_maximum_of_epochs", "Type" : "Field" },
+		
+			{ "Name" : "_monitor", "Url" : "#type/LearningAlgorithm?_monitor", "Type" : "Field" },
+		
+			{ "Name" : "InputTrainingData", "Url" : "#type/LearningAlgorithm?InputTrainingData", "Type" : "Field" },
+		
+			{ "Name" : "OutputTrainingData", "Url" : "#type/LearningAlgorithm?OutputTrainingData", "Type" : "Field" },
+		
+			{ "Name" : "ANN", "Url" : "#type/LearningAlgorithm?ANN", "Type" : "Property" },
+		
+			{ "Name" : "CurrentEpoch", "Url" : "#type/LearningAlgorithm?CurrentEpoch", "Type" : "Property" },
+		
+			{ "Name" : "ErrorTreshold", "Url" : "#type/LearningAlgorithm?ErrorTreshold", "Type" : "Property" },
+		
+			{ "Name" : "LearningMonitor", "Url" : "#type/LearningAlgorithm?LearningMonitor", "Type" : "Property" },
+		
+			{ "Name" : "MaximumOfEpochs", "Url" : "#type/LearningAlgorithm?MaximumOfEpochs", "Type" : "Property" },
+		
+			{ "Name" : "MeanSquareError", "Url" : "#type/LearningAlgorithm?MeanSquareError", "Type" : "Property" },
+		
+			{ "Name" : "Convergence", "Url" : "#type/LearningAlgorithm?Convergence", "Type" : "Method" },
+		
+			{ "Name" : "Learn", "Url" : "#type/LearningAlgorithm?Learn2", "Type" : "Method" },
+		
+			{ "Name" : "Pulse", "Url" : "#type/LearningAlgorithm?Pulse", "Type" : "Method" },
+		
+	{ "Name" : "BotSuite.MachineLearning.NeuralNetwork.LearningMonitors", "Url" : "#namespace/BotSuite.MachineLearning.NeuralNetwork.LearningMonitors", "Type" : "Namespace" },
+	
+		{ "Name" : "iLearningMonitor", "Url" : "#type/iLearningMonitor", "Type" : "Type" },
+
+		
+			{ "Name" : "Convergence", "Url" : "#type/iLearningMonitor?Convergence2", "Type" : "Method" },
+		
+			{ "Name" : "Pulse", "Url" : "#type/iLearningMonitor?Pulse2", "Type" : "Method" },
+		
+	{ "Name" : "BotSuite.Net", "Url" : "#namespace/BotSuite.Net", "Type" : "Namespace" },
+	
+		{ "Name" : "HttpClient", "Url" : "#type/HttpClient", "Type" : "Type" },
+
+		
+			{ "Name" : "cookies", "Url" : "#type/HttpClient?cookies", "Type" : "Field" },
+		
+			{ "Name" : "headers", "Url" : "#type/HttpClient?headers", "Type" : "Field" },
+		
+			{ "Name" : "userAgent", "Url" : "#type/HttpClient?userAgent", "Type" : "Field" },
+		
+			{ "Name" : "AllowAutoRedirect", "Url" : "#type/HttpClient?AllowAutoRedirect", "Type" : "Property" },
+		
+			{ "Name" : "AllowBotSuiteAutoRedirect", "Url" : "#type/HttpClient?AllowBotSuiteAutoRedirect", "Type" : "Property" },
+		
+			{ "Name" : "AutoReferer", "Url" : "#type/HttpClient?AutoReferer", "Type" : "Property" },
+		
+			{ "Name" : "Cache", "Url" : "#type/HttpClient?Cache", "Type" : "Property" },
+		
+			{ "Name" : "Cookies", "Url" : "#type/HttpClient?Cookies", "Type" : "Property" },
+		
+			{ "Name" : "DecompressionMethod", "Url" : "#type/HttpClient?DecompressionMethod", "Type" : "Property" },
+		
+			{ "Name" : "Expect100Continue", "Url" : "#type/HttpClient?Expect100Continue", "Type" : "Property" },
+		
+			{ "Name" : "Headers", "Url" : "#type/HttpClient?Headers", "Type" : "Property" },
+		
+			{ "Name" : "IgnoreCertificateValidationFailures", "Url" : "#type/HttpClient?IgnoreCertificateValidationFailures", "Type" : "Property" },
+		
+			{ "Name" : "LastResponseEncoding", "Url" : "#type/HttpClient?LastResponseEncoding", "Type" : "Property" },
+		
+			{ "Name" : "MaximumRedirectCount", "Url" : "#type/HttpClient?MaximumRedirectCount", "Type" : "Property" },
+		
+			{ "Name" : "Proxy", "Url" : "#type/HttpClient?Proxy", "Type" : "Property" },
+		
+			{ "Name" : "Referer", "Url" : "#type/HttpClient?Referer", "Type" : "Property" },
+		
+			{ "Name" : "UseProxy", "Url" : "#type/HttpClient?UseProxy", "Type" : "Property" },
+		
+			{ "Name" : "UseUnsafeHeaderParsing", "Url" : "#type/HttpClient?UseUnsafeHeaderParsing", "Type" : "Property" },
+		
+			{ "Name" : "CorrectUrl", "Url" : "#type/HttpClient?CorrectUrl", "Type" : "Method" },
+		
+			{ "Name" : "Get", "Url" : "#type/HttpClient?Get", "Type" : "Method" },
+		
+			{ "Name" : "GetInternal", "Url" : "#type/HttpClient?GetInternal", "Type" : "Method" },
+		
+			{ "Name" : "GetResponse", "Url" : "#type/HttpClient?GetResponse", "Type" : "Method" },
+		
+			{ "Name" : "Head", "Url" : "#type/HttpClient?Head", "Type" : "Method" },
+		
+			{ "Name" : "HeadInternal", "Url" : "#type/HttpClient?HeadInternal", "Type" : "Method" },
+		
+			{ "Name" : "LoadImageFromCache", "Url" : "#type/HttpClient?LoadImageFromCache", "Type" : "Method" },
+		
+			{ "Name" : "LoadStringFromCache", "Url" : "#type/HttpClient?LoadStringFromCache", "Type" : "Method" },
+		
+			{ "Name" : "Post", "Url" : "#type/HttpClient?Post", "Type" : "Method" },
+		
+			{ "Name" : "Post", "Url" : "#type/HttpClient?Post2", "Type" : "Method" },
+		
+			{ "Name" : "PostInternal", "Url" : "#type/HttpClient?PostInternal", "Type" : "Method" },
+		
+			{ "Name" : "PrepareRequest", "Url" : "#type/HttpClient?PrepareRequest", "Type" : "Method" },
+		
+			{ "Name" : "RepairCookie", "Url" : "#type/HttpClient?RepairCookie", "Type" : "Method" },
+		
+			{ "Name" : "SetLastReponseEncoding", "Url" : "#type/HttpClient?SetLastReponseEncoding", "Type" : "Method" },
+		
+		{ "Name" : "HttpConstants", "Url" : "#type/HttpConstants", "Type" : "Type" },
+
+		
+		{ "Name" : "HttpHeader", "Url" : "#type/HttpHeader", "Type" : "Type" },
+
+		
+			{ "Name" : "Key", "Url" : "#type/HttpHeader?Key", "Type" : "Property" },
+		
+			{ "Name" : "Value", "Url" : "#type/HttpHeader?Value", "Type" : "Property" },
+		
+			{ "Name" : "CompareTo", "Url" : "#type/HttpHeader?CompareTo2", "Type" : "Method" },
+		
+			{ "Name" : "Equals", "Url" : "#type/HttpHeader?Equals3", "Type" : "Method" },
+		
+			{ "Name" : "ToString", "Url" : "#type/HttpHeader?ToString2", "Type" : "Method" },
+		
+		{ "Name" : "HttpHeaderCollection", "Url" : "#type/HttpHeaderCollection", "Type" : "Type" },
+
+		
+			{ "Name" : "Item", "Url" : "#type/HttpHeaderCollection?Item", "Type" : "Property" },
+		
+			{ "Name" : "Contains", "Url" : "#type/HttpHeaderCollection?Contains", "Type" : "Method" },
+		
+			{ "Name" : "GetHeaderByKey", "Url" : "#type/HttpHeaderCollection?GetHeaderByKey", "Type" : "Method" },
+		
+			{ "Name" : "ToString", "Url" : "#type/HttpHeaderCollection?ToString3", "Type" : "Method" },
+		
+		{ "Name" : "HttpPostData", "Url" : "#type/HttpPostData", "Type" : "Type" },
+
+		
+			{ "Name" : "key", "Url" : "#type/HttpPostData?key", "Type" : "Field" },
+		
+			{ "Name" : "value", "Url" : "#type/HttpPostData?value", "Type" : "Field" },
+		
+			{ "Name" : "Key", "Url" : "#type/HttpPostData?Key", "Type" : "Property" },
+		
+			{ "Name" : "Value", "Url" : "#type/HttpPostData?Value", "Type" : "Property" },
+		
+			{ "Name" : "CompareTo", "Url" : "#type/HttpPostData?CompareTo3", "Type" : "Method" },
+		
+			{ "Name" : "Equals", "Url" : "#type/HttpPostData?Equals4", "Type" : "Method" },
+		
+			{ "Name" : "ToString", "Url" : "#type/HttpPostData?ToString4", "Type" : "Method" },
+		
+		{ "Name" : "HttpPostDataCollection", "Url" : "#type/HttpPostDataCollection", "Type" : "Type" },
+
+		
+			{ "Name" : "postData", "Url" : "#type/HttpPostDataCollection?postData", "Type" : "Field" },
+		
+			{ "Name" : "Count", "Url" : "#type/HttpPostDataCollection?Count", "Type" : "Property" },
+		
+			{ "Name" : "IsReadOnly", "Url" : "#type/HttpPostDataCollection?IsReadOnly", "Type" : "Property" },
+		
+			{ "Name" : "Add", "Url" : "#type/HttpPostDataCollection?Add2", "Type" : "Method" },
+		
+			{ "Name" : "Clear", "Url" : "#type/HttpPostDataCollection?Clear", "Type" : "Method" },
+		
+			{ "Name" : "Contains", "Url" : "#type/HttpPostDataCollection?Contains2", "Type" : "Method" },
+		
+			{ "Name" : "CopyTo", "Url" : "#type/HttpPostDataCollection?CopyTo", "Type" : "Method" },
+		
+			{ "Name" : "FromString", "Url" : "#type/HttpPostDataCollection?FromString", "Type" : "Method" },
+		
+			{ "Name" : "GetEnumerator", "Url" : "#type/HttpPostDataCollection?GetEnumerator", "Type" : "Method" },
+		
+			{ "Name" : "Remove", "Url" : "#type/HttpPostDataCollection?Remove", "Type" : "Method" },
+		
+			{ "Name" : "ToString", "Url" : "#type/HttpPostDataCollection?ToString5", "Type" : "Method" },
+		
+		{ "Name" : "HttpProxy", "Url" : "#type/HttpProxy", "Type" : "Type" },
+
+		
+			{ "Name" : "internalProxy", "Url" : "#type/HttpProxy?internalProxy", "Type" : "Field" },
+		
+			{ "Name" : "GetWebProxy", "Url" : "#type/HttpProxy?GetWebProxy", "Type" : "Method" },
+		
+		{ "Name" : "HttpProxyHacker", "Url" : "#type/HttpProxyHacker", "Type" : "Type" },
+
+		
+			{ "Name" : "IsUseUnsafeHeaderParsingActivated", "Url" : "#type/HttpProxyHacker?IsUseUnsafeHeaderParsingActivated", "Type" : "Method" },
+		
+			{ "Name" : "ToggleAllowUnsafeHeaderParsing", "Url" : "#type/HttpProxyHacker?ToggleAllowUnsafeHeaderParsing", "Type" : "Method" },
+		
+		{ "Name" : "HttpRequestException", "Url" : "#type/HttpRequestException", "Type" : "Type" },
+
+		
+	{ "Name" : "BotSuite.Recognition.Character", "Url" : "#namespace/BotSuite.Recognition.Character", "Type" : "Namespace" },
+	
+		{ "Name" : "MagicMatchStick", "Url" : "#type/MagicMatchStick", "Type" : "Type" },
+
+		
+			{ "Name" : "bottom", "Url" : "#type/MagicMatchStick?bottom", "Type" : "Field" },
+		
+			{ "Name" : "c", "Url" : "#type/MagicMatchStick?c", "Type" : "Field" },
+		
+			{ "Name" : "d", "Url" : "#type/MagicMatchStick?d", "Type" : "Field" },
+		
+			{ "Name" : "dx", "Url" : "#type/MagicMatchStick?dx", "Type" : "Field" },
+		
+			{ "Name" : "dy", "Url" : "#type/MagicMatchStick?dy", "Type" : "Field" },
+		
+			{ "Name" : "left", "Url" : "#type/MagicMatchStick?left", "Type" : "Field" },
+		
+			{ "Name" : "m", "Url" : "#type/MagicMatchStick?m", "Type" : "Field" },
+		
+			{ "Name" : "right", "Url" : "#type/MagicMatchStick?right", "Type" : "Field" },
+		
+			{ "Name" : "top", "Url" : "#type/MagicMatchStick?top", "Type" : "Field" },
+		
+			{ "Name" : "xa", "Url" : "#type/MagicMatchStick?xa", "Type" : "Field" },
+		
+			{ "Name" : "xb", "Url" : "#type/MagicMatchStick?xb", "Type" : "Field" },
+		
+			{ "Name" : "ya", "Url" : "#type/MagicMatchStick?ya", "Type" : "Field" },
+		
+			{ "Name" : "yb", "Url" : "#type/MagicMatchStick?yb", "Type" : "Field" },
+		
+			{ "Name" : "z", "Url" : "#type/MagicMatchStick?z", "Type" : "Field" },
+		
+			{ "Name" : "GetMagicMatchStickState", "Url" : "#type/MagicMatchStick?GetMagicMatchStickState", "Type" : "Method" },
+		
+		{ "Name" : "MagicMatchSticks", "Url" : "#type/MagicMatchSticks", "Type" : "Type" },
+
+		
+			{ "Name" : "MagicStickList", "Url" : "#type/MagicMatchSticks?MagicStickList", "Type" : "Field" },
+		
+			{ "Name" : "rand", "Url" : "#type/MagicMatchSticks?rand", "Type" : "Field" },
+		
+			{ "Name" : "Item", "Url" : "#type/MagicMatchSticks?Item", "Type" : "Property" },
+		
+			{ "Name" : "Add", "Url" : "#type/MagicMatchSticks?Add3", "Type" : "Method" },
+		
+			{ "Name" : "Generate", "Url" : "#type/MagicMatchSticks?Generate", "Type" : "Method" },
+		
+			{ "Name" : "GetMagicMatchSticksState", "Url" : "#type/MagicMatchSticks?GetMagicMatchSticksState", "Type" : "Method" },
+		
+			{ "Name" : "Num", "Url" : "#type/MagicMatchSticks?Num", "Type" : "Method" },
+		
+		{ "Name" : "OCR", "Url" : "#type/OCR", "Type" : "Type" },
+
+		
+			{ "Name" : "CharactersToRecognize", "Url" : "#type/OCR?CharactersToRecognize", "Type" : "Field" },
+		
+			{ "Name" : "ImageSense", "Url" : "#type/OCR?ImageSense", "Type" : "Field" },
+		
+			{ "Name" : "NetworkWasInitialised", "Url" : "#type/OCR?NetworkWasInitialised", "Type" : "Field" },
+		
+			{ "Name" : "WorkingNeuralNetwork", "Url" : "#type/OCR?WorkingNeuralNetwork", "Type" : "Field" },
+		
+			{ "Name" : "GetMagicSticksPattern", "Url" : "#type/OCR?GetMagicSticksPattern", "Type" : "Method" },
+		
+			{ "Name" : "GetNetworkOutput", "Url" : "#type/OCR?GetNetworkOutput", "Type" : "Method" },
+		
+			{ "Name" : "Load", "Url" : "#type/OCR?Load2", "Type" : "Method" },
+		
+			{ "Name" : "PredictionError", "Url" : "#type/OCR?PredictionError2", "Type" : "Method" },
+		
+			{ "Name" : "Recognize", "Url" : "#type/OCR?Recognize", "Type" : "Method" },
+		
+			{ "Name" : "StartTrainingSession", "Url" : "#type/OCR?StartTrainingSession", "Type" : "Method" },
+		
+			{ "Name" : "Store", "Url" : "#type/OCR?Store2", "Type" : "Method" },
+		
+
+		];
+		</script>
+
+    </head>
+    <body>   
+		<div class="ui-layout-north">
+			
+				<h1 id="sitetitle"><a href="index.html">BotSuite</a></h1>
+			
+			<div id="subtitle"><p>Home</p></div>
+		</div>
+        <div class="ui-layout-south">
+			<div class="user-footer markdown">
+				
+			</div>
+			<div class="sd-footer">
+				
+
+				 <a href="www.botsuite.net" target="_blank">BotSuite</a>   - generated by <a href="http://sharpDox.de" target="_blank">sharpDox</a>
+			</div>
+		</div>
+        <div class="ui-layout-west">
+			<div id="search">
+				<i class="icon-search"></i> <input id="searchInput" type="text" />
+				<div id="searchResults">
+				</div>
+			</div>
+			<div id="navigation">
+				<ul>
+	<li data-jstree='{"icon":"icon-home"}' id="home" class="jstree-open"><a href="#home">Home</a>
+	<ul>
+		
+				
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite"><a href="#namespace/BotSuite">BotSuite</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ApplicationTunnel"><a href="#type/ApplicationTunnel">ApplicationTunnel</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Browser"><a href="#type/Browser">Browser</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/CommonRegex"><a href="#type/CommonRegex">CommonRegex</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ControlArtist"><a href="#type/ControlArtist">ControlArtist</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Encryption"><a href="#type/Encryption">Encryption</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/IniParser"><a href="#type/IniParser">IniParser</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Keyboard"><a href="#type/Keyboard">Keyboard</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Mouse"><a href="#type/Mouse">Mouse</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/NativeMethods"><a href="#type/NativeMethods">NativeMethods</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ScreenShot"><a href="#type/ScreenShot">ScreenShot</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Utility"><a href="#type/Utility">Utility</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Window"><a href="#type/Window">Window</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions"><a href="#namespace/BotSuite.BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions">BotSuite.BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/TanhActivationFunction"><a href="#type/TanhActivationFunction">TanhActivationFunction</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.DataTypes"><a href="#namespace/BotSuite.DataTypes">BotSuite.DataTypes</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/struct_public.png"}' id="node-type/Hex32"><a href="#type/Hex32">Hex32</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.FiniteStateEngine.Pattern"><a href="#namespace/BotSuite.FiniteStateEngine.Pattern">BotSuite.FiniteStateEngine.Pattern</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Singleton"><a href="#type/Singleton">Singleton</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.FiniteStateEngine.StateEngine"><a href="#namespace/BotSuite.FiniteStateEngine.StateEngine">BotSuite.FiniteStateEngine.StateEngine</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/State"><a href="#type/State">State</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/StateMachine"><a href="#type/StateMachine">StateMachine</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.FiniteStateEngine.StateEngine.Entites"><a href="#namespace/BotSuite.FiniteStateEngine.StateEngine.Entites">BotSuite.FiniteStateEngine.StateEngine.Entites</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/BaseEntity"><a href="#type/BaseEntity">BaseEntity</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/EntityManager"><a href="#type/EntityManager">EntityManager</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.FiniteStateEngine.StateEngine.Messaging"><a href="#namespace/BotSuite.FiniteStateEngine.StateEngine.Messaging">BotSuite.FiniteStateEngine.StateEngine.Messaging</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/MessageDispatcher"><a href="#type/MessageDispatcher">MessageDispatcher</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/struct_public.png"}' id="node-type/Telegram"><a href="#type/Telegram">Telegram</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.ImageLibrary"><a href="#namespace/BotSuite.ImageLibrary">BotSuite.ImageLibrary</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/CommonFunctions"><a href="#type/CommonFunctions">CommonFunctions</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Filter"><a href="#type/Filter">Filter</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/ImageData"><a href="#type/ImageData">ImageData</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Template"><a href="#type/Template">Template</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.MachineLearning.NeuralNetwork"><a href="#namespace/BotSuite.MachineLearning.NeuralNetwork">BotSuite.MachineLearning.NeuralNetwork</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Layer"><a href="#type/Layer">Layer</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/NeuralNetwork"><a href="#type/NeuralNetwork">NeuralNetwork</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/Neuron"><a href="#type/Neuron">Neuron</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions"><a href="#namespace/BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions">BotSuite.MachineLearning.NeuralNetwork.ActivationFunctions</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/BipolarSigmoidActivationFunction"><a href="#type/BipolarSigmoidActivationFunction">BipolarSigmoidActivationFunction</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/GaussianActivationFunction"><a href="#type/GaussianActivationFunction">GaussianActivationFunction</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/HeavisideActivationFunction"><a href="#type/HeavisideActivationFunction">HeavisideActivationFunction</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/interface_public.png"}' id="node-type/iActivationFunction"><a href="#type/iActivationFunction">iActivationFunction</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/LinearActivationFunction"><a href="#type/LinearActivationFunction">LinearActivationFunction</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/SigmoidActivationFunction"><a href="#type/SigmoidActivationFunction">SigmoidActivationFunction</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms"><a href="#namespace/BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms">BotSuite.MachineLearning.NeuralNetwork.LearningAlgorithms</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/BackPropagationLearningAlgorithm"><a href="#type/BackPropagationLearningAlgorithm">BackPropagationLearningAlgorithm</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/LearningAlgorithm"><a href="#type/LearningAlgorithm">LearningAlgorithm</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.MachineLearning.NeuralNetwork.LearningMonitors"><a href="#namespace/BotSuite.MachineLearning.NeuralNetwork.LearningMonitors">BotSuite.MachineLearning.NeuralNetwork.LearningMonitors</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/interface_public.png"}' id="node-type/iLearningMonitor"><a href="#type/iLearningMonitor">iLearningMonitor</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.Net"><a href="#namespace/BotSuite.Net">BotSuite.Net</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/HttpClient"><a href="#type/HttpClient">HttpClient</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/HttpConstants"><a href="#type/HttpConstants">HttpConstants</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/HttpHeader"><a href="#type/HttpHeader">HttpHeader</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/HttpHeaderCollection"><a href="#type/HttpHeaderCollection">HttpHeaderCollection</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/HttpPostData"><a href="#type/HttpPostData">HttpPostData</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/HttpPostDataCollection"><a href="#type/HttpPostDataCollection">HttpPostDataCollection</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/HttpProxy"><a href="#type/HttpProxy">HttpProxy</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_internal.png"}' id="node-type/HttpProxyHacker"><a href="#type/HttpProxyHacker">HttpProxyHacker</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/HttpRequestException"><a href="#type/HttpRequestException">HttpRequestException</a></li>
+
+</ul>
+
+</li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/namespace_public.png"}' id="node-namespace/BotSuite.Recognition.Character"><a href="#namespace/BotSuite.Recognition.Character">BotSuite.Recognition.Character</a> 
+ 
+
+<ul>
+
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/MagicMatchStick"><a href="#type/MagicMatchStick">MagicMatchStick</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/MagicMatchSticks"><a href="#type/MagicMatchSticks">MagicMatchSticks</a></li>
+	
+		<li data-jstree='{"icon":"./assets/images/icons/class_public.png"}' id="node-type/OCR"><a href="#type/OCR">OCR</a></li>
+
+</ul>
+
+</li>
+
+
+		
+	</ul>
+	</li>	
+</ul>
+			</div>
+		</div>
+		<div id="loader"><i class="icon-refresh icon-spin"></i></div>
+		<iframe id="content" class="ui-layout-center" frameborder="0" width="100%" src="article/home.html"></iframe>
+    </body>
+</html>
+

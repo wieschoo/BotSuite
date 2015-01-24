@@ -1,0 +1,2959 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>BotSuite - Mouse</title>
+        <meta name="viewport" content="width=device-width">
+
+		
+			<link rel="stylesheet" type="text/css" href="../assets/css/font.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css?version=0.9.5.10" />
+			<link rel="stylesheet" type="text/css" href="../assets/css/style.css?version=0.9.5.10" />
+			
+			<!--[if IE 8]>
+				<script src="../assets/js/vendor.ie8.js?version=0.9.5.10"></script>
+			<![endif]-->
+			<![if !IE 8]>
+				<script src="../assets/js/vendor.js?version=0.9.5.10"></script>
+			<![endif]>
+
+			<script src="../assets/js/frame.js?version=0.9.5.10"></script>
+		
+
+		<script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>        
+        
+		<!-- DropDowns -->
+		<div id="dropdown-1" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-2" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-3" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+
+					<li><a href="#Mouse"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Mouse()</a></li>
+
+				
+
+				
+
+					<li><a href="#DoubleClick"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> DoubleClick()</a></li>
+
+				
+
+					<li><a href="#DoubleClick2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> DoubleClick(IntPtr handle, Point point)</a></li>
+
+				
+
+					<li><a href="#DragAndDrop"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> DragAndDrop(Point source, Point target, Boolean human, Int32 steps)</a></li>
+
+				
+
+					<li><a href="#GetLParam2"><img alt="Method-Icon" src="../assets/images/icons/method_private.png"> GetLParam(Point point)</a></li>
+
+				
+
+					<li><a href="#GetPosition"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> GetPosition()</a></li>
+
+				
+
+					<li><a href="#GetPositionRelativeToControl"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> GetPositionRelativeToControl(IntPtr controlHandle)</a></li>
+
+				
+
+					<li><a href="#HoverControl"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> HoverControl(IntPtr controlHandle)</a></li>
+
+				
+
+					<li><a href="#InRectangle"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> InRectangle(Point point, Int32 top, Int32 left, Int32 bottom, Int32 right)</a></li>
+
+				
+
+					<li><a href="#InRectangle2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> InRectangle(Int32 top, Int32 left, Int32 bottom, Int32 right)</a></li>
+
+				
+
+					<li><a href="#Jiggle"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Jiggle()</a></li>
+
+				
+
+					<li><a href="#LeftClick"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> LeftClick()</a></li>
+
+				
+
+					<li><a href="#LeftClick2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> LeftClick(IntPtr handle, Point point)</a></li>
+
+				
+
+					<li><a href="#LeftDown"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> LeftDown()</a></li>
+
+				
+
+					<li><a href="#LeftDown2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> LeftDown(IntPtr handle, Point point)</a></li>
+
+				
+
+					<li><a href="#LeftUp"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> LeftUp()</a></li>
+
+				
+
+					<li><a href="#LeftUp2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> LeftUp(IntPtr handle, Point point)</a></li>
+
+				
+
+					<li><a href="#Move"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Move(Point targetPosition, Boolean human, Int32 steps)</a></li>
+
+				
+
+					<li><a href="#Move2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Move(Rectangle R, Boolean human, Int32 steps)</a></li>
+
+				
+
+					<li><a href="#MoveRelativeToWindow"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> MoveRelativeToWindow(IntPtr windowHandle, Point point, Boolean human, Int32 steps)</a></li>
+
+				
+
+					<li><a href="#RightClick"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> RightClick()</a></li>
+
+				
+
+					<li><a href="#RightClick2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> RightClick(IntPtr handle, Point point)</a></li>
+
+				
+
+					<li><a href="#RightDown"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> RightDown()</a></li>
+
+				
+
+					<li><a href="#RightDown2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> RightDown(IntPtr handle, Point point)</a></li>
+
+				
+
+					<li><a href="#RightUp"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> RightUp()</a></li>
+
+				
+
+					<li><a href="#RightUp2"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> RightUp(IntPtr handle, Point point)</a></li>
+
+				
+
+					<li><a href="#Scroll"><img alt="Method-Icon" src="../assets/images/icons/method_public.png"> Scroll(Int32 wheeldelta)</a></li>
+
+				
+			</ul>
+		</div>
+
+		<div id="dropdown-4" class="dropdown dropdown-tip">
+			<ul class="dropdown-menu">
+				
+			</ul>
+		</div>
+		<!-- DropDowns Ende -->
+
+	    <div class="ui-layout-north">
+			<div class="toolbar">
+
+				
+					<a href="#" data-dropdown="#dropdown-3" class="button"><img src="../assets/images/icons/method_public.png"/> Methods <span class="info">(27)</span> <i class="icon-caret-down"></i></a>
+				
+
+				<div class="right">
+					<span class="toolbar-info"> Namespace: BotSuite</span>
+					<a href="#" id="expand-all-button" class="button"><i class="icon-align-justify" title="expand all"></i></a>
+					<a href="#" id="print-button" class="button"><i class="icon-print" title="print"></i></a>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+        
+		<div class="ui-layout-center">
+
+			<div>
+				<h3 class="box-title first-heading">Syntax</h3>					
+				<div class="syntax-box">
+					<pre class="wrap-pre"><code>public class Mouse</code></pre>
+				</div>
+
+				
+
+				
+        
+				
+
+					
+						<h3 class="box-title">Summary</h3>
+						<div class="doc-box markdown">
+							<p>Class for simulating mouse actions</p>
+
+						</div>
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+
+				
+
+				
+					<h3 class="box-title">Uses</h3>
+					<div class="list-box">
+						<ul>
+						
+							<li><a href="../type/NativeMethods.html">NativeMethods</a></li>
+						
+							<li><a href="../type/Utility.html">Utility</a></li>
+						
+						</ul>
+					</div>
+				
+
+				
+
+				
+
+				
+
+				
+					<h3 class="box-title">Methods</h3>
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Mouse" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Mouse()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Class for simulating mouse actions</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public void Mouse()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="DoubleClick" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>DoubleClick()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>performs a double-click (left button) at the current cursor position</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void DoubleClick()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>Mouse.DoubleClick();</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="DoubleClick-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="111" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Utility.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Utility]]></text></a><a xlink:href="../type/Mouse.html#DoubleClick" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[DoubleClick]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#LeftClick" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftClick]]></text></a><path d="M57.49,125.50L47.49,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,125.50L47.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,135.50L57.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,135 52,130 52,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Utility.html#Delay2" xmlns:xlink="xlink"><text x="67.49" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><path d="M57.49,170.50L189.84,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,170 184,165 184,175" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#LeftClick" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftClick]]></text></a><path d="M57.49,195.50L47.49,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,195.50L47.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 52,200 52,210" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M189.58,45L189.58,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="DoubleClick2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>DoubleClick(IntPtr handle, Point point)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Simulates a double-click (left button) at a given coordinate on screen relative to the window</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void DoubleClick(IntPtr handle, Point point)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">handle</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>The handle of the window to click</p>
+
+						</div>
+					
+						<p class="key">point</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The point to click</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+    Point p = new Point(400,600);
+    Mouse.DoubleClick(Trainer.GetHandle(),p);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="DoubleClick2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="111" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Utility.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Utility]]></text></a><a xlink:href="../type/Mouse.html#DoubleClick2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[DoubleClick]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#LeftClick2" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftClick]]></text></a><path d="M57.49,125.50L47.49,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,125.50L47.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,135.50L57.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,135 52,130 52,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Utility.html#Delay2" xmlns:xlink="xlink"><text x="67.49" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><path d="M57.49,170.50L189.84,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,170 184,165 184,175" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#LeftClick2" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftClick]]></text></a><path d="M57.49,195.50L47.49,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,195.50L47.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 52,200 52,210" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M189.58,45L189.58,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="DragAndDrop" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>DragAndDrop(Point source, Point target, Boolean human, Int32 steps)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Performs a drag-and-drop action</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void DragAndDrop(Point source, Point target, Boolean human, Int32 steps)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">source</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The drag point (drag from here)</p>
+
+						</div>
+					
+						<p class="key">target</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The drop point (drop here)</p>
+
+						</div>
+					
+						<p class="key">human</p>
+						
+						
+									
+									<small>Boolean</small>
+
+														
+						
+						<div class="inline">
+							<p>Simulate human-like jumps</p>
+
+						</div>
+					
+						<p class="key">steps</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The points of pathpolygons</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>If the option "human" is true, then the mouse can jiggle and the movement have some delays to emulate human mouse movement behavior, 
+since no human performs a complete linear straight cursor movement line</p>
+
+				</div>
+			
+
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="DragAndDrop-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="111" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Utility.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Utility]]></text></a><a xlink:href="../type/Mouse.html#DragAndDrop" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[DragAndDrop]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#Move" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Move]]></text></a><path d="M57.49,125.50L47.49,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,125.50L47.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,135.50L57.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,135 52,130 52,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#LeftClick" xmlns:xlink="xlink"><text x="67.49" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftClick]]></text></a><path d="M57.49,160.50L47.49,160.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,160.50L47.49,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,170.50L57.49,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,170 52,165 52,175" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="195.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[if (human)]]></text><a xlink:href="../type/Mouse.html#Jiggle" xmlns:xlink="xlink"><text x="67.49" y="215.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Jiggle]]></text></a><path d="M57.49,215.50L47.49,215.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,215.50L47.49,225.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,225.50L57.49,225.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,225 52,220 52,230" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="240.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><a xlink:href="../type/Utility.html#Delay" xmlns:xlink="xlink"><text x="67.49" y="270.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><path d="M57.49,280.50L189.84,280.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,280 184,275 184,285" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#Move" xmlns:xlink="xlink"><text x="67.49" y="305.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Move]]></text></a><path d="M57.49,305.50L47.49,305.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,305.50L47.49,315.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,315.50L57.49,315.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,315 52,310 52,320" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#LeftClick" xmlns:xlink="xlink"><text x="67.49" y="340.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftClick]]></text></a><path d="M57.49,340.50L47.49,340.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,340.50L47.49,350.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,350.50L57.49,350.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,350 52,345 52,355" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,365.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M189.58,45L189.58,365.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="GetLParam2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_private.png"/> <p>GetLParam(Point point)</p></a>
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>private static IntPtr GetLParam(Point point)</code></pre>
+		</div>		
+        
+		
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="GetPosition" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>GetPosition()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Returns the current position of the mouse</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Point GetPosition()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>The mouse position</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Point CurPos = Point.Empty;
+CurPos = Mouse.GetPosition();
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="GetPositionRelativeToControl" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>GetPositionRelativeToControl(IntPtr controlHandle)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Returns the current position of the mouse, relative to a window</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Point GetPositionRelativeToControl(IntPtr controlHandle)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">controlHandle</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>The handle of the window</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>Point position</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Point CurPos = Point.Empty;
+IntPtr hwnd = ... ;
+CurPos = Mouse.GetPositionRelativeToControl(hwnd);
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="HoverControl" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>HoverControl(IntPtr controlHandle)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Tests if the mouse is hovering a window</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Boolean HoverControl(IntPtr controlHandle)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">controlHandle</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>The handle of the window</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>true/false</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>bool OverTextbox = Mouse.HoverControl(Textbox1.Handle);
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="HoverControl-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="165" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/NativeMethods.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.NativeMethods]]></text></a><a xlink:href="../type/Mouse.html#HoverControl" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[HoverControl]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#GetPositionRelativeToControl" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPositionRelativeToControl]]></text></a><path d="M57.49,125.50L47.49,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,125.50L47.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,135.50L57.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,135 52,130 52,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="" xmlns:xlink="xlink"><text x="67.49" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetWindowRect]]></text></a><path d="M57.49,170.50L216.74,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="216,170 211,165 211,175" fill="#979797" stroke="#979797" stroke-width="" /><text x="67.49" y="195.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Boolean]]></text><path d="M57.49,205.50L216.74,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 62,210 62,200" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#InRectangle" xmlns:xlink="xlink"><text x="67.49" y="230.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[InRectangle]]></text></a><path d="M57.49,230.50L47.49,230.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,230.50L47.49,240.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,240.50L57.49,240.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,240 52,235 52,245" fill="#979797" stroke="#979797" stroke-width="" /><text x="10.00" y="265.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Boolean]]></text><path d="M0.00,275.50L57.49,275.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="0,275 5,280 5,270" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,290.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M216.57,45L216.57,290.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="InRectangle" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>InRectangle(Point point, Int32 top, Int32 left, Int32 bottom, Int32 right)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Returns whether the mouse is inside a rectangle or not</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Boolean InRectangle(Point point, Int32 top, Int32 left, Int32 bottom, Int32 right)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">point</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The point to test</p>
+
+						</div>
+					
+						<p class="key">top</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The top of the rectangle</p>
+
+						</div>
+					
+						<p class="key">left</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The left of the rectangle</p>
+
+						</div>
+					
+						<p class="key">bottom</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The bottom of the rectangle</p>
+
+						</div>
+					
+						<p class="key">right</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The right of the rectangle</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>inside=true / outside=false</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Point Pos = GetPosition(); // get position of the mouse
+bool InRectangle = Mouse.InRectangle(Pos,50, 10, 20, 70);
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="InRectangle2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>InRectangle(Int32 top, Int32 left, Int32 bottom, Int32 right)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Returns whether the mouse is inside a rectangle or not</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Boolean InRectangle(Int32 top, Int32 left, Int32 bottom, Int32 right)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">top</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The top of the rectangle</p>
+
+						</div>
+					
+						<p class="key">left</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The left of the rectangle</p>
+
+						</div>
+					
+						<p class="key">bottom</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The bottom of the rectangle</p>
+
+						</div>
+					
+						<p class="key">right</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The right of the rectangle</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>inside=true / outside=false</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>bool InRectangle = Mouse.InRectangle(50, 10, 20, 70);
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="InRectangle2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><a xlink:href="../type/Mouse.html#InRectangle2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[InRectangle]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#InRectangle" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[InRectangle]]></text></a><path d="M57.49,125.50L47.49,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,125.50L47.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,135.50L57.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,135 52,130 52,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#GetPosition" xmlns:xlink="xlink"><text x="67.49" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPosition]]></text></a><path d="M57.49,160.50L47.49,160.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,160.50L47.49,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,170.50L57.49,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,170 52,165 52,175" fill="#979797" stroke="#979797" stroke-width="" /><text x="10.00" y="195.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Boolean]]></text><path d="M0.00,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="0,205 5,210 5,200" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Jiggle" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Jiggle()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Simulates a mouse jiggle</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void Jiggle()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Mouse.Jiggle();
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="Jiggle-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="111" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Utility.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Utility]]></text></a><a xlink:href="../type/Mouse.html#Jiggle" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Jiggle]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Utility.html#Random" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Random]]></text></a><path d="M57.49,135.50L189.84,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,135 184,130 184,140" fill="#979797" stroke="#979797" stroke-width="" /><text x="67.49" y="160.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Int32]]></text><path d="M57.49,170.50L189.84,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,170 62,175 62,165" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Utility.html#Random" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Random]]></text></a><path d="M57.49,205.50L189.84,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,205 184,200 184,210" fill="#979797" stroke="#979797" stroke-width="" /><text x="67.49" y="230.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Int32]]></text><path d="M57.49,240.50L189.84,240.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,240 62,245 62,235" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#Move" xmlns:xlink="xlink"><text x="67.49" y="265.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Move]]></text></a><path d="M57.49,265.50L47.49,265.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,265.50L47.49,275.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,275.50L57.49,275.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,275 52,270 52,280" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Utility.html#Delay" xmlns:xlink="xlink"><text x="67.49" y="300.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><path d="M57.49,310.50L189.84,310.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,310 184,305 184,315" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#Move" xmlns:xlink="xlink"><text x="67.49" y="335.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Move]]></text></a><path d="M57.49,335.50L47.49,335.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,335.50L47.49,345.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,345.50L57.49,345.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,345 52,340 52,350" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,360.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M189.58,45L189.58,360.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="LeftClick" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>LeftClick()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>performs a left click at current cursor position</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void LeftClick()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>you have to move the cursor at the correct position before fire a left click</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>Mouse.LeftClick();</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="LeftClick-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="111" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Utility.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Utility]]></text></a><a xlink:href="../type/Mouse.html#LeftClick" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftClick]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#LeftDown" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftDown]]></text></a><path d="M57.49,125.50L47.49,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,125.50L47.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,135.50L57.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,135 52,130 52,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Utility.html#Delay" xmlns:xlink="xlink"><text x="67.49" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><path d="M57.49,170.50L189.84,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,170 184,165 184,175" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#LeftUp" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftUp]]></text></a><path d="M57.49,195.50L47.49,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,195.50L47.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 52,200 52,210" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M189.58,45L189.58,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="LeftClick2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>LeftClick(IntPtr handle, Point point)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>simulates a left click at a specific coordinate</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void LeftClick(IntPtr handle, Point point)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">handle</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>The handle of the window to click</p>
+
+						</div>
+					
+						<p class="key">point</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The point to click</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+    Point p = new Point(400,600);
+    Mouse.LeftClick(Trainer.GetHandle(),p);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="LeftClick2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="111" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Utility.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Utility]]></text></a><a xlink:href="../type/Mouse.html#LeftClick2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftClick]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#LeftDown2" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftDown]]></text></a><path d="M57.49,125.50L47.49,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,125.50L47.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,135.50L57.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,135 52,130 52,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Utility.html#Delay" xmlns:xlink="xlink"><text x="67.49" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><path d="M57.49,170.50L189.84,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,170 184,165 184,175" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#LeftUp2" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftUp]]></text></a><path d="M57.49,195.50L47.49,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,195.50L47.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 52,200 52,210" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M189.58,45L189.58,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="LeftDown" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>LeftDown()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>performs a left button down at the current cursor position</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void LeftDown()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>make sure to release the mouse button using "LeftUp()". Otherwise there can happen unintended consequences</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Mouse.LeftDown();
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="LeftDown2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>LeftDown(IntPtr handle, Point point)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Simulates a left button down at the current cursor position</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void LeftDown(IntPtr handle, Point point)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">handle</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>The handle of the window to click</p>
+
+						</div>
+					
+						<p class="key">point</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The point to click</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>make sure to release the mouse button using "LeftUp()". Otherwise there can happen unintended consequences</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+    Point p = new Point(400,600);
+    Mouse.LeftDown(Trainer.GetHandle(),p);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="LeftDown2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="165" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/NativeMethods.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.NativeMethods]]></text></a><a xlink:href="../type/Mouse.html#LeftDown2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftDown]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/NativeMethods.html#SendMessage" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SendMessage]]></text></a><path d="M57.49,135.50L216.74,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="216,135 211,130 211,140" fill="#979797" stroke="#979797" stroke-width="" /><text x="67.49" y="160.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return IntPtr]]></text><path d="M57.49,170.50L216.74,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,170 62,175 62,165" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#GetLParam2" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetLParam]]></text></a><path d="M57.49,195.50L47.49,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,195.50L47.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 52,200 52,210" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M216.57,45L216.57,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="LeftUp" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>LeftUp()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Performs a left button up</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void LeftUp()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Mouse.LeftUp();
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="LeftUp2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>LeftUp(IntPtr handle, Point point)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Simulates a left button at a predefined cursor position</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void LeftUp(IntPtr handle, Point point)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">handle</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>The handle of the window to click</p>
+
+						</div>
+					
+						<p class="key">point</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The point to click</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+    Point p = new Point(400,600);
+    Mouse.LeftUp(Trainer.GetHandle(),p);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="LeftUp2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="165" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/NativeMethods.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.NativeMethods]]></text></a><a xlink:href="../type/Mouse.html#LeftUp2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftUp]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/NativeMethods.html#SendMessage" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SendMessage]]></text></a><path d="M57.49,135.50L216.74,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="216,135 211,130 211,140" fill="#979797" stroke="#979797" stroke-width="" /><text x="67.49" y="160.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return IntPtr]]></text><path d="M57.49,170.50L216.74,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,170 62,175 62,165" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#GetLParam2" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetLParam]]></text></a><path d="M57.49,195.50L47.49,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,195.50L47.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 52,200 52,210" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M216.57,45L216.57,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Move" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Move(Point targetPosition, Boolean human, Int32 steps)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>moves the mouse to a specific point "target" through "steps" number of points</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Boolean Move(Point targetPosition, Boolean human, Int32 steps)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">targetPosition</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The target position</p>
+
+						</div>
+					
+						<p class="key">human</p>
+						
+						
+									
+									<small>Boolean</small>
+
+														
+						
+						<div class="inline">
+							<p>Simulate human-like jumps</p>
+
+						</div>
+					
+						<p class="key">steps</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The points of pathpolygons</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Remarks</p>
+				<div class="member-doc-box markdown">
+					<p>The more points you`ll use the more smoother the curve will be
+If the option "human" is false the cursor will jump to the target point and ignores "steps"</p>
+
+				</div>
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Point target = new Point(10,10);
+Mouse.Move(target,true,10);
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="Move-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="111" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Utility.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Utility]]></text></a><a xlink:href="../type/Mouse.html#Move" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Move]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#GetPosition" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPosition]]></text></a><path d="M57.49,125.50L47.49,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,125.50L47.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,135.50L57.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,135 52,130 52,140" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="160.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[for (int i = 0; i < steps; i++)]]></text><a xlink:href="../type/Utility.html#Delay" xmlns:xlink="xlink"><text x="67.49" y="180.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><path d="M57.49,190.50L189.84,190.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,190 184,185 184,195" fill="#979797" stroke="#979797" stroke-width="" /><text x="20.00" y="205.50" fill="" style="" text-anchor="" font-family="" font-size="10.00" onmouseover="" onmouseout=""><![CDATA[end]]></text><text x="10.00" y="235.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return Boolean]]></text><path d="M0.00,245.50L57.49,245.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="0,245 5,250 5,240" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,260.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M189.58,45L189.58,260.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Move2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Move(Rectangle R, Boolean human, Int32 steps)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Moves the mouse to the middle of a rectangle</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Boolean Move(Rectangle R, Boolean human, Int32 steps)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">R</p>
+						
+						
+									
+									<small>Rectangle</small>
+
+														
+						
+						<div class="inline">
+							<p>The rectangle to move to</p>
+
+						</div>
+					
+						<p class="key">human</p>
+						
+						
+									
+									<small>Boolean</small>
+
+														
+						
+						<div class="inline">
+							<p>Simulate human-like jumps</p>
+
+						</div>
+					
+						<p class="key">steps</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The points of pathpolygons</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Rectangle r = new Rectangle(50, 50, 100, 100);
+Mouse.Move(r,true,10);
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="MoveRelativeToWindow" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>MoveRelativeToWindow(IntPtr windowHandle, Point point, Boolean human, Int32 steps)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Moves the mouse relatively to a window</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static Boolean MoveRelativeToWindow(IntPtr windowHandle, Point point, Boolean human, Int32 steps)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">windowHandle</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>The handle of the window</p>
+
+						</div>
+					
+						<p class="key">point</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The target point</p>
+
+						</div>
+					
+						<p class="key">human</p>
+						
+						
+									
+									<small>Boolean</small>
+
+														
+						
+						<div class="inline">
+							<p>Simulate human-like jumps</p>
+
+						</div>
+					
+						<p class="key">steps</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>The points of pathpolygons</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+				<p class="member-box-title">Returns</p>
+				<div class="member-doc-box">
+					<p>true/false</p>
+
+				</div>
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>IntPtr hwnd = ... ;
+bool res = MoveRelativeToWindow(hwnd, 20, 35, true, 10);
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="RightClick" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>RightClick()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Performs a right click</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void RightClick()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Mouse.RightClick();
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="RightClick-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="111" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Utility.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Utility]]></text></a><a xlink:href="../type/Mouse.html#RightClick" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightClick]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#RightDown" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightDown]]></text></a><path d="M57.49,125.50L47.49,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,125.50L47.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,135.50L57.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,135 52,130 52,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Utility.html#Delay" xmlns:xlink="xlink"><text x="67.49" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><path d="M57.49,170.50L189.84,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,170 184,165 184,175" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#RightUp" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightUp]]></text></a><path d="M57.49,195.50L47.49,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,195.50L47.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 52,200 52,210" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M189.58,45L189.58,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="RightClick2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>RightClick(IntPtr handle, Point point)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>simulates a right click at a specific point</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void RightClick(IntPtr handle, Point point)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">handle</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>The handle of the window to click</p>
+
+						</div>
+					
+						<p class="key">point</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The point to click</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+    Point p = new Point(400,600);
+    Mouse.RightClick(Trainer.GetHandle(),p);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="RightClick2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="111" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Utility.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Utility]]></text></a><a xlink:href="../type/Mouse.html#RightClick2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightClick]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#RightUp2" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightUp]]></text></a><path d="M57.49,125.50L47.49,125.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,125.50L47.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,135.50L57.49,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,135 52,130 52,140" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Utility.html#Delay" xmlns:xlink="xlink"><text x="67.49" y="160.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><path d="M57.49,170.50L189.84,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="189,170 184,165 184,175" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#RightDown2" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightDown]]></text></a><path d="M57.49,195.50L47.49,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,195.50L47.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 52,200 52,210" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M189.58,45L189.58,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="RightDown" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>RightDown()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>performs a right button down</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void RightDown()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Mouse.RightDown();
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="RightDown2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>RightDown(IntPtr handle, Point point)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>simulates a right button down</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void RightDown(IntPtr handle, Point point)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">handle</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>The handle of the window to click</p>
+
+						</div>
+					
+						<p class="key">point</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The point to click</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+    Point p = new Point(400,600);
+    Mouse.RightDown(Trainer.GetHandle(),p);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="RightDown2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="165" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/NativeMethods.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.NativeMethods]]></text></a><a xlink:href="../type/Mouse.html#RightDown2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightDown]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/NativeMethods.html#SendMessage" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SendMessage]]></text></a><path d="M57.49,135.50L216.74,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="216,135 211,130 211,140" fill="#979797" stroke="#979797" stroke-width="" /><text x="67.49" y="160.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return IntPtr]]></text><path d="M57.49,170.50L216.74,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,170 62,175 62,165" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#GetLParam2" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetLParam]]></text></a><path d="M57.49,195.50L47.49,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,195.50L47.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 52,200 52,210" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M216.57,45L216.57,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="RightUp" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>RightUp()</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Performs a right button up</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void RightUp()</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Mouse.RightUp();
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="RightUp2" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>RightUp(IntPtr handle, Point point)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Simulates a right button up through the native methods</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void RightUp(IntPtr handle, Point point)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">handle</p>
+						
+						
+									
+									<small>IntPtr</small>
+
+														
+						
+						<div class="inline">
+							<p>The handle of the window to click</p>
+
+						</div>
+					
+						<p class="key">point</p>
+						
+						
+									
+									<small>Point</small>
+
+														
+						
+						<div class="inline">
+							<p>The point to click</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<p>ApplicationTunnel Trainer = new ApplicationTunnel("notepade.exe");
+    Point p = new Point(400,600);
+    Mouse.RightUp(Trainer.GetHandle(),p);</p>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+			<div class="svg-diagram">
+				<div id="RightUp2-diagram" class="sd-sequence-diagram svgpan">
+					
+					<svg><g><rect height="35" width="114" x="0.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="15.50" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.Mouse]]></text></a><rect height="35" width="165" x="134.55" y="10.50" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><a xlink:href="../type/NativeMethods.html" xmlns:xlink="xlink"><text x="149.47" y="32.00" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[BotSuite.NativeMethods]]></text></a><a xlink:href="../type/Mouse.html#RightUp2" xmlns:xlink="xlink"><text x="10.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightUp]]></text></a><path d="M0.00,100.50L57.49,100.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,100 52,95 52,105" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/NativeMethods.html#SendMessage" xmlns:xlink="xlink"><text x="67.49" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SendMessage]]></text></a><path d="M57.49,135.50L216.74,135.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="216,135 211,130 211,140" fill="#979797" stroke="#979797" stroke-width="" /><text x="67.49" y="160.50" fill="" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="" onmouseout=""><![CDATA[return IntPtr]]></text><path d="M57.49,170.50L216.74,170.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,170 62,175 62,165" fill="#979797" stroke="#979797" stroke-width="" /><a xlink:href="../type/Mouse.html#GetLParam2" xmlns:xlink="xlink"><text x="67.49" y="195.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="12.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetLParam]]></text></a><path d="M57.49,195.50L47.49,195.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,195.50L47.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M47.49,205.50L57.49,205.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><polygon points="57,205 52,200 52,210" fill="#979797" stroke="#979797" stroke-width="" /><path d="M57.55,45L57.55,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M216.57,45L216.57,220.55" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+				</div>
+				<div class="legend">
+					<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+					<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+					<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+
+
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Scroll" class="member">
+	<div class="member-header">		
+		<a href="#"><i class="icon-caret-right"></i><img src="../assets/images/icons/method_public.png"/> <p>Scroll(Int32 wheeldelta)</p></a>
+		
+			
+				<div class="summary markdown">
+					<p>Performs a mouse scroll</p>
+
+				</div>
+			
+		
+	</div>
+
+	<div class="member-content">
+
+		<div class="syntax-box">
+			<pre class="wrap-pre"><code>public static void Scroll(Int32 wheeldelta)</code></pre>
+		</div>		
+        
+		
+
+		
+		
+			
+				<p class="member-box-title">Parameters</p>
+				<div class="member-doc-box markdown">
+					
+						<p class="key">wheeldelta</p>
+						
+						
+									
+									<small>Int32</small>
+
+														
+						
+						<div class="inline">
+							<p>Positive scrolls down, negative scrolls up</p>
+
+						</div>
+					
+				</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+				<p class="member-box-title">Example</p>
+				<div class="member-doc-box markdown">
+					<pre><code>Mouse.Scroll(-50);
+</code></pre>
+
+				</div>
+			
+						
+			
+
+		
+
+		
+
+	</div>
+</div>
+
+
+					
+				
+
+				
+
+				
+					<div class="svg-diagram">
+						<h3 class="box-title">Class Diagram</h3>
+						<div id="sd-class-diagram" class="svgpan">
+							
+							<svg><g transform="translate(0.00, 50.00)"><rect height="726" width="265" x="0.55" y="0.55" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><text x="99.01" y="20.50" fill="" style="" text-anchor="" font-family="" font-size="11.00" onmouseover="" onmouseout=""><![CDATA[public  class]]></text><a xlink:href="../type/Mouse.html" xmlns:xlink="xlink"><text x="110.11" y="35.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Mouse]]></text></a><path d="M0.5,45.50L265.00,45.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="53.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#DoubleClick" xmlns:xlink="xlink"><text x="40.00" y="65.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[DoubleClick]]></text></a><image width="16.00" height="16.00" x="15.00" y="78.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#DoubleClick2" xmlns:xlink="xlink"><text x="40.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[DoubleClick]]></text></a><image width="16.00" height="16.00" x="15.00" y="103.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#DragAndDrop" xmlns:xlink="xlink"><text x="40.00" y="115.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[DragAndDrop]]></text></a><image width="16.00" height="16.00" x="15.00" y="128.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAT5QTFRF/wD/8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0/Pz8plCnu2+87qXv+pv7+pn75pjnkE6R+vr66eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5++ff58PL0ytHeuMDSsrvOrLfL09jb5MrkqFCp0mvT027UfjB/nzyfjTWOfC193+PqoKvC0tfieoqh6NHoqVCqy2fMlTiWeit78NXwmKe8vcbWb4CX7djtfzCAdSd169Hr4+bqkJ60ydDdZHaNZHaO7NLscSRy5szmvsfWY3WNu8PUQUtYXW+HyM7ZVWiBxMzauMHSq7fLT2J7dYWcbX+WZ3eQXnCJV2qCT2N8////nLrfiwAAAAF0Uk5TAEDm2GYAAAABYktHRGm8a8S0AAAACXBIWXMAAAsSAAALEgHS3X78AAAAyUlEQVQY02NggANGJmYGZMDIxMLEisRnY2Ln4GTiArO5eXj5+JkEBIWEhJlEGEShKsTEJSSFpKRlGGS55XjkFRQZlJTFJVRU1dQZZKEqNDS1tHV09fQZDAyNjE1MzRjMLSytrG1s7RgYjOxNHRydGBicXVz13dw9GAwdPRkYvLwNGRh8LHz9/BkYAhwDg4KCQwKAxoSGhQPJIHsgcIyIhLswyj46OtrROAYuYGofGx0baxIHF3Awio9IMElMggsEJKekpqVnBMD4ALbeHpAzaZa1AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTA3LTI5VDExOjUzOjA2KzAyOjAwBHBRHgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMC0wNC0wM1QwNToxMToyMCswMjowMBDLlngAAAAASUVORK5CYII=" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#GetLParam2" xmlns:xlink="xlink"><text x="40.00" y="140.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetLParam]]></text></a><image width="16.00" height="16.00" x="15.00" y="153.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#GetPosition" xmlns:xlink="xlink"><text x="40.00" y="165.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPosition]]></text></a><image width="16.00" height="16.00" x="15.00" y="178.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#GetPositionRelativeToControl" xmlns:xlink="xlink"><text x="40.00" y="190.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPositionRelativeToControl]]></text></a><image width="16.00" height="16.00" x="15.00" y="203.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#HoverControl" xmlns:xlink="xlink"><text x="40.00" y="215.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[HoverControl]]></text></a><image width="16.00" height="16.00" x="15.00" y="228.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#InRectangle" xmlns:xlink="xlink"><text x="40.00" y="240.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[InRectangle]]></text></a><image width="16.00" height="16.00" x="15.00" y="253.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#InRectangle2" xmlns:xlink="xlink"><text x="40.00" y="265.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[InRectangle]]></text></a><image width="16.00" height="16.00" x="15.00" y="278.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#Jiggle" xmlns:xlink="xlink"><text x="40.00" y="290.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Jiggle]]></text></a><image width="16.00" height="16.00" x="15.00" y="303.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#LeftClick" xmlns:xlink="xlink"><text x="40.00" y="315.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftClick]]></text></a><image width="16.00" height="16.00" x="15.00" y="328.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#LeftClick2" xmlns:xlink="xlink"><text x="40.00" y="340.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftClick]]></text></a><image width="16.00" height="16.00" x="15.00" y="353.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#LeftDown" xmlns:xlink="xlink"><text x="40.00" y="365.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftDown]]></text></a><image width="16.00" height="16.00" x="15.00" y="378.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#LeftDown2" xmlns:xlink="xlink"><text x="40.00" y="390.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftDown]]></text></a><image width="16.00" height="16.00" x="15.00" y="403.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#LeftUp" xmlns:xlink="xlink"><text x="40.00" y="415.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftUp]]></text></a><image width="16.00" height="16.00" x="15.00" y="428.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#LeftUp2" xmlns:xlink="xlink"><text x="40.00" y="440.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LeftUp]]></text></a><image width="16.00" height="16.00" x="15.00" y="453.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#Move" xmlns:xlink="xlink"><text x="40.00" y="465.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Move]]></text></a><image width="16.00" height="16.00" x="15.00" y="478.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#Move2" xmlns:xlink="xlink"><text x="40.00" y="490.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Move]]></text></a><image width="16.00" height="16.00" x="15.00" y="503.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#MoveRelativeToWindow" xmlns:xlink="xlink"><text x="40.00" y="515.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[MoveRelativeToWindow]]></text></a><image width="16.00" height="16.00" x="15.00" y="528.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#RightClick" xmlns:xlink="xlink"><text x="40.00" y="540.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightClick]]></text></a><image width="16.00" height="16.00" x="15.00" y="553.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#RightClick2" xmlns:xlink="xlink"><text x="40.00" y="565.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightClick]]></text></a><image width="16.00" height="16.00" x="15.00" y="578.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#RightDown" xmlns:xlink="xlink"><text x="40.00" y="590.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightDown]]></text></a><image width="16.00" height="16.00" x="15.00" y="603.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#RightDown2" xmlns:xlink="xlink"><text x="40.00" y="615.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightDown]]></text></a><image width="16.00" height="16.00" x="15.00" y="628.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#RightUp" xmlns:xlink="xlink"><text x="40.00" y="640.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightUp]]></text></a><image width="16.00" height="16.00" x="15.00" y="653.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#RightUp2" xmlns:xlink="xlink"><text x="40.00" y="665.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[RightUp]]></text></a><image width="16.00" height="16.00" x="15.00" y="678.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#Scroll" xmlns:xlink="xlink"><text x="40.00" y="690.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Scroll]]></text></a><image width="16.00" height="16.00" x="15.00" y="703.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Mouse.html#Mouse" xmlns:xlink="xlink"><text x="40.00" y="715.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Mouse]]></text></a></g><g transform="translate(315.00, 100.00)"><rect height="911" width="236" x="0.55" y="0.55" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><text x="84.51" y="20.50" fill="" style="" text-anchor="" font-family="" font-size="11.00" onmouseover="" onmouseout=""><![CDATA[public  class]]></text><a xlink:href="../type/NativeMethods.html" xmlns:xlink="xlink"><text x="66.11" y="35.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[NativeMethods]]></text></a><path d="M0.5,45.50L236.00,45.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="53.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFevfLTpr9b8NWO1XJvYvsvlv9jvWprXtcThxLJ/wrB9wKx7vKl4uaV1taBxspxprJdpwtnww7B9wJwn79ty//CMWUkjxdvxrL3ewK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////7zab9wAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAj0lEQVQY033L1RICMQxA0aKLFNfS4rC4JcXd//+PWFgmU17IU+6ZhLE/4/H6ftofCFoho8ORKI9ZcepEMsV5OpMlyOULvChKkkCVRUVUpQGqVm9IA5pKOSlbBG37DR1n6/b6g+FoPJnabrMZoNYIc7aQy8/tSgMi4JqeN3oLsMM9wcF9ORKczpfr7f54fvMFdrwQjykqOgcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WH_KEYBOARD_LL" xmlns:xlink="xlink"><text x="40.00" y="65.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WH_KEYBOARD_LL]]></text></a><image width="16.00" height="16.00" x="15.00" y="78.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFevfLTpr9b8NWO1XJvYvsvlv9jvWprXtcThxLJ/wrB9wKx7vKl4uaV1taBxspxprJdpwtnww7B9wJwn79ty//CMWUkjxdvxrL3ewK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////7zab9wAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAj0lEQVQY033L1RICMQxA0aKLFNfS4rC4JcXd//+PWFgmU17IU+6ZhLE/4/H6ftofCFoho8ORKI9ZcepEMsV5OpMlyOULvChKkkCVRUVUpQGqVm9IA5pKOSlbBG37DR1n6/b6g+FoPJnabrMZoNYIc7aQy8/tSgMi4JqeN3oLsMM9wcF9ORKczpfr7f54fvMFdrwQjykqOgcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WM_KEYDOWN" xmlns:xlink="xlink"><text x="40.00" y="90.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WM_KEYDOWN]]></text></a><image width="16.00" height="16.00" x="15.00" y="103.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFevfLTpr9b8NWO1XJvYvsvlv9jvWprXtcThxLJ/wrB9wKx7vKl4uaV1taBxspxprJdpwtnww7B9wJwn79ty//CMWUkjxdvxrL3ewK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////7zab9wAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAj0lEQVQY033L1RICMQxA0aKLFNfS4rC4JcXd//+PWFgmU17IU+6ZhLE/4/H6ftofCFoho8ORKI9ZcepEMsV5OpMlyOULvChKkkCVRUVUpQGqVm9IA5pKOSlbBG37DR1n6/b6g+FoPJnabrMZoNYIc7aQy8/tSgMi4JqeN3oLsMM9wcF9ORKczpfr7f54fvMFdrwQjykqOgcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WM_KEYUP" xmlns:xlink="xlink"><text x="40.00" y="115.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WM_KEYUP]]></text></a><image width="16.00" height="16.00" x="15.00" y="128.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFevfLTpr9b8NWO1XJvYvsvlv9jvWprXtcThxLJ/wrB9wKx7vKl4uaV1taBxspxprJdpwtnww7B9wJwn79ty//CMWUkjxdvxrL3ewK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////7zab9wAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAj0lEQVQY033L1RICMQxA0aKLFNfS4rC4JcXd//+PWFgmU17IU+6ZhLE/4/H6ftofCFoho8ORKI9ZcepEMsV5OpMlyOULvChKkkCVRUVUpQGqVm9IA5pKOSlbBG37DR1n6/b6g+FoPJnabrMZoNYIc7aQy8/tSgMi4JqeN3oLsMM9wcF9ORKczpfr7f54fvMFdrwQjykqOgcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WM_SYSKEYDOWN" xmlns:xlink="xlink"><text x="40.00" y="140.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WM_SYSKEYDOWN]]></text></a><image width="16.00" height="16.00" x="15.00" y="153.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFevfLTpr9b8NWO1XJvYvsvlv9jvWprXtcThxLJ/wrB9wKx7vKl4uaV1taBxspxprJdpwtnww7B9wJwn79ty//CMWUkjxdvxrL3ewK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////7zab9wAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAj0lEQVQY033L1RICMQxA0aKLFNfS4rC4JcXd//+PWFgmU17IU+6ZhLE/4/H6ftofCFoho8ORKI9ZcepEMsV5OpMlyOULvChKkkCVRUVUpQGqVm9IA5pKOSlbBG37DR1n6/b6g+FoPJnabrMZoNYIc7aQy8/tSgMi4JqeN3oLsMM9wcF9ORKczpfr7f54fvMFdrwQjykqOgcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WM_SYSKEYUP" xmlns:xlink="xlink"><text x="40.00" y="165.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WM_SYSKEYUP]]></text></a><path d="M0.5,180.50L236.00,180.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="188.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="" xmlns:xlink="xlink"><text x="40.00" y="200.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[CallNextHookEx]]></text></a><image width="16.00" height="16.00" x="15.00" y="213.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#CloseHandle" xmlns:xlink="xlink"><text x="40.00" y="225.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[CloseHandle]]></text></a><image width="16.00" height="16.00" x="15.00" y="238.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#GetAsyncKeyState" xmlns:xlink="xlink"><text x="40.00" y="250.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetAsyncKeyState]]></text></a><image width="16.00" height="16.00" x="15.00" y="263.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#GetPrivateProfileString" xmlns:xlink="xlink"><text x="40.00" y="275.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetPrivateProfileString]]></text></a><image width="16.00" height="16.00" x="15.00" y="288.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#GetWindowDC" xmlns:xlink="xlink"><text x="40.00" y="300.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetWindowDC]]></text></a><image width="16.00" height="16.00" x="15.00" y="313.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#GetWindowLong" xmlns:xlink="xlink"><text x="40.00" y="325.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetWindowLong]]></text></a><image width="16.00" height="16.00" x="15.00" y="338.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="" xmlns:xlink="xlink"><text x="40.00" y="350.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[GetWindowRect]]></text></a><image width="16.00" height="16.00" x="15.00" y="363.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#HideMaximizeButton" xmlns:xlink="xlink"><text x="40.00" y="375.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[HideMaximizeButton]]></text></a><image width="16.00" height="16.00" x="15.00" y="388.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#HideMinimizeButton" xmlns:xlink="xlink"><text x="40.00" y="400.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[HideMinimizeButton]]></text></a><image width="16.00" height="16.00" x="15.00" y="413.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#keybd_event" xmlns:xlink="xlink"><text x="40.00" y="425.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[keybd_event]]></text></a><image width="16.00" height="16.00" x="15.00" y="438.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#LoadLibrary" xmlns:xlink="xlink"><text x="40.00" y="450.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[LoadLibrary]]></text></a><image width="16.00" height="16.00" x="15.00" y="463.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#mouse_event" xmlns:xlink="xlink"><text x="40.00" y="475.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[mouse_event]]></text></a><image width="16.00" height="16.00" x="15.00" y="488.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#OpenProcess" xmlns:xlink="xlink"><text x="40.00" y="500.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[OpenProcess]]></text></a><image width="16.00" height="16.00" x="15.00" y="513.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#PostMessage" xmlns:xlink="xlink"><text x="40.00" y="525.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[PostMessage]]></text></a><image width="16.00" height="16.00" x="15.00" y="538.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#PrintWindow" xmlns:xlink="xlink"><text x="40.00" y="550.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[PrintWindow]]></text></a><image width="16.00" height="16.00" x="15.00" y="563.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="" xmlns:xlink="xlink"><text x="40.00" y="575.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ReadProcessMemory]]></text></a><image width="16.00" height="16.00" x="15.00" y="588.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#SendMessage2" xmlns:xlink="xlink"><text x="40.00" y="600.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SendMessage]]></text></a><image width="16.00" height="16.00" x="15.00" y="613.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#SendMessage" xmlns:xlink="xlink"><text x="40.00" y="625.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SendMessage]]></text></a><image width="16.00" height="16.00" x="15.00" y="638.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#SetForegroundWindow" xmlns:xlink="xlink"><text x="40.00" y="650.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SetForegroundWindow]]></text></a><image width="16.00" height="16.00" x="15.00" y="663.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#SetWindowLong" xmlns:xlink="xlink"><text x="40.00" y="675.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SetWindowLong]]></text></a><image width="16.00" height="16.00" x="15.00" y="688.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#SetWindowsHookEx" xmlns:xlink="xlink"><text x="40.00" y="700.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[SetWindowsHookEx]]></text></a><image width="16.00" height="16.00" x="15.00" y="713.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#ShowMaximizeButton" xmlns:xlink="xlink"><text x="40.00" y="725.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShowMaximizeButton]]></text></a><image width="16.00" height="16.00" x="15.00" y="738.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#ShowMinimizeButton" xmlns:xlink="xlink"><text x="40.00" y="750.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShowMinimizeButton]]></text></a><image width="16.00" height="16.00" x="15.00" y="763.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#ShowWindow" xmlns:xlink="xlink"><text x="40.00" y="775.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[ShowWindow]]></text></a><image width="16.00" height="16.00" x="15.00" y="788.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#UnhookWindowsHookEx" xmlns:xlink="xlink"><text x="40.00" y="800.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[UnhookWindowsHookEx]]></text></a><image width="16.00" height="16.00" x="15.00" y="813.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#VkKeyScan" xmlns:xlink="xlink"><text x="40.00" y="825.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[VkKeyScan]]></text></a><image width="16.00" height="16.00" x="15.00" y="838.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#WritePrivateProfileString" xmlns:xlink="xlink"><text x="40.00" y="850.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WritePrivateProfileString]]></text></a><image width="16.00" height="16.00" x="15.00" y="863.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R/Pz86eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58+vr6qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC19+ff56NHoqVCqy2fMlTiWeit78NXwxLJ/wrB9wKx7vKl4uaV1taBxspxprJdp7djtfzCAdSd169Hrw7B9wJwn79ty//CMWUkj7NLscSRy5szmwK17UUMjvap40rVEzq88Rjoeuad0OC4at6Jzg2wxgG49bl8yXU4pT0EiOjAbKSIc////RPKfegAAAAF0Uk5TAEDm2GYAAAABYktHRGjLbPQiAAAACXBIWXMAAAsSAAALEgHS3X78AAAAtUlEQVQY02NgQABGBlTAxMyCxmdlZkPiszNzcHIxc4PZPLx8/ALMgkLCwiLMonAVYuISksJS0jIMsjxyvPIKigxKyuISKqpq6gwaUBWaWto6unr6BkABHkMjYxMGUzNzC0sraxsGW5ghdvYOBo5Ozgwurm7uHp5e3gwMPma+fv4MDAGBQcHBQYEhQDWhYeFAMiI4MCgoMCgSbn9UcHRgYExQLFwgDqIlHi6QkJiUnJKalg7jAwCALBwdL8QcRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="" xmlns:xlink="xlink"><text x="40.00" y="875.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[WriteProcessMemory]]></text></a><image width="16.00" height="16.00" x="15.00" y="888.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/NativeMethods.html#NativeMethods" xmlns:xlink="xlink"><text x="40.00" y="900.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[NativeMethods]]></text></a></g><g><path d="M433.00,100.00L433.00,75.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M428.00,90.00L433.00,100.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M438.00,90.00L433.00,100.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g><g transform="translate(601.00, 100.00)"><rect height="211" width="131" x="0.55" y="0.55" fill="#FFFFFF" stroke="#979797" stroke-width="1" /><text x="32.01" y="20.50" fill="" style="" text-anchor="" font-family="" font-size="11.00" onmouseover="" onmouseout=""><![CDATA[public  class]]></text><a xlink:href="../type/Utility.html" xmlns:xlink="xlink"><text x="44.99" y="35.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Utility]]></text></a><path d="M0.5,45.50L131.00,45.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="53.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAPZQTFRF/wD/0ub4fbLl5/H7zeP5eK/jir3uebDj3u360+f6ebDkkMT2mc3/jsLz0ub51ej7e7Lli8D0odD+ncnyKVqwfLPnkcPxnc/+n9D+stj7Hk6pADOZW5vYgrfqo9H+KFev8PL0ytHeuMDSsbrNrLfLfLTpr9b8NWO1+vv93+PqoKvCvcbWeoqhXJvYvsvlxMzZmKe8b4CXt8/mWprXtcTh4+bqu8XUkJ60ydDdZHaNZHaOwtnw0tfivsfWY3WNxdvxrL3eu8PUQUtYXW+HyM7ZsrvOVWiBxMzauMHSq7fLT2J7dYWcbX+WZ3eQXnCJV2qCT2N8////oVh58wAAAAF0Uk5TAEDm2GYAAAABYktHRFGUaXwqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAqklEQVQY02NgwA0YmZhR+CysbOwcSHxOLm4eXnY+OJ9fQJCHR0hYBC4gKibOIyEpJQ0XkJGVlJOUlwYJKCgqKasoyMioqqlLS0trMDAoaqpoaevoysgAudJ6QAX6BgwMKoZGxiABE6AOUzNzCwtLK1NrYwifwUITCGxs7RjspR3AxjtqOjk52Sg5w+1T0XRxcnFxdYMLaCm623q4enrBBUy9fXz9/ANMYXwAXkgU2UqB5RoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMDctMjlUMTE6NTI6MzcrMDI6MDDDSjZ3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEwLTA0LTAzVDA1OjExOjIwKzAyOjAwEMuWeAAAAABJRU5ErkJggg==" xmlns:xlink="xlink" /><a xlink:href="../type/Utility.html#_random" xmlns:xlink="xlink"><text x="40.00" y="65.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[_random]]></text></a><path d="M0.5,80.50L131.00,80.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /><image width="16.00" height="16.00" x="15.00" y="88.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Utility.html#Delay2" xmlns:xlink="xlink"><text x="40.00" y="100.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><image width="16.00" height="16.00" x="15.00" y="113.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Utility.html#Delay" xmlns:xlink="xlink"><text x="40.00" y="125.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Delay]]></text></a><image width="16.00" height="16.00" x="15.00" y="138.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Utility.html#Random2" xmlns:xlink="xlink"><text x="40.00" y="150.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Random]]></text></a><image width="16.00" height="16.00" x="15.00" y="163.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Utility.html#Random" xmlns:xlink="xlink"><text x="40.00" y="175.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Random]]></text></a><image width="16.00" height="16.00" x="15.00" y="188.50" preserveAspectRatio="" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAANtQTFRF/wD//vv+8tvyz4jP8OPw46zj8+Pz8NTw7r7u+q7765Hs8uDz9/Cr1dWsrLSuipmu/f394q/i+qv7+pj76ZDq9Ob0plCnu2+87qXv+pv7+pn75pjnkE6R6eWrwcSsrLWtmKSup0+o0W3S+p/77p3vllKXfC58qVKq0WrS1W/VvHC93ZjejkaPnDydfi5+5eKrzM6stbutnKeu5MrkqFCp0mvT027UfjB/nzyfjTWOfC196NHoqVCqy2fMlTiWeit78NXw7djtfzCAdSd169Hr7NLscSRy5szm////y4eOhgAAAAF0Uk5TAEDm2GYAAAABYktHREjwAtTqAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeUlEQVQY02NgwAMY0fhMzCxofFZmNiQ+OzMHJxczN5jNw8vHL8AsKCQsLMIsClchJi4hKSwlLQOUl+WVk1dgUFQSl1BWUVWDq1DX0NTS1tHVAxmhb2BoxGBsYmpmbmFphbDG2sZWz87eAcliRxMnZxcUp7m6uTOQAwDo6wrtzia2FQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wNy0yOVQxMTo1MzowNiswMjowMARwUR4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMDNUMDU6MTE6MjArMDI6MDAQy5Z4AAAAAElFTkSuQmCC" xmlns:xlink="xlink" /><a xlink:href="../type/Utility.html#Utility" xmlns:xlink="xlink"><text x="40.00" y="200.50" fill="#1382CE" style="" text-anchor="" font-family="" font-size="14.00" onmouseover="this.setAttribute('fill', '#F58026')" onmouseout="this.setAttribute('fill', '#1382CE')"><![CDATA[Utility]]></text></a></g><g><path d="M666.50,100.00L666.50,75.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M661.50,90.00L666.50,100.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M671.50,90.00L666.50,100.00" stroke="#979797" stroke-width="1" stroke-dasharray="" /><path d="M666.50,74.50L265.00,74.50" stroke="#979797" stroke-width="1" stroke-dasharray="" /></g></svg>
+						</div>
+						<div class="legend">
+							<p class="save"><a href="#"><i class="icon-save"></i>save</a></p>
+							<p class="resetZoom"><a href="#"><i class="icon-refresh"></i>reset</a></p>
+							<p>Drag to pan - Use Mousewheel + Ctrl to zoom</p>
+						</div>
+					</div>
+				
+			</div>
+		</div>
+
+    </body>
+</html>
+
