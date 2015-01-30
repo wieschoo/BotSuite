@@ -1,21 +1,27 @@
-# BotSuite.NET #
+# BotSuite.NET
 
-The BotSuite.NET is a library which can be used to develop "bots" (as in "every programm that performs a task automatically") without having to think about "low level" work.  
+BotSuite.NET is a library offering a framework which can be used to develop "bots" (as in "every programm that performs a task automatically") without having to think about "low level" work.  
 It combines power and usability to provide an easy to use and solid base for every bot you want to create.
 
-### How to use the BotSuite.NET ###
+### How to use the BotSuite.NET
 
 Your best bet is to go to the downloads and get the latest version there.  
 The download should contain:
 
-* The library (BotSuite.dll)
-* A XML file (BotSuite.xml), which provides the code documentation (Intellisense)
-* A file containing license information (license)
+* The library (**BotSuite.dll**)
+* A XML file (**BotSuite.xml**), which provides the code documentation (as in "IntelliSense")
+* A file containing license information (**license**)
 
-After downloading the BotSuite, just put the DLL and the XML whereever you want (together) and then add a reference to the DLL in to your .NET project.  
+After downloading the BotSuite, just put the DLL and the XML whereever you want (together) and then add a reference to the DLL in your .NET project.  
 The entry point of the BotSuite is the "BotSuite" namespace, containing classes and sub namespaces.
 
-### Contact ###
+Following namespaces might be important:
+
+* **BotSuite.Imaging**: Classes needed for image processing.
+* **BotSuite.Input**: Classes for controlling mouse and keyboard. Also contains a HotKey class to react to user input.
+* **BotSuite.Net**: Classes for work with web pages. The class Browser encapsulates the locally installed internet explorer while the HttpClient is for low level HTTP(S) requests.
+
+### Contact
 
 You can contact me in different ways:
 
@@ -24,11 +30,17 @@ You can contact me in different ways:
 * If you want to get (very frequent) updates on my projects (including the BotSuite), you can follow me on Twitter: https://twitter.com/KarillEndusa
 * There are several (german) communities where you can find me: http://forum.mds-tv.de and http://codebot.de
 
-### License ###
+### Tutorials / Documentation
 
-This project is licensed under the BSD 3-Clause License.  
-  
-Copyright (c) 2015, Binary Overdrive
+A rudimentary documentation exists in the form of code comments for classes and methods.  
+I have planned to create a more detailed documentation and some tutorials covering the very basics.  
+If you want to help with either one feel free to contact me.
+
+### License
+
+This project is licensed under the BSD 3-Clause License.
+
+Copyright (c) 2013-2015, Binary Overdrive  
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:

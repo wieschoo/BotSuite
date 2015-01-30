@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="HttpClient.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="HttpClient.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Net
@@ -96,7 +96,7 @@ namespace BotSuite.Net
 
 			set
 			{
-				if (!HttpProxyHacker.ToggleAllowUnsafeHeaderParsing(value))
+				if(!HttpProxyHacker.ToggleAllowUnsafeHeaderParsing(value))
 				{
 					throw new Exception("unable to set useUnsafeHeaderParsing in configuration");
 				}
@@ -224,25 +224,25 @@ namespace BotSuite.Net
 		/// </returns>
 		public TRespType Post<TRespType>(string url, string postdata, string referer = null) where TRespType : class
 		{
-			if (!this.AllowBotSuiteAutoRedirect || this.AllowAutoRedirect)
+			if(!this.AllowBotSuiteAutoRedirect || this.AllowAutoRedirect)
 			{
 				return this.PostInternal<TRespType>(url, postdata, referer);
 			}
 
 			TRespType response = null;
 			int requestCount = 0;
-			while (true)
+			while(true)
 			{
-				if (requestCount > this.MaximumRedirectCount)
+				if(requestCount > this.MaximumRedirectCount)
 				{
 					throw new HttpRequestException("too many automatic redirects");
 				}
 
-				if (requestCount <= 0)
+				if(requestCount <= 0)
 				{
 					response = this.PostInternal<TRespType>(url, postdata, referer);
 				}
-				else if (this._headers.Contains(HttpConstants.HeaderNames.LOCATION))
+				else if(this._headers.Contains(HttpConstants.HeaderNames.LOCATION))
 				{
 					response = this.GetInternal<TRespType>(this.Headers[HttpConstants.HeaderNames.LOCATION].Value);
 				}
@@ -279,7 +279,7 @@ namespace BotSuite.Net
 		{
 			this._headers.Clear(); // DerpyHooves 2013-06-21
 
-			if (referer != null)
+			if(referer != null)
 			{
 				this.Referer = referer;
 			}
@@ -293,14 +293,14 @@ namespace BotSuite.Net
 				req.ContentType = "application/x-www-form-urlencoded";
 				byte[] data = Encoding.Default.GetBytes(postdata);
 				req.ContentLength = data.Length;
-				using (Stream s = req.GetRequestStream())
+				using(Stream s = req.GetRequestStream())
 				{
 					s.Write(data, 0, data.Length);
 				}
 
 				response = this.GetResponse<TRespType>(req);
 			}
-			catch (Exception ex)
+			catch(Exception ex)
 			{
 				throw new HttpRequestException("POST request to " + url + " failed.", ex);
 			}
@@ -325,25 +325,25 @@ namespace BotSuite.Net
 		/// </returns>
 		public TRespType Get<TRespType>(string url, string referer = null) where TRespType : class
 		{
-			if (!this.AllowBotSuiteAutoRedirect || this.AllowAutoRedirect)
+			if(!this.AllowBotSuiteAutoRedirect || this.AllowAutoRedirect)
 			{
 				return this.GetInternal<TRespType>(url, referer);
 			}
 
 			TRespType response = null;
 			int requestCount = 0;
-			while (true)
+			while(true)
 			{
-				if (requestCount > this.MaximumRedirectCount)
+				if(requestCount > this.MaximumRedirectCount)
 				{
 					throw new HttpRequestException("too many automatic redirects");
 				}
 
-				if (requestCount <= 0)
+				if(requestCount <= 0)
 				{
 					response = this.GetInternal<TRespType>(url, referer);
 				}
-				else if (this._headers.Contains(HttpConstants.HeaderNames.LOCATION))
+				else if(this._headers.Contains(HttpConstants.HeaderNames.LOCATION))
 				{
 					response = this.GetInternal<TRespType>(this.Headers[HttpConstants.HeaderNames.LOCATION].Value);
 				}
@@ -377,7 +377,7 @@ namespace BotSuite.Net
 		{
 			this._headers.Clear();
 
-			if (referer != null)
+			if(referer != null)
 			{
 				this.Referer = referer;
 			}
@@ -390,7 +390,7 @@ namespace BotSuite.Net
 				HttpWebRequest req = this.PrepareRequest(url, "GET");
 				response = this.GetResponse<TRespType>(req);
 			}
-			catch (Exception ex)
+			catch(Exception ex)
 			{
 				throw new HttpRequestException("GET request to " + url + " failed.", ex);
 			}
@@ -412,21 +412,21 @@ namespace BotSuite.Net
 		/// </param>
 		public void Head<TRespType>(string url, string referer = null) where TRespType : class
 		{
-			if (this.AllowBotSuiteAutoRedirect && !this.AllowAutoRedirect)
+			if(this.AllowBotSuiteAutoRedirect && !this.AllowAutoRedirect)
 			{
 				int requestCount = 0;
-				while (true)
+				while(true)
 				{
-					if (requestCount > this.MaximumRedirectCount)
+					if(requestCount > this.MaximumRedirectCount)
 					{
 						throw new HttpRequestException("too many automatic redirects");
 					}
 
-					if (requestCount <= 0)
+					if(requestCount <= 0)
 					{
 						this.HeadInternal<TRespType>(url, referer);
 					}
-					else if (this._headers.Contains(HttpConstants.HeaderNames.LOCATION))
+					else if(this._headers.Contains(HttpConstants.HeaderNames.LOCATION))
 					{
 						this.HeadInternal<TRespType>(this.Headers[HttpConstants.HeaderNames.LOCATION].Value);
 					}
@@ -460,7 +460,7 @@ namespace BotSuite.Net
 		{
 			this._headers.Clear(); // DerpyHooves 2013-06-21
 
-			if (referer != null)
+			if(referer != null)
 			{
 				this.Referer = referer;
 			}
@@ -472,7 +472,7 @@ namespace BotSuite.Net
 				HttpWebRequest req = this.PrepareRequest(url, "HEAD");
 				this.GetResponse<TRespType>(req);
 			}
-			catch (Exception ex)
+			catch(Exception ex)
 			{
 				throw new HttpRequestException("HEAD request to " + url + " failed.", ex);
 			}
@@ -489,7 +489,7 @@ namespace BotSuite.Net
 		/// </returns>
 		private static string CorrectUrl(string url)
 		{
-			if (!url.StartsWith("http://") && !url.StartsWith("https://"))
+			if(!url.StartsWith("http://") && !url.StartsWith("https://"))
 			{
 				url = "http://" + url;
 			}
@@ -525,12 +525,12 @@ namespace BotSuite.Net
 			req.ServicePoint.Expect100Continue = this.Expect100Continue;
 			req.AllowAutoRedirect = this.AllowAutoRedirect;
 			req.Credentials = CredentialCache.DefaultCredentials;
-			if (this.Referer != null)
+			if(this.Referer != null)
 			{
 				req.Referer = this.Referer;
 			}
 
-			if (this.UseProxy && (this.Proxy != null))
+			if(this.UseProxy && (this.Proxy != null))
 			{
 				req.Proxy = this.Proxy.GetWebProxy();
 				req.Credentials = req.Proxy.Credentials;
@@ -554,30 +554,30 @@ namespace BotSuite.Net
 		private TRespType GetResponse<TRespType>(HttpWebRequest req) where TRespType : class
 		{
 			TRespType response = null;
-			using (HttpWebResponse resp = (HttpWebResponse)req.GetResponse())
+			using(HttpWebResponse resp = (HttpWebResponse)req.GetResponse())
 			{
-				foreach (string headerKey in resp.Headers.AllKeys)
+				foreach(string headerKey in resp.Headers.AllKeys)
 				{
 					this.Headers.Add(new HttpHeader(headerKey, resp.Headers[headerKey]));
 				}
 
-				foreach (Cookie c in resp.Cookies)
+				foreach(Cookie c in resp.Cookies)
 				{
 					this.RepairCookie(resp.ResponseUri, c);
 				}
 
-				using (Stream s = resp.GetResponseStream())
+				using(Stream s = resp.GetResponseStream())
 				{
 					this.SetLastReponseEncoding(resp.CharacterSet);
 
-					if (s != null)
+					if(s != null)
 					{
-						using (BinaryReader br = new BinaryReader(s, this.LastResponseEncoding))
+						using(BinaryReader br = new BinaryReader(s, this.LastResponseEncoding))
 						{
 							List<byte> bytes = new List<byte>();
 							byte[] buffer = new byte[1];
 
-							while (br.Read(buffer, 0, buffer.Length) > 0)
+							while(br.Read(buffer, 0, buffer.Length) > 0)
 							{
 								bytes.AddRange(buffer);
 							}
@@ -586,21 +586,21 @@ namespace BotSuite.Net
 						}
 					}
 
-					if (this.Cache == null)
+					if(this.Cache == null)
 					{
 						return null;
 					}
 
-					if (typeof(TRespType) == typeof(string))
+					if(typeof(TRespType) == typeof(string))
 					{
 						response = this.LoadStringFromCache() as TRespType;
 					}
-					else if (typeof(TRespType) == typeof(Image))
+					else if(typeof(TRespType) == typeof(Image))
 					{
 						response = this.LoadImageFromCache() as TRespType;
 					}
 
-					if (this.AutoReferer)
+					if(this.AutoReferer)
 					{
 						this.Referer = resp.ResponseUri.AbsolutePath;
 					}
@@ -616,13 +616,13 @@ namespace BotSuite.Net
 		/// <param name="charset">The charset</param>
 		private void SetLastReponseEncoding(string charset)
 		{
-			if (charset != null)
+			if(charset != null)
 			{
 				try
 				{
 					this.LastResponseEncoding = Encoding.GetEncoding(charset);
 				}
-				catch (Exception)
+				catch(Exception)
 				{
 					this.LastResponseEncoding = Encoding.Default;
 				}
@@ -641,7 +641,7 @@ namespace BotSuite.Net
 		{
 			string retStr = null;
 
-			if (this.Cache != null)
+			if(this.Cache != null)
 			{
 				retStr = (this.LastResponseEncoding ?? Encoding.Default).GetString(this.Cache);
 			}
@@ -657,14 +657,14 @@ namespace BotSuite.Net
 		{
 			Image retImg;
 
-			if (this.Cache == null)
+			if(this.Cache == null)
 			{
 				return null;
 			}
 
 			try
 			{
-				using (MemoryStream ms = new MemoryStream())
+				using(MemoryStream ms = new MemoryStream())
 				{
 					BinaryWriter bw = new BinaryWriter(ms, this.LastResponseEncoding ?? Encoding.Default);
 					bw.Write(this.Cache);
@@ -693,9 +693,9 @@ namespace BotSuite.Net
 		private void RepairCookie(Uri u, Cookie c)
 		{
 			string path = c.Path;
-			if (!path.EndsWith("/"))
+			if(!path.EndsWith("/"))
 			{
-				if (!path.Contains("/"))
+				if(!path.Contains("/"))
 				{
 					path = "/" + path;
 				}

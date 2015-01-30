@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="Rect.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="Rect.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Win32.Structs

@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="CommonFunctions.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="CommonFunctions.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Imaging
@@ -36,15 +36,15 @@ namespace BotSuite.Imaging
 		/// </returns>
 		public static bool ColorsSimilar(Color one, Color two, uint tolerance)
 		{
-			if (Math.Abs(one.R - two.R) > tolerance)
+			if(Math.Abs(one.R - two.R) > tolerance)
 			{
 				return false;
 			}
-			if (Math.Abs(one.G - two.G) > tolerance)
+			if(Math.Abs(one.G - two.G) > tolerance)
 			{
 				return false;
 			}
-			if (Math.Abs(one.B - two.B) > tolerance)
+			if(Math.Abs(one.B - two.B) > tolerance)
 			{
 				return false;
 			}
@@ -77,18 +77,18 @@ namespace BotSuite.Imaging
 		{
 			long[] totals = { 0, 0, 0 };
 
-			if (width == -1)
+			if(width == -1)
 			{
 				width = img.Width;
 			}
-			if (height == -1)
+			if(height == -1)
 			{
 				height = img.Height;
 			}
 
-			for (int x = left; x < left + width; x++)
+			for(int x = left; x < left + width; x++)
 			{
-				for (int y = top; y < top + height; y++)
+				for(int y = top; y < top + height; y++)
 				{
 					Color currentColor = img.GetPixel(x, y);
 					totals[0] += currentColor.R;
@@ -174,11 +174,11 @@ namespace BotSuite.Imaging
 			width = (width == -1) ? img.Width - left : width;
 			height = (height == -1) ? img.Height - top : height;
 
-			if ((img.Width == reference.Width) && (img.Height == reference.Height))
+			if((img.Width == reference.Width) && (img.Height == reference.Height))
 			{
-				for (int column = left; column < left + width; column++)
+				for(int column = left; column < left + width; column++)
 				{
-					for (int row = top; row < top + height; row++)
+					for(int row = top; row < top + height; row++)
 					{
 						Color a = img.GetPixel(offsetLeft + column, offsetTop + row);
 						Color b = reference.GetPixel(column, row);
@@ -236,12 +236,12 @@ namespace BotSuite.Imaging
 
 			Color foo = Color.White;
 
-			foreach (KeyValuePair<Color, List<double>> item in statReference)
+			foreach(KeyValuePair<Color, List<double>> item in statReference)
 			{
 				double currentScore = Math.Pow((item.Value[0] / 255.0) - (av[0] / 255.0), 2)
 									+ Math.Pow((item.Value[1] / 255.0) - (av[1] / 255.0), 2)
 									+ Math.Pow((item.Value[2] / 255.0) - (av[2] / 255.0), 2);
-				if (currentScore < bestScore)
+				if(currentScore < bestScore)
 				{
 					foo = item.Key;
 					bestScore = currentScore;
@@ -267,13 +267,13 @@ namespace BotSuite.Imaging
 		{
 			double similar = 0.0;
 			string keyword = string.Empty;
-			foreach (KeyValuePair<string, ImageData> item in statReference)
+			foreach(KeyValuePair<string, ImageData> item in statReference)
 			{
 				// exakte übereinstimmung der Größen ermöglicht einen simplen vergleich
-				if ((img.Width == item.Value.Width) && (img.Height == item.Value.Height))
+				if((img.Width == item.Value.Width) && (img.Height == item.Value.Height))
 				{
 					double s = Similarity(img, item.Value);
-					if (s > similar)
+					if(s > similar)
 					{
 						keyword = item.Key;
 						similar = s;
@@ -281,15 +281,15 @@ namespace BotSuite.Imaging
 				}
 				else
 				{
-					if ((img.Width > item.Value.Width) && (img.Height > item.Value.Height))
+					if((img.Width > item.Value.Width) && (img.Height > item.Value.Height))
 					{
 						// im größeren suchen
-						for (int column = 0; column < img.Width - item.Value.Width; column++)
+						for(int column = 0; column < img.Width - item.Value.Width; column++)
 						{
-							for (int row = 0; row < img.Height - item.Value.Height; row++)
+							for(int row = 0; row < img.Height - item.Value.Height; row++)
 							{
 								double s = Similarity(img, item.Value, 0, 0, item.Value.Width, item.Value.Height, column, row);
-								if (s > similar)
+								if(s > similar)
 								{
 									keyword = item.Key;
 									similar = s;
@@ -320,15 +320,15 @@ namespace BotSuite.Imaging
 			int cr = a.R - b.R;
 			int cg = a.G - b.G;
 			int cb = a.B - b.B;
-			if (cr < 0)
+			if(cr < 0)
 			{
 				cr += 255;
 			}
-			if (cg < 0)
+			if(cg < 0)
 			{
 				cg += 255;
 			}
-			if (cb < 0)
+			if(cb < 0)
 			{
 				cb += 255;
 			}
@@ -347,9 +347,9 @@ namespace BotSuite.Imaging
 		public static uint[,] ExtractRedChannel(ImageData img)
 		{
 			uint[,] red = new uint[img.Width, img.Height];
-			for (int column = 0; column < img.Width; column++)
+			for(int column = 0; column < img.Width; column++)
 			{
-				for (int row = 0; row < img.Height; row++)
+				for(int row = 0; row < img.Height; row++)
 				{
 					Color c = img.GetPixel(column, row);
 					red[column, row] = c.R;
@@ -377,11 +377,11 @@ namespace BotSuite.Imaging
 		public static bool[,] FindColors(ImageData img, Color searchColor, uint tolerance)
 		{
 			bool[,] grid = new bool[img.Width, img.Height];
-			for (int column = 0; column < img.Width; column++)
+			for(int column = 0; column < img.Width; column++)
 			{
-				for (int row = 0; row < img.Height; row++)
+				for(int row = 0; row < img.Height; row++)
 				{
-					if (ColorsSimilar(img.GetPixel(column, row), searchColor, tolerance))
+					if(ColorsSimilar(img.GetPixel(column, row), searchColor, tolerance))
 					{
 						grid[column, row] = true;
 					}

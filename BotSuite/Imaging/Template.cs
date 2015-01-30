@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="Template.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="Template.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Imaging
@@ -41,24 +41,24 @@ namespace BotSuite.Imaging
 
 			Color referenceColor = Color.Wheat;
 			bool first = true;
-			for (int outerColumn = 0; outerColumn < img.Width - pattern.GetLength(1); outerColumn++)
+			for(int outerColumn = 0; outerColumn < img.Width - pattern.GetLength(1); outerColumn++)
 			{
-				for (int outerRow = 0; outerRow < img.Height - pattern.GetLength(0); outerRow++)
+				for(int outerRow = 0; outerRow < img.Height - pattern.GetLength(0); outerRow++)
 				{
-					for (int innerColumn = 0; innerColumn < pattern.GetLength(1); innerColumn++)
+					for(int innerColumn = 0; innerColumn < pattern.GetLength(1); innerColumn++)
 					{
-						for (int innerRow = 0; innerRow < pattern.GetLength(0); innerRow++)
+						for(int innerRow = 0; innerRow < pattern.GetLength(0); innerRow++)
 						{
-							if (pattern[innerRow, innerColumn])
+							if(pattern[innerRow, innerColumn])
 							{
-								if (first)
+								if(first)
 								{
 									referenceColor = img[outerColumn, outerRow];
 									first = false;
 								}
 								else
 								{
-									if (CommonFunctions.ColorsSimilar(
+									if(CommonFunctions.ColorsSimilar(
 										referenceColor,
 										img[outerColumn + innerColumn, outerRow + innerRow],
 										tolerance))
@@ -76,10 +76,10 @@ namespace BotSuite.Imaging
 							}
 							else
 							{
-								if (first == false)
+								if(first == false)
 								{
 									// darf nicht passen!
-									if (CommonFunctions.ColorsSimilar(
+									if(CommonFunctions.ColorsSimilar(
 										referenceColor,
 										img[outerColumn + innerColumn, outerRow + innerRow],
 										tolerance))
@@ -94,7 +94,7 @@ namespace BotSuite.Imaging
 						}
 					}
 
-					if (first == false)
+					if(first == false)
 					{
 						// matched
 						location.X = outerColumn;
@@ -130,35 +130,35 @@ namespace BotSuite.Imaging
 			Point location = Point.Empty;
 			bool found = false;
 
-			for (int originalX = 0; originalX < img.Width - Ref.Width; originalX++)
+			for(int originalX = 0; originalX < img.Width - Ref.Width; originalX++)
 			{
-				for (int originalY = 0; originalY < img.Height - Ref.Height; originalY++)
+				for(int originalY = 0; originalY < img.Height - Ref.Height; originalY++)
 				{
 					Color currentInnerPictureColor = Ref[0, 0];
 					Color currentOuterPictureColor = img[originalX, originalY];
 
-					if (!CommonFunctions.ColorsSimilar(currentInnerPictureColor, currentOuterPictureColor, tolerance))
+					if(!CommonFunctions.ColorsSimilar(currentInnerPictureColor, currentOuterPictureColor, tolerance))
 					{
 						continue;
 					}
 					int currentScore = 0;
 					bool allSimilar = true;
-					for (int referenceX = 0; referenceX < Ref.Width; referenceX++)
+					for(int referenceX = 0; referenceX < Ref.Width; referenceX++)
 					{
-						if (!allSimilar)
+						if(!allSimilar)
 						{
 							break;
 						}
-						for (int referenceY = 0; referenceY < Ref.Height; referenceY++)
+						for(int referenceY = 0; referenceY < Ref.Height; referenceY++)
 						{
-							if (!allSimilar)
+							if(!allSimilar)
 							{
 								break;
 							}
 							currentInnerPictureColor = Ref[referenceX, referenceY];
 							currentOuterPictureColor = img[originalX + referenceX, originalY + referenceY];
 
-							if (!CommonFunctions.ColorsSimilar(currentInnerPictureColor, currentOuterPictureColor, tolerance))
+							if(!CommonFunctions.ColorsSimilar(currentInnerPictureColor, currentOuterPictureColor, tolerance))
 							{
 								allSimilar = false;
 							}
@@ -169,9 +169,9 @@ namespace BotSuite.Imaging
 						}
 					}
 
-					if (allSimilar)
+					if(allSimilar)
 					{
-						if ((currentScore / (double)(Ref.Width * Ref.Height)) < bestScore)
+						if((currentScore / (double)(Ref.Width * Ref.Height)) < bestScore)
 						{
 							location.X = originalX;
 							location.Y = originalY;
@@ -205,42 +205,42 @@ namespace BotSuite.Imaging
 		{
 			List<Rectangle> retVal = new List<Rectangle>();
 
-			for (int originalX = 0; originalX < img.Width - Ref.Width; originalX++)
+			for(int originalX = 0; originalX < img.Width - Ref.Width; originalX++)
 			{
-				for (int originalY = 0; originalY < img.Height - Ref.Height; originalY++)
+				for(int originalY = 0; originalY < img.Height - Ref.Height; originalY++)
 				{
 					Color currentInnerPictureColor = Ref[0, 0];
 					Color currentOuterPictureColor = img[originalX, originalY];
 
-					if (!CommonFunctions.ColorsSimilar(currentInnerPictureColor, currentOuterPictureColor, tolerance))
+					if(!CommonFunctions.ColorsSimilar(currentInnerPictureColor, currentOuterPictureColor, tolerance))
 					{
 						continue;
 					}
 
 					bool allSimilar = true;
-					for (int referenceX = 0; referenceX < Ref.Width; referenceX++)
+					for(int referenceX = 0; referenceX < Ref.Width; referenceX++)
 					{
-						if (!allSimilar)
+						if(!allSimilar)
 						{
 							break;
 						}
-						for (int referenceY = 0; referenceY < Ref.Height; referenceY++)
+						for(int referenceY = 0; referenceY < Ref.Height; referenceY++)
 						{
-							if (!allSimilar)
+							if(!allSimilar)
 							{
 								break;
 							}
 							currentInnerPictureColor = Ref[referenceX, referenceY];
 							currentOuterPictureColor = img[originalX + referenceX, originalY + referenceY];
 
-							if (!CommonFunctions.ColorsSimilar(currentInnerPictureColor, currentOuterPictureColor, tolerance))
+							if(!CommonFunctions.ColorsSimilar(currentInnerPictureColor, currentOuterPictureColor, tolerance))
 							{
 								allSimilar = false;
 							}
 						}
 					}
 
-					if (allSimilar)
+					if(allSimilar)
 					{
 						retVal.Add(new Rectangle(originalX, originalY, Ref.Width, Ref.Height));
 					}

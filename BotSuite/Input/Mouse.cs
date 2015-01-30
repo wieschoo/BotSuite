@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="Mouse.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="Mouse.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Input
@@ -101,7 +101,7 @@ namespace BotSuite.Input
 		/// </returns>
 		public static bool Move(Point targetPosition, bool human = true, int steps = 100)
 		{
-			if (!human)
+			if(!human)
 			{
 				Cursor.Position = targetPosition;
 				return true;
@@ -115,7 +115,7 @@ namespace BotSuite.Input
 			slope.X = slope.X / steps;
 			slope.Y = slope.Y / steps;
 
-			for (int i = 0; i < steps; i++)
+			for(int i = 0; i < steps; i++)
 			{
 				iterPoint = new PointF(iterPoint.X + slope.X, iterPoint.Y + slope.Y);
 				Cursor.Position = Point.Round(iterPoint);
@@ -191,7 +191,7 @@ namespace BotSuite.Input
 		{
 			Move(source, human, steps);
 			LeftClick();
-			if (human)
+			if(human)
 			{
 				Jiggle();
 			}

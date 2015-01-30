@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="Filter.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="Filter.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Imaging
@@ -29,11 +29,11 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void Add(ref ImageData img, ImageData summand)
 		{
-			if ((img.Width == summand.Width) && (img.Height == summand.Height))
+			if((img.Width == summand.Width) && (img.Height == summand.Height))
 			{
-				for (int column = 0; column < summand.Width; column++)
+				for(int column = 0; column < summand.Width; column++)
 				{
-					for (int row = 0; row < summand.Height; row++)
+					for(int row = 0; row < summand.Height; row++)
 					{
 						Color a = summand[column, row];
 						Color b = img[column, row];
@@ -42,15 +42,15 @@ namespace BotSuite.Imaging
 						int cg = a.G + b.G;
 						int cb = a.B + b.B;
 
-						if (cr > 255)
+						if(cr > 255)
 						{
 							cr -= 255;
 						}
-						if (cg > 255)
+						if(cg > 255)
 						{
 							cg -= 255;
 						}
-						if (cb > 255)
+						if(cb > 255)
 						{
 							cb -= 255;
 						}
@@ -72,11 +72,11 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void Difference(ref ImageData img, ImageData subtrahend)
 		{
-			if ((img.Width == subtrahend.Width) && (img.Height == subtrahend.Height))
+			if((img.Width == subtrahend.Width) && (img.Height == subtrahend.Height))
 			{
-				for (int column = 0; column < subtrahend.Width; column++)
+				for(int column = 0; column < subtrahend.Width; column++)
 				{
-					for (int row = 0; row < subtrahend.Height; row++)
+					for(int row = 0; row < subtrahend.Height; row++)
 					{
 						Color a = subtrahend[column, row];
 						Color b = img[column, row];
@@ -85,15 +85,15 @@ namespace BotSuite.Imaging
 						int cg = a.G - b.G;
 						int cb = a.B - b.B;
 
-						if (cr < 0)
+						if(cr < 0)
 						{
 							cr += 255;
 						}
-						if (cg < 0)
+						if(cg < 0)
 						{
 							cg += 255;
 						}
-						if (cb < 0)
+						if(cb < 0)
 						{
 							cb += 255;
 						}
@@ -138,12 +138,12 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void ReplaceSimilarColor(ref ImageData img, Color searchColor, Color replaceColor, uint tolerance)
 		{
-			for (int outerX = 0; outerX < img.Width; outerX++)
+			for(int outerX = 0; outerX < img.Width; outerX++)
 			{
-				for (int outerY = 0; outerY < img.Height; outerY++)
+				for(int outerY = 0; outerY < img.Height; outerY++)
 				{
 					Color a = img[outerX, outerY];
-					if (CommonFunctions.ColorsSimilar(a, searchColor, tolerance))
+					if(CommonFunctions.ColorsSimilar(a, searchColor, tolerance))
 					{
 						img[outerX, outerY] = replaceColor;
 					}
@@ -168,12 +168,12 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void ReplaceDifferentColor(ref ImageData img, Color searchColor, Color replaceColor, uint tolerance)
 		{
-			for (int outerX = 0; outerX < img.Width; outerX++)
+			for(int outerX = 0; outerX < img.Width; outerX++)
 			{
-				for (int outerY = 0; outerY < img.Height; outerY++)
+				for(int outerY = 0; outerY < img.Height; outerY++)
 				{
 					Color a = img[outerX, outerY];
-					if (!CommonFunctions.ColorsSimilar(a, searchColor, tolerance))
+					if(!CommonFunctions.ColorsSimilar(a, searchColor, tolerance))
 					{
 						img[outerX, outerY] = replaceColor;
 					}
@@ -189,9 +189,9 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void Grayscale(ref ImageData img)
 		{
-			for (int column = 0; column < img.Width; column++)
+			for(int column = 0; column < img.Width; column++)
 			{
-				for (int row = 0; row < img.Height; row++)
+				for(int row = 0; row < img.Height; row++)
 				{
 					Color c = img[column, row];
 					int grayScale = (int)((c.R * .3) + (c.G * .59) + (c.B * .11));
@@ -208,9 +208,9 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void Invert(ref ImageData img)
 		{
-			for (int column = 0; column < img.Width; column++)
+			for(int column = 0; column < img.Width; column++)
 			{
-				for (int row = 0; row < img.Height; row++)
+				for(int row = 0; row < img.Height; row++)
 				{
 					Color c = img[column, row];
 					img[column, row] = Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B);
@@ -235,9 +235,9 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void MarkPoint(ref ImageData img, Point location, Color markColor, uint size = 5)
 		{
-			for (int i = Convert.ToInt32(location.X - size); i < location.X + size; i++)
+			for(int i = Convert.ToInt32(location.X - size); i < location.X + size; i++)
 			{
-				for (int j = Convert.ToInt32(location.Y - size); j < location.Y + size; j++)
+				for(int j = Convert.ToInt32(location.Y - size); j < location.Y + size; j++)
 				{
 					img[i, j] = markColor;
 				}
@@ -252,9 +252,9 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void Sepia(ref ImageData img)
 		{
-			for (int column = 0; column < img.Width; column++)
+			for(int column = 0; column < img.Width; column++)
 			{
-				for (int row = 0; row < img.Height; row++)
+				for(int row = 0; row < img.Height; row++)
 				{
 					Color c = img[column, row];
 					int t = Convert.ToInt32(0.299 * c.R + 0.587 * c.G + 0.114 * c.B);
@@ -274,12 +274,12 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void Threshold(ref ImageData img, uint threshold)
 		{
-			for (int column = 0; column < img.Width; column++)
+			for(int column = 0; column < img.Width; column++)
 			{
-				for (int row = 0; row < img.Height; row++)
+				for(int row = 0; row < img.Height; row++)
 				{
 					Color c = img[column, row];
-					if (c.R > threshold)
+					if(c.R > threshold)
 					{
 						img[column, row] = Color.White;
 					}
@@ -305,9 +305,9 @@ namespace BotSuite.Imaging
 			contrast = (100.0 + contrast) / 100.0;
 			contrast *= contrast;
 
-			for (int y = 0; y < img.Height; y++)
+			for(int y = 0; y < img.Height; y++)
 			{
-				for (int x = 0; x < img.Width; x++)
+				for(int x = 0; x < img.Width; x++)
 				{
 					Color pixelColor = img[x, y];
 					double redChannel = (((pixelColor.R / 255.0) - 0.5) * contrast + 0.5) * 255;
@@ -337,9 +337,9 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void Brightness(ref ImageData img, int brightness)
 		{
-			for (int y = 0; y < img.Height; y++)
+			for(int y = 0; y < img.Height; y++)
 			{
-				for (int x = 0; x < img.Width; x++)
+				for(int x = 0; x < img.Width; x++)
 				{
 					Color pixelColor = img[x, y];
 					int redChannel = pixelColor.R + brightness;
@@ -369,9 +369,9 @@ namespace BotSuite.Imaging
 		/// </param>
 		public static void DecreaseColourDepth(ref ImageData img, int offset)
 		{
-			for (int y = 0; y < img.Height; y++)
+			for(int y = 0; y < img.Height; y++)
 			{
-				for (int x = 0; x < img.Width; x++)
+				for(int x = 0; x < img.Width; x++)
 				{
 					Color pixelColor = img[x, y];
 					int redChannel = (pixelColor.R + (offset / 2)) - ((pixelColor.R + (offset / 2)) % offset) - 1;
@@ -537,9 +537,9 @@ namespace BotSuite.Imaging
 			ImageData newImg = img.Clone();
 			Color[,] pixelColor = new Color[3, 3];
 
-			for (int y = 0; y < img.Height - 2; y++)
+			for(int y = 0; y < img.Height - 2; y++)
 			{
-				for (int x = 0; x < img.Width - 2; x++)
+				for(int x = 0; x < img.Width - 2; x++)
 				{
 					pixelColor[0, 0] = img[x, y];
 					pixelColor[0, 1] = img[x, y + 1];

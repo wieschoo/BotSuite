@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="ScreenShot.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="ScreenShot.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite
@@ -46,13 +46,13 @@ namespace BotSuite
 			try
 			{
 				Rectangle r;
-				using (Graphics windowGraphic = Graphics.FromHdc(User32.GetWindowDC(windowHandle)))
+				using(Graphics windowGraphic = Graphics.FromHdc(User32.GetWindowDC(windowHandle)))
 				{
 					r = Rectangle.Round(windowGraphic.VisibleClipBounds);
 				}
 
 				bmpScreen = new Bitmap(r.Width, r.Height);
-				using (Graphics g = Graphics.FromImage(bmpScreen))
+				using(Graphics g = Graphics.FromImage(bmpScreen))
 				{
 					IntPtr hdc = g.GetHdc();
 					try
@@ -67,7 +67,7 @@ namespace BotSuite
 			}
 			catch
 			{
-				if (bmpScreen != null)
+				if(bmpScreen != null)
 				{
 					bmpScreen.Dispose();
 				}
@@ -104,16 +104,16 @@ namespace BotSuite
 				g = Graphics.FromImage(bmpScreen);
 				g.CopyFromScreen(left, top, 0, 0, new Size(width, height));
 			}
-			catch (Exception)
+			catch(Exception)
 			{
-				if (bmpScreen != null)
+				if(bmpScreen != null)
 				{
 					bmpScreen.Dispose();
 				}
 			}
 			finally
 			{
-				if (g != null)
+				if(g != null)
 				{
 					g.Dispose();
 				}

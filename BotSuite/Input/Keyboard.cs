@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="Keyboard.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="Keyboard.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 using System.Diagnostics;
@@ -112,9 +112,9 @@ namespace BotSuite.Input
 		/// </remarks>
 		private void Hook()
 		{
-			using (Process curProcess = Process.GetCurrentProcess())
+			using(Process curProcess = Process.GetCurrentProcess())
 			{
-				using (ProcessModule curModule = curProcess.MainModule)
+				using(ProcessModule curModule = curProcess.MainModule)
 				{
 					this._hhook = User32.SetWindowsHookEx(Constants.WH_KEYBOARD_LL, _safeDelegateCallback, Kernel32.GetModuleHandle(curModule.ModuleName), 0);
 				}
@@ -152,18 +152,18 @@ namespace BotSuite.Input
 		/// </returns>
 		private static IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam)
 		{
-			if (code < 0)
+			if(code < 0)
 			{
 				return User32.CallNextHookEx(_instance._hhook, code, wParam, lParam);
 			}
 
-			Keys key = (Keys) Marshal.ReadInt32(lParam);
-			if (_hookedKeys == null)
+			Keys key = (Keys)Marshal.ReadInt32(lParam);
+			if(_hookedKeys == null)
 			{
 				return User32.CallNextHookEx(_instance._hhook, code, wParam, lParam);
 			}
 
-			if (!_hookedKeys.Contains(key))
+			if(!_hookedKeys.Contains(key))
 			{
 				return User32.CallNextHookEx(_instance._hhook, code, wParam, lParam);
 			}
@@ -178,7 +178,7 @@ namespace BotSuite.Input
 				KeyUp(_instance, kea);
 			}
 
-			return kea.Handled ? (IntPtr) 1 : User32.CallNextHookEx(_instance._hhook, code, wParam, lParam);
+			return kea.Handled ? (IntPtr)1 : User32.CallNextHookEx(_instance._hhook, code, wParam, lParam);
 		}
 
 		/// <summary>
@@ -238,7 +238,7 @@ namespace BotSuite.Input
 			const int CHAR_EVENT = 0x0102;
 
 			// send key down event
-			if (User32.SendMessage(hwnd, KEY_DOWN_EVENT, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
+			if(User32.SendMessage(hwnd, KEY_DOWN_EVENT, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
 			{
 				return;
 			}
@@ -246,7 +246,7 @@ namespace BotSuite.Input
 			Utility.Delay(20);
 
 			// send character event
-			if (User32.SendMessage(hwnd, CHAR_EVENT, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
+			if(User32.SendMessage(hwnd, CHAR_EVENT, (uint)key, GetLParam(1, key, 0, 0, 0, 0)))
 			{
 				return;
 			}
@@ -254,7 +254,7 @@ namespace BotSuite.Input
 			Utility.Delay(20);
 
 			// send key up event
-			if (User32.SendMessage(hwnd, KEY_UP_EVENT, (uint)key, GetLParam(1, key, 0, 0, 1, 1)))
+			if(User32.SendMessage(hwnd, KEY_UP_EVENT, (uint)key, GetLParam(1, key, 0, 0, 1, 1)))
 			{
 				return;
 			}

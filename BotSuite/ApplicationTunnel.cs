@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="ApplicationTunnel.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="ApplicationTunnel.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite
@@ -73,7 +73,7 @@ namespace BotSuite
 		{
 			Process[] programmInstances = Process.GetProcessesByName(processName);
 
-			if (programmInstances.Length == 0)
+			if(programmInstances.Length == 0)
 			{
 				throw new Exception(String.Format("No process found with given name \"{0}\"", processName));
 			}
@@ -161,7 +161,7 @@ namespace BotSuite
 		protected void DetachProcess()
 		{
 			int closeHandleReturn = Kernel32.CloseHandle(this._processHandle);
-			if (closeHandleReturn == 0)
+			if(closeHandleReturn == 0)
 			{
 				// TODO: Code Zur Fehler Bearbeitung
 			}
@@ -230,7 +230,7 @@ namespace BotSuite
 		public T Read<T>(int address, params int[] offsets)
 		{
 			IntPtr readAdress = (IntPtr)address;
-			if (offsets.Length > 0)
+			if(offsets.Length > 0)
 			{
 				readAdress = (IntPtr)this.Pointer(address, offsets);
 			}
@@ -239,42 +239,42 @@ namespace BotSuite
 			byte[] buffer;
 			int ptrBytesRead;
 
-			if (typeof(T) == typeof(byte))
+			if(typeof(T) == typeof(byte))
 			{
 				size = 1;
 				buffer = this.ReadMemoryAtAdress(readAdress, size, out ptrBytesRead);
 				return (T)(object)buffer[0];
 			}
 
-			if (typeof(T) == typeof(short))
+			if(typeof(T) == typeof(short))
 			{
 				size = 2;
 				buffer = this.ReadMemoryAtAdress(readAdress, size, out ptrBytesRead);
 				return (T)(object)((int)BitConverter.ToInt16(buffer, 0));
 			}
 
-			if (typeof(T) == typeof(int))
+			if(typeof(T) == typeof(int))
 			{
 				size = 4;
 				buffer = this.ReadMemoryAtAdress(readAdress, size, out ptrBytesRead);
 				return (T)(object)BitConverter.ToInt32(buffer, 0);
 			}
 
-			if (typeof(T) == typeof(uint))
+			if(typeof(T) == typeof(uint))
 			{
 				size = 4;
 				buffer = this.ReadMemoryAtAdress(readAdress, size, out ptrBytesRead);
 				return (T)(object)((int)BitConverter.ToUInt32(buffer, 0));
 			}
 
-			if (typeof(T) == typeof(float))
+			if(typeof(T) == typeof(float))
 			{
 				size = 4;
 				buffer = this.ReadMemoryAtAdress(readAdress, size, out ptrBytesRead);
 				return (T)(object)BitConverter.ToSingle(buffer, 0);
 			}
 
-			if (typeof(T) == typeof(double))
+			if(typeof(T) == typeof(double))
 			{
 				size = 8;
 				buffer = this.ReadMemoryAtAdress(readAdress, size, out ptrBytesRead);
@@ -347,24 +347,24 @@ namespace BotSuite
 		public void Write<T>(int address, T writeData, params int[] offsets)
 		{
 			IntPtr writeAdress = (IntPtr)address;
-			if (offsets.Length > 0)
+			if(offsets.Length > 0)
 			{
 				writeAdress = (IntPtr)this.Pointer(address, offsets);
 			}
 
-			if (typeof(T) == typeof(byte))
+			if(typeof(T) == typeof(byte))
 			{
 				this.WriteMemoryAtAdress(writeAdress, BitConverter.GetBytes(Convert.ToInt16(writeData)));
 			}
-			else if (typeof(T) == typeof(double))
+			else if(typeof(T) == typeof(double))
 			{
 				this.WriteMemoryAtAdress(writeAdress, BitConverter.GetBytes(Convert.ToDouble(writeData)));
 			}
-			else if (typeof(T) == typeof(float))
+			else if(typeof(T) == typeof(float))
 			{
 				this.WriteMemoryAtAdress(writeAdress, BitConverter.GetBytes(Convert.ToSingle(writeData)));
 			}
-			else if (typeof(T) == typeof(int))
+			else if(typeof(T) == typeof(int))
 			{
 				this.WriteMemoryAtAdress(writeAdress, BitConverter.GetBytes(Convert.ToInt32(writeData)));
 			}
@@ -412,13 +412,13 @@ namespace BotSuite
 		/// </returns>
 		public int Pointer(int start, params int[] offsets)
 		{
-			if (offsets.Length <= 0)
+			if(offsets.Length <= 0)
 			{
 				return start;
 			}
 
 			// target = this.Read<int>(pAddress);
-			foreach (int offset in offsets)
+			foreach(int offset in offsets)
 			{
 				start = this.Read<int>(start);
 				start += offset;
@@ -462,7 +462,7 @@ namespace BotSuite
 			this._attachedProcess.CloseMainWindow();
 			this._attachedProcess.WaitForExit(4000);
 
-			if (!this._attachedProcess.HasExited)
+			if(!this._attachedProcess.HasExited)
 			{
 				this.Kill();
 			}
@@ -482,7 +482,7 @@ namespace BotSuite
 				this._attachedProcess.Kill();
 				this._attachedProcess.WaitForExit();
 			}
-			catch (Exception exception)
+			catch(Exception exception)
 			{
 				Logger.LogException(exception);
 			}

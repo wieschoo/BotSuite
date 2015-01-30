@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="ConvulationMatrix.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="ConvulationMatrix.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Imaging
@@ -55,9 +55,9 @@ namespace BotSuite.Imaging
 		/// </param>
 		public void SetAll(double value)
 		{
-			for (int i = 0; i < this.MatrixSize; i++)
+			for(int i = 0; i < this.MatrixSize; i++)
 			{
-				for (int j = 0; j < this.MatrixSize; j++)
+				for(int j = 0; j < this.MatrixSize; j++)
 				{
 					this.Matrix[i, j] = value;
 				}

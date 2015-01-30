@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="Browser.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="Browser.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 
@@ -61,7 +61,7 @@ namespace BotSuite.Net
 				?? Registry.CurrentUser.CreateSubKey(
 					"Software\\Microsoft\\Internet Explorer\\Main\\FeatureControl\\FEATURE_BROWSER_EMULATION");
 
-			if (key != null)
+			if(key != null)
 			{
 				key.SetValue(Process.GetCurrentProcess().MainModule.ModuleName, 11001, RegistryValueKind.DWord);
 				key.Close();
@@ -91,7 +91,7 @@ namespace BotSuite.Net
 		/// </param>
 		protected void BrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
-			
+
 		}
 
 		/// <summary>
@@ -106,7 +106,7 @@ namespace BotSuite.Net
 		public bool ElementExists(string id)
 		{
 			HtmlDocument htmlDocument = this._browser.Document;
-			if (htmlDocument == null)
+			if(htmlDocument == null)
 			{
 				return false;
 			}
@@ -124,10 +124,10 @@ namespace BotSuite.Net
 		public void ClickElementById(string id)
 		{
 			HtmlDocument htmlDocument = this._browser.Document;
-			if (htmlDocument != null)
+			if(htmlDocument != null)
 			{
 				HtmlElement tmp = htmlDocument.GetElementById(id);
-				if (tmp != null)
+				if(tmp != null)
 				{
 					tmp.InvokeMember(HTML_ELEMENT_MEMBER_CLICK);
 				}
@@ -146,10 +146,10 @@ namespace BotSuite.Net
 		public void FillInputById(string id, string value)
 		{
 			HtmlDocument htmlDocument = this._browser.Document;
-			if (htmlDocument != null)
+			if(htmlDocument != null)
 			{
 				HtmlElement elementById = htmlDocument.GetElementById(id);
-				if (elementById != null)
+				if(elementById != null)
 				{
 					elementById.SetAttribute("value", value);
 				}
@@ -168,10 +168,10 @@ namespace BotSuite.Net
 		public string GetInnerTextById(string id)
 		{
 			HtmlDocument htmlDocument = this._browser.Document;
-			if (htmlDocument != null)
+			if(htmlDocument != null)
 			{
 				HtmlElement elementById = htmlDocument.GetElementById(id);
-				if (elementById != null)
+				if(elementById != null)
 				{
 					return elementById.InnerText;
 				}
@@ -199,7 +199,7 @@ namespace BotSuite.Net
 		public HtmlElement GetElementById(string id)
 		{
 			HtmlDocument htmlDocument = this._browser.Document;
-			if (htmlDocument != null)
+			if(htmlDocument != null)
 			{
 				HtmlElement element = htmlDocument.GetElementById(id);
 				return element;
@@ -218,7 +218,7 @@ namespace BotSuite.Net
 			List<HtmlElement> htmlElements = new List<HtmlElement>();
 
 			HtmlDocument htmlDocument = this._browser.Document;
-			if (htmlDocument != null)
+			if(htmlDocument != null)
 			{
 				htmlElements.AddRange(
 					htmlDocument.All.Cast<HtmlElement>().Where(htmlElement => htmlElement.GetAttribute("className") == className));
@@ -237,7 +237,7 @@ namespace BotSuite.Net
 			List<HtmlElement> htmlElements = new List<HtmlElement>();
 
 			HtmlDocument htmlDocument = this._browser.Document;
-			if (htmlDocument != null)
+			if(htmlDocument != null)
 			{
 				htmlElements.AddRange(htmlDocument.GetElementsByTagName(tagName).Cast<HtmlElement>());
 			}

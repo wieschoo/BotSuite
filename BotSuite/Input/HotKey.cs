@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="HotKey.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="HotKey.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Input
@@ -95,7 +95,7 @@ namespace BotSuite.Input
 		/// </summary>
 		public void Dispose()
 		{
-			if (this._disposed)
+			if(this._disposed)
 			{
 				return;
 			}
@@ -122,7 +122,7 @@ namespace BotSuite.Input
 			{
 				get
 				{
-					if (_def == null)
+					if(_def == null)
 					{
 						_def = new Wnd();
 						_def.CreateHandle();
@@ -135,9 +135,9 @@ namespace BotSuite.Input
 			private int GetNewId(IntPtr item)
 			{
 				int i = 0;
-				foreach (IntPtr r in this._hotkeys)
+				foreach(IntPtr r in this._hotkeys)
 				{
-					if ((long)r == 0)
+					if((long)r == 0)
 					{
 						this._hotkeys[i] = item;
 						return i;
@@ -162,10 +162,10 @@ namespace BotSuite.Input
 
 			protected override void WndProc(ref Message m)
 			{
-				if (m.Msg == WM_HOTKEY)
+				if(m.Msg == WM_HOTKEY)
 				{
 					HotKey h = (HotKey)GCHandle.FromIntPtr(this.GetObject((int)m.WParam)).Target;
-					if (h.HotKeyPressed != null)
+					if(h.HotKeyPressed != null)
 					{
 						h.HotKeyPressed(h, null);
 					}
@@ -180,17 +180,17 @@ namespace BotSuite.Input
 			{
 				h._id = Default.GetNewId(GCHandle.ToIntPtr(GCHandle.Alloc(h, GCHandleType.WeakTrackResurrection)));
 				int modifiers = 0;
-				if ((h._keys & Keys.Alt) == Keys.Alt)
+				if((h._keys & Keys.Alt) == Keys.Alt)
 				{
 					modifiers = modifiers | MOD_ALT;
 				}
 
-				if ((h._keys & Keys.Control) == Keys.Control)
+				if((h._keys & Keys.Control) == Keys.Control)
 				{
 					modifiers = modifiers | MOD_CONTROL;
 				}
 
-				if ((h._keys & Keys.Shift) == Keys.Shift)
+				if((h._keys & Keys.Shift) == Keys.Shift)
 				{
 					modifiers = modifiers | MOD_SHIFT;
 				}
@@ -205,7 +205,7 @@ namespace BotSuite.Input
 				{
 					UnregisterHotKey(Default.Handle, h._id);
 				}
-				catch (Exception exception)
+				catch(Exception exception)
 				{
 					Logger.LogException(exception);
 				}

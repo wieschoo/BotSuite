@@ -52,7 +52,7 @@
     <Compile Include="DataTypes\Hex32.cs" />
     <Compile Include="Input\HotKey.cs" />
     <Compile Include="Imaging\CommonFunctions.cs" />
-    <Compile Include="Imaging\ConvulationMatrix.cs" />
+    <Compile Include="Imaging\ConvolutionMatrix.cs" />
     <Compile Include="Imaging\Filter.cs" />
     <Compile Include="Imaging\ImageData.cs" />
     <Compile Include="Imaging\Template.cs" />
@@ -82,7 +82,6 @@
     <Compile Include="Utility.cs" />
     <Compile Include="Window.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

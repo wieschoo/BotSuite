@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="HttpProxyHacker.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="HttpProxyHacker.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Net
@@ -31,14 +31,14 @@ namespace BotSuite.Net
 		public static bool ToggleAllowUnsafeHeaderParsing(bool enable)
 		{
 			Assembly assembly = Assembly.GetAssembly(typeof(SettingsSection));
-			if (assembly == null)
+			if(assembly == null)
 			{
 				return false;
 			}
 
 			Type settingsSectionType = assembly.GetType("System.Net.Configuration.SettingsSectionInternal");
 
-			if (settingsSectionType == null)
+			if(settingsSectionType == null)
 			{
 				return false;
 			}
@@ -50,7 +50,7 @@ namespace BotSuite.Net
 				null,
 				new object[] { });
 
-			if (objectInstance == null)
+			if(objectInstance == null)
 			{
 				return false;
 			}
@@ -59,7 +59,7 @@ namespace BotSuite.Net
 				"useUnsafeHeaderParsing",
 				BindingFlags.NonPublic | BindingFlags.Instance);
 
-			if (fieldUseUnsafeHeaderParsing == null)
+			if(fieldUseUnsafeHeaderParsing == null)
 			{
 				return false;
 			}
@@ -76,14 +76,14 @@ namespace BotSuite.Net
 		public static bool IsUseUnsafeHeaderParsingActivated()
 		{
 			Assembly assembly = Assembly.GetAssembly(typeof(SettingsSection));
-			if (assembly == null)
+			if(assembly == null)
 			{
 				return false;
 			}
 
 			Type settingsSectionType = assembly.GetType("System.Net.Configuration.SettingsSectionInternal");
 
-			if (settingsSectionType == null)
+			if(settingsSectionType == null)
 			{
 				return false;
 			}
@@ -95,7 +95,7 @@ namespace BotSuite.Net
 				null,
 				new object[] { });
 
-			if (objectInstance == null)
+			if(objectInstance == null)
 			{
 				return false;
 			}

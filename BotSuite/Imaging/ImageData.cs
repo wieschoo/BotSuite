@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="ImageData.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="ImageData.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Imaging
@@ -153,7 +153,7 @@ namespace BotSuite.Imaging
 			this._bmpPixelFormat = bmp.PixelFormat;
 			this.Width = bmp.Width;
 			this.Height = bmp.Height;
-			switch (bmp.PixelFormat)
+			switch(bmp.PixelFormat)
 			{
 				case PixelFormat.Format32bppArgb:
 					this._rawFormatOffset = 4;
@@ -207,11 +207,11 @@ namespace BotSuite.Imaging
 			Marshal.Copy(this._bmpBytes, 0, ptr, byteSize);
 			returnBitmap.UnlockBits(bmpData);
 
-			if (!(left == 0 && top == 0 && width == this.Width && height == this.Height))
+			if(!(left == 0 && top == 0 && width == this.Width && height == this.Height))
 			{
 				Rectangle cropRect = new Rectangle(left, top, width, height);
 				Bitmap target = new Bitmap(cropRect.Width, cropRect.Height);
-				using (Graphics g = Graphics.FromImage(target))
+				using(Graphics g = Graphics.FromImage(target))
 				{
 					g.DrawImage(returnBitmap, new Rectangle(0, 0, target.Width, target.Height), cropRect, GraphicsUnit.Pixel);
 				}
@@ -236,7 +236,7 @@ namespace BotSuite.Imaging
 		{
 			get
 			{
-				if ((0 <= x) && (x < this.Width) && (0 <= y) && (y < this.Height))
+				if((0 <= x) && (x < this.Width) && (0 <= y) && (y < this.Height))
 				{
 					return Color.FromArgb(
 						this._bmpBytes[y * this._bmpStride + x * this._rawFormatOffset + 2],
@@ -249,7 +249,7 @@ namespace BotSuite.Imaging
 
 			set
 			{
-				if ((0 <= x) && (x < this.Width) && (0 <= y) && (y < this.Height))
+				if((0 <= x) && (x < this.Width) && (0 <= y) && (y < this.Height))
 				{
 					this._bmpBytes[y * this._bmpStride + x * this._rawFormatOffset + 2] = value.R;
 					this._bmpBytes[y * this._bmpStride + x * this._rawFormatOffset + 1] = value.G;

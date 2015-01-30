@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="HttpHeaderCollection.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="HttpHeaderCollection.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Net
@@ -33,7 +33,7 @@ namespace BotSuite.Net
 			get
 			{
 				HttpHeader ret = this.GetHeaderByKey(key);
-				if (ret == null)
+				if(ret == null)
 				{
 					throw new IndexOutOfRangeException("Der key " + key + " ist nicht in der Auflistung vorhanden");
 				}
@@ -78,10 +78,10 @@ namespace BotSuite.Net
 		{
 			string ret = string.Empty;
 
-			foreach (HttpHeader item in this)
+			foreach(HttpHeader item in this)
 			{
 				ret += item.ToString();
-				if (!item.Equals(this.Last()))
+				if(!item.Equals(this.Last()))
 				{
 					ret += Environment.NewLine;
 				}

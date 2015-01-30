@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="HttpPostDataCollection.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="HttpPostDataCollection.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Net
@@ -41,12 +41,12 @@ namespace BotSuite.Net
 		/// </param>
 		public void Add(HttpPostData item)
 		{
-			if (item == null)
+			if(item == null)
 			{
 				throw new ArgumentNullException("item");
 			}
 
-			if (!this.Contains(item))
+			if(!this.Contains(item))
 			{
 				this._postData.Add(item);
 			}
@@ -150,10 +150,10 @@ namespace BotSuite.Net
 		public override string ToString()
 		{
 			string returnValue = string.Empty;
-			foreach (HttpPostData data in this._postData)
+			foreach(HttpPostData data in this._postData)
 			{
 				returnValue += data.ToString();
-				if (data != this._postData.Last())
+				if(data != this._postData.Last())
 				{
 					returnValue += "&";
 				}
@@ -175,9 +175,9 @@ namespace BotSuite.Net
 		{
 			HttpPostDataCollection col = new HttpPostDataCollection();
 			string[] pds = postdata.Split('&');
-			foreach (string[] pdkvp in pds.Select(pd => pd.Split('=')))
+			foreach(string[] pdkvp in pds.Select(pd => pd.Split('=')))
 			{
-				if (pdkvp.Length != 2)
+				if(pdkvp.Length != 2)
 				{
 					throw new ArgumentException("malformed postdata", "postdata");
 				}
