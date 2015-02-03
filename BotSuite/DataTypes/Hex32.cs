@@ -95,10 +95,10 @@ namespace BotSuite.DataTypes
 		/// </returns>
 		public override bool Equals(object obj)
 		{
-			return this.Equals((Hex32)obj);
+		    return this.GetType() == obj.GetType() && this.Equals((Hex32)obj);
 		}
 
-		/// <summary>
+	    /// <summary>
 		///     Gibt an, ob das aktuelle Objekt einem anderen Objekt des gleichen Typs entspricht.
 		/// </summary>
 		/// <param name="other">
@@ -109,7 +109,7 @@ namespace BotSuite.DataTypes
 		/// </returns>
 		public bool Equals(Hex32 other)
 		{
-			return Equals(this, other) || ((this.GetType() == other.GetType()) && this.IntValue.Equals(other.IntValue));
+			return this.GetType() == other.GetType() && this.IntValue.Equals(other.IntValue);
 		}
 
 		/// <summary>
