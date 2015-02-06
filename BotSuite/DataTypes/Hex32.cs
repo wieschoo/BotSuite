@@ -95,10 +95,10 @@ namespace BotSuite.DataTypes
 		/// </returns>
 		public override bool Equals(object obj)
 		{
-		    return this.GetType() == obj.GetType() && this.Equals((Hex32)obj);
+			return this.GetType() == obj.GetType() && this.Equals((Hex32)obj);
 		}
 
-	    /// <summary>
+		/// <summary>
 		///     Gibt an, ob das aktuelle Objekt einem anderen Objekt des gleichen Typs entspricht.
 		/// </summary>
 		/// <param name="other">
@@ -140,7 +140,7 @@ namespace BotSuite.DataTypes
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
-		/// <returns></returns>
+		/// <returns>The result of h1 + h2.</returns>
 		public static Hex32 operator +(Hex32 h1, Hex32 h2)
 		{
 			return new Hex32(h1.IntValue + h2.IntValue);
@@ -151,7 +151,7 @@ namespace BotSuite.DataTypes
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
-		/// <returns></returns>
+		/// <returns>The result of h1 - h2.</returns>
 		public static Hex32 operator -(Hex32 h1, Hex32 h2)
 		{
 			return new Hex32(h1.IntValue - h2.IntValue);
@@ -162,7 +162,7 @@ namespace BotSuite.DataTypes
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
-		/// <returns></returns>
+		/// <returns>The result of h1 * h2.</returns>
 		public static Hex32 operator *(Hex32 h1, Hex32 h2)
 		{
 			return new Hex32(h1.IntValue * h2.IntValue);
@@ -173,7 +173,7 @@ namespace BotSuite.DataTypes
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
-		/// <returns></returns>
+		/// <returns>The result of h1 / h2.</returns>
 		public static Hex32 operator /(Hex32 h1, Hex32 h2)
 		{
 			return new Hex32(h1.IntValue / h2.IntValue);
@@ -184,7 +184,7 @@ namespace BotSuite.DataTypes
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
-		/// <returns></returns>
+		/// <returns>True, if h1 and h2 are equal, else false.</returns>
 		public static bool operator ==(Hex32 h1, Hex32 h2)
 		{
 			return h1.Equals(h2);
@@ -195,7 +195,7 @@ namespace BotSuite.DataTypes
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
-		/// <returns></returns>
+		/// <returns>True, if h1 and h2 are not equal, else false.</returns>
 		public static bool operator !=(Hex32 h1, Hex32 h2)
 		{
 			return !(h1 == h2);
@@ -206,7 +206,7 @@ namespace BotSuite.DataTypes
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
-		/// <returns></returns>
+		/// <returns>True, if h1 is bigger then h2, else false.</returns>
 		public static bool operator >(Hex32 h1, Hex32 h2)
 		{
 			return h1.CompareTo(h2) > 0;
@@ -217,7 +217,7 @@ namespace BotSuite.DataTypes
 		/// </summary>
 		/// <param name="h1">The h1.</param>
 		/// <param name="h2">The h2.</param>
-		/// <returns></returns>
+		/// <returns>True, if h1 is smaller then h2, else false.</returns>
 		public static bool operator <(Hex32 h1, Hex32 h2)
 		{
 			return h1.CompareTo(h2) < 0;

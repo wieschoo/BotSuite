@@ -18,27 +18,29 @@ namespace BotSuite
 	using Win32.Structs;
 
 	/// <summary>
-	///     This class provide functions to create screenshots
+	///     This class provides functions to create screenshots
 	/// </summary>
 	public class ScreenShot
 	{
 		/// <summary>
-		///     create a screenshot of the primary screen
+		///     Create a screenshot of the primary screen.
 		/// </summary>
-		/// <returns>bitmap of captured screen</returns>
+		/// <returns>
+		///		<see cref="Bitmap"/> of captured screen.
+		///	</returns>
 		public static Bitmap Create()
 		{
-			return Create(0, 0, Screen.PrimaryScreen.Bounds.Size.Width, Screen.PrimaryScreen.Bounds.Size.Height);
+			return ScreenShot.Create(Screen.PrimaryScreen.Bounds);
 		}
 
 		/// <summary>
-		///     creates a screenshot from a hidden window
+		///     Creates a screenshot from a hidden window.
 		/// </summary>
 		/// <param name="windowHandle">
-		///     handle of window
+		///     The handle of the window.
 		/// </param>
 		/// <returns>
-		///     The <see cref="Bitmap" />.
+		///     A <see cref="Bitmap"/> of the window.
 		/// </returns>
 		public static Bitmap CreateFromHidden(IntPtr windowHandle)
 		{
@@ -77,32 +79,23 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		///     create a complete screenshot by using a rectangle
+		///     Create a complete screenshot by using a <see cref="Rectangle"/>
 		/// </summary>
-		/// <param name="left">
-		///     The left.
-		/// </param>
-		/// <param name="top">
-		///     The top.
-		/// </param>
-		/// <param name="width">
-		///     The width.
-		/// </param>
-		/// <param name="height">
-		///     The height.
+		/// <param name="screenshotArea">
+		///		The <see cref="Rectangle"/> that defines the screenshot area.
 		/// </param>
 		/// <returns>
-		///     bitmap of captured screen
+		///     A <see cref="Bitmap"/> of the captured area.
 		/// </returns>
-		public static Bitmap Create(int left, int top, int width, int height)
+		public static Bitmap Create(Rectangle screenshotArea)
 		{
 			Bitmap bmpScreen = null;
 			Graphics g = null;
 			try
 			{
-				bmpScreen = new Bitmap(width, height, PixelFormat.Format24bppRgb);
+				bmpScreen = new Bitmap(screenshotArea.Width, screenshotArea.Height, PixelFormat.Format24bppRgb);
 				g = Graphics.FromImage(bmpScreen);
-				g.CopyFromScreen(left, top, 0, 0, new Size(width, height));
+				g.CopyFromScreen(screenshotArea.Left, screenshotArea.Top, 0, 0, new Size(screenshotArea.Width, screenshotArea.Height));
 			}
 			catch(Exception)
 			{
@@ -123,13 +116,13 @@ namespace BotSuite
 		}
 
 		/// <summary>
-		///     create a complete screenshot by using a handle
+		///     Create a complete screenshot of a window by using a handle.
 		/// </summary>
 		/// <param name="windowHandle">
-		///     handle of window
+		///     Handle of the window.
 		/// </param>
 		/// <returns>
-		///     captured screen
+		///     A <see cref="Bitmap"/> of the window.
 		/// </returns>
 		public static Bitmap Create(IntPtr windowHandle)
 		{
@@ -137,25 +130,28 @@ namespace BotSuite
 			User32.GetWindowRect(windowHandle, out window);
 			int winWidth = window.Right - window.Left;
 			int winHeight = window.Bottom - window.Top;
-			return Create(window.Left, window.Top, winWidth, winHeight);
+			Rectangle windowRect = new Rectangle(window.Left, window.Top, winWidth, winHeight);
+			Bitmap bmpScreen = ScreenShot.Create(windowRect);
+			return bmpScreen;
 		}
 
 		/// <summary>
-		///     create a screenshot relativ to control C in a rectangle Focus
+		///     Create a screenshot relativ to a <see cref="Control"/> in a rectangle focus.
 		/// </summary>
 		/// <param name="ctrl">
-		///     relativ to this control
+		///     Relativ to this <see cref="Control"/>.
 		/// </param>
 		/// <param name="screenshotArea">
-		///     screenshot area
+		///     Screenshot area.
 		/// </param>
 		/// <returns>
-		///     The <see cref="Bitmap" />.
+		///     A <see cref="Bitmap"/> of the captured area.
 		/// </returns>
 		public static Bitmap CreateRelativeToControl(Control ctrl, Rectangle screenshotArea)
 		{
 			Point leftTopP = ctrl.PointToScreen(new Point(screenshotArea.Left, screenshotArea.Top));
-			Bitmap bmpScreen = Create(leftTopP.X + 1, leftTopP.Y + 1, screenshotArea.Width - 1, screenshotArea.Height - 1);
+			Rectangle r = new Rectangle(leftTopP.X + 1, leftTopP.Y + 1, screenshotArea.Width - 1, screenshotArea.Height - 1);
+			Bitmap bmpScreen = ScreenShot.Create(r);
 			return bmpScreen;
 		}
 	}

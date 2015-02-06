@@ -11,13 +11,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BotSuite.NET Wiki", "BotSuite.NET Wiki", "{EB737464-0254-46C1-ADCF-1F5696BF8A67}"
-	ProjectSection(SolutionItems) = preProject
-		..\BotSuite.NET Wiki\Home.md = ..\BotSuite.NET Wiki\Home.md
-		..\BotSuite.NET Wiki\license.md = ..\BotSuite.NET Wiki\license.md
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotSuite.Tests", "BotSuite.Tests\BotSuite.Tests.csproj", "{C192109D-F82F-4599-A1AD-AC7E45A8E1BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BotSuite Wiki", "BotSuite Wiki", "{04E08DC9-9648-4F8F-BEDC-5115F61E4F44}"
+	ProjectSection(SolutionItems) = preProject
+		..\BotSuite.NET Wiki\CodingConventions.md = ..\BotSuite.NET Wiki\CodingConventions.md
+		..\BotSuite.NET Wiki\Home.md = ..\BotSuite.NET Wiki\Home.md
+		..\BotSuite.NET Wiki\License.md = ..\BotSuite.NET Wiki\License.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

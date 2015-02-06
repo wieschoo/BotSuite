@@ -53,7 +53,7 @@ namespace BotSuite.Input
 		/// <summary>
 		///     Registers the hotkey. You have to keep a reference to the returned object.
 		/// </summary>
-		/// <param name="keys"></param>
+		/// <param name="keys">The keys that will work as the global hotkey.</param>
 		/// <returns>The registered hotkey.</returns>
 		public static HotKey Register(Keys keys)
 		{

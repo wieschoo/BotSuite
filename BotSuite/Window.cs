@@ -17,7 +17,7 @@ namespace BotSuite
 	using Win32.Methods;
 
 	/// <summary>
-	///     Class with function for windows handling
+	///     Class with functions for handling windows.
 	/// </summary>
 	public class Window
 	{
