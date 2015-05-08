@@ -59,6 +59,17 @@ namespace BotSuite
             public int Top;
             public int Right;
             public int Bottom;
+
+            public int Height
+            {
+                get { return Bottom - Top; }
+                set { Bottom = value + Top; }
+            }
+            public int Width
+            {
+                get { return Right - Left; }
+                set { Right = value + Left; }
+            }
         }
 
         [DllImport("user32.dll")]
@@ -162,5 +173,50 @@ namespace BotSuite
         [DllImport("user32.dll")]
         internal static extern uint keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
 
+        [DllImport("user32.dll")]
+        internal extern static int SetWindowLong(IntPtr hwnd, int index, int value);
+
+        [DllImport("user32.dll")]
+        internal extern static int GetWindowLong(IntPtr hwnd, int index);
+
+        internal static void HideMaximizeButton(IntPtr hwnd)
+        {
+            const int GWL_STYLE = -16;
+            const long WS_MAXIMIZEBOX = 0x00010000L;
+
+            long value = GetWindowLong(hwnd, GWL_STYLE);
+
+            SetWindowLong(hwnd, GWL_STYLE, (int)(value & ~WS_MAXIMIZEBOX));
+        }
+
+        internal static void HideMinimizeButton(IntPtr hwnd)
+        {
+            const int GWL_STYLE = -16;
+            const long WS_MINIMIZEBOX = 0x00020000L;
+
+            long value = GetWindowLong(hwnd, GWL_STYLE);
+
+            SetWindowLong(hwnd, GWL_STYLE, (int)(value & ~WS_MINIMIZEBOX));
+        }
+
+        internal static void ShowMaximizeButton(IntPtr hwnd)
+        {
+            const int GWL_STYLE = -16;
+            const long WS_MAXIMIZEBOX = 0x00010000L;
+
+            long value = GetWindowLong(hwnd, GWL_STYLE);
+
+            SetWindowLong(hwnd, GWL_STYLE, (int)(value | WS_MAXIMIZEBOX));
+        }
+
+        internal static void ShowMinimizeButton(IntPtr hwnd)
+        {
+            const int GWL_STYLE = -16;
+            const long WS_MINIMIZEBOX = 0x00020000L;
+
+            long value = GetWindowLong(hwnd, GWL_STYLE);
+
+            SetWindowLong(hwnd, GWL_STYLE, (int)(value | WS_MINIMIZEBOX));
+        }
     }
 }
