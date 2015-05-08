@@ -40,6 +40,7 @@ If you want to help with either one feel free to contact me.
 
 This project is licensed under the BSD 3-Clause License.
 
+Copyright (c) 2013-2014, wieschoo & Binary Overdrive
 Copyright (c) 2013-2015, Binary Overdrive  
 All rights reserved.
 
