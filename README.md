@@ -1,58 +1,54 @@
-﻿BotSuite.NET
-=============
+# BotSuite.NET
 
-This library helps you by accelerating the development of bots significantly. 
-To get started please visit the tutorial section and read "Getting Started" at
-www.botsuite.net. Do not hesitate to contact us or add an issue here, at our project page on GitHub.
+BotSuite.NET is a library offering a framework which can be used to develop "bots" (as in "every programm that performs a task automatically") without having to think about "low level" work.  
+It combines power and usability to provide an easy to use and solid base for every bot you want to create.
 
+### How to use the BotSuite.NET
 
-<h2>Outstanding features</h2>
-- [x] fast, easy and robust image recognition/manipulation
-- [x] easy screenshot capturing
-- [x] mouse cursor control
-- [x] easily send HTTP requests and handle their responses
-- [x] common memory reading and writing functions
-- [x] includes a final state engine
-- [x] Captcha cracking using exchange services
+Your best bet is to go to the downloads and get the latest version there.  
+The download should contain:
 
-<h3>History</h3>
-This project was first published by wieschoo at the German community:
-http://www.codebot.de
-If you have any problems you can ask there. Please note that this is a German community. In addition you can use the contact form at http://www.botsuite.net. We try to reply to your questions quickly.
+* The library (**BotSuite.dll**)
+* A XML file (**BotSuite.xml**), which provides the code documentation (as in "IntelliSense")
+* A file containing license information (**license**)
 
-<h3>Documentation, additional information and tutorials:</h3>
-http://www.botsuite.net
+After downloading the BotSuite, just put the DLL and the XML whereever you want (together) and then add a reference to the DLL in your .NET project.  
+The entry point of the BotSuite is the "BotSuite" namespace, containing classes and sub namespaces.
 
-<h3>Contributors</h3>
-Active contributors:
-<ul>
-<li>wieschoo (creator)</li>
-<li>DerpyHooves</li>
-<li>ViRb3</li>
-</ul>
-Other contributors:
-<ul>
-<li>easysurfer</li>
-<li>Gr3enP0ison</li>
-<li>Farami</li>
-<li>3HMonkey</li>
-<li>SourceCoder</li>
-<li>gigagames</li>
-<li>Absorber</li>
-</ul>
+Following namespaces might be important:
 
+* **BotSuite.Imaging**: Classes needed for image processing.
+* **BotSuite.Input**: Classes for controlling mouse and keyboard. Also contains a HotKey class to react to user input.
+* **BotSuite.Net**: Classes for work with web pages. The class Browser encapsulates the locally installed internet explorer while the HttpClient is for low level HTTP(S) requests.
 
-<h3>Software License Agreement</h3>
+### Contact
 
-The following project is under the terms of the BSD 2-Clause License:
-<pre>
-Copyright (c) 2013/2014, wieschoo & Binary Overdrive
+You can contact me in different ways:
 
+* If there is a problem with the BotSuite, please open an issue
+* If you want to contribute to the BotSuite, please make a fork and create pull requests with your changes
+* If you want to get (very frequent) updates on my projects (including the BotSuite), you can follow me on Twitter: https://twitter.com/KarillEndusa
+* There are several (german) communities where you can find me: http://forum.mds-tv.de and http://codebot.de
+
+### Tutorials / Documentation
+
+A rudimentary documentation exists in the form of code comments for classes and methods.  
+I have planned to create a more detailed documentation and some tutorials covering the very basics.  
+If you want to help with either one feel free to contact me.
+
+### License
+
+This project is licensed under the BSD 3-Clause License.
+
+Copyright (c) 2013-2015, Binary Overdrive  
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
-Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-</pre>
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

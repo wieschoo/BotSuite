@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="HttpPostDataCollection.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="HttpPostDataCollection.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Net
@@ -16,92 +16,92 @@ namespace BotSuite.Net
 	using System.Linq;
 
 	/// <summary>
-	/// collection-class for HttpPostData-instances
+	///     collection-class for HttpPostData-instances
 	/// </summary>
 	public class HttpPostDataCollection : ICollection<HttpPostData>
 	{
 		/// <summary>
-		/// a list of all postdata instances in this collection
+		///     a list of all postdata instances in this collection
 		/// </summary>
-		private readonly List<HttpPostData> postData;
+		private readonly List<HttpPostData> _postData;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="HttpPostDataCollection" /> class
+		///     Initializes a new instance of the <see cref="HttpPostDataCollection" /> class
 		/// </summary>
 		public HttpPostDataCollection()
 		{
-			this.postData = new List<HttpPostData>();
+			this._postData = new List<HttpPostData>();
 		}
 
 		/// <summary>
-		/// adds a HttpPostData instance to the collection
+		///     adds a HttpPostData instance to the collection
 		/// </summary>
 		/// <param name="item">
-		/// the item to add to the collection
+		///     the item to add to the collection
 		/// </param>
 		public void Add(HttpPostData item)
 		{
-			if (item == null)
+			if(item == null)
 			{
 				throw new ArgumentNullException("item");
 			}
 
-			if (!this.Contains(item))
+			if(!this.Contains(item))
 			{
-				this.postData.Add(item);
+				this._postData.Add(item);
 			}
 		}
 
 		/// <summary>
-		/// deletes all items from the collection
+		///     deletes all items from the collection
 		/// </summary>
 		public void Clear()
 		{
-			this.postData.Clear();
+			this._postData.Clear();
 		}
 
 		/// <summary>
-		/// checks if a given item is already part of the collection
+		///     checks if a given item is already part of the collection
 		/// </summary>
 		/// <param name="item">
-		/// an instance of the HttpPostData class
+		///     an instance of the HttpPostData class
 		/// </param>
 		/// <returns>
-		/// true, if this collection contains the given instance of the HttpPostData class, else false
+		///     true, if this collection contains the given instance of the HttpPostData class, else false
 		/// </returns>
 		public bool Contains(HttpPostData item)
 		{
-			return this.postData.Contains(item);
+			return this._postData.Contains(item);
 		}
 
 		/// <summary>
-		/// copies the whole collection into a compatible one-dimensional array beginning at the given index of the target
-		/// array
+		///     copies the whole collection into a compatible one-dimensional array beginning at the given index of the target
+		///     array
 		/// </summary>
 		/// <param name="array">
-		/// the target array
+		///     the target array
 		/// </param>
 		/// <param name="arrayIndex">
-		/// the index where to insert the items in the target array
+		///     the index where to insert the items in the target array
 		/// </param>
 		public void CopyTo(HttpPostData[] array, int arrayIndex)
 		{
-			this.postData.CopyTo(array, arrayIndex);
+			this._postData.CopyTo(array, arrayIndex);
 		}
 
 		/// <summary>
-		/// Gets the amount of items in the collection
+		///     Gets the amount of items in the collection
 		/// </summary>
 		public int Count
 		{
 			get
 			{
-				return this.postData.Count;
+				return this._postData.Count;
 			}
 		}
 
 		/// <summary>
-		/// Gets a value indicating whether the collection is read-only or not
+		///     Gets a value indicating whether the collection is read-only or not
 		/// </summary>
 		public bool IsReadOnly
 		{
@@ -112,30 +112,30 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		/// removes the given item from the collection
+		///     removes the given item from the collection
 		/// </summary>
 		/// <param name="item">
-		/// the item to remove from the collection
+		///     the item to remove from the collection
 		/// </param>
 		/// <returns>
-		/// true, if removal was succesfull, else false (like if the item wasn't part of the collection)
+		///     true, if removal was succesfull, else false (like if the item wasn't part of the collection)
 		/// </returns>
 		public bool Remove(HttpPostData item)
 		{
-			return this.postData.Remove(item);
+			return this._postData.Remove(item);
 		}
 
 		/// <summary>
-		/// returns the IEnumerator&lt;HttpPostData&gt; of this collection
+		///     returns the IEnumerator&lt;HttpPostData&gt; of this collection
 		/// </summary>
 		/// <returns>an Enumerator of this collection</returns>
 		public IEnumerator<HttpPostData> GetEnumerator()
 		{
-			return this.postData.GetEnumerator();
+			return this._postData.GetEnumerator();
 		}
 
 		/// <summary>
-		/// returns the System.Collections.IEnumarator for this collection
+		///     returns the System.Collections.IEnumarator for this collection
 		/// </summary>
 		/// <returns>a non-generic IEnumerator of this collection</returns>
 		IEnumerator IEnumerable.GetEnumerator()
@@ -144,16 +144,16 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		/// creates a string representation of this collection
+		///     creates a string representation of this collection
 		/// </summary>
 		/// <returns>a string representation of this collection</returns>
 		public override string ToString()
 		{
 			string returnValue = string.Empty;
-			foreach (HttpPostData data in this.postData)
+			foreach(HttpPostData data in this._postData)
 			{
 				returnValue += data.ToString();
-				if (data != this.postData.Last())
+				if(data != this._postData.Last())
 				{
 					returnValue += "&";
 				}
@@ -163,21 +163,21 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		/// creates a HttpPostDataCollection instance from a POST data string
+		///     creates a HttpPostDataCollection instance from a POST data string
 		/// </summary>
 		/// <param name="postdata">
-		/// the POST data string
+		///     the POST data string
 		/// </param>
 		/// <returns>
-		/// a HttpPostDataCollection instance from the given POST data string
+		///     a HttpPostDataCollection instance from the given POST data string
 		/// </returns>
 		public static HttpPostDataCollection FromString(string postdata)
 		{
 			HttpPostDataCollection col = new HttpPostDataCollection();
 			string[] pds = postdata.Split('&');
-			foreach (string[] pdkvp in pds.Select(pd => pd.Split('=')))
+			foreach(string[] pdkvp in pds.Select(pd => pd.Split('=')))
 			{
-				if (pdkvp.Length != 2)
+				if(pdkvp.Length != 2)
 				{
 					throw new ArgumentException("malformed postdata", "postdata");
 				}

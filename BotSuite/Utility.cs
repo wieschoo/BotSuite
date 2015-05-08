@@ -1,70 +1,85 @@
-﻿/* **************************************************************
- * Name:      BotSuite.NET
- * Purpose:   Framework for creating bots
- * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2013 wieschoo & enWare
- * License:   http://www.wieschoo.com/botsuite/license/
- * *************************************************************/
-
-using System;
-using System.Threading;
+﻿// -----------------------------------------------------------------------
+//  <copyright file="Utility.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
+//  </copyright>
+//  <project>BotSuite.Net</project>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
+// -----------------------------------------------------------------------
 
 namespace BotSuite
 {
-    /// <summary>
-    ///     commons functions
-    /// </summary>
-    public class Utility
-    {
-        private static readonly Random _random = new Random();
+	using System;
+	using System.Threading;
 
-        /// <summary>
-        ///     pause the current thread for x ms
-        /// </summary>
-        /// <param name="lower">min time</param>
-        /// <param name="upper">max time </param>
-        /// <returns></returns>
-        public static void Delay(Int32 lower = 10, Int32 upper = 30)
-        {
-            Thread.Sleep(Random(lower, upper));
-        }
+	/// <summary>
+	///     Common utility functions
+	/// </summary>
+	public class Utility
+	{
+		/// <summary>
+		/// The random number generator.
+		/// </summary>
+		private static readonly Random _random = new Random();
 
-        /// <summary>
-        ///     pause the current thread for x ms
-        /// </summary>
-        /// <returns></returns>
-        public static void Delay(Int32 x = 10000)
-        {
-            Thread.Sleep(x);
-        }
+		/// <summary>
+		///     Pause the current thread for a random amount of time between <paramref name="lower"/> and <paramref name="upper"/>.
+		/// </summary>
+		/// <param name="lower">
+		///     Minimum pause time.
+		/// </param>
+		/// <param name="upper">
+		///     Maximum pause time.
+		/// </param>
+		public static void RandomDelay(int lower = 10, int upper = 30)
+		{
+			Utility.Delay(Utility.RandomInt(lower, upper));
+		}
 
-//         public static void MakeFormTransparent(Form AppWindow)
-//         {
-//             AppWindow.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-//             AppWindow.TransparencyKey = Color.FromKnownColor(KnownColor.Control);
-//             AppWindow.Update();
-//         }
+		/// <summary>
+		///     Pause the current thread for a specified amount of time.
+		/// </summary>
+		/// <param name="x">
+		///     The pause time.
+		/// </param>
+		public static void Delay(int x = 1000)
+		{
+			Thread.Sleep(x);
+		}
 
-        /// <summary>
-        ///     create a random integer (unif) between lower and upper
-        /// </summary>
-        /// <param name="lower">min number</param>
-        /// <param name="upper">max number</param>
-        /// <returns>random integer</returns>
-        public static Int32 Random(Int32 lower, Int32 upper)
-        {
-            return _random.Next(lower, upper);
-        }
+		/// <summary>
+		///     Create a random integer between <paramref name="lower"/> and <paramref name="upper"/>.
+		/// </summary>
+		/// <param name="lower">
+		///     The lower bound for the random number.
+		/// </param>
+		/// <param name="upper">
+		///     The upper bound for the random number.
+		/// </param>
+		/// <returns>
+		///     A random integer between <paramref name="lower"/> and <paramref name="upper"/>.
+		/// </returns>
+		public static int RandomInt(int lower, int upper)
+		{
+			return Utility._random.Next(lower, upper);
+		}
 
-        /// <summary>
-        ///     create a random double between lower and upper
-        /// </summary>
-        /// <param name="lower">min number</param>
-        /// <param name="upper">max number</param>
-        /// <returns>random double</returns>
-        public static Double Random(Double lower, Double upper)
-        {
-            return _random.NextDouble()*((upper - lower) + lower);
-        }
-    }
+		/// <summary>
+		///     Create a random double between <paramref name="lower"/> and <paramref name="upper"/>.
+		/// </summary>
+		/// <param name="lower">
+		///     The lower bound for the random number.
+		/// </param>
+		/// <param name="upper">
+		///     The upper bound for the random number.
+		/// </param>
+		/// <returns>
+		///     A random double between <paramref name="lower"/> and <paramref name="upper"/>.
+		/// </returns>
+		public static double RandomDouble(double lower, double upper)
+		{
+			return (Utility._random.NextDouble() * (upper - lower)) + lower;
+		}
+	}
 }

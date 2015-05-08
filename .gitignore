@@ -2,3 +2,6 @@
 /BotSuite/obj
 /BotSuite/StyleCop.Cache
 /*.suo
+BotSuite.Tests/bin/
+BotSuite.Tests/obj/
+BotSuite.NET Documentation/Help/

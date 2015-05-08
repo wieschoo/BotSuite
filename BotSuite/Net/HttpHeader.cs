@@ -1,11 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-//  <copyright file="HttpHeader.cs" company="Wieschoo &amp; Binary Overdrive">
-//      Copyright (c) Wieschoo &amp; Binary Overdrive.
+//  <copyright file="HttpHeader.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
 //  </copyright>
 //  <project>BotSuite.Net</project>
-//  <purpose>framework for creating bots</purpose>
-//  <homepage>http://botsuite.net/</homepage>
-//  <license>http://botsuite.net/license/index/</license>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
 // -----------------------------------------------------------------------
 
 namespace BotSuite.Net
@@ -13,28 +13,28 @@ namespace BotSuite.Net
 	using System;
 
 	/// <summary>
-	/// represents a HTTP header field
+	///     represents a HTTP header field
 	/// </summary>
 	public class HttpHeader : IEquatable<HttpHeader>, IComparable<HttpHeader>
 	{
 		/// <summary>
-		/// Gets the name/key of the header field
+		///     Gets the name/key of the header field
 		/// </summary>
 		public string Key { get; private set; }
 
 		/// <summary>
-		/// Gets the value of the header field
+		///     Gets the value of the header field
 		/// </summary>
 		public string Value { get; private set; }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="HttpHeader" /> class
+		///     Initializes a new instance of the <see cref="HttpHeader" /> class
 		/// </summary>
 		/// <param name="key">
-		/// the name/key of the header field
+		///     the name/key of the header field
 		/// </param>
 		/// <param name="value">
-		/// the value of the header field
+		///     the value of the header field
 		/// </param>
 		public HttpHeader(string key, string value)
 		{
@@ -43,13 +43,13 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		/// compares 2 instances of the HttpHeader class for equality
+		///     compares 2 instances of the HttpHeader class for equality
 		/// </summary>
 		/// <param name="other">
-		/// the instance to compare to
+		///     the instance to compare to
 		/// </param>
 		/// <returns>
-		/// true, if both are equal, else false
+		///     true, if both are equal, else false
 		/// </returns>
 		public bool Equals(HttpHeader other)
 		{
@@ -57,13 +57,13 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		/// compares the order of 2 instances of the HttpClass
+		///     compares the order of 2 instances of the HttpClass
 		/// </summary>
 		/// <param name="other">
-		/// the instance to compare to
+		///     the instance to compare to
 		/// </param>
 		/// <returns>
-		/// an integer determing the order of both elements
+		///     an integer determing the order of both elements
 		/// </returns>
 		public int CompareTo(HttpHeader other)
 		{
@@ -71,7 +71,7 @@ namespace BotSuite.Net
 		}
 
 		/// <summary>
-		/// creates a string representation of the current instance of this class
+		///     creates a string representation of the current instance of this class
 		/// </summary>
 		/// <returns>a string representation of the current instance of this class</returns>
 		public override string ToString()

@@ -1,7 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// -----------------------------------------------------------------------
+//  <copyright file="UserAgent.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
+//  </copyright>
+//  <project>BotSuite.Net</project>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
+// -----------------------------------------------------------------------
 
 namespace BotSuite.Net
 {
@@ -14,9 +19,9 @@ namespace BotSuite.Net
 		private const string UA_FF28 = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0";
 		private const string UA_IE11 = "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko";
 
-		private static UserAgent chrome33 = new UserAgent(UA_CHROME33, "Chrome 33/Windows 7");
-		private static UserAgent firefox28 = new UserAgent(UA_FF28, "Firefox 28/Windows 7 x64");
-		private static UserAgent internetExplorer11 = new UserAgent(UA_IE11, "Internet Explorer 11/Windows 7 x64");
+		private static readonly UserAgent _chrome33 = new UserAgent(UA_CHROME33, "Chrome 33/Windows 7");
+		private static readonly UserAgent _firefox28 = new UserAgent(UA_FF28, "Firefox 28/Windows 7 x64");
+		private static readonly UserAgent _internetExplorer11 = new UserAgent(UA_IE11, "Internet Explorer 11/Windows 7 x64");
 
 		/// <summary>
 		/// Gets the useragent for the Chrome browser in version 33
@@ -25,7 +30,7 @@ namespace BotSuite.Net
 		{
 			get
 			{
-				return chrome33;
+				return _chrome33;
 			}
 		}
 
@@ -36,7 +41,7 @@ namespace BotSuite.Net
 		{
 			get
 			{
-				return firefox28;
+				return _firefox28;
 			}
 		}
 
@@ -47,7 +52,7 @@ namespace BotSuite.Net
 		{
 			get
 			{
-				return internetExplorer11;
+				return _internetExplorer11;
 			}
 		}
 

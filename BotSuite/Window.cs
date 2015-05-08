@@ -1,170 +1,162 @@
-﻿/* **************************************************************
- * Name:      BotSuite.NET
- * Purpose:   Framework for creating bots
- * Homepage:  http://www.wieschoo.com
- * Copyright: (c) 2013 wieschoo & enWare
- * License:   http://www.wieschoo.com/botsuite/license/
- * *************************************************************/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Diagnostics;
+﻿// -----------------------------------------------------------------------
+//  <copyright file="Window.cs" company="Binary Overdrive">
+//      Copyright (c) Binary Overdrive.
+//  </copyright>
+//  <project>BotSuite.Net</project>
+//  <purpose>Framework for creating automation applications.</purpose>
+//  <homepage>https://bitbucket.org/KarillEndusa/botsuite.net</homepage>
+//  <license>https://bitbucket.org/KarillEndusa/botsuite.net/wiki/license</license>
+// -----------------------------------------------------------------------
 
 namespace BotSuite
 {
-    /// <summary>
-    /// Class with functions for window handling
-    /// </summary>
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+	using System.Linq;
+	using Win32.Methods;
+
+	/// <summary>
+	///     Class with functions for handling windows.
+	/// </summary>
 	public class Window
 	{
+		private const string EXT_EXE = ".exe";
+
 		/// <summary>
-		/// Sets a window as a foreground window
+		///     Set a window to be in the front.
 		/// </summary>
-		/// <param name="windowName"></param>
-		/// <returns></returns>
-		public static Boolean SetFrontWindow(String windowName)
+		/// <param name="windowHandle">
+		///     The window handle.
+		/// </param>
+		/// <returns>
+		///     True, if the action was successfull, else false.
+		/// </returns>
+		public static bool SetFrontWindow(IntPtr windowHandle)
 		{
-            return NativeMethods.SetForegroundWindow(FindWindowByWindowTitle(windowName));
+			return User32.SetForegroundWindow(windowHandle);
 		}
 
 		/// <summary>
-		/// Shows a window
+		///     Show a window.
 		/// </summary>
-		/// <param name="windowHandle"></param>
-		/// <returns></returns>
+		/// <param name="windowHandle">
+		///     The window handle.
+		/// </param>
 		public static void ShowWindow(IntPtr windowHandle)
 		{
-			NativeMethods.ShowWindow(windowHandle, 9);
+			User32.ShowWindow(windowHandle, 9);
 		}
-        /// <summary>
-        /// Collects MainWindows
-        /// </summary>
-        /// <example>
-        /// <code>
-        /// <![CDATA[
-        /// List<IntPtr> hWnds = new List<IntPtr>();
-        /// hWnds = Window.GetAllMainWindows();
-        /// ]]>
-        /// </code>
-        /// </example>
-        /// <returns>An array of the main windows' handles</returns>
-        public static IntPtr[] GetAllMainWindows()
-        {
-            var hWnds = new List<IntPtr>();
-            Process[] processes = Process.GetProcesses();
-            if (processes.Length <= 0)
-            {
-                return hWnds.ToArray();
-            }
 
-            hWnds.AddRange(processes.Select(process => process.MainWindowHandle));
+		/// <summary>
+		///     Get all main windows of running processes.
+		/// </summary>
+		/// <returns>
+		///		An array of window handles.
+		///	</returns>
+		public static IntPtr[] GetAllMainWindows()
+		{
+			List<IntPtr> windowHandles = new List<IntPtr>();
+			Process[] processes = Process.GetProcesses();
 
-            return hWnds.ToArray();
-        }
+			if(processes.Length > 0)
+			{
+				windowHandles.AddRange(processes.Select(process => process.MainWindowHandle));
+			}
 
-        /// <summary>
-        /// Tries to find a window by its name
-        /// </summary>
-        /// <example>
-        /// <code>
-        /// <![CDATA[
-        /// IntPtr hwnd = (IntPtr)0;
-        /// hWnd = Window.FindWindowByProcessName("notepad");
-        /// ]]>
-        /// </code>
-        /// </example>
-        /// <param name="processName">Process name of window</param>
-        /// <returns>Handle of window</returns>
-        public static IntPtr FindWindowByProcessName(string processName)
-        {
-            if (processName.EndsWith(".exe"))
-                processName = processName.Remove(processName.Length - 4, 4);
+			return windowHandles.ToArray();
+		}
 
-            Process[] process = Process.GetProcessesByName(processName);
+		/// <summary>
+		///     Try to find a window by using the name of the corresponding process.
+		///     If no process with the given name is found, IntPtr.Zero is returned.
+		///     If multiple processes have the same name, only the main window handle of the first one found will be returned.
+		/// </summary>
+		/// <param name="processName">
+		///     Name of the process.
+		/// </param>
+		/// <returns>
+		///     The handle of the window.
+		/// </returns>
+		public static IntPtr FindWindowByProcessName(string processName)
+		{
+			if(processName.EndsWith(EXT_EXE))
+			{
+				processName = processName.Remove(processName.Length - EXT_EXE.Length, EXT_EXE.Length);
+			}
 
-            if (process.Length == 0)
-                return IntPtr.Zero;
+			Process[] processes = Process.GetProcessesByName(processName);
+			IntPtr windowHandle = IntPtr.Zero;
 
-            return process[0].MainWindowHandle;
-        }
+			if(processes.Length > 0)
+			{
+				windowHandle = processes.First().MainWindowHandle;
+			}
 
-        /// <summary>
-        /// Gets a handle of a window by name
-        /// </summary>
-        /// <example>
-        /// <code>
-        /// IntPtr hwnd = Window.GetHandleByWindowTitle("notepad");
-        /// </code>
-        /// </example>
-        /// <param name="windowTitle">Name of window</param>
-        /// <returns>Handle of window</returns>
-        public static IntPtr FindWindowByWindowTitle(String windowTitle)
-        {
-            var hWnd = IntPtr.Zero;
-            Process[] processes = Process.GetProcesses();
-            if (processes.Length <= 0)
-            {
-                return hWnd;
-            }
+			return windowHandle;
+		}
 
-            foreach (Process process in processes)
-            {
-                if (process.MainWindowTitle == windowTitle)
-                {
-                    hWnd = process.MainWindowHandle;
-                    break;
-                }
-            }
+		/// <summary>
+		///     Get a handle of a window by name.
+		///     If no window with the given title is found, IntPtr.Zero is returned.
+		///     If multiple Windows have the same title, only the first one found will be returned.
+		/// </summary>
+		/// <param name="windowTitle">
+		///     Title of the window.
+		/// </param>
+		/// <param name="exactMatch">
+		///		True, if the title has to match exactly, else false. (Default: True)
+		/// </param>
+		/// <returns>
+		///     The handle of the window.
+		/// </returns>
+		public static IntPtr FindWindowByWindowTitle(string windowTitle, bool exactMatch = true)
+		{
+			IntPtr windowHandle = IntPtr.Zero;
+			Process[] processes = Process.GetProcesses();
 
-            return hWnd;
-        }
+			if(processes.Length > 0)
+			{
+				Process process = null;
 
-        /// <summary>
-        /// Gets a handle of a window by id of process
-        /// </summary>
-        /// <param name="id">The process id</param>
-        /// <returns>Handle of window</returns>
-        public static IntPtr FindWindowByProcessId(int id)
-        {
-            Process process = Process.GetProcessById(id);
-            return process.MainWindowHandle;
-        }
+				if(exactMatch)
+				{
+					process = processes.FirstOrDefault(p => p.MainWindowTitle == windowTitle);
+				}
+				else
+				{
+					process = processes.FirstOrDefault(p => p.MainWindowTitle.Contains(windowTitle));
+				}
 
-        /// <summary>
-        /// Hides the maximize button of a window
-        /// </summary>
-        /// <param name="handle">Window handle</param>
-        public static void HideMaximizeButton(IntPtr handle)
-        {
-            NativeMethods.HideMaximizeButton(handle);
-        }
+				if(process != null)
+				{
+					windowHandle = process.MainWindowHandle;
+				}
+			}
 
-        /// <summary>
-        /// Hides the minimize button of a window
-        /// </summary>
-        /// <param name="handle">Window handle</param>
-        public static void HideMinimizeButton(IntPtr handle)
-        {
-            NativeMethods.HideMinimizeButton(handle);
-        }
+			return windowHandle;
+		}
 
-        /// <summary>
-        /// Shows the maximize button of a window
-        /// </summary>
-        /// <param name="handle">Window handle</param>
-        public static void ShowMaximizeButton(IntPtr handle)
-        {
-            NativeMethods.ShowMaximizeButton(handle);
-        }
+		/// <summary>
+		///		Get a handle of a window by the id of the process.
+		/// </summary>
+		/// <param name="processId">
+		///		The id of the process in question.
+		/// </param>
+		/// <returns>
+		///		The handle of the window.
+		/// </returns>
+		public static IntPtr FindWindowByProcessId(int processId)
+		{
+			IntPtr windowHandle = IntPtr.Zero;
+			Process process = Process.GetProcessById(processId);
 
-        /// <summary>
-        /// Shows the minimize button of a window
-        /// </summary>
-        /// <param name="handle">Window handle</param>
-        public static void ShowMinimizeButton(IntPtr handle)
-        {
-            NativeMethods.ShowMinimizeButton(handle);
-        }
-      
+			if(process != null)
+			{
+				windowHandle = process.MainWindowHandle;
+			}
+
+			return windowHandle;
+		}
 	}
 }
