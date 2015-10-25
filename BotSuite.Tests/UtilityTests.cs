@@ -12,12 +12,12 @@
 namespace BotSuite.Tests
 {
 	using System.Diagnostics;
-	using NUnit.Framework;
+    using NUnit.Framework;
 
-	/// <summary>
-	/// The utility.
-	/// </summary>
-	[TestFixture]
+    /// <summary>
+    /// The utility.
+    /// </summary>
+    [TestFixture]
 	public class UtilityTests
 	{
 		/// <summary>
