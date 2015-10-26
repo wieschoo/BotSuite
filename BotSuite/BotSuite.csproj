@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ApplicationTunnel.cs" />
     <Compile Include="DataTypes\Hex32.cs" />
+    <Compile Include="Imaging\DrawingHelper.cs" />
     <Compile Include="Input\HotKey.cs" />
     <Compile Include="Imaging\CommonFunctions.cs" />
     <Compile Include="Imaging\ConvolutionMatrix.cs" />
